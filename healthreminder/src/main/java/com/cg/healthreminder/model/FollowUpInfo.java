@@ -4,8 +4,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -18,7 +16,7 @@ public class FollowUpInfo {
 		return "DietInfo [patientId = " + patientId + ", date = " + date + ", mentalRaiting=" + mentalRaiting
 				+ ", dietStatus=" + dietStatus + "]";
 	}
-	
+	@Id
     @Column(name = "patient_id", nullable = false)
     private Integer patientId;
     @Column(name = "date", nullable = false)
