@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cg.healthreminder.dao.AppointmentSlotsJpaDao;
 import com.cg.healthreminder.model.AppointmentSlots;
-import com.cg.healthreminder.service.AppointmentSlotsServices;
+import com.cg.healthreminder.services.AppointmentSlotsServices;
 
 public class AppointmentSlotServicesImpl implements AppointmentSlotsServices {
 	

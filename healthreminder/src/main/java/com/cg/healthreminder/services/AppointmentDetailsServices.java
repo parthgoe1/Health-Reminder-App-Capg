@@ -1,4 +1,4 @@
-package com.cg.healthreminder.service;
+package com.cg.healthreminder.services;
 
 import com.cg.healthreminder.model.AppointmentDetails;
 

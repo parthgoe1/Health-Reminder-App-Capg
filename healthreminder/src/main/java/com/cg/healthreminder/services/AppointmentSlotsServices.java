@@ -1,4 +1,4 @@
-package com.cg.healthreminder.service;
+package com.cg.healthreminder.services;
 
 import java.util.List;
 
