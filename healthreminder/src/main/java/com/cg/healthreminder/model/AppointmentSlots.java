@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name="Appointment_Slots")
-public class Appointment_Slots {
+public class AppointmentSlots {
 	
 	@EmbeddedId      // this pk contains doc_id + doc_date as the primary key ->composite key 
 	private Slot_Pk pk;
