@@ -53,19 +53,19 @@ public class AlarmModule {
 		this.alarm_name = alarm_name;
 	}
 
-	public String getAlarm_time() {
+	public Timestamp getAlarm_time() {
 		return alarm_time;
 	}
 
-	public void setAlarm_time(String alarm_time) {
+	public void setAlarm_time(Timestamp alarm_time) {
 		this.alarm_time = alarm_time;
 	}
 
-	public String getAlarm_date() {
+	public Date getAlarm_date() {
 		return alarm_date;
 	}
 
-	public void setAlarm_date(String alarm_date) {
+	public void setAlarm_date(Date alarm_date) {
 		this.alarm_date = alarm_date;
 	}
 
