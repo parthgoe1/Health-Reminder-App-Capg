@@ -8,7 +8,7 @@ public class Patient {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "patient_id")
-	private int patientId;
+	private Integer patientId;
 	@Column(name = "email", unique = true)
 	private String patientEmail;
 	@Column(name = "patient_name", nullable = false)
@@ -16,72 +16,59 @@ public class Patient {
 	@Column(name = "mobile", nullable=false)
 	private String patientMobile;
 	@Column(name = "age")
-	private int patientAge;
+	private Integer patientAge;
 	@Column(name="height")
-	private double patientHeight;
+	private Double patientHeight;
 	@Column(name="weight")
-	private double patientWeight;
-
-	public int getPatientId() {
+	private Double patientWeight;
+	public Integer getPatientId() {
 		return patientId;
 	}
-
-	public void setPatientId(int patientId) {
+	public void setPatientId(Integer patientId) {
 		this.patientId = patientId;
 	}
-
 	public String getPatientEmail() {
 		return patientEmail;
 	}
-
 	public void setPatientEmail(String patientEmail) {
 		this.patientEmail = patientEmail;
 	}
-
 	public String getPatientName() {
 		return patientName;
 	}
-
 	public void setPatientName(String patientName) {
 		this.patientName = patientName;
 	}
-
 	public String getPatientMobile() {
 		return patientMobile;
 	}
-
 	public void setPatientMobile(String patientMobile) {
 		this.patientMobile = patientMobile;
 	}
-
-	public int getPatientAge() {
+	public Integer getPatientAge() {
 		return patientAge;
 	}
-
-	public void setPatientAge(int patientAge) {
+	public void setPatientAge(Integer patientAge) {
 		this.patientAge = patientAge;
 	}
-
-	public double getPatientHeight() {
+	public Double getPatientHeight() {
 		return patientHeight;
 	}
-
-	public void setPatientHeight(double patientHeight) {
+	public void setPatientHeight(Double patientHeight) {
 		this.patientHeight = patientHeight;
 	}
-
-	public double getPatientWeight() {
+	public Double getPatientWeight() {
 		return patientWeight;
 	}
-
-	public void setPatientWeight(double patientWeight) {
+	public void setPatientWeight(Double patientWeight) {
 		this.patientWeight = patientWeight;
 	}
-
 	@Override
 	public String toString() {
 		return "Patient [patientId=" + patientId + ", patientEmail=" + patientEmail + ", patientName=" + patientName
 				+ ", patientMobile=" + patientMobile + ", patientAge=" + patientAge + ", patientHeight=" + patientHeight
 				+ ", patientWeight=" + patientWeight + "]";
 	}
+
+	
 }
