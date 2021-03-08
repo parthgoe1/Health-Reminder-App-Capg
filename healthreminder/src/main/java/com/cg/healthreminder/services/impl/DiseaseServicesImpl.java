@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.cg.healthreminder.dao.DiseaseJpaDao;
 import com.cg.healthreminder.model.Diseases;
-import com.cg.healthreminder.service.DiseaseServices;
+import com.cg.healthreminder.services.DiseaseServices;
 
 @Service
 public class DiseaseServicesImpl implements DiseaseServices{

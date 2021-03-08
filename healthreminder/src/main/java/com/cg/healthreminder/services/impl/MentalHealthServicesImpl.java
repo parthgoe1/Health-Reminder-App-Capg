@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cg.healthreminder.dao.MentalHealthJpaDao;
 import com.cg.healthreminder.model.mentalHealth;
-import com.cg.healthreminder.service.MentalHealthServices;
+import com.cg.healthreminder.services.MentalHealthServices;
 
 public class MentalHealthServicesImpl implements MentalHealthServices {
 	@Autowired
