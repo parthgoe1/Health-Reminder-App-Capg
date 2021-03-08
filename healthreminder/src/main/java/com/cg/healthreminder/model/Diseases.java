@@ -9,10 +9,10 @@ import javax.persistence.*;
 public class Diseases {
 	@Id
 	@GeneratedValue
-	public int dis_id;
-	public String dis_name;
-	public String dis_info;
-	public String[] dis_keys;
+	private int dis_id;
+	private String dis_name;
+	private String dis_info;
+	private String[] dis_keys;
 	public int getDis_id() {
 		return dis_id;
 	}
