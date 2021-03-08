@@ -18,7 +18,7 @@ public class FollowUpInfo {
 		return "DietInfo [patientId = " + patientId + ", date = " + date + ", mentalRaiting=" + mentalRaiting
 				+ ", dietStatus=" + dietStatus + "]";
 	}
-	
+	@Id
     @Column(name = "patient_id", nullable = false)
     private Integer patientId;
     @Column(name = "date", nullable = false)
