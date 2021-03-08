@@ -1,6 +1,6 @@
-package com.cg.healthreminder.entity;
+package com.cg.healthreminder.model;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.persistence.*;
 
@@ -33,6 +33,11 @@ public class Diseases {
 	}
 	public String[] getDis_keys() {
 		return dis_keys;
+	}
+	@Override
+	public String toString() {
+		return "Diseases [dis_id=" + dis_id + ", dis_name=" + dis_name + ", dis_info=" + dis_info + ", dis_keys="
+				+ Arrays.toString(dis_keys) + "]";
 	}
 	public void setDis_keys(String[] dis_keys) {
 		this.dis_keys = dis_keys;

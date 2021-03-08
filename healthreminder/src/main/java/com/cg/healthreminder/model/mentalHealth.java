@@ -1,4 +1,4 @@
-package com.cg.healthreminder.entity;
+package com.cg.healthreminder.model;
 
 import javax.persistence.*;
 
