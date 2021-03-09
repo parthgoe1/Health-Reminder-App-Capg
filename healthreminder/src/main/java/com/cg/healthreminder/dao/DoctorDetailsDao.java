@@ -7,10 +7,10 @@ import com.cg.healthreminder.model.DoctorDetails;
 
 public interface DoctorDetailsDao extends JpaRepository<DoctorDetails,Integer>{
 	
-	@Query("select d from Doctor_Details d where d.doct_id=:doct_id")
+	@Query("select d from DoctorDetails d where d.doct_id=:id")
 	DoctorDetails findDoctorById(Integer id);
 	
-	@Query("select d from Doctor_Details d where d.doc_name=:doc_name")
+	@Query("select d from DoctorDetails d where d.doc_name=:name")
 	DoctorDetails findDoctorByName(String name);
 	
 	

@@ -8,10 +8,10 @@ import com.cg.healthreminder.model.AlarmModule;
 
 public interface AlarmModuleDao extends JpaRepository<AlarmModule,Integer>{
 
-	@Query("select a from Alarm_Module a where t.alarm_id=:alarm_id")
+	@Query("select a from AlarmModule a where a.alarm_id=:id")
 	AlarmModule findAlarmById(Integer id);
 	
-	@Query("select a from Alarm_Module a where t.alarm_name=:alarm_name")
+	@Query("select a from AlarmModule a where a.alarm_name=:name")
 	AlarmModule findAlarmByName(String name);
 	
 //	@Query("select * from Alarm_Module a )

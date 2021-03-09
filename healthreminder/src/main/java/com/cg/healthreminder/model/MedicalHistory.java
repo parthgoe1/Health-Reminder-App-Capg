@@ -1,5 +1,7 @@
 package com.cg.healthreminder.model;
 
+//Author: Naman Bhandari
+
 import javax.persistence.*;
 
 @Entity

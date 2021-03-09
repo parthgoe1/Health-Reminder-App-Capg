@@ -1,5 +1,7 @@
 package com.cg.healthreminder.services.impl;
 
+// Author: Naman Bhandari
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import com.cg.healthreminder.model.Patient;
 import com.cg.healthreminder.services.PatientService;
 @Service
 public class PatientServiceImpl implements PatientService{
+	//Dao object created
 	@Autowired
 	private PatientDao patientDao;
 	

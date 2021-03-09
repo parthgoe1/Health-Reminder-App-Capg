@@ -1,15 +1,16 @@
 package com.cg.healthreminder.model;
 
+// Author: Naman Bhandari
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "patient")
 public class Patient {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "patient_id")
 	private Integer patientId;
-	@Column(name = "email", unique = true)
+	@Column(name = "email")
 	private String patientEmail;
 	@Column(name = "patient_name", nullable = false)
 	private String patientName;
