@@ -4,8 +4,8 @@
  * using jpa properties, for AppointmentDetails Entity
 
 */
-
 package com.cg.healthreminder.dao;
+
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
