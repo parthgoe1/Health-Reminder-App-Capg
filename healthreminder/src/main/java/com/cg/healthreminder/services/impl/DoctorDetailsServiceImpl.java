@@ -5,7 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.cg.healthreminder.dao.DoctorDetailsDao;
 import com.cg.healthreminder.model.DoctorDetails;
 import com.cg.healthreminder.services.DoctorDetailsService;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+@Service
+@Transactional
 public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 
 	@Autowired

@@ -1,5 +1,7 @@
 package com.cg.healthreminder.services.impl;
 
+//Author-> Sayantan Das
+
 import java.util.List;
 import java.util.Optional;
 
@@ -8,7 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.cg.healthreminder.dao.AppointmentSlotsJpaDao;
 import com.cg.healthreminder.model.AppointmentSlots;
 import com.cg.healthreminder.services.AppointmentSlotsServices;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+@Service
+@Transactional
 public class AppointmentSlotServicesImpl implements AppointmentSlotsServices {
 	
 	@Autowired
@@ -26,14 +32,14 @@ public class AppointmentSlotServicesImpl implements AppointmentSlotsServices {
 	public AppointmentSlots createAppointmentSlot(AppointmentSlots as) {
 		return  appointmentSlotsJpaDao.save(as);
 	}
-	public boolean deleteAppointmentSlot(AppointmentSlots as) {
+	
+	public AppointmentSlots deleteAppointmentSlot(AppointmentSlots as) {
 		Optional<AppointmentSlots> a = appointmentSlotsJpaDao.findById(as.getPk());
 		AppointmentSlots aslot=null;
 		if(a.isPresent()) {
 			 aslot= a.get();
-			 appointmentSlotsJpaDao.delete(aslot);
-			 return true;
+			 appointmentSlotsJpaDao.delete(aslot); 
 		}
-		return false;
+		return aslot;
     }
 }

@@ -10,7 +10,11 @@ import org.springframework.stereotype.Service;
 import com.cg.healthreminder.dao.PatientDao;
 import com.cg.healthreminder.model.Patient;
 import com.cg.healthreminder.services.PatientService;
+
+
+import javax.transaction.Transactional;
 @Service
+@Transactional
 public class PatientServiceImpl implements PatientService{
 	//Dao object created
 	@Autowired

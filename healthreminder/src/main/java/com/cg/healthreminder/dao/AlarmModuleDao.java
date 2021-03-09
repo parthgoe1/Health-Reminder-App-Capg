@@ -2,17 +2,21 @@ package com.cg.healthreminder.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import com.cg.healthreminder.model.AlarmModule;
 
-
+@Repository
 public interface AlarmModuleDao extends JpaRepository<AlarmModule,Integer>{
 
-	@Query("select a from AlarmModule a where a.alarm_id=:id")
-	AlarmModule findAlarmById(Integer id);
+	@Query("select a from AlarmModule a where a.alarmId=:alarmId")
+	AlarmModule findAlarmById(Integer alarmId);
 	
-	@Query("select a from AlarmModule a where a.alarm_name=:name")
-	AlarmModule findAlarmByName(String name);
+	@Query("select a from AlarmModule a where a.alarmName=:alarmName")
+	AlarmModule findAlarmByName(String alarmName);
+	
+	@Query("select a from AlarmModule a where a.patientId=:patientId")
+	AlarmModule findByPatientId(int patientId);
 	
 //	@Query("select * from Alarm_Module a )
 //	AlarmModule getAllAlarms();

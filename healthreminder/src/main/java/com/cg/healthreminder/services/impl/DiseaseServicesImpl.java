@@ -1,3 +1,4 @@
+//author->Shania Dalal
 package com.cg.healthreminder.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +13,13 @@ public class DiseaseServicesImpl implements DiseaseServices{
 	@Autowired
 	DiseaseJpaDao diseaseDao;
 	@Override
-	public Diseases viewDisease(int dis_id) {
-		return diseaseDao.findById(dis_id).get();
+	public Diseases viewDisease(int diseaseId) {
+		return diseaseDao.findById(diseaseId).get();
 	}
 	@Override
-	public Diseases updateDiseaseInfo(int dis_id, String content) {
-		Diseases d = diseaseDao.findById(dis_id).get();
-        d.setDis_info(content);
+	public Diseases updateDiseaseInfo(int diseaseId, String content) {
+		Diseases d = diseaseDao.findById(diseaseId).get();
+        d.setDiseaseInfo(content);
         return diseaseDao.save(d);
 	}
 	@Override
@@ -27,9 +28,9 @@ public class DiseaseServicesImpl implements DiseaseServices{
 		
 	}
 	@Override
-	public boolean deleteDisease(int dis_id) {
-		diseaseDao.deleteById(dis_id);
-        Diseases d = diseaseDao.findById(dis_id).get();
+	public boolean deleteDisease(int diseaseId) {
+		diseaseDao.deleteById(diseaseId);
+        Diseases d = diseaseDao.findById(diseaseId).get();
         if(null == d){
             return true;
         }

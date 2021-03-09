@@ -1,12 +1,13 @@
 package com.cg.healthreminder.dao;
 
-// Author: Naman Bhandari
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.cg.healthreminder.model.Patient;
+import com.cg.healthreminder.model.DietInfo;
+
+//Author --> Parth Goel
+
 @Repository
-public interface PatientDao extends JpaRepository<Patient, Integer>{
+public interface DietInfoJpaDao extends JpaRepository<DietInfo,Integer>{
 
 }
