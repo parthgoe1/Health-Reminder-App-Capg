@@ -50,8 +50,8 @@ public class DietInfoController {
     }
 	
 	 @PostMapping("/create_diet")
-	    public DietInfo createDiet(@RequestBody DietInfo dietInfo){
-	        return dietInfoService.createDiet(dietInfo);
-	    }
+	 public DietInfo createDiet(@RequestBody DietInfo dietInfo){
+		 return dietInfoService.createDiet(dietInfo);
+	 }
 	
 }
