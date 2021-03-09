@@ -7,8 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cg.healthreminder.dao.AlarmModuleDao;
 import com.cg.healthreminder.model.AlarmModule;
-import com.cg.healthreminder.model.DoctorDetails;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+@Service
+@Transactional
 public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.AlarmModuleService {
 	
 	@Autowired
@@ -21,9 +24,9 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 	}
 	
 	@Override
-	public AlarmModule findAlarmByName(String name)
+	public AlarmModule findAlarmByName(String alarm_name)
 	{
-		return alarmModuleDao.findAlarmByName(name);
+		return alarmModuleDao.findAlarmByName(alarm_name);
 	}
 	
 	@Override
@@ -36,7 +39,7 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 	public AlarmModule updateAlarmNameById(Integer id, String name)
 	{
 		AlarmModule alarmModules = alarmModuleDao.findById(id).get();
-		alarmModules.setAlarm_name(name);
+		alarmModules.setAlarmName(name);
 		return alarmModuleDao.save(alarmModules);
 	}
 	
@@ -44,7 +47,7 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 	public AlarmModule updateAlarmTimeById(Integer id, Timestamp alarm_time)
 	{
 		AlarmModule alarmModules = alarmModuleDao.findById(id).get();
-		alarmModules.setAlarm_time(alarm_time);
+		alarmModules.setAlarmTime(alarm_time);
 		return alarmModuleDao.save(alarmModules);
 	}
 	
@@ -52,7 +55,7 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 	public AlarmModule updateAlarmDateById(Integer id, Date alarm_date)
 	{
 		AlarmModule alarmModules = alarmModuleDao.findById(id).get();
-		alarmModules.setAlarm_date(alarm_date);
+		alarmModules.setAlarmDate(alarm_date);
 		return alarmModuleDao.save(alarmModules);
 	}
 	
@@ -60,7 +63,7 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 	public AlarmModule updateAlarmNoteById(Integer id, String note)
 	{
 		AlarmModule alarmModules = alarmModuleDao.findById(id).get();
-		alarmModules.setNotes(note);
+		alarmModules.setAlarmNotes(note);
 		return alarmModuleDao.save(alarmModules);
 	}
 	

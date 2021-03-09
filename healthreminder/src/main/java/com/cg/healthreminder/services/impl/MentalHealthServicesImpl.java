@@ -6,6 +6,11 @@ import com.cg.healthreminder.dao.MentalHealthJpaDao;
 import com.cg.healthreminder.model.mentalHealth;
 import com.cg.healthreminder.services.MentalHealthServices;
 
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+@Service
+@Transactional
 public class MentalHealthServicesImpl implements MentalHealthServices {
 	@Autowired
 	MentalHealthJpaDao mentalDao;
