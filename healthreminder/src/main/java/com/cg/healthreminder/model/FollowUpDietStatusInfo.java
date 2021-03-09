@@ -1,9 +1,6 @@
 package com.cg.healthreminder.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -16,48 +13,49 @@ public class FollowUpDietStatusInfo {
 	
 	@Override
 	public String toString() {
-		return "DietInfo [ patientId = " + patientId + ", dietStatus=" + dietStatus + "]";
+		return "DietInfo [ patientId = " + patientId + ", dietStatus = " + dietStatus + ", streak = " + streak + "]";
 	}
 	
     @Id
 	@Column(name = "patient_id", nullable = false)
     private Integer patientId;
     
-    @ElementCollection
     @Column(name = "diet_status")
-    private List<Boolean> dietStatus;
+    private Boolean dietStatus;
     
-	
+    @Column(name = "streak")
+    private Integer streak = 0;
+
 	public Integer getPatientId() {
 		return patientId;
 	}
-	
+
 	public void setPatientId(Integer patientId) {
 		this.patientId = patientId;
 	}
-	
-	public List<Boolean> getDietStatus() {
+
+	public Boolean getDietStatus() {
 		return dietStatus;
 	}
-	
-	public Boolean getDietStatus(Integer day) {
-		return dietStatus.get(day);
-	}
-	
-	public void setDietStatus(List<Boolean> dietStatus) {
-		this.dietStatus = dietStatus;
-	}
-	
+
 	public void setDietStatus(Boolean dietStatus) {
-		if(this.dietStatus.size() <= 7) {
-			this.dietStatus.add(dietStatus);
+		if(dietStatus == true) {
+			this.streak++;
+			this.dietStatus = dietStatus;
 		}
 		else {
-			this.dietStatus.clear();
-			this.dietStatus.add(dietStatus);
+			this.streak = 1;
+			this.dietStatus = dietStatus;
 		}
+		this.dietStatus = dietStatus;
 	}
-	
-    
+
+	public Integer getStreak() {
+		return streak;
+	}
+
+	public void setStreak(Integer streak) {
+		this.streak = streak;
+	}
     
 }
