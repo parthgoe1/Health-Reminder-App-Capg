@@ -8,7 +8,7 @@ public interface AppointmentSlotsServices {
 	List<AppointmentSlots> getAllSlots();
 	//AppointmentSlotsServices updateAppointmentSlot(int doc_id);
 	AppointmentSlots createAppointmentSlot(AppointmentSlots as);
-	boolean deleteAppointmentSlot(AppointmentSlots as);
+	AppointmentSlots deleteAppointmentSlot(AppointmentSlots as);
 	
 	
 }

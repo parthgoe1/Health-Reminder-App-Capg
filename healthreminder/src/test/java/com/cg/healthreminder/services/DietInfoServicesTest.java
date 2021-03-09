@@ -4,6 +4,7 @@ import com.cg.healthreminder.dao.DietInfoJpaDao;
 import com.cg.healthreminder.model.DietInfo;
 import com.cg.healthreminder.services.DietInfoServices;
 
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,9 +47,43 @@ public class DietInfoServicesTest {
         DietInfo dietInfo = new DietInfo();
         dietInfo.setBmiValue(2);
         dietInfo.setDietInfo("Burgers, Burgers, Burgers");
-        DietInfo di = dietInfoJpaDao.findById(2).get();
+        
+        DietInfo di=dietInfoJpaDao.findById(2).get();
         Mockito.when(di).thenReturn(dietInfo);
         assertThat(dietInfoServices.findDietByBMI(2)).isEqualTo(dietInfo);
+    }
+    
+    @Test
+    public void testGetAllDiets() throws Exception{
+        DietInfo di1 = new DietInfo();
+        di1.setBmiValue(2);
+        di1.setDietInfo("candy, candy, candy");
+
+        DietInfo di2 = new DietInfo();
+        di2.setBmiValue(3);
+        di2.setDietInfo("pav, bhaji, butter");
+        
+        List<DietInfo> dietInfoList = new ArrayList<>();
+        dietInfoList.add(di1);
+        dietInfoList.add(di2);
+
+        Mockito.when(dietInfoJpaDao.findAll()).thenReturn(dietInfoList);
+        assertThat(dietInfoServices.getAllDiets()).isEqualTo(dietInfoList);
+    
+    }
+    
+    @Test
+    public void testDeleteTicketById() throws Exception{
+        DietInfo dietInfo = new DietInfo();
+        dietInfo.setBmiValue(2);
+        dietInfo.setDietInfo("candy, candy, candy");
+        
+        Mockito.when(dietInfoJpaDao.save(dietInfo)).thenReturn(dietInfo);
+        Mockito.when(dietInfoJpaDao.findById(2).get()).thenReturn(dietInfo);
+        dietInfoJpaDao.deleteById(dietInfo.getBmiValue());
+        Mockito.when(dietInfoJpaDao.findById(2).get()).thenReturn(dietInfo);
+        Assert.assertNotEquals(dietInfo, new DietInfo());
+        Assert.assertEquals(dietInfoServices.deleteDietByBMI(2), false);
     }
 
 }

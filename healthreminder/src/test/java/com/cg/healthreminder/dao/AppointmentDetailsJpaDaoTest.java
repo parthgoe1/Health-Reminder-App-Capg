@@ -62,7 +62,7 @@ public class AppointmentDetailsJpaDaoTest {
 	    }
 	 
 	 @Test
-	 public void testDeleteTicketById() throws Exception{
+	 public void testDeleteAppointment() throws Exception{
 	       AppointmentDetails apd1 = getAppointmentDetails();
 	       AppointmentDetails apd2= new AppointmentDetails();
 	       apd2.setDoc_id(3);

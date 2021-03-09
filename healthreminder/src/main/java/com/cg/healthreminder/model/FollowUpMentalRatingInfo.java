@@ -22,8 +22,9 @@ public class FollowUpMentalRatingInfo {
     @Id
 	@Column(name = "patient_id", nullable = false)
     private Integer patientId;
-    @Column(name = "mental_rating")
+    
     @ElementCollection
+    @Column(name = "mental_rating")
     private List<Integer> mentalRating;    
 	
 	public Integer getPatientId() {
