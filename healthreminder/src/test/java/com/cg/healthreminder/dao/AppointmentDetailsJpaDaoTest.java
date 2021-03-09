@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.junit.Assert;
 
 
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.List;
 
 import com.cg.healthreminder.model.AppointmentDetails;
 
@@ -58,6 +61,28 @@ public class AppointmentDetailsJpaDaoTest {
 	     assertThat(getInDb).isEqualTo(saveInDb);
 	    }
 	 
+	 @Test
+	 public void testDeleteTicketById() throws Exception{
+	       AppointmentDetails apd1 = getAppointmentDetails();
+	       AppointmentDetails apd2= new AppointmentDetails();
+	       apd2.setDoc_id(3);
+		   apd2.setDoc_name("Doctor Karan");
+		   apd2.setDoc_st_time(null);
+		   apd2.setDoc_end_time(null);
+		   apd2.setDoc_date(null); 
+		   apd2.setPatient_name("Deepak");
+		   apd2.setPatient_id(7);
+
+	        AppointmentDetails app = testEntityManager.persist(apd1);
+	        testEntityManager.persist(apd2);
+
+	        //delete one ticket DB
+	        testEntityManager.remove(app);
+
+	        List<AppointmentDetails> tickets = (List<AppointmentDetails>) appointmentDetailsJpaDao.findAll();
+	        Assert.assertEquals(tickets.size(), 1);
+
+	    }
 
 
 }
