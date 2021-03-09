@@ -1,4 +1,9 @@
-//author->Shania Dalal
+/*
+ * Author-> Shania Dalal
+ * This is the Test class that checks all CRUD operations performed using JPA properties
+ * on the Diseases model
+ * 
+*/
 package com.cg.healthreminder.dao;
 
 import org.junit.Test;

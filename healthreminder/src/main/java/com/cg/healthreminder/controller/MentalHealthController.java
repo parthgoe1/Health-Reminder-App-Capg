@@ -1,4 +1,9 @@
-//author-> Shania Dalal
+/*
+ * Author-> Shania Dalal
+ * This is the Controller Class for performing operations on mentalHealth model using
+ * URL Mapping
+ * Operations in this class : viewing, updating mentalRating with id, and also adding new mentalRating
+ */
 
 package com.cg.healthreminder.controller;
 

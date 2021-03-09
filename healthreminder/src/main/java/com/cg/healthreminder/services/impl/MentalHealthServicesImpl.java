@@ -1,4 +1,9 @@
-//author->Shania Dalal
+/*
+ * Author-> Shania Dalal
+ * This class implements the MentalHealthServices interface
+ * It accesses the Postgres DB to perform admin/user operations
+ * 
+*/
 package com.cg.healthreminder.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;

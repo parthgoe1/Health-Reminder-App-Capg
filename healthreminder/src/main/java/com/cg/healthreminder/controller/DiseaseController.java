@@ -1,5 +1,9 @@
-//author-> Shania Dalal
-
+/*
+ * Author-> Shania Dalal
+ * This is the Controller Class for performing operations on Diseases model using
+ * URL Mapping
+ * Operations in this class : viewing, updating diseaseInfo with id, and also adding new diseases
+ */
 package com.cg.healthreminder.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
