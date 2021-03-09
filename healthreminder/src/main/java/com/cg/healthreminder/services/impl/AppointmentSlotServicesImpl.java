@@ -1,6 +1,12 @@
+/*
+ * Author-> Sayantan Das
+ * This is the class that implements the respective Service interfaces and accesses the postgress database
+ * and perform CRUD operations as asked by client or the admin -> AppointmentSlotsServices
+
+*/
+
 package com.cg.healthreminder.services.impl;
 
-//Author-> Sayantan Das
 
 import java.util.List;
 import java.util.Optional;

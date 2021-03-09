@@ -1,10 +1,17 @@
+/*
+ * Author-> Sayantan Das
+ * This is the Model class for AppointmentDetails Entity
+
+*/
+
+
 package com.cg.healthreminder.model;
 
 import java.sql.Date;
 import java.sql.Timestamp;
 
 import javax.persistence.*;
-//Author-> Sayantan Das
+
 
 @Entity
 @Table(name = "Appointment_Details")
@@ -14,98 +21,99 @@ public class AppointmentDetails {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "app_id")
-    private int app_id;
+    private int appId;
 	
 	@Column
-	private int patient_id;
+	private int patientId;
     
 	@Column
-	private int doc_id;
+	private int doctorId;
 	
 	@Column
-	private String doc_name;
+	private String doctorName;
 	
 	@Column
-	private String patient_name;
+	private String patientName;
 	
 	@Column
-	private Date doc_date;
+	private Date doctorDate;
    
     @Column
-	private Timestamp doc_st_time;
+	private Timestamp doctorStartTime;
 	
 	@Column
-	private Timestamp doc_end_time;
+	private Timestamp doctorEndTime;
 
-	public int getApp_id() {
-		return app_id;
+	public int getAppId() {
+		return appId;
 	}
 
-	public void setApp_id(int app_id) {
-		this.app_id = app_id;
+	public void setAppId(int appId) {
+		this.appId = appId;
 	}
 
-	public int getPatient_id() {
-		return patient_id;
+	public int getPatientId() {
+		return patientId;
 	}
 
-	public void setPatient_id(int patient_id) {
-		this.patient_id = patient_id;
+	public void setPatientId(int patientId) {
+		this.patientId = patientId;
 	}
 
-	public int getDoc_id() {
-		return doc_id;
+	public int getDoctorId() {
+		return doctorId;
 	}
 
-	public void setDoc_id(int doc_id) {
-		this.doc_id = doc_id;
+	public void setDoctorId(int doctorId) {
+		this.doctorId = doctorId;
 	}
 
-	public String getDoc_name() {
-		return doc_name;
+	public String getDoctorName() {
+		return doctorName;
 	}
 
-	public void setDoc_name(String doc_name) {
-		this.doc_name = doc_name;
+	public void setDoctorName(String doctorName) {
+		this.doctorName = doctorName;
 	}
 
-	public String getPatient_name() {
-		return patient_name;
+	public String getPatientName() {
+		return patientName;
 	}
 
-	public void setPatient_name(String patient_name) {
-		this.patient_name = patient_name;
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
 	}
 
-	public Date getDoc_date() {
-		return doc_date;
+	public Date getDoctorDate() {
+		return doctorDate;
 	}
 
-	public void setDoc_date(Date doc_date) {
-		this.doc_date = doc_date;
+	public void setDoctorDate(Date doctorDate) {
+		this.doctorDate = doctorDate;
 	}
 
-	public Timestamp getDoc_st_time() {
-		return doc_st_time;
+	public Timestamp getDoctorStartTime() {
+		return doctorStartTime;
 	}
 
-	public void setDoc_st_time(Timestamp doc_st_time) {
-		this.doc_st_time = doc_st_time;
+	public void setDoctorStartTime(Timestamp doctorStartTime) {
+		this.doctorStartTime = doctorStartTime;
 	}
 
-	public Timestamp getDoc_end_time() {
-		return doc_end_time;
+	public Timestamp getDoctorEndTime() {
+		return doctorEndTime;
 	}
 
-	public void setDoc_end_time(Timestamp doc_end_time) {
-		this.doc_end_time = doc_end_time;
+	public void setDoctorEndTime(Timestamp doctorEndTime) {
+		this.doctorEndTime = doctorEndTime;
 	}
 
 	@Override
 	public String toString() {
-		return "Appointment_Details [app_id=" + app_id + ", patient_id=" + patient_id + ", doc_id=" + doc_id
-				+ ", doc_name=" + doc_name + ", patient_name=" + patient_name + ", doc_date=" + doc_date
-				+ ", doc_st_time=" + doc_st_time + ", doc_end_time=" + doc_end_time + "]";
+		return "AppointmentDetails [appId=" + appId + ", patientId=" + patientId + ", doctorId=" + doctorId
+				+ ", doctorName=" + doctorName + ", patientName=" + patientName + ", doctorDate=" + doctorDate
+				+ ", doctorStartTime=" + doctorStartTime + ", doctorEndTime=" + doctorEndTime + "]";
 	}
+
 
 }

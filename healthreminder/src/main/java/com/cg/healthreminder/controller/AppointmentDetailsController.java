@@ -1,3 +1,10 @@
+/*
+ * Author-> Sayantan Das
+ * This is the ControllerClass for making various operations related to AppointmentDetails using
+ * URL request mapping.
+ * Operations available: finding appointment by Patient Id, Doctor Id, creation and deletion of appointments
+
+*/
 package com.cg.healthreminder.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.healthreminder.model.AppointmentDetails;
 import com.cg.healthreminder.services.AppointmentDetailsServices;
 
-//Author-> Sayantan Das
+
 @RestController
 @RequestMapping("/healthreminder")
-public class AppointmentDetailsController {
+public class AppointmentDetailsController{
 	
 	    @Autowired
 	    private AppointmentDetailsServices appointmentDetailService;

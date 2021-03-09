@@ -1,7 +1,12 @@
+/*
+ * Author-> Sayantan Das
+ * This is the interface showing the services/operations that can be performed on AppointmentDetails Entity
+
+*/
+
 package com.cg.healthreminder.services;
 
 import com.cg.healthreminder.model.AppointmentDetails;
-//Author-> Sayantan Das
 
 public interface AppointmentDetailsServices {
 	
