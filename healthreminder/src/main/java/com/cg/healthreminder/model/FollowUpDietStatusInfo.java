@@ -22,8 +22,9 @@ public class FollowUpDietStatusInfo {
     @Id
 	@Column(name = "patient_id", nullable = false)
     private Integer patientId;
-    @Column(name = "diet_status")
+    
     @ElementCollection
+    @Column(name = "diet_status")
     private List<Boolean> dietStatus;
     
 	

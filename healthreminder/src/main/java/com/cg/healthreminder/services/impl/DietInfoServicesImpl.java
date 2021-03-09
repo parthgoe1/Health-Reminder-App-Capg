@@ -37,7 +37,7 @@ public class DietInfoServicesImpl implements DietInfoServices{
 	}
 
 	@Override
-	public boolean deleteTicketByBMI(Integer bmiValue) {
+	public boolean deleteDietByBMI(Integer bmiValue) {
 		
 		dietInfoJpaDao.deleteById(bmiValue);
 		DietInfo dietInfo = dietInfoJpaDao.findById(bmiValue).get();
