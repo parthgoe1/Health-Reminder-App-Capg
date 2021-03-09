@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.healthreminder.exception.AllCustomExceptionHandler;
 import com.cg.healthreminder.model.Diseases;
 import com.cg.healthreminder.services.DiseaseServices;
 
@@ -28,7 +29,7 @@ public class DiseaseController {
 	private DiseaseServices diseaseServices;
 	
 	@GetMapping("/viewDisease/{id}")
-	public Diseases viewDisease(@PathVariable Integer id){
+	public Diseases viewDisease(@PathVariable Integer id) throws AllCustomExceptionHandler{
 		return this.diseaseServices.viewDisease(id);
 	}
 	
@@ -43,7 +44,7 @@ public class DiseaseController {
 	
 	@SuppressWarnings("unchecked")
 	@PostMapping("/updateDisease/{id}/{content}")
-	public ResponseEntity updateDiseaseInfo(@PathVariable("id") Integer id, @PathVariable("content") String content){
+	public ResponseEntity updateDiseaseInfo(@PathVariable("id") Integer id, @PathVariable("content") String content) throws AllCustomExceptionHandler{
 		this.diseaseServices.updateDiseaseInfo(id, content);
 		return new ResponseEntity("Disease Information Updated successfully", HttpStatus.OK);
 

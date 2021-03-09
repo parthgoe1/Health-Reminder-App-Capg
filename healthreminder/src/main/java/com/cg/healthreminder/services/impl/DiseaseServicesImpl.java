@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.healthreminder.dao.DiseaseJpaDao;
+import com.cg.healthreminder.exception.AllCustomExceptionHandler;
 import com.cg.healthreminder.model.Diseases;
 import com.cg.healthreminder.services.DiseaseServices;
 
@@ -22,12 +23,19 @@ public class DiseaseServicesImpl implements DiseaseServices{
 	DiseaseJpaDao diseaseDao;
 	
 	@Override
-	public Diseases viewDisease(Integer diseaseId) {
-		return diseaseDao.findById(diseaseId).get();
+	public Diseases viewDisease(Integer diseaseId) throws AllCustomExceptionHandler {
+		Diseases d= diseaseDao.findById(diseaseId).get();
+		if(d==null) {
+			throw new AllCustomExceptionHandler("Disease not found for given ID");
+		}
+		return d;
 	}
 	@Override
-	public Diseases updateDiseaseInfo(Integer diseaseId, String content) {
+	public Diseases updateDiseaseInfo(Integer diseaseId, String content) throws AllCustomExceptionHandler{
 		Diseases d = diseaseDao.findById(diseaseId).get();
+		if(d==null) {
+			throw new AllCustomExceptionHandler("Disease not found for given ID, cannot update Info.");
+		}
         d.setDiseaseInfo(content);
         return diseaseDao.save(d);
 	}

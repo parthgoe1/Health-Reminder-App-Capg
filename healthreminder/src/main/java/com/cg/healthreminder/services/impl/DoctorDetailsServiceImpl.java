@@ -28,11 +28,11 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 		return doctorDetailsDao.findDoctorByName(name);
 	}
 	
-	@Override
-	public DoctorDetails findDoctorBySpec(String doctorSpec)
-	{
-		return doctorDetailsDao.findDoctorBySpec(doctorSpec);
-	}
+//	@Override
+//	public DoctorDetails findDoctorBySpec(String doctorSpec)
+//	{
+//		return doctorDetailsDao.findDoctorBySpec(doctorSpec);
+//	}
 	
 	@Override
 	public Iterable<DoctorDetails> getAllDoctorDetails()
