@@ -2,12 +2,13 @@ package com.cg.healthreminder.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 import com.cg.healthreminder.dao.DoctorDetailsDao;
 import com.cg.healthreminder.model.DoctorDetails;
 import com.cg.healthreminder.services.DoctorDetailsService;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
+
 @Service
 @Transactional
 public class DoctorDetailsServiceImpl implements DoctorDetailsService {
@@ -28,6 +29,12 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 	}
 	
 	@Override
+	public DoctorDetails findDoctorBySpec(String doctorSpec)
+	{
+		return doctorDetailsDao.findDoctorBySpec(doctorSpec);
+	}
+	
+	@Override
 	public Iterable<DoctorDetails> getAllDoctorDetails()
 	{
 		return doctorDetailsDao.findAll();
@@ -37,7 +44,7 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 	public DoctorDetails updateDocNameById(Integer id, String name)
 	{
 		DoctorDetails doctorDetails = doctorDetailsDao.findById(id).get();
-		doctorDetails.setDoc_name(name);
+		doctorDetails.setDoctorName(name);
 		return doctorDetailsDao.save(doctorDetails);
 	}
 	
@@ -45,7 +52,7 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 	public DoctorDetails updateDocVerfStatusById(Integer id, boolean verfStatus)
 	{
 		DoctorDetails doctorDetails = doctorDetailsDao.findById(id).get();
-		doctorDetails.setVerf_status(false);
+		doctorDetails.setVerfStatus(verfStatus);
 		return doctorDetailsDao.save(doctorDetails);
 	}
 	
@@ -53,7 +60,7 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 	public DoctorDetails updateDocCertById(Integer id, String certFile)
 	{
 		DoctorDetails doctorDetails = doctorDetailsDao.findById(id).get();
-		doctorDetails.setCertificate_file(certFile);
+		doctorDetails.setDoctorCertFile(certFile);
 		return doctorDetailsDao.save(doctorDetails);
 	}
 	
@@ -61,7 +68,7 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 	public DoctorDetails updateDocSpecById(Integer id, String docSpec)
 	{
 		DoctorDetails doctorDetails = doctorDetailsDao.findById(id).get();
-		doctorDetails.setDoc_spec(docSpec);
+		doctorDetails.setDoctorSpec(docSpec);
 		return doctorDetailsDao.save(doctorDetails);
 	}
 	
