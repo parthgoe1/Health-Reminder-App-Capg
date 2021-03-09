@@ -1,6 +1,7 @@
 package com.cg.healthreminder.services.impl;
 
 import java.sql.Date;
+
 import java.sql.Timestamp;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.cg.healthreminder.dao.AlarmModuleDao;
 import com.cg.healthreminder.model.AlarmModule;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
+
 @Service
 @Transactional
 public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.AlarmModuleService {
@@ -24,9 +25,9 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 	}
 	
 	@Override
-	public AlarmModule findAlarmByName(String alarm_name)
+	public AlarmModule findAlarmByName(String alarmName)
 	{
-		return alarmModuleDao.findAlarmByName(alarm_name);
+		return alarmModuleDao.findAlarmByName(alarmName);
 	}
 	
 	@Override
@@ -44,18 +45,18 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 	}
 	
 	@Override
-	public AlarmModule updateAlarmTimeById(Integer id, Timestamp alarm_time)
+	public AlarmModule updateAlarmTimeById(Integer id, Timestamp alarmTime)
 	{
 		AlarmModule alarmModules = alarmModuleDao.findById(id).get();
-		alarmModules.setAlarmTime(alarm_time);
+		alarmModules.setAlarmTime(alarmTime);
 		return alarmModuleDao.save(alarmModules);
 	}
 	
 	@Override
-	public AlarmModule updateAlarmDateById(Integer id, Date alarm_date)
+	public AlarmModule updateAlarmDateById(Integer id, Date alarmDate)
 	{
 		AlarmModule alarmModules = alarmModuleDao.findById(id).get();
-		alarmModules.setAlarmDate(alarm_date);
+		alarmModules.setAlarmDate(alarmDate);
 		return alarmModuleDao.save(alarmModules);
 	}
 	

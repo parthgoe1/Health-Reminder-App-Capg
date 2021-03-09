@@ -9,8 +9,8 @@
 package com.cg.healthreminder.services.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.cg.healthreminder.controller.AllCustomExceptionHandler;
 import com.cg.healthreminder.dao.AppointmentDetailsJpaDao;
+import com.cg.healthreminder.exception.AllCustomExceptionHandler;
 import com.cg.healthreminder.model.AppointmentDetails;
 import com.cg.healthreminder.services.AppointmentDetailsServices;
 import org.springframework.stereotype.Service;
