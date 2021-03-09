@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 import javax.persistence.*;
-
+//Author-> Sayantan Das
 
 @Entity
 @Table(name = "Appointment_Details")

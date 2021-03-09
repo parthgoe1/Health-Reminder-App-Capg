@@ -10,7 +10,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.cg.healthreminder.model.DietInfo;
 
-import java.util.Date;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;

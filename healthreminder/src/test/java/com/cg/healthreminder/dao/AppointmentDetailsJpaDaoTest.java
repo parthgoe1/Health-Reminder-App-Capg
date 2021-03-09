@@ -16,6 +16,8 @@ import java.util.List;
 
 import com.cg.healthreminder.model.AppointmentDetails;
 
+//Author-> Sayantan Das
+
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class AppointmentDetailsJpaDaoTest {
