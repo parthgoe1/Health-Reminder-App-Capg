@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.healthreminder.dao.DietInfoJpaDao;
+import com.cg.healthreminder.exception.AllCustomExceptionHandler;
 import com.cg.healthreminder.model.DietInfo;
 import com.cg.healthreminder.services.DietInfoServices;
 
@@ -18,8 +19,12 @@ public class DietInfoServicesImpl implements DietInfoServices{
 	private DietInfoJpaDao dietInfoJpaDao;
 
 	@Override
-	public DietInfo findDietByBMI(Integer bmiValue) {
-		return dietInfoJpaDao.findById(bmiValue).get();
+	public DietInfo findDietByBMI(Integer bmiValue) throws AllCustomExceptionHandler{
+		DietInfo di = dietInfoJpaDao.findById(bmiValue).get();
+		if(di == null) {
+			throw new AllCustomExceptionHandler("Diet Information not found for the given Patient id");
+		}
+		return di;
 	}
 
 	@Override
@@ -28,18 +33,29 @@ public class DietInfoServicesImpl implements DietInfoServices{
 	}
 
 	@Override
-	public DietInfo updateDietByBMI(Integer bmiValue, String dietInformation) {
+	public DietInfo updateDietByBMI(Integer bmiValue, String dietInformation) throws AllCustomExceptionHandler{
 		
 		DietInfo dietInfo = dietInfoJpaDao.findById(bmiValue).get();
-		dietInfo.setDietInfo(dietInformation);
+		if(dietInfo == null) {
+			throw new AllCustomExceptionHandler("Diet Information not found for the given Patient id, so can't be updated");
+		}
+		else {
+			dietInfo.setDietInfo(dietInformation);
+		}
 		return dietInfoJpaDao.save(dietInfo);
 		
 	}
 
 	@Override
-	public boolean deleteDietByBMI(Integer bmiValue) {
+	public boolean deleteDietByBMI(Integer bmiValue) throws AllCustomExceptionHandler{
 		
-		dietInfoJpaDao.deleteById(bmiValue);
+		DietInfo di = dietInfoJpaDao.findById(bmiValue).get();
+		if(di == null) {
+			throw new AllCustomExceptionHandler("Diet Information not found for the given Patient id, so can't be deleted");
+		}
+		else {
+			dietInfoJpaDao.deleteById(bmiValue);
+		}
 		DietInfo dietInfo = dietInfoJpaDao.findById(bmiValue).get();
 		if(null == dietInfo) {
 			return true;

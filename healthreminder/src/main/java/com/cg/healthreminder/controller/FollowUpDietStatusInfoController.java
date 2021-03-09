@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.healthreminder.exception.AllCustomExceptionHandler;
 import com.cg.healthreminder.model.FollowUpDietStatusInfo;
 import com.cg.healthreminder.services.FollowUpDietStatusInfoServices;
 
@@ -25,25 +26,25 @@ public class FollowUpDietStatusInfoController {
 	
 	//To find a particular follow up diet status using id
 	@GetMapping("/followup_dietstatus_find/{patientId}")
-	public FollowUpDietStatusInfo findDietStatusById(@PathVariable Integer patientId) {
+	public FollowUpDietStatusInfo findDietStatusById(@PathVariable Integer patientId) throws AllCustomExceptionHandler{
 		return this.followUpDietStatusInfoServices.findDietStatusById(patientId);
 	}
 	
 	//To update follow up diet details
 	@PutMapping("/followup_dietstatus_update/{patientId}/status/{dietStatus}")
-	public FollowUpDietStatusInfo updateDietStatusById(@PathVariable Integer patientId, @PathVariable Boolean dietStatus) {
+	public FollowUpDietStatusInfo updateDietStatusById(@PathVariable Integer patientId, @PathVariable Boolean dietStatus) throws AllCustomExceptionHandler{
 		return this.followUpDietStatusInfoServices.updateDietStatusById(patientId, dietStatus);
 	}
 	
 	//To create follow up diet details
 	@PostMapping("/create_followup_dietstatus")
-	public FollowUpDietStatusInfo createDietStatus(@RequestBody FollowUpDietStatusInfo followUpDietStatusInfo){
+	public FollowUpDietStatusInfo createDietStatus(@RequestBody FollowUpDietStatusInfo followUpDietStatusInfo) {
 		return followUpDietStatusInfoServices.createDietStatus(followUpDietStatusInfo);
 	}
 	
 	//To delete follow up diet details
 	@DeleteMapping("/delete_dietstatus_by_id/{patientId}")
-    public boolean deleteDietStatus(@PathVariable Integer patientId){
+    public boolean deleteDietStatus(@PathVariable Integer patientId) throws AllCustomExceptionHandler{
         return followUpDietStatusInfoServices.deleteDietStatus(patientId);
     }
 
