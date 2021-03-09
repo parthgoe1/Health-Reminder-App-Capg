@@ -11,33 +11,28 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
-
-import com.cg.healthreminder.model.Diseases;
+import com.cg.healthreminder.model.mentalHealth;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class DiseaseJpaDaoTest {
+public class MentalHealthJpaDaoTest {
 	 @Autowired
      private TestEntityManager testEntityManager;
 	 @Autowired
-     private DiseaseJpaDao diseaseJpaDao;
+     private MentalHealthJpaDao mentalJpaDao;
 	 
-	 private Diseases getDiseases() {
-		 Diseases d=new Diseases();
-		 d.setDiseaseId(5);
-		 d.setDiseaseName("Cough");
-		 d.setDiseaseInfo("Throat Irritation");
-		 d.setDiseaseKeys("cough");
-		 
-		 return d;
+	 private mentalHealth getTips() {
+		 mentalHealth m=new mentalHealth();
+		 m.setMentalRating(5);
+		 m.setMentalTip("You need to eat chocolate");
+		 return m;
 	 }
 
 	 @Test
-	 public void testNewDiseases() throws Exception{
-	     Diseases dLocal = getDiseases();
-	     //System.out.println(dLocal);
-	     Diseases saveInDb = testEntityManager.merge(dLocal);
-	     Diseases getFromInDb = diseaseJpaDao.findById(saveInDb.getDiseaseId()).get();
+	 public void testNewTips() throws Exception{
+	     mentalHealth mLocal = getTips();
+	     mentalHealth saveInDb = testEntityManager.persist(mLocal);
+	     mentalHealth getFromInDb = mentalJpaDao.findById(saveInDb.getMentalRating()).get();
 	     assertThat(getFromInDb).isEqualTo(saveInDb);
 	 }
 	 

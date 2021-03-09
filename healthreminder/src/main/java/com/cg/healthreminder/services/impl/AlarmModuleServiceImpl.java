@@ -1,4 +1,4 @@
-/*package com.cg.healthreminder.services.impl;
+package com.cg.healthreminder.services.impl;
 
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -87,4 +87,3 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 	
 	
 }
-*/
