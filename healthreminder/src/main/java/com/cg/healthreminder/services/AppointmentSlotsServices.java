@@ -9,7 +9,7 @@ package com.cg.healthreminder.services;
 
 import java.util.List;
 
-import com.cg.healthreminder.controller.AllCustomExceptionHandler;
+import com.cg.healthreminder.exception.AllCustomExceptionHandler;
 import com.cg.healthreminder.model.AppointmentSlots;
 
 

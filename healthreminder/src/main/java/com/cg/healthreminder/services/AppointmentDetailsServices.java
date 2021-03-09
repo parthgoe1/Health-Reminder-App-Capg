@@ -6,7 +6,7 @@
 
 package com.cg.healthreminder.services;
 
-import com.cg.healthreminder.controller.AllCustomExceptionHandler;
+import com.cg.healthreminder.exception.AllCustomExceptionHandler;
 import com.cg.healthreminder.model.AppointmentDetails;
 
 public interface AppointmentDetailsServices {
