@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.healthreminder.exception.AllCustomExceptionHandler;
 import com.cg.healthreminder.model.FollowUpMentalRatingInfo;
 import com.cg.healthreminder.services.FollowUpMentalRatingInfoServices;
 
@@ -25,25 +26,25 @@ public class FollowUpMentalRatingInfoController {
 	
 	//To find a particular follow up mental rating using id
 	@GetMapping("/followup_mentalrating_find/{patientId}")
-	public FollowUpMentalRatingInfo findMentalRatingById(@PathVariable Integer patientId) {
+	public FollowUpMentalRatingInfo findMentalRatingById(@PathVariable Integer patientId) throws AllCustomExceptionHandler{
 		return this.followUpMentalRatingInfoServices.findMentalRatingById(patientId);
 	}
 	
 	//To update follow up mental rating details
 	@PutMapping("/followup_mentalrating_update/{patientId}/rating/{MentalRating}")
-	public FollowUpMentalRatingInfo updateMentalRatingById(@PathVariable Integer patientId, @PathVariable Integer MentalRating) {
+	public FollowUpMentalRatingInfo updateMentalRatingById(@PathVariable Integer patientId, @PathVariable Integer MentalRating) throws AllCustomExceptionHandler{
 		return this.followUpMentalRatingInfoServices.updateMentalRatingById(patientId, MentalRating);
 	}
 		
 	//To create follow up mental rating details
 	@PostMapping("/create_followup_mentalrating")
-	public FollowUpMentalRatingInfo createMentalRating(@RequestBody FollowUpMentalRatingInfo followUpMentalRatingInfo){
+	public FollowUpMentalRatingInfo createMentalRating(@RequestBody FollowUpMentalRatingInfo followUpMentalRatingInfo) {
 		return followUpMentalRatingInfoServices.createMentalRating(followUpMentalRatingInfo);
 	}
 		
 	//To delete follow up mental rating details
 	@DeleteMapping("/delete_mentalrating_by_id/{patientId}")
-    public boolean deleteMentalRating(@PathVariable Integer patientId){
+    public boolean deleteMentalRating(@PathVariable Integer patientId) throws AllCustomExceptionHandler{
         return followUpMentalRatingInfoServices.deleteMentalRating(patientId);
     }
 }
