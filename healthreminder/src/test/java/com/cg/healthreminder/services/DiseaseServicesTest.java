@@ -42,7 +42,7 @@ public class DiseaseServicesTest {
 //	    } 
 	  
 	/*  @Test
-	    public void testUpdateTicket() throws Exception{
+	    public void testUpdateDisease() throws Exception{
 		  Diseases d=new Diseases();
 		  d.setDiseaseId(4);
 		  d.setDiseaseName("Sinus");
@@ -70,21 +70,6 @@ public class DiseaseServicesTest {
 	    } 
 	  
 	  
-	  
-//		@Test
-//	    public void testDeleteTicketById() throws Exception{
-//		  Diseases d=new Diseases();
-//		  d.setDiseaseId(6);
-//		  d.setDiseaseName("Headache");
-//		  d.setDiseaseInfo("Stress");
-//		  d.setDiseaseKeys("pain");
-//	      Mockito.when(diseaseJpaDao.save(d)).thenReturn(d);
-//	        Mockito.when(diseaseJpaDao.findById(6).get()).thenReturn(d);
-//	        diseaseJpaDao.deleteById(d.getDiseaseId());
-//	        Mockito.when(diseaseJpaDao.findById(6).get()).thenReturn(d);
-//	        System.out.println(d);
-//	        Assert.assertNotEquals(d, new Diseases());
-//	        Assert.assertEquals(diseaseServices.deleteDisease(6),false);
-//	    }
+
 	}
 
