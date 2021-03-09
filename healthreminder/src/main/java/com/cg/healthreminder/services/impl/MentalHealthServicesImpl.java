@@ -1,3 +1,4 @@
+//author->Shania Dalal
 package com.cg.healthreminder.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +12,13 @@ public class MentalHealthServicesImpl implements MentalHealthServices {
 	MentalHealthJpaDao mentalDao;
 	
 	@Override
-	public mentalHealth displayTips(int mental_rating){
-		return mentalDao.findById(mental_rating).get();
+	public mentalHealth displayTips(int mentalRating){
+		return mentalDao.findById(mentalRating).get();
 	}
 	@Override
-	public mentalHealth updateTips(int mental_rating, String uptips) {
-		mentalHealth m = mentalDao.findById(mental_rating).get();
-        m.setMental_tip(uptips);
+	public mentalHealth updateTips(int mentalRating, String uptips) {
+		mentalHealth m = mentalDao.findById(mentalRating).get();
+        m.setMentalTip(uptips);
         return mentalDao.save(m);
 	}
 	@Override
@@ -26,9 +27,9 @@ public class MentalHealthServicesImpl implements MentalHealthServices {
 		
 	}
 	@Override
-	public boolean deleteTips(int mental_rating) {
-		mentalDao.deleteById(mental_rating);
-        mentalHealth m = mentalDao.findById(mental_rating).get();
+	public boolean deleteTips(int mentalRating) {
+		mentalDao.deleteById(mentalRating);
+        mentalHealth m = mentalDao.findById(mentalRating).get();
         if(null == m){
             return true;
         }

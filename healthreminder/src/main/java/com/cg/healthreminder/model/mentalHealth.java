@@ -1,3 +1,4 @@
+//author->Shania Dalal
 package com.cg.healthreminder.model;
 
 import javax.persistence.*;
@@ -6,19 +7,26 @@ import javax.persistence.*;
 @Table(name="mentalhealth_info")
 public class mentalHealth {
 	@Id
-	private int mental_rating;
-	private String mental_tip;
+	@Column(name = "mental_rating", nullable=false)
+	private int mentalRating;
+	@Column(name = "mental_tip")
+	private String mentalTip;
+	public int getMentalRating() {
+		return mentalRating;
+	}
+	public void setMentalRating(int mentalRating) {
+		this.mentalRating = mentalRating;
+	}
+	public String getMentalTip() {
+		return mentalTip;
+	}
+	public void setMentalTip(String mentalTip) {
+		this.mentalTip = mentalTip;
+	}
+	@Override
+	public String toString() {
+		return "mentalHealth [mentalRating=" + mentalRating + ", mentalTip=" + mentalTip + "]";
+	}
 	
-	public int getMental_rating() {
-		return mental_rating;
-	}
-	public void setMental_rating(int mental_rating) {
-		this.mental_rating = mental_rating;
-	}
-	public String getMental_tip() {
-		return mental_tip;
-	}
-	public void setMental_tip(String mental_tip) {
-		this.mental_tip = mental_tip;
-	}
+	
 }
