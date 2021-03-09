@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.healthreminder.model.AppointmentSlots;
 import com.cg.healthreminder.services.AppointmentSlotsServices;
 
-
+//Author-> Sayantan Das
 @RestController
 @RequestMapping("/healthreminder")
 public class AppointmentSlotsController {

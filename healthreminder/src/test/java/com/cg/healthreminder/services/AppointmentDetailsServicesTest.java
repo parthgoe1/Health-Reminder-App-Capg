@@ -1,5 +1,6 @@
 package com.cg.healthreminder.services;
 import org.junit.Assert;
+import static org.mockito.ArgumentMatchers.any;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -18,6 +19,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+//Author-> Sayantan Das
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class AppointmentDetailsServicesTest {
@@ -88,8 +90,8 @@ public class AppointmentDetailsServicesTest {
 		  a.setPatient_id(4);
 
 		  
-		  Mockito.when(appointmentDetailsJpaDao.save(a)).thenReturn(a);
-		  appointmentDetailServices.createAppointment(a);
+		  Mockito.when(appointmentDetailsJpaDao.save(any(AppointmentDetails.class))).thenReturn(a);
+		  System.out.println(appointmentDetailsJpaDao.findByPatientId(4));
 	      //Mockito.when(appointmentDetailsJpaDao.findByPatientId(4)).thenReturn(a);
 	      //assertThat(appointmentDetailServices.findAppointmentDetailByPatientId(4)).isEqualTo(a);
 	     // appointmentDetailsJpaDao.deleteById(a.getApp_id());
