@@ -1,3 +1,4 @@
+//AUTHOR --> Ankit Banerjee
 package com.cg.healthreminder.model;
 
 import javax.persistence.*;

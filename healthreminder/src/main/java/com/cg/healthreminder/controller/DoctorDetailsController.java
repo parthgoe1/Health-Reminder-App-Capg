@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.DoctorDetails;
 import com.cg.healthreminder.services.DoctorDetailsService;
 
@@ -23,22 +24,22 @@ public class DoctorDetailsController {
     private DoctorDetailsService doctorDetailsService;
 	
 	@GetMapping("/getAllDoctors")
-    public List<DoctorDetails> getAllDoctors(){
+    public List<DoctorDetails> getAllDoctors() throws AllCustomException{
         return (List<DoctorDetails>) doctorDetailsService.getAllDoctorDetails();
     }
 	
 	@GetMapping("/getDoctorById/{doctorId}")
-    public DoctorDetails getDoctorById(@PathVariable Integer doctorId){
+    public DoctorDetails getDoctorById(@PathVariable Integer doctorId) throws AllCustomException{
         return doctorDetailsService.findDoctorById(doctorId);
     }
 	
 	@GetMapping("/getDoctorByName/{doctorName}")
-    public DoctorDetails getDoctorByName(@PathVariable String doctorName){
+    public DoctorDetails getDoctorByName(@PathVariable String doctorName) throws AllCustomException{
         return doctorDetailsService.findDoctorByName(doctorName);
     }
 	
 	@PutMapping("/updateDoctorNamebyId/{doctorName}/doctor/{doctorId}")
-    public DoctorDetails updateDoctorById(@PathVariable String doctorName, @PathVariable Integer doctorId){
+    public DoctorDetails updateDoctorById(@PathVariable String doctorName, @PathVariable Integer doctorId) throws AllCustomException{
         return doctorDetailsService.updateDocNameById(doctorId, doctorName);
     }
 	
@@ -48,7 +49,7 @@ public class DoctorDetailsController {
     }
 	
 	@DeleteMapping("/deleteDoctorById/doctor/{doctorId}")
-    public boolean deleteDoctorById(@PathVariable Integer doctorId){
+    public DoctorDetails deleteDoctorById(@PathVariable Integer doctorId) throws AllCustomException{
         return doctorDetailsService.deleteDoctorById(doctorId);
     }
 
