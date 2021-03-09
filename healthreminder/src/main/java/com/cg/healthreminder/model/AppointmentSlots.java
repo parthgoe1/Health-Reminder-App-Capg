@@ -1,9 +1,14 @@
+/*
+ * Author-> Sayantan Das
+ * This is the Model class for AppointmentDetails Entity
+
+*/
+
 package com.cg.healthreminder.model;
 
 import javax.persistence.*;
 
 import java.sql.Timestamp;
-
 
 @Entity
 @Table(name="Appointment_Slots")
@@ -13,10 +18,10 @@ public class AppointmentSlots {
 	private Slot_Pk pk;
 	
 	@Column
-	private Timestamp doc_st_time;
+	private Timestamp doctorStartTime;
 	
 	@Column
-	private Timestamp doc_end_time;
+	private Timestamp doctorEndTime;
 
 	public Slot_Pk getPk() {
 		return pk;
@@ -26,24 +31,28 @@ public class AppointmentSlots {
 		this.pk = pk;
 	}
 
-	public Timestamp getDoc_st_time() {
-		return doc_st_time;
+	public Timestamp getDoctorStartTime() {
+		return doctorStartTime;
 	}
 
-	public void setDoc_st_time(Timestamp doc_st_time) {
-		this.doc_st_time = doc_st_time;
+	public void setDoctorStartTime(Timestamp doctorStartTime) {
+		this.doctorStartTime = doctorStartTime;
 	}
 
-	public Timestamp getDoc_end_time() {
-		return doc_end_time;
+	public Timestamp getDoctorEndTime() {
+		return doctorEndTime;
 	}
 
-	public void setDoc_end_time(Timestamp doc_end_time) {
-		this.doc_end_time = doc_end_time;
+	public void setDoctorEndTime(Timestamp doctorEndTime) {
+		this.doctorEndTime = doctorEndTime;
 	}
 
 	@Override
 	public String toString() {
-		return "Appointment_Slots [pk=" + pk + ", doc_st_time=" + doc_st_time + ", doc_end_time=" + doc_end_time + "]";
+		return "AppointmentSlots [pk=" + pk + ", doctorStartTime=" + doctorStartTime + ", doctorEndTime="
+				+ doctorEndTime + "]";
 	}
+
+	
+	
 }

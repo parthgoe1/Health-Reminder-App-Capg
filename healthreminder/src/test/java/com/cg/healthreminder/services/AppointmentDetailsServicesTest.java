@@ -1,5 +1,14 @@
+/*
+ * Author-> Sayantan Das
+ * This is the Java Test class which Tests all the CRUD operations performed by the Services Layer
+ * using jpa repository and service interface, for AppointmentDetails Entity
+
+*/
+
+
 package com.cg.healthreminder.services;
 import org.junit.Assert;
+import static org.mockito.ArgumentMatchers.any;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -30,14 +39,14 @@ public class AppointmentDetailsServicesTest {
 	  @Test
 	    public void testCreateAppointment(){
 		  AppointmentDetails a= new AppointmentDetails();
-		  a.setApp_id(1);
-		  a.setDoc_id(5);
-		  a.setDoc_name("Doctor Astin");
-		  a.setDoc_st_time(null);
-		  a.setDoc_end_time(null);
-		  a.setDoc_date(null); 
-		  a.setPatient_name("Sayantan");
-		  a.setPatient_id(4);
+		  a.setAppId(1);
+		  a.setDoctorId(5);
+		  a.setDoctorName("Doctor Astin");
+		  a.setDoctorStartTime(null);
+		  a.setDoctorEndTime(null);
+		  a.setDoctorDate(null); 
+		  a.setPatientName("Sayantan");
+		  a.setPatientId(4);
 
 		  Mockito.when(appointmentDetailsJpaDao.save(a)).thenReturn(a);
           assertThat(appointmentDetailServices.createAppointment(a)).isEqualTo(a);
@@ -46,14 +55,14 @@ public class AppointmentDetailsServicesTest {
 	  @Test
 	    public void testFindByPatientId() throws Exception{
 		  AppointmentDetails a= new AppointmentDetails();
-		  a.setApp_id(1);
-		  a.setDoc_id(5);
-		  a.setDoc_name("Doctor Astin");
-		  a.setDoc_st_time(null);
-		  a.setDoc_end_time(null);
-		  a.setDoc_date(null); 
-		  a.setPatient_name("Sayantan");
-		  a.setPatient_id(4);
+		  a.setAppId(1);
+		  a.setDoctorId(5);
+		  a.setDoctorName("Doctor Astin");
+		  a.setDoctorStartTime(null);
+		  a.setDoctorEndTime(null);
+		  a.setDoctorDate(null); 
+		  a.setPatientName("Sayantan");
+		  a.setPatientId(4);
 		  
 		  Mockito.when(appointmentDetailsJpaDao.findByPatientId(4)).thenReturn(a);
 	      assertThat(appointmentDetailServices.findAppointmentDetailByPatientId(4)).isEqualTo(a);
@@ -62,14 +71,14 @@ public class AppointmentDetailsServicesTest {
 	  @Test
 	    public void testFindByDoctorId() throws Exception{
 		  AppointmentDetails a= new AppointmentDetails();
-		  a.setApp_id(1);
-		  a.setDoc_id(5);
-		  a.setDoc_name("Doctor Astin");
-		  a.setDoc_st_time(null);
-		  a.setDoc_end_time(null);
-		  a.setDoc_date(null); 
-		  a.setPatient_name("Sayantan");
-		  a.setPatient_id(4);
+		  a.setAppId(1);
+		  a.setDoctorId(5);
+		  a.setDoctorName("Doctor Astin");
+		  a.setDoctorStartTime(null);
+		  a.setDoctorEndTime(null);
+		  a.setDoctorDate(null); 
+		  a.setPatientName("Sayantan");
+		  a.setPatientId(4);
 		  
 		  Mockito.when(appointmentDetailsJpaDao.findByDoctorId(5)).thenReturn(a);
 	      assertThat(appointmentDetailServices.findAppointmentDetailByDoctorId(5)).isEqualTo(a);
@@ -78,18 +87,18 @@ public class AppointmentDetailsServicesTest {
 	  @Test
 	    public void testDeleteAppointmentByPatientId() throws Exception{
 		  AppointmentDetails a= new AppointmentDetails();
-		  a.setApp_id(1);
-		  a.setDoc_id(5);
-		  a.setDoc_name("Doctor Astin");
-		  a.setDoc_st_time(Timestamp.valueOf("2020-05-01 15:30:00.0"));
-		  a.setDoc_end_time(Timestamp.valueOf("2020-05-01 15:30:00.0"));
-		  a.setDoc_date(Date.valueOf("2020-12-16")); 
-		  a.setPatient_name("Sayantan");
-		  a.setPatient_id(4);
+		  a.setAppId(1);
+		  a.setDoctorId(5);
+		  a.setDoctorName("Doctor Astin");
+		  a.setDoctorStartTime(Timestamp.valueOf("2020-05-01 15:30:00.0"));
+		  a.setDoctorEndTime(Timestamp.valueOf("2020-05-01 15:30:00.0"));
+		  a.setDoctorDate(Date.valueOf("2020-12-16")); 
+		  a.setPatientName("Sayantan");
+		  a.setPatientId(4);
 
 		  
-		  Mockito.when(appointmentDetailsJpaDao.save(a)).thenReturn(a);
-		  appointmentDetailServices.createAppointment(a);
+		  Mockito.when(appointmentDetailsJpaDao.save(any(AppointmentDetails.class))).thenReturn(a);
+		  System.out.println(appointmentDetailsJpaDao.findByPatientId(4));
 	      //Mockito.when(appointmentDetailsJpaDao.findByPatientId(4)).thenReturn(a);
 	      //assertThat(appointmentDetailServices.findAppointmentDetailByPatientId(4)).isEqualTo(a);
 	     // appointmentDetailsJpaDao.deleteById(a.getApp_id());

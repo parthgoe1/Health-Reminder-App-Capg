@@ -1,3 +1,12 @@
+/*
+ * Author-> Sayantan Das
+ * This is the ControllerClass for making various operations related to Appointment Slots model using
+ * URL request mapping.
+ * Operations available: Check all available Appointment slots, creation and deletion of Slots by Doctors
+
+*/
+
+
 package com.cg.healthreminder.controller;
 
 import java.util.List;
@@ -13,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.healthreminder.model.AppointmentSlots;
 import com.cg.healthreminder.services.AppointmentSlotsServices;
 
-
+//Author-> Sayantan Das
 @RestController
 @RequestMapping("/healthreminder")
 public class AppointmentSlotsController {

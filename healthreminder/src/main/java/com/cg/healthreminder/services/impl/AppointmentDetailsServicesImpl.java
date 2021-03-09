@@ -1,7 +1,12 @@
+/*
+ * Author-> Sayantan Das
+ * This is the class that implements the respective Service interfaces and accesses the postgress database
+ * and perform CRUD operations as asked by client or the admin -> AppointmentDetailsServices
+
+*/
+
+
 package com.cg.healthreminder.services.impl;
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cg.healthreminder.dao.AppointmentDetailsJpaDao;
