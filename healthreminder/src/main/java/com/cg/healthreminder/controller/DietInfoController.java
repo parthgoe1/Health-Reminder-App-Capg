@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cg.healthreminder.exception.AllCustomExceptionHandler;
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.DietInfo;
 import com.cg.healthreminder.services.DietInfoServices;
 
@@ -26,7 +26,7 @@ public class DietInfoController {
 	
 	//To find a particular diet using bmi
 	@GetMapping("/diet_info_find/{bmi}")
-	public DietInfo findDietByBMI(@PathVariable Integer bmi) throws AllCustomExceptionHandler{
+	public DietInfo findDietByBMI(@PathVariable Integer bmi) throws AllCustomException{
 		return this.dietInfoService.findDietByBMI(bmi);
 	}
 	
@@ -38,13 +38,13 @@ public class DietInfoController {
 	
 	//To update diet details
 	@PutMapping("/diet_info_update/{bmiValue}/info/{dietInformation}")
-	public DietInfo updateDietByBMI(@PathVariable Integer bmiValue, @PathVariable String dietInformation) throws AllCustomExceptionHandler{
+	public DietInfo updateDietByBMI(@PathVariable Integer bmiValue, @PathVariable String dietInformation) throws AllCustomException{
 		return this.dietInfoService.updateDietByBMI(bmiValue, dietInformation);
 	}
 	
 	//To delete diet details
 	@DeleteMapping("/delete_diet_by_bmi/{bmiValue}")
-    public boolean deleteDietByBMI(@PathVariable Integer bmiValue) throws AllCustomExceptionHandler{
+    public boolean deleteDietByBMI(@PathVariable Integer bmiValue) throws AllCustomException{
         return dietInfoService.deleteDietByBMI(bmiValue);
     }
 	

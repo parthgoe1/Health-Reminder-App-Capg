@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.healthreminder.dao.DietInfoJpaDao;
-import com.cg.healthreminder.exception.AllCustomExceptionHandler;
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.DietInfo;
 import com.cg.healthreminder.services.DietInfoServices;
 
@@ -19,10 +19,10 @@ public class DietInfoServicesImpl implements DietInfoServices{
 	private DietInfoJpaDao dietInfoJpaDao;
 
 	@Override
-	public DietInfo findDietByBMI(Integer bmiValue) throws AllCustomExceptionHandler{
+	public DietInfo findDietByBMI(Integer bmiValue) throws AllCustomException{
 		DietInfo di = dietInfoJpaDao.findById(bmiValue).get();
 		if(di == null) {
-			throw new AllCustomExceptionHandler("Diet Information not found for the given Patient id");
+			throw new AllCustomException("Diet Information not found for the given Patient id");
 		}
 		return di;
 	}
@@ -33,11 +33,11 @@ public class DietInfoServicesImpl implements DietInfoServices{
 	}
 
 	@Override
-	public DietInfo updateDietByBMI(Integer bmiValue, String dietInformation) throws AllCustomExceptionHandler{
+	public DietInfo updateDietByBMI(Integer bmiValue, String dietInformation) throws AllCustomException{
 		
 		DietInfo dietInfo = dietInfoJpaDao.findById(bmiValue).get();
 		if(dietInfo == null) {
-			throw new AllCustomExceptionHandler("Diet Information not found for the given Patient id, so can't be updated");
+			throw new AllCustomException("Diet Information not found for the given Patient id, so can't be updated");
 		}
 		else {
 			dietInfo.setDietInfo(dietInformation);
@@ -47,11 +47,11 @@ public class DietInfoServicesImpl implements DietInfoServices{
 	}
 
 	@Override
-	public boolean deleteDietByBMI(Integer bmiValue) throws AllCustomExceptionHandler{
+	public boolean deleteDietByBMI(Integer bmiValue) throws AllCustomException{
 		
 		DietInfo di = dietInfoJpaDao.findById(bmiValue).get();
 		if(di == null) {
-			throw new AllCustomExceptionHandler("Diet Information not found for the given Patient id, so can't be deleted");
+			throw new AllCustomException("Diet Information not found for the given Patient id, so can't be deleted");
 		}
 		else {
 			dietInfoJpaDao.deleteById(bmiValue);
