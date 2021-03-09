@@ -6,8 +6,8 @@ import javax.persistence.*;
 @Table(name="mentalhealth_info")
 public class mentalHealth {
 	@Id
-	public int mental_rating;
-	public String mental_tip;
+	private int mental_rating;
+	private String mental_tip;
 	
 	public int getMental_rating() {
 		return mental_rating;
