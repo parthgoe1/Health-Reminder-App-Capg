@@ -6,13 +6,15 @@
 */
 package com.cg.healthreminder.services.impl;
 
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.healthreminder.dao.DiseaseJpaDao;
-import com.cg.healthreminder.exception.AllCustomExceptionHandler;
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.Diseases;
 import com.cg.healthreminder.services.DiseaseServices;
 
@@ -20,24 +22,32 @@ import com.cg.healthreminder.services.DiseaseServices;
 @Transactional
 public class DiseaseServicesImpl implements DiseaseServices{
 	@Autowired
-	DiseaseJpaDao diseaseDao;
+	private DiseaseJpaDao diseaseDao;
 	
 	@Override
-	public Diseases viewDisease(Integer diseaseId) throws AllCustomExceptionHandler {
-		Diseases d= diseaseDao.findById(diseaseId).get();
-		if(d==null) {
-			throw new AllCustomExceptionHandler("Disease not found for given ID");
+	public Diseases viewDisease(Integer diseaseId) throws AllCustomException {
+		Optional<Diseases> d= diseaseDao.findById(diseaseId);
+		Diseases d2 = null;
+		if(d.isPresent()) {
+			d2 = d.get();
 		}
-		return d;
+		else {
+			throw new AllCustomException("Disease not found for given ID");
+		}
+		return d2;
 	}
 	@Override
-	public Diseases updateDiseaseInfo(Integer diseaseId, String content) throws AllCustomExceptionHandler{
-		Diseases d = diseaseDao.findById(diseaseId).get();
-		if(d==null) {
-			throw new AllCustomExceptionHandler("Disease not found for given ID, cannot update Info.");
+	public Diseases updateDiseaseInfo(Integer diseaseId, String content) throws AllCustomException{
+		Optional<Diseases> d= diseaseDao.findById(diseaseId);
+		Diseases d2 = null;
+		if(d.isPresent()) {
+			d2 = d.get();
 		}
-        d.setDiseaseInfo(content);
-        return diseaseDao.save(d);
+		else {
+			throw new AllCustomException("Disease not found for given ID, cannot update Info.");
+		}
+        d2.setDiseaseInfo(content);
+        return diseaseDao.save(d2);
 	}
 	
 	@Override

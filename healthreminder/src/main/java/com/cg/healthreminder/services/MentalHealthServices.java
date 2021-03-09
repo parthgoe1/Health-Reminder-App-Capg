@@ -6,11 +6,11 @@
 */
 package com.cg.healthreminder.services;
 
-import com.cg.healthreminder.exception.AllCustomExceptionHandler;
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.mentalHealth;
 
 public interface MentalHealthServices {
-	public mentalHealth displayTips(Integer mentalRating) throws AllCustomExceptionHandler;
-	public mentalHealth updateTips(Integer mentalRating, String uptips) throws AllCustomExceptionHandler;
+	public mentalHealth displayTips(Integer mentalRating) throws AllCustomException;
+	public mentalHealth updateTips(Integer mentalRating, String uptips) throws AllCustomException;
 	public mentalHealth addTips(mentalHealth m);
 }

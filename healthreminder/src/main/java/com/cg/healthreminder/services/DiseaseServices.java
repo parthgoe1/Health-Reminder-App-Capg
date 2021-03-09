@@ -6,11 +6,11 @@
 */
 package com.cg.healthreminder.services;
 
-import com.cg.healthreminder.exception.AllCustomExceptionHandler;
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.Diseases;
 
 public interface DiseaseServices {
-	public Diseases viewDisease(Integer diseaseId) throws AllCustomExceptionHandler;
-	public Diseases updateDiseaseInfo(Integer diseaseId, String content) throws AllCustomExceptionHandler;
+	public Diseases viewDisease(Integer diseaseId) throws AllCustomException;
+	public Diseases updateDiseaseInfo(Integer diseaseId, String content) throws AllCustomException;
 	public Diseases addDisease(Diseases d);
 }
