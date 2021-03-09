@@ -31,7 +31,7 @@ public class PatientController {
 		return this.patientService.getAllPatients();
 	}
 	
-	//To find a particular patient using its id
+	//To find a particular patient details using its id
 	@GetMapping("/patient/{id}")
 	public Patient getPatient(@PathVariable int id) throws AllCustomException{
 		return this.patientService.getPatient(id);
