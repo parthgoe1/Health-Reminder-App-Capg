@@ -1,6 +1,6 @@
 package com.cg.healthreminder.services.impl;
 
-import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -30,26 +30,22 @@ public class AppointmentDetailsServicesImpl implements AppointmentDetailsService
     	return appointmentDetailsJpaDao.save(amp);
     }
     
-	public boolean deleteAppointmentByPatientId(int patient_id) {
-		Optional<AppointmentDetails> a = Optional.of(appointmentDetailsJpaDao.findByPatientId(patient_id));
-		AppointmentDetails app=null;
-		if(a.isPresent()) {
-			 app= a.get();
-			 appointmentDetailsJpaDao.delete(app);
-			 return true;
+	public AppointmentDetails deleteAppointmentByPatientId(int patient_id) {
+		AppointmentDetails a= appointmentDetailsJpaDao.findByPatientId(patient_id);
+		if(a!=null) {
+			
+			 appointmentDetailsJpaDao.delete(a);
 		}
-		return false;
+		return a;
     }
 	
 	
-    public boolean deleteAppointmentByDoctorId(int doc_id) {
-    	Optional<AppointmentDetails> a = Optional.of(appointmentDetailsJpaDao.findByDoctorId(doc_id));
-		AppointmentDetails app=null;
-		if(a.isPresent()) {
-			 app= a.get();
-			 appointmentDetailsJpaDao.delete(app);
-			 return true;
+    public AppointmentDetails deleteAppointmentByDoctorId(int doc_id) {
+    	AppointmentDetails a= appointmentDetailsJpaDao.findByDoctorId(doc_id);
+		if(a!=null) {
+			
+			 appointmentDetailsJpaDao.delete(a);
 		}
-		return false;
+		return a;
     }
 }

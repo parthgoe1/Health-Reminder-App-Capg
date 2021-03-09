@@ -30,14 +30,14 @@ public class AppointmentSlotServicesImpl implements AppointmentSlotsServices {
 	public AppointmentSlots createAppointmentSlot(AppointmentSlots as) {
 		return  appointmentSlotsJpaDao.save(as);
 	}
-	public boolean deleteAppointmentSlot(AppointmentSlots as) {
+	
+	public AppointmentSlots deleteAppointmentSlot(AppointmentSlots as) {
 		Optional<AppointmentSlots> a = appointmentSlotsJpaDao.findById(as.getPk());
 		AppointmentSlots aslot=null;
 		if(a.isPresent()) {
 			 aslot= a.get();
-			 appointmentSlotsJpaDao.delete(aslot);
-			 return true;
+			 appointmentSlotsJpaDao.delete(aslot); 
 		}
-		return false;
+		return aslot;
     }
 }
