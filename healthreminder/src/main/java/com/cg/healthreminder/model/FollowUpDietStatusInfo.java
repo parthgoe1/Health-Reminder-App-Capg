@@ -24,7 +24,11 @@ public class FollowUpDietStatusInfo {
     private Boolean dietStatus;
     
     @Column(name = "streak")
-    private Integer streak = 0;
+    private Integer streak;
+    
+	public FollowUpDietStatusInfo() {
+		this.streak = 0;
+	}
 
 	public Integer getPatientId() {
 		return patientId;
