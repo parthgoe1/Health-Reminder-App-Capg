@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.healthreminder.exception.AllCustomExceptionHandler;
 import com.cg.healthreminder.model.Patient;
 import com.cg.healthreminder.services.PatientService;
 
@@ -32,7 +33,7 @@ public class PatientController {
 	
 	//To find a particular patient using its id
 	@GetMapping("/patient/{id}")
-	public Patient getPatient(@PathVariable int id) {
+	public Patient getPatient(@PathVariable int id) throws AllCustomExceptionHandler{
 		return this.patientService.getPatient(id);
 	}
 	

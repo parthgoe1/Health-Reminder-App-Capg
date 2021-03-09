@@ -6,7 +6,7 @@ public interface DoctorDetailsService {
 
 	DoctorDetails findDoctorById(Integer id);
 	DoctorDetails findDoctorByName(String name);
-	DoctorDetails findDoctorBySpec(String doctorSpec);
+	//DoctorDetails findDoctorBySpec(String doctorSpec);
 	Iterable<DoctorDetails> getAllDoctorDetails();
 	DoctorDetails updateDocNameById(Integer id, String name);
 	DoctorDetails updateDocVerfStatusById(Integer id, boolean verfStatus);

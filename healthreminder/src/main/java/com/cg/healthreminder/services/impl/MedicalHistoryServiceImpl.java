@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.healthreminder.dao.MedicalHistoryDao;
+import com.cg.healthreminder.exception.AllCustomExceptionHandler;
 import com.cg.healthreminder.model.MedicalHistory;
 import com.cg.healthreminder.services.MedicalHistoryService;
 import org.springframework.stereotype.Service;
@@ -21,8 +22,15 @@ public class MedicalHistoryServiceImpl implements MedicalHistoryService{
 	private MedicalHistoryDao medicalHistoryDao;
 	
 	
-	public List<MedicalHistory> getByPatientId(int id){
-		return medicalHistoryDao.findRecordsByPatientId(id);
+	public List<MedicalHistory> getByPatientId(int id) throws AllCustomExceptionHandler{
+		List<MedicalHistory> mhlst= medicalHistoryDao.findRecordsByPatientId(id);
+		if(mhlst.size()>0) {
+			return mhlst;
+		}
+		else {
+			throw new AllCustomExceptionHandler("No records found");
+		}
+		
 	}
 	public void addRecord(MedicalHistory m) {
 		medicalHistoryDao.save(m);
