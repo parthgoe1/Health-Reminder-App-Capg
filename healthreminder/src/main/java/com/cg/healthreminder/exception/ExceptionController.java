@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ExceptionController {
 	
-	@ExceptionHandler(AllCustomExceptionHandler.class)
-	public ResponseEntity<ErrorMessage> handleProductNotFoundException(AllCustomExceptionHandler ex) {
+	@ExceptionHandler(AllCustomException.class)
+	public ResponseEntity<ErrorMessage> handleProductNotFoundException(AllCustomException ex) {
 		ErrorMessage error = new ErrorMessage();
 		error.setErrorCode(HttpStatus.NOT_FOUND.value());
 		error.setErrorMessage(ex.getMessage());

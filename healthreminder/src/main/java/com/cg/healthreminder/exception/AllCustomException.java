@@ -1,9 +1,9 @@
 package com.cg.healthreminder.exception;
 
-public class AllCustomExceptionHandler extends Exception {
+public class AllCustomException extends Exception {
 	private static final long serialVersionUID = 1L;
 
-	public AllCustomExceptionHandler(String msg){
+	public AllCustomException(String msg){
 		super(msg);
 	}
 }

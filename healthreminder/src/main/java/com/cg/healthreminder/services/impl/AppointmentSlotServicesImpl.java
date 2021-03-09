@@ -14,7 +14,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cg.healthreminder.dao.AppointmentSlotsJpaDao;
-import com.cg.healthreminder.exception.AllCustomExceptionHandler;
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.AppointmentSlots;
 import com.cg.healthreminder.services.AppointmentSlotsServices;
 import org.springframework.stereotype.Service;
@@ -40,7 +40,7 @@ public class AppointmentSlotServicesImpl implements AppointmentSlotsServices {
 		return  appointmentSlotsJpaDao.save(as);
 	}
 	
-	public AppointmentSlots deleteAppointmentSlot(AppointmentSlots as) throws AllCustomExceptionHandler {
+	public AppointmentSlots deleteAppointmentSlot(AppointmentSlots as) throws AllCustomException {
 		Optional<AppointmentSlots> a = appointmentSlotsJpaDao.findById(as.getPk());
 		AppointmentSlots aslot=null;
 		if(a.isPresent()) {
@@ -49,7 +49,7 @@ public class AppointmentSlotServicesImpl implements AppointmentSlotsServices {
 		}
 		else
 		{
-			throw new AllCustomExceptionHandler("Appointment Slot not found");
+			throw new AllCustomException("Appointment Slot not found");
 		}
 		return aslot;
     }

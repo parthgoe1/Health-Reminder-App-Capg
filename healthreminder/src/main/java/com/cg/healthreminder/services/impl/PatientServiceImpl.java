@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.healthreminder.dao.PatientDao;
-import com.cg.healthreminder.exception.AllCustomExceptionHandler;
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.Patient;
 import com.cg.healthreminder.services.PatientService;
 
@@ -26,7 +26,7 @@ public class PatientServiceImpl implements PatientService{
 		return patientDao.findAll();
 	}
 	
-	public Patient getPatient(int id) throws AllCustomExceptionHandler{
+	public Patient getPatient(int id) throws AllCustomException{
 		Optional<Patient> p= patientDao.findById(id);
 		Patient ans;
 		if(p.isPresent()) {
@@ -34,7 +34,7 @@ public class PatientServiceImpl implements PatientService{
 			return ans;
 		}
 		else {
-			throw new AllCustomExceptionHandler("Patient not found");
+			throw new AllCustomException("Patient not found");
 		}
 	}
 	public void addPatient(Patient p) {

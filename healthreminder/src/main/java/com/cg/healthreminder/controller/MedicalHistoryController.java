@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cg.healthreminder.exception.AllCustomExceptionHandler;
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.MedicalHistory;
 import com.cg.healthreminder.services.MedicalHistoryService;
 
@@ -25,7 +25,7 @@ public class MedicalHistoryController {
 	
 	//To get all records for a patient 
 	@GetMapping("/records/{id}")
-	public List<MedicalHistory> getByPatientId(@PathVariable int id) throws AllCustomExceptionHandler{
+	public List<MedicalHistory> getByPatientId(@PathVariable int id) throws AllCustomException{
 		return this.medicalHistoryService.getByPatientId(id);
 	}
 	

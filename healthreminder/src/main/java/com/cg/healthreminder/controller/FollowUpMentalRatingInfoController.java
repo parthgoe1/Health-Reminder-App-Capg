@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cg.healthreminder.exception.AllCustomExceptionHandler;
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.FollowUpMentalRatingInfo;
 import com.cg.healthreminder.services.FollowUpMentalRatingInfoServices;
 
@@ -26,13 +26,13 @@ public class FollowUpMentalRatingInfoController {
 	
 	//To find a particular follow up mental rating using id
 	@GetMapping("/followup_mentalrating_find/{patientId}")
-	public FollowUpMentalRatingInfo findMentalRatingById(@PathVariable Integer patientId) throws AllCustomExceptionHandler{
+	public FollowUpMentalRatingInfo findMentalRatingById(@PathVariable Integer patientId) throws AllCustomException{
 		return this.followUpMentalRatingInfoServices.findMentalRatingById(patientId);
 	}
 	
 	//To update follow up mental rating details
 	@PutMapping("/followup_mentalrating_update/{patientId}/rating/{MentalRating}")
-	public FollowUpMentalRatingInfo updateMentalRatingById(@PathVariable Integer patientId, @PathVariable Integer MentalRating) throws AllCustomExceptionHandler{
+	public FollowUpMentalRatingInfo updateMentalRatingById(@PathVariable Integer patientId, @PathVariable Integer MentalRating) throws AllCustomException{
 		return this.followUpMentalRatingInfoServices.updateMentalRatingById(patientId, MentalRating);
 	}
 		
@@ -44,7 +44,7 @@ public class FollowUpMentalRatingInfoController {
 		
 	//To delete follow up mental rating details
 	@DeleteMapping("/delete_mentalrating_by_id/{patientId}")
-    public boolean deleteMentalRating(@PathVariable Integer patientId) throws AllCustomExceptionHandler{
+    public boolean deleteMentalRating(@PathVariable Integer patientId) throws AllCustomException{
         return followUpMentalRatingInfoServices.deleteMentalRating(patientId);
     }
 }

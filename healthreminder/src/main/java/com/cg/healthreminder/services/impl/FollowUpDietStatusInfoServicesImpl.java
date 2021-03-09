@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.healthreminder.dao.FollowUpDietStatusInfoJpaDao;
-import com.cg.healthreminder.exception.AllCustomExceptionHandler;
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.FollowUpDietStatusInfo;
 import com.cg.healthreminder.services.FollowUpDietStatusInfoServices;
 
@@ -19,19 +19,19 @@ public class FollowUpDietStatusInfoServicesImpl implements FollowUpDietStatusInf
 
 
 	@Override
-	public FollowUpDietStatusInfo findDietStatusById(Integer patientId) throws AllCustomExceptionHandler{
+	public FollowUpDietStatusInfo findDietStatusById(Integer patientId) throws AllCustomException{
 		FollowUpDietStatusInfo followUpDiestStatusInfo = followUpDietStatusInfoJpaDao.findById(patientId).get();
 		if(followUpDiestStatusInfo == null) {
-			throw new AllCustomExceptionHandler("Diet Status Information not found for the given Patient id");
+			throw new AllCustomException("Diet Status Information not found for the given Patient id");
 		}
 		return followUpDiestStatusInfo;
 	}
 
 	@Override
-	public FollowUpDietStatusInfo updateDietStatusById(Integer patientId, Boolean dietStatus) throws AllCustomExceptionHandler{
+	public FollowUpDietStatusInfo updateDietStatusById(Integer patientId, Boolean dietStatus) throws AllCustomException{
 		FollowUpDietStatusInfo followUpDietStatusInfo = followUpDietStatusInfoJpaDao.findById(patientId).get();
 		if(followUpDietStatusInfo == null) {
-			throw new AllCustomExceptionHandler("Diet Status Information not found for the given Patient id, so can't be updated");
+			throw new AllCustomException("Diet Status Information not found for the given Patient id, so can't be updated");
 		}
 		else {
 			followUpDietStatusInfo.setDietStatus(dietStatus);
@@ -48,10 +48,10 @@ public class FollowUpDietStatusInfoServicesImpl implements FollowUpDietStatusInf
 
 
 	@Override
-	public boolean deleteDietStatus(Integer patientId) throws AllCustomExceptionHandler{
+	public boolean deleteDietStatus(Integer patientId) throws AllCustomException{
 		FollowUpDietStatusInfo fdsi = followUpDietStatusInfoJpaDao.findById(patientId).get();
 		if(fdsi == null) {
-			throw new AllCustomExceptionHandler("Diet Status Information not found for the given Patient id, so can't be deleted");
+			throw new AllCustomException("Diet Status Information not found for the given Patient id, so can't be deleted");
 		}
 		else {
 			followUpDietStatusInfoJpaDao.deleteById(patientId);

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.healthreminder.dao.FollowUpMentalRatingInfoJpaDao;
-import com.cg.healthreminder.exception.AllCustomExceptionHandler;
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.FollowUpMentalRatingInfo;
 import com.cg.healthreminder.services.FollowUpMentalRatingInfoServices;
 
@@ -18,19 +18,19 @@ public class FollowUpMentalRatingInfoServicesImpl implements FollowUpMentalRatin
 	private FollowUpMentalRatingInfoJpaDao followUpMentalRatingInfoJpaDao;
 	
 	@Override
-	public FollowUpMentalRatingInfo findMentalRatingById(Integer patientId) throws AllCustomExceptionHandler{
+	public FollowUpMentalRatingInfo findMentalRatingById(Integer patientId) throws AllCustomException{
 		FollowUpMentalRatingInfo fumri = followUpMentalRatingInfoJpaDao.findById(patientId).get();
 		if(fumri == null) {
-			throw new AllCustomExceptionHandler("Mental Rating Information not found for the given Patient id");
+			throw new AllCustomException("Mental Rating Information not found for the given Patient id");
 		}
 		return fumri;
 	}
 
 	@Override
-	public FollowUpMentalRatingInfo updateMentalRatingById(Integer patientId, Integer mentalRating) throws AllCustomExceptionHandler{
+	public FollowUpMentalRatingInfo updateMentalRatingById(Integer patientId, Integer mentalRating) throws AllCustomException{
 		FollowUpMentalRatingInfo followUpMentalRatingInfo = followUpMentalRatingInfoJpaDao.findById(patientId).get();
 		if(followUpMentalRatingInfo == null) {
-			throw new AllCustomExceptionHandler("Mental Rating Information not found for the given Patient id, so can't be updated");
+			throw new AllCustomException("Mental Rating Information not found for the given Patient id, so can't be updated");
 		}
 		else {
 			followUpMentalRatingInfo.setMentalRating(mentalRating);
@@ -47,10 +47,10 @@ public class FollowUpMentalRatingInfoServicesImpl implements FollowUpMentalRatin
 
 
 	@Override
-	public boolean deleteMentalRating(Integer patientId) throws AllCustomExceptionHandler{
+	public boolean deleteMentalRating(Integer patientId) throws AllCustomException{
 		FollowUpMentalRatingInfo fumri= followUpMentalRatingInfoJpaDao.findById(patientId).get();
 		if(fumri == null) {
-			throw new AllCustomExceptionHandler("Mental Rating Information not found for the given Patient id, so can't be deleted");
+			throw new AllCustomException("Mental Rating Information not found for the given Patient id, so can't be deleted");
 		}
 		else {
 			followUpMentalRatingInfoJpaDao.deleteById(patientId);

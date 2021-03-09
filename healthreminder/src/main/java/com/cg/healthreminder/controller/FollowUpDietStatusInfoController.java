@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cg.healthreminder.exception.AllCustomExceptionHandler;
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.FollowUpDietStatusInfo;
 import com.cg.healthreminder.services.FollowUpDietStatusInfoServices;
 
@@ -26,13 +26,13 @@ public class FollowUpDietStatusInfoController {
 	
 	//To find a particular follow up diet status using id
 	@GetMapping("/followup_dietstatus_find/{patientId}")
-	public FollowUpDietStatusInfo findDietStatusById(@PathVariable Integer patientId) throws AllCustomExceptionHandler{
+	public FollowUpDietStatusInfo findDietStatusById(@PathVariable Integer patientId) throws AllCustomException{
 		return this.followUpDietStatusInfoServices.findDietStatusById(patientId);
 	}
 	
 	//To update follow up diet details
 	@PutMapping("/followup_dietstatus_update/{patientId}/status/{dietStatus}")
-	public FollowUpDietStatusInfo updateDietStatusById(@PathVariable Integer patientId, @PathVariable Boolean dietStatus) throws AllCustomExceptionHandler{
+	public FollowUpDietStatusInfo updateDietStatusById(@PathVariable Integer patientId, @PathVariable Boolean dietStatus) throws AllCustomException{
 		return this.followUpDietStatusInfoServices.updateDietStatusById(patientId, dietStatus);
 	}
 	
@@ -44,7 +44,7 @@ public class FollowUpDietStatusInfoController {
 	
 	//To delete follow up diet details
 	@DeleteMapping("/delete_dietstatus_by_id/{patientId}")
-    public boolean deleteDietStatus(@PathVariable Integer patientId) throws AllCustomExceptionHandler{
+    public boolean deleteDietStatus(@PathVariable Integer patientId) throws AllCustomException{
         return followUpDietStatusInfoServices.deleteDietStatus(patientId);
     }
 

@@ -9,7 +9,7 @@ package com.cg.healthreminder.services;
 
 import java.util.List;
 
-import com.cg.healthreminder.exception.AllCustomExceptionHandler;
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.AppointmentSlots;
 
 
@@ -17,7 +17,7 @@ public interface AppointmentSlotsServices {
 	List<AppointmentSlots> getAllSlots();
 	//AppointmentSlotsServices updateAppointmentSlot(int doctor_id);
 	AppointmentSlots createAppointmentSlot(AppointmentSlots as);
-	AppointmentSlots deleteAppointmentSlot(AppointmentSlots as) throws AllCustomExceptionHandler;
+	AppointmentSlots deleteAppointmentSlot(AppointmentSlots as) throws AllCustomException;
 	
 	
 }
