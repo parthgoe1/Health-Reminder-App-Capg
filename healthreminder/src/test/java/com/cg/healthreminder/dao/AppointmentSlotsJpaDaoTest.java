@@ -1,3 +1,10 @@
+/*
+ * Author-> Sayantan Das
+ * This is the Java Test class which Tests all the CRUD operations performed by the Repository/DAO
+ * using jpa properties, for AppointmentSlots Entity
+
+*/
+
 package com.cg.healthreminder.dao;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -6,8 +13,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.junit.Assert;
-
-//Author-> Sayantan Das
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -29,8 +34,8 @@ public class AppointmentSlotsJpaDaoTest {
 	 
 	 private AppointmentSlots getAppointmentSlot() {
 		 AppointmentSlots slot= new AppointmentSlots();
-		 slot.setDoc_end_time(null);
-		 slot.setDoc_st_time(null);
+		 slot.setDoctorEndTime(null);
+		 slot.setDoctorStartTime(null);
 		 Slot_Pk pk=new Slot_Pk();
 		 pk.setDoc_date(Date.valueOf("2020-12-16"));
 		 pk.setDoc_id(1);
@@ -50,8 +55,8 @@ public class AppointmentSlotsJpaDaoTest {
 	 public void testDeleteAppointmentSlot() throws Exception{
 		 AppointmentSlots slot1 = getAppointmentSlot();
 		 AppointmentSlots slot2= new AppointmentSlots();
-		 slot2.setDoc_end_time(null);
-		 slot2.setDoc_st_time(null);
+		 slot2.setDoctorEndTime(null);
+		 slot2.setDoctorStartTime(null);
 		 Slot_Pk pk2=new Slot_Pk();
 		 pk2.setDoc_date(Date.valueOf("2020-12-17"));
 		 pk2.setDoc_id(12);
@@ -70,8 +75,8 @@ public class AppointmentSlotsJpaDaoTest {
 	    public void testGetAllSlots() throws Exception{
 		 AppointmentSlots slot1 = getAppointmentSlot();
 		 AppointmentSlots slot2= new AppointmentSlots();
-		 slot2.setDoc_end_time(null);
-		 slot2.setDoc_st_time(null);
+		 slot2.setDoctorEndTime(null);
+		 slot2.setDoctorStartTime(null);
 		 Slot_Pk pk2=new Slot_Pk();
 		 pk2.setDoc_date(Date.valueOf("2020-12-17"));
 		 pk2.setDoc_id(12);

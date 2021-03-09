@@ -1,4 +1,11 @@
-/*package com.cg.healthreminder.dao;
+/*
+ * Author-> Sayantan Das
+ * This is the Java Test class which Tests all the CRUD operations performed by the Repository/DAO
+ * using jpa properties, for AppointmentDetails Entity
+
+*/
+package com.cg.healthreminder.dao;
+
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,8 +23,6 @@ import java.util.List;
 
 import com.cg.healthreminder.model.AppointmentDetails;
 
-//Author-> Sayantan Das
-
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class AppointmentDetailsJpaDaoTest {
@@ -28,13 +33,14 @@ public class AppointmentDetailsJpaDaoTest {
 	 
 	 private AppointmentDetails getAppointmentDetails() {
 		 AppointmentDetails a= new AppointmentDetails();
-		 a.setDoc_id(5);
-		 a.setDoc_name("Doctor Astin");
-		 a.setDoc_st_time(null);
-		 a.setDoc_end_time(null);
-		 a.setDoc_date(null); 
-		 a.setPatient_name("Sayantan");
-		 a.setPatient_id(4);
+		  a.setDoctorId(5);
+		  a.setDoctorName("Doctor Astin");
+		  a.setDoctorStartTime(null);
+		  a.setDoctorEndTime(null);
+		  a.setDoctorDate(null); 
+		  a.setPatientName("Sayantan");
+		  a.setPatientId(4);
+
 		 
 		 return a;
 	 }
@@ -43,7 +49,7 @@ public class AppointmentDetailsJpaDaoTest {
 	 public void testNewAppointmentDetails() throws Exception{
 	     AppointmentDetails apd = getAppointmentDetails();
 	     AppointmentDetails saveInDb = testEntityManager.persist(apd);
-	     AppointmentDetails getFromInDb = appointmentDetailsJpaDao.findById(saveInDb.getApp_id()).get();
+	     AppointmentDetails getFromInDb = appointmentDetailsJpaDao.findById(saveInDb.getAppId()).get();
 	     assertThat(getFromInDb).isEqualTo(saveInDb);
 	 }
 	 
@@ -51,7 +57,7 @@ public class AppointmentDetailsJpaDaoTest {
 	 public void testGetAppointmentDetailsByPatientId() throws Exception{
 		 AppointmentDetails apd = getAppointmentDetails();
 		 AppointmentDetails saveInDb = testEntityManager.persist(apd);
-	     AppointmentDetails getInDb = appointmentDetailsJpaDao.findByPatientId(apd.getPatient_id());
+	     AppointmentDetails getInDb = appointmentDetailsJpaDao.findByPatientId(apd.getPatientId());
 	     assertThat(getInDb).isEqualTo(saveInDb);
 	    }
 	 
@@ -59,7 +65,7 @@ public class AppointmentDetailsJpaDaoTest {
 	 public void testGetAppointmentDetailsByDoctorId() throws Exception{
 		 AppointmentDetails apd = getAppointmentDetails();
 		 AppointmentDetails saveInDb = testEntityManager.persist(apd);
-	     AppointmentDetails getInDb = appointmentDetailsJpaDao.findByDoctorId(apd.getDoc_id());
+	     AppointmentDetails getInDb = appointmentDetailsJpaDao.findByDoctorId(apd.getDoctorId());
 	     assertThat(getInDb).isEqualTo(saveInDb);
 	    }
 	 
@@ -67,13 +73,13 @@ public class AppointmentDetailsJpaDaoTest {
 	 public void testDeleteAppointment() throws Exception{
 	       AppointmentDetails apd1 = getAppointmentDetails();
 	       AppointmentDetails apd2= new AppointmentDetails();
-	       apd2.setDoc_id(3);
-		   apd2.setDoc_name("Doctor Karan");
-		   apd2.setDoc_st_time(null);
-		   apd2.setDoc_end_time(null);
-		   apd2.setDoc_date(null); 
-		   apd2.setPatient_name("Deepak");
-		   apd2.setPatient_id(7);
+	       apd2.setDoctorId(3);
+		   apd2.setDoctorName("Doctor Karan");
+		   apd2.setDoctorStartTime(null);
+		   apd2.setDoctorEndTime(null);
+		   apd2.setDoctorDate(null); 
+		   apd2.setPatientName("Deepak");
+		   apd2.setPatientId(7);
 
 	        AppointmentDetails app = testEntityManager.persist(apd1);
 	        testEntityManager.persist(apd2);
@@ -88,4 +94,3 @@ public class AppointmentDetailsJpaDaoTest {
 
 
 }
-*/

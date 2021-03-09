@@ -17,11 +17,11 @@ public class MentalHealthServicesImpl implements MentalHealthServices {
 	MentalHealthJpaDao mentalDao;
 	
 	@Override
-	public mentalHealth displayTips(int mentalRating){
+	public mentalHealth displayTips(Integer mentalRating){
 		return mentalDao.findById(mentalRating).get();
 	}
 	@Override
-	public mentalHealth updateTips(int mentalRating, String uptips) {
+	public mentalHealth updateTips(Integer mentalRating, String uptips) {
 		mentalHealth m = mentalDao.findById(mentalRating).get();
         m.setMentalTip(uptips);
         return mentalDao.save(m);
@@ -31,13 +31,5 @@ public class MentalHealthServicesImpl implements MentalHealthServices {
 		return mentalDao.save(m);
 		
 	}
-	@Override
-	public boolean deleteTips(int mentalRating) {
-		mentalDao.deleteById(mentalRating);
-        mentalHealth m = mentalDao.findById(mentalRating).get();
-        if(null == m){
-            return true;
-        }
-        return false;
-	}
+	
 }

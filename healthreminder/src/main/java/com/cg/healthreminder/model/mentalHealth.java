@@ -8,13 +8,13 @@ import javax.persistence.*;
 public class mentalHealth {
 	@Id
 	@Column(name = "mental_rating", nullable=false)
-	private int mentalRating;
+	private Integer mentalRating;
 	@Column(name = "mental_tip")
 	private String mentalTip;
-	public int getMentalRating() {
+	public Integer getMentalRating() {
 		return mentalRating;
 	}
-	public void setMentalRating(int mentalRating) {
+	public void setMentalRating(Integer mentalRating) {
 		this.mentalRating = mentalRating;
 	}
 	public String getMentalTip() {
