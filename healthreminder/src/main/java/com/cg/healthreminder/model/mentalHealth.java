@@ -1,4 +1,8 @@
-//author->Shania Dalal
+/*
+ * Author-> Shania Dalal
+ * This is the Model Class for mentalHealth entity
+ * 
+ */
 package com.cg.healthreminder.model;
 
 import javax.persistence.*;

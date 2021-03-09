@@ -1,4 +1,9 @@
-//author-> Shania Dalal
+/*
+ * Author-> Shania Dalal
+ * This is the Controller Class for performing operations on mentalHealth model using
+ * URL Mapping
+ * Operations in this class : viewing, updating mentalRating with id, and also adding new mentalRating
+ */
 
 package com.cg.healthreminder.controller;
 
@@ -12,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.mentalHealth;
 import com.cg.healthreminder.services.MentalHealthServices;
 
@@ -24,7 +30,7 @@ public class MentalHealthController {
 	private MentalHealthServices mentalServices;
 	
 	@GetMapping("/viewTips/{id}")
-	public mentalHealth viewTips(@PathVariable Integer id){
+	public mentalHealth displayTips(@PathVariable Integer id) throws AllCustomException{
 		return this.mentalServices.displayTips(id);
 	}
 	
@@ -39,7 +45,7 @@ public class MentalHealthController {
 	
 	@SuppressWarnings("unchecked")
 	@PostMapping("/updateTips/{id}/{content}")
-	public ResponseEntity updateTips(@PathVariable("id") Integer id, @PathVariable("content") String content){
+	public ResponseEntity updateTips(@PathVariable("id") Integer id, @PathVariable("content") String content) throws AllCustomException{
 		this.mentalServices.updateTips(id, content);
 		return new ResponseEntity("Health Tip Updated successfully", HttpStatus.OK);
 

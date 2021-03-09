@@ -1,8 +1,13 @@
-//author-> Shania Dalal
-
+/*
+ * Author-> Shania Dalal
+ * This is the Controller Class for performing operations on Diseases model using
+ * URL Mapping
+ * Operations in this class : viewing, updating diseaseInfo with id, and also adding new diseases
+ */
 package com.cg.healthreminder.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.Diseases;
 import com.cg.healthreminder.services.DiseaseServices;
 
@@ -24,7 +30,7 @@ public class DiseaseController {
 	private DiseaseServices diseaseServices;
 	
 	@GetMapping("/viewDisease/{id}")
-	public Diseases viewDisease(@PathVariable Integer id){
+	public Diseases viewDisease(@PathVariable Integer id) throws AllCustomException{
 		return this.diseaseServices.viewDisease(id);
 	}
 	
@@ -39,7 +45,7 @@ public class DiseaseController {
 	
 	@SuppressWarnings("unchecked")
 	@PostMapping("/updateDisease/{id}/{content}")
-	public ResponseEntity updateDiseaseInfo(@PathVariable("id") Integer id, @PathVariable("content") String content){
+	public ResponseEntity updateDiseaseInfo(@PathVariable("id") Integer id, @PathVariable("content") String content) throws AllCustomException{
 		this.diseaseServices.updateDiseaseInfo(id, content);
 		return new ResponseEntity("Disease Information Updated successfully", HttpStatus.OK);
 

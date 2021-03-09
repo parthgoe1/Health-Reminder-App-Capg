@@ -1,5 +1,7 @@
 package com.cg.healthreminder.services.impl;
 
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,11 +22,15 @@ public class DietInfoServicesImpl implements DietInfoServices{
 
 	@Override
 	public DietInfo findDietByBMI(Integer bmiValue) throws AllCustomException{
-		DietInfo di = dietInfoJpaDao.findById(bmiValue).get();
-		if(di == null) {
+		Optional<DietInfo> di = dietInfoJpaDao.findById(bmiValue);
+		DietInfo di2 = null;
+		if(di.isPresent()) {
+			di2 = di.get();
+		}
+		else {
 			throw new AllCustomException("Diet Information not found for the given Patient id");
 		}
-		return di;
+		return di2;
 	}
 
 	@Override
@@ -35,26 +41,31 @@ public class DietInfoServicesImpl implements DietInfoServices{
 	@Override
 	public DietInfo updateDietByBMI(Integer bmiValue, String dietInformation) throws AllCustomException{
 		
-		DietInfo dietInfo = dietInfoJpaDao.findById(bmiValue).get();
-		if(dietInfo == null) {
-			throw new AllCustomException("Diet Information not found for the given Patient id, so can't be updated");
+		Optional<DietInfo> dietInfo = dietInfoJpaDao.findById(bmiValue);
+		DietInfo di2 = null;
+		if(dietInfo.isPresent()) {
+			di2 = dietInfo.get();
+			di2.setDietInfo(dietInformation);
 		}
 		else {
-			dietInfo.setDietInfo(dietInformation);
+			throw new AllCustomException("Diet Information not found for the given Patient id, so can't be updated");
 		}
-		return dietInfoJpaDao.save(dietInfo);
+		return dietInfoJpaDao.save(di2);
 		
 	}
 
 	@Override
 	public boolean deleteDietByBMI(Integer bmiValue) throws AllCustomException{
 		
-		DietInfo di = dietInfoJpaDao.findById(bmiValue).get();
-		if(di == null) {
-			throw new AllCustomException("Diet Information not found for the given Patient id, so can't be deleted");
+		Optional<DietInfo> di = dietInfoJpaDao.findById(bmiValue);
+		DietInfo di2 = null;
+		if(di.isPresent()) {
+			di2 = di.get();
+			dietInfoJpaDao.deleteById(bmiValue);
+		
 		}
 		else {
-			dietInfoJpaDao.deleteById(bmiValue);
+			throw new AllCustomException("Diet Information not found for the given Patient id, so can't be deleted");	
 		}
 		DietInfo dietInfo = dietInfoJpaDao.findById(bmiValue).get();
 		if(null == dietInfo) {
