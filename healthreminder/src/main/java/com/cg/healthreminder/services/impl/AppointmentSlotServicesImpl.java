@@ -13,8 +13,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.cg.healthreminder.controller.AllCustomExceptionHandler;
 import com.cg.healthreminder.dao.AppointmentSlotsJpaDao;
+import com.cg.healthreminder.exception.AllCustomExceptionHandler;
 import com.cg.healthreminder.model.AppointmentSlots;
 import com.cg.healthreminder.services.AppointmentSlotsServices;
 import org.springframework.stereotype.Service;

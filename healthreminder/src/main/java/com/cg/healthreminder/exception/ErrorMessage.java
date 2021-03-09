@@ -1,4 +1,4 @@
-package com.cg.healthreminder.controller;
+package com.cg.healthreminder.exception;
 
 
 public class ErrorMessage {

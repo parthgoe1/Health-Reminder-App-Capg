@@ -3,7 +3,7 @@
  * Here Application level and Controller level Exceptions have been handled
  */
 
-package com.cg.healthreminder.controller;
+package com.cg.healthreminder.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
