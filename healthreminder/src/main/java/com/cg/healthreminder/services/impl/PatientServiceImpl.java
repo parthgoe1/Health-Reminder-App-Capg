@@ -2,12 +2,13 @@ package com.cg.healthreminder.services.impl;
 
 // Author: Naman Bhandari
 
-import java.util.List;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.healthreminder.dao.PatientDao;
+import com.cg.healthreminder.exception.AllCustomExceptionHandler;
 import com.cg.healthreminder.model.Patient;
 import com.cg.healthreminder.services.PatientService;
 
@@ -16,6 +17,7 @@ import javax.transaction.Transactional;
 @Service
 @Transactional
 public class PatientServiceImpl implements PatientService{
+	
 	//Dao object created
 	@Autowired
 	private PatientDao patientDao;
@@ -24,8 +26,16 @@ public class PatientServiceImpl implements PatientService{
 		return patientDao.findAll();
 	}
 	
-	public Patient getPatient(int id) {
-		return patientDao.findById(id).orElse(new Patient());
+	public Patient getPatient(int id) throws AllCustomExceptionHandler{
+		Optional<Patient> p= patientDao.findById(id);
+		Patient ans;
+		if(p.isPresent()) {
+			ans=p.get();
+			return ans;
+		}
+		else {
+			throw new AllCustomExceptionHandler("Patient not found");
+		}
 	}
 	public void addPatient(Patient p) {
 		patientDao.save(p);
