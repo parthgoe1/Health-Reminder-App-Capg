@@ -13,6 +13,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.cg.healthreminder.controller.AllCustomExceptionHandler;
 import com.cg.healthreminder.dao.AppointmentSlotsJpaDao;
 import com.cg.healthreminder.model.AppointmentSlots;
 import com.cg.healthreminder.services.AppointmentSlotsServices;
@@ -39,12 +40,16 @@ public class AppointmentSlotServicesImpl implements AppointmentSlotsServices {
 		return  appointmentSlotsJpaDao.save(as);
 	}
 	
-	public AppointmentSlots deleteAppointmentSlot(AppointmentSlots as) {
+	public AppointmentSlots deleteAppointmentSlot(AppointmentSlots as) throws AllCustomExceptionHandler {
 		Optional<AppointmentSlots> a = appointmentSlotsJpaDao.findById(as.getPk());
 		AppointmentSlots aslot=null;
 		if(a.isPresent()) {
 			 aslot= a.get();
 			 appointmentSlotsJpaDao.delete(aslot); 
+		}
+		else
+		{
+			throw new AllCustomExceptionHandler("Appointment Slot not found");
 		}
 		return aslot;
     }

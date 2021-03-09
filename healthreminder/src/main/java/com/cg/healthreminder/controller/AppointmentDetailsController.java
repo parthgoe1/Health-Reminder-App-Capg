@@ -28,12 +28,12 @@ public class AppointmentDetailsController{
 	    private AppointmentDetailsServices appointmentDetailService;
 
 	    @GetMapping("/findAppointmentByPatId/{patientId}")
-	    public AppointmentDetails findAppointmentDetailsByPatientId(@PathVariable int patientId){
+	    public AppointmentDetails findAppointmentDetailsByPatientId(@PathVariable int patientId) throws AllCustomExceptionHandler{
 	        return appointmentDetailService.findAppointmentDetailByPatientId(patientId);
 	    }
 
 	    @GetMapping("/findAppointmentByDocId/{doctorId}")
-	    public AppointmentDetails findAppointmentDetailsByDoctorId(@PathVariable int doctorId){
+	    public AppointmentDetails findAppointmentDetailsByDoctorId(@PathVariable int doctorId) throws AllCustomExceptionHandler{
 	        return appointmentDetailService.findAppointmentDetailByDoctorId(doctorId);
 	    }
 
@@ -43,13 +43,13 @@ public class AppointmentDetailsController{
 	    }
 
 	    @DeleteMapping("/deleteAppointmentByPatId/{patientId}")
-	    public AppointmentDetails deleteAppointmentByPatientId(@PathVariable int patientId){
+	    public AppointmentDetails deleteAppointmentByPatientId(@PathVariable int patientId) throws AllCustomExceptionHandler{
 	        return appointmentDetailService.deleteAppointmentByPatientId(patientId);
 	    }
 
 
 	    @DeleteMapping("/deleteAppointmentByDocId/{doctorId}")
-	    public AppointmentDetails deleteAppointmentByDoctorId(@PathVariable int doctorId){
+	    public AppointmentDetails deleteAppointmentByDoctorId(@PathVariable int doctorId) throws AllCustomExceptionHandler{
 	        return appointmentDetailService.deleteAppointmentByDoctorId(doctorId);
 	    }
 }

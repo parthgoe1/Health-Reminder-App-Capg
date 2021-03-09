@@ -40,7 +40,7 @@ public class AppointmentSlotsController {
 	    }
 
 	    @DeleteMapping("/deleteAppointmentSlot")
-	    public AppointmentSlots deleteAppointmentSlot(@RequestBody AppointmentSlots aps){
+	    public AppointmentSlots deleteAppointmentSlot(@RequestBody AppointmentSlots aps)  throws AllCustomExceptionHandler{
 	        return appointmentSlotService.deleteAppointmentSlot(aps);
 	    }
 
