@@ -45,7 +45,7 @@ public class DoctorDetailsDaoTest {
     	DoctorDetails saveInDb = testEntityManager.persist(doctor);
     	DoctorDetails getFromInDb = doctorDetailsDao.findDoctorById(saveInDb.getDoctorId());
 		assertThat(getFromInDb).isEqualTo(saveInDb);
-		assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
+		assertThat(getFromInDb.toString()).hasToString(saveInDb.toString());
     }
     
     @Test
@@ -81,7 +81,7 @@ public class DoctorDetailsDaoTest {
     	testEntityManager.remove(doctodetails);
     	
     	List<DoctorDetails> alarmList = (List<DoctorDetails>) doctorDetailsDao.findAll();
-        Assert.assertEquals(alarmList.size(), 1);
+    	Assert.assertEquals(1,alarmList.size());
     	
     	
     }

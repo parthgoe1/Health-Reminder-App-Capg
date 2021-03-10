@@ -18,8 +18,4 @@ public interface AlarmModuleDao extends JpaRepository<AlarmModule,Integer>{
 	
 	@Query("select a from AlarmModule a where a.patientId=:patientId")
 	AlarmModule findByPatientId(int patientId);
-	
-//	@Query("select * from Alarm_Module a )
-//	AlarmModule getAllAlarms();
-	
 }
