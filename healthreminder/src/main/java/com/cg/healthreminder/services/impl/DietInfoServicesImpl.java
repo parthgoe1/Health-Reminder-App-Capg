@@ -58,20 +58,15 @@ public class DietInfoServicesImpl implements DietInfoServices{
 	public boolean deleteDietByBMI(Integer bmiValue) throws AllCustomException{
 		
 		Optional<DietInfo> di = dietInfoJpaDao.findById(bmiValue);
-		DietInfo di2 = null;
 		if(di.isPresent()) {
-			di2 = di.get();
 			dietInfoJpaDao.deleteById(bmiValue);
-		
 		}
 		else {
 			throw new AllCustomException("Diet Information not found for the given Patient id, so can't be deleted");	
 		}
-		DietInfo dietInfo = dietInfoJpaDao.findById(bmiValue).get();
-		if(null == dietInfo) {
-			return true;
-		}
-		return false;
+		
+		
+		return true;
 		
 	}
 

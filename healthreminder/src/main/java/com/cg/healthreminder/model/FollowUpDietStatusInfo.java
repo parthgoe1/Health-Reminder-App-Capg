@@ -50,7 +50,7 @@ public class FollowUpDietStatusInfo {
 			this.dietStatus = dietStatus;
 		}
 		else {
-			this.streak = 1;
+			this.streak = 0;
 			this.dietStatus = dietStatus;
 		}
 		this.dietStatus = dietStatus;
