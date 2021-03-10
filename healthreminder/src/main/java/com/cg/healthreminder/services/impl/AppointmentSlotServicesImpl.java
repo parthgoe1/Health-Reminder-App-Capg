@@ -11,6 +11,8 @@ package com.cg.healthreminder.services.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cg.healthreminder.dao.AppointmentSlotsJpaDao;
@@ -26,18 +28,25 @@ public class AppointmentSlotServicesImpl implements AppointmentSlotsServices {
 	
 	@Autowired
     private AppointmentSlotsJpaDao appointmentSlotsJpaDao;
+	private static final Logger logger=LogManager.getLogger(AppointmentSlotServicesImpl.class);
 	
 	public List<AppointmentSlots> getAllSlots(){
-		 List<AppointmentSlots>appslots= appointmentSlotsJpaDao.findAll();
+		logger.info("Sending all SLots ........"); 
+		
+		List<AppointmentSlots>appslots= appointmentSlotsJpaDao.findAll();
 		 return appslots;
 	}
 	
 	
 	public AppointmentSlots createAppointmentSlot(AppointmentSlots as) {
+		logger.info("Creating Appointment SLot ........");
+		
 		return  appointmentSlotsJpaDao.save(as);
 	}
 	
 	public AppointmentSlots deleteAppointmentSlot(AppointmentSlots as) throws AllCustomException {
+		logger.info("Deleting appointment SLot ........");
+		
 		Optional<AppointmentSlots> a = appointmentSlotsJpaDao.findById(as.getPk());
 		AppointmentSlots aslot=null;
 		if(a.isPresent()) {
