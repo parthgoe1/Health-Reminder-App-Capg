@@ -1,4 +1,10 @@
-package com.cg.healthreminder;
+/*
+ * Author -> Shania Dalal
+ * This is the swagger class for Health Reminder Application 
+ */
+ 
+ package com.cg.healthreminder;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,11 +18,9 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
-//This annotation enables the Swagger support in the application.
 @EnableSwagger2
 public class HealthReminderSwagger{
-
-	// The select() method called on Docket bean returns an "ApiSelectorBuilder". This provides "apis()" and "paths()" methods to filter the controllers and methods being documented using string predicates.
+	
 	@Bean
 	public Docket postsApi() {
 		return new Docket(DocumentationType.SWAGGER_2).apiInfo(metadata()).select().paths(Predicates.not(PathSelectors.regex("/error"))).build();
