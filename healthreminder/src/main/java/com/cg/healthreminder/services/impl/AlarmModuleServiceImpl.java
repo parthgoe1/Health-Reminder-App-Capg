@@ -18,6 +18,8 @@ import com.cg.healthreminder.model.AlarmModule;
 @Transactional
 public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.AlarmModuleService {
 	
+	public static String Excep = "AlarmModule not found";
+	
 	@Autowired
 	private AlarmModuleDao alarmModuleDao;
 	
@@ -26,7 +28,7 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 	{
 		AlarmModule ob =  alarmModuleDao.findAlarmById(id);
 		if(ob == null) {
-			throw new AllCustomException("AlarmModule not found");
+			throw new AllCustomException(Excep);
 		}
 		
 		return ob;
@@ -37,7 +39,7 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 	{
 		AlarmModule ob = alarmModuleDao.findAlarmByName(alarmName);
 		if(ob == null) {
-			throw new AllCustomException("AlarmModule not found");
+			throw new AllCustomException(Excep);
 		}
 		
 		return ob;
@@ -52,15 +54,23 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 	@Override
 	public AlarmModule updateAlarmById(Integer aid, Integer pid, String name, Timestamp alarmTime, Date alarmDate, String note) throws AllCustomException
 	{
-		AlarmModule alarmModules = alarmModuleDao.findById(aid).get();
-		if(alarmModules == null) {
-			throw new AllCustomException("AlarmModule not found");
+		Optional<AlarmModule> alarmModules = alarmModuleDao.findById(aid);
+		AlarmModule ob = null;
+		
+		if(alarmModules.isPresent()) {
+			
+			ob = alarmModules.get();
+			ob.setAlarmName(name);
+			ob.setAlarmTime(alarmTime);
+			ob.setAlarmDate(alarmDate);
+			ob.setAlarmNotes(note);
 		}
-		alarmModules.setAlarmName(name);
-		alarmModules.setAlarmTime(alarmTime);
-		alarmModules.setAlarmDate(alarmDate);
-		alarmModules.setAlarmNotes(note);
-		return alarmModuleDao.save(alarmModules);
+		else
+		{
+			throw new AllCustomException(Excep);
+		}
+		
+		return alarmModuleDao.save(ob);
 	}
 	
 	
@@ -75,7 +85,7 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 			alarmModuleDao.delete(ob);
 		}
 		else {
-			throw new AllCustomException("AlarmModule not found");
+			throw new AllCustomException(Excep);
 			
 		}
 		
