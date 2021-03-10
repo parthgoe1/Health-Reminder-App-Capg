@@ -35,7 +35,7 @@ public class AlarmModuleDaoTest {
     	a.setAlarmTime(null);
     	a.setAlarmNotes("Take the medicine after lunch");
 		 
-		 return a;
+		return a;
 	 }
     
     @Test
@@ -44,7 +44,8 @@ public class AlarmModuleDaoTest {
     	AlarmModule saveInDb = testEntityManager.persist(alarm);
     	AlarmModule getFromInDb = alarmModuleDao.findById(saveInDb.getAlarmId()).get();
 	    assertThat(getFromInDb).isEqualTo(saveInDb);
-	 }
+	    assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
+    }
     
     @Test
 	public void  testAlarmModuleDetailsByPatientId() throws Exception{

@@ -10,6 +10,7 @@ import com.cg.healthreminder.model.AlarmModule;
 import com.cg.healthreminder.model.DoctorDetails;
 import com.cg.healthreminder.services.DoctorDetailsService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Optional;
 
@@ -33,16 +34,6 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 		return ob;
 	}
 	
-	@Override
-	public DoctorDetails findDoctorByName(String name) throws AllCustomException
-	{
-		DoctorDetails ob = doctorDetailsDao.findDoctorByName(name);
-		if(ob == null) {
-			throw new AllCustomException("Doctor Details Not Found");
-		}
-		
-		return ob;
-	}
 	
 	@Override
 	public DoctorDetails findDoctorBySpec(String doctorSpec) throws AllCustomException
@@ -62,48 +53,52 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 	}
 	
 	@Override
-	public DoctorDetails updateDocNameById(Integer id, String name) throws AllCustomException
+	public DoctorDetails updateDoctorById(Integer doctorId,String doctorName,boolean verfStatus,  String doctorCertFile,  String doctorSpec) throws AllCustomException
 	{
-		DoctorDetails doctorDetails = doctorDetailsDao.findById(id).get();
+		DoctorDetails doctorDetails = doctorDetailsDao.findById(doctorId).get();
 		if(doctorDetails == null) {
 			throw new AllCustomException("Doctor Details Not Found");
 		}
-		doctorDetails.setDoctorName(name);
+		doctorDetails.setDoctorName(doctorName);
+		doctorDetails.setVerfStatus(true);
+		doctorDetails.setDoctorCertFile("Certified");
+		doctorDetails.setDoctorSpec("Lungs");
 		return doctorDetailsDao.save(doctorDetails);
 	}
 	
-	@Override
-	public DoctorDetails updateDocVerfStatusById(Integer id, boolean verfStatus) throws AllCustomException
-	{
-		DoctorDetails doctorDetails = doctorDetailsDao.findById(id).get();
-		if(doctorDetails == null) {
-			throw new AllCustomException("Doctor Details Not Found");
-		}
-		doctorDetails.setVerfStatus(verfStatus);
-		return doctorDetailsDao.save(doctorDetails);
-	}
 	
-	@Override
-	public DoctorDetails updateDocCertById(Integer id, String certFile) throws AllCustomException
-	{
-		DoctorDetails doctorDetails = doctorDetailsDao.findById(id).get();
-		if(doctorDetails == null) {
-			throw new AllCustomException("Doctor Details Not Found");
-		}
-		doctorDetails.setDoctorCertFile(certFile);
-		return doctorDetailsDao.save(doctorDetails);
-	}
-	
-	@Override
-	public DoctorDetails updateDocSpecById(Integer id, String docSpec) throws AllCustomException
-	{
-		DoctorDetails doctorDetails = doctorDetailsDao.findById(id).get();
-		if(doctorDetails == null) {
-			throw new AllCustomException("Doctor Details Not Found");
-		}
-		doctorDetails.setDoctorSpec(docSpec);
-		return doctorDetailsDao.save(doctorDetails);
-	}
+//	@Override
+//	public DoctorDetails updateDocVerfStatusById(Integer id, boolean verfStatus) throws AllCustomException
+//	{
+//		DoctorDetails doctorDetails = doctorDetailsDao.findById(id).get();
+//		if(doctorDetails == null) {
+//			throw new AllCustomException("Doctor Details Not Found");
+//		}
+//		doctorDetails.setVerfStatus(verfStatus);
+//		return doctorDetailsDao.save(doctorDetails);
+//	}
+//	
+//	@Override
+//	public DoctorDetails updateDocCertById(Integer id, String certFile) throws AllCustomException
+//	{
+//		DoctorDetails doctorDetails = doctorDetailsDao.findById(id).get();
+//		if(doctorDetails == null) {
+//			throw new AllCustomException("Doctor Details Not Found");
+//		}
+//		doctorDetails.setDoctorCertFile(certFile);
+//		return doctorDetailsDao.save(doctorDetails);
+//	}
+//	
+//	@Override
+//	public DoctorDetails updateDocSpecById(Integer id, String docSpec) throws AllCustomException
+//	{
+//		DoctorDetails doctorDetails = doctorDetailsDao.findById(id).get();
+//		if(doctorDetails == null) {
+//			throw new AllCustomException("Doctor Details Not Found");
+//		}
+//		doctorDetails.setDoctorSpec(docSpec);
+//		return doctorDetailsDao.save(doctorDetails);
+//	}
 	
 	
 	@Override

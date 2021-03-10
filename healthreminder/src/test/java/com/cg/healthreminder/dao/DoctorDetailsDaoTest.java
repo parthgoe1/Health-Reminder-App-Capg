@@ -12,7 +12,10 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.cg.healthreminder.model.AppointmentDetails;
 import com.cg.healthreminder.model.DoctorDetails;
+import com.cg.healthreminder.model.FollowUpDietStatusInfo;
+import com.cg.healthreminder.model.Patient;
 
 
 @RunWith(SpringRunner.class)
@@ -40,9 +43,20 @@ public class DoctorDetailsDaoTest {
 	public void testNewDoctorDetails() throws Exception{
     	DoctorDetails doctor = getDoctorDetails();
     	DoctorDetails saveInDb = testEntityManager.persist(doctor);
-    	DoctorDetails getFromInDb = doctorDetailsDao.findById(saveInDb.getDoctorId()).get();
+    	DoctorDetails getFromInDb = doctorDetailsDao.findDoctorById(saveInDb.getDoctorId());
+		assertThat(getFromInDb).isEqualTo(saveInDb);
+		assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
+    }
+    
+    @Test
+	public void testNewDoctorSpec() throws Exception{
+    	DoctorDetails doctor = getDoctorDetails();
+    	DoctorDetails saveInDb = testEntityManager.persist(doctor);
+    	DoctorDetails getFromInDb = doctorDetailsDao.findDoctorBySpec(saveInDb.getDoctorSpec());
 		assertThat(getFromInDb).isEqualTo(saveInDb);
 	}
+    
+   
     
     @Test
     public void testDeleteDoctorbyId() throws Exception{

@@ -33,15 +33,17 @@ public class DoctorDetailsController {
         return doctorDetailsService.findDoctorById(doctorId);
     }
 	
-	@GetMapping("/getDoctorByName/{doctorName}")
-    public DoctorDetails getDoctorByName(@PathVariable String doctorName) throws AllCustomException{
-        return doctorDetailsService.findDoctorByName(doctorName);
+	@GetMapping("/getDoctorBySpec/{doctorSpec}")
+    public DoctorDetails getDoctorBySpec(@PathVariable String doctorSpec) throws AllCustomException{
+        return doctorDetailsService.findDoctorBySpec(doctorSpec);
     }
 	
-	@PutMapping("/updateDoctorNamebyId/{doctorName}/doctor/{doctorId}")
-    public DoctorDetails updateDoctorById(@PathVariable String doctorName, @PathVariable Integer doctorId) throws AllCustomException{
-        return doctorDetailsService.updateDocNameById(doctorId, doctorName);
+	@PutMapping("/updateDoctorNamebyId/{doctorId}/{doctorName}/{verfStatus}/{doctorCertFile}/{doctorSpec}")
+    public DoctorDetails updateDoctorById(@PathVariable Integer doctorId, @PathVariable String doctorName,
+    		@PathVariable boolean verfStatus, @PathVariable String doctorCertFile, @PathVariable String doctorSpec) throws AllCustomException{
+        return doctorDetailsService.updateDoctorById(doctorId, doctorName, verfStatus, doctorCertFile, doctorSpec);
     }
+	
 	
 	@PostMapping("/createDoctor")
     public DoctorDetails createDoctor(@RequestBody DoctorDetails doctor){
