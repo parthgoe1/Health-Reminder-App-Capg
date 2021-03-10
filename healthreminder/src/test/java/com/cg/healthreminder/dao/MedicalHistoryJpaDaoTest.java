@@ -36,6 +36,11 @@ public class MedicalHistoryJpaDaoTest {
 		MedicalHistory saveInDb = testEntityManager.persist(mh);
 		MedicalHistory getFromDb = medicalHistoryDao.findById(saveInDb.getFile()).get();
 		assertThat(getFromDb).isEqualTo(saveInDb);
+		assertThat(getFromDb.toString()).isEqualTo(saveInDb.toString());
+		assertThat(getFromDb.getFile()).isEqualTo(saveInDb.getFile());
+		assertThat(getFromDb.getNotes()).isEqualTo(saveInDb.getNotes());
+		assertThat(getFromDb.getPatientId()).isEqualTo(saveInDb.getPatientId());
+
 	}
 	@Test
 	public void testUpdateRecord() {
