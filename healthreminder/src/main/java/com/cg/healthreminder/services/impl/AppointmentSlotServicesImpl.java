@@ -32,9 +32,6 @@ public class AppointmentSlotServicesImpl implements AppointmentSlotsServices {
 		 return appslots;
 	}
 	
-	/*public AppointmentSlotsServices updateAppointmentSlot(int doc_id) {
-		
-	}*/
 	
 	public AppointmentSlots createAppointmentSlot(AppointmentSlots as) {
 		return  appointmentSlotsJpaDao.save(as);

@@ -11,7 +11,6 @@ import com.cg.healthreminder.dao.MedicalHistoryDao;
 import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.MedicalHistory;
 import com.cg.healthreminder.services.MedicalHistoryService;
-import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 @Service
@@ -32,8 +31,8 @@ public class MedicalHistoryServiceImpl implements MedicalHistoryService{
 		}
 		
 	}
-	public void addRecord(MedicalHistory m) {
-		medicalHistoryDao.save(m);
+	public MedicalHistory addRecord(MedicalHistory m) {
+		return medicalHistoryDao.save(m);
 	}
 	public void deleteRecord(String file) {
 		medicalHistoryDao.deleteById(file);

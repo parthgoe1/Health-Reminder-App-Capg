@@ -10,7 +10,7 @@ import com.cg.healthreminder.exception.AllCustomException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cg.healthreminder.dao.MentalHealthJpaDao;
-import com.cg.healthreminder.model.mentalHealth;
+import com.cg.healthreminder.model.MentalHealth;
 import com.cg.healthreminder.services.MentalHealthServices;
 
 import org.springframework.stereotype.Service;
@@ -25,9 +25,9 @@ public class MentalHealthServicesImpl implements MentalHealthServices {
 	MentalHealthJpaDao mentalDao;
 	
 	@Override
-	public mentalHealth displayTips(Integer mentalRating) throws AllCustomException{
-		Optional<mentalHealth> m = mentalDao.findById(mentalRating);
-		mentalHealth m2 = null;
+	public MentalHealth displayTips(Integer mentalRating) throws AllCustomException{
+		Optional<MentalHealth> m = mentalDao.findById(mentalRating);
+		MentalHealth m2 = null;
 		if(m.isPresent()) {
 			m2 = m.get();
 		}
@@ -37,9 +37,9 @@ public class MentalHealthServicesImpl implements MentalHealthServices {
 		return m2;
 	}
 	@Override
-	public mentalHealth updateTips(Integer mentalRating, String uptips) throws AllCustomException{
-		Optional<mentalHealth> m= mentalDao.findById(mentalRating);
-		mentalHealth m2 = null;
+	public MentalHealth updateTips(Integer mentalRating, String uptips) throws AllCustomException{
+		Optional<MentalHealth> m= mentalDao.findById(mentalRating);
+		MentalHealth m2 = null;
 		if(m.isPresent()) {
 			m2 = m.get();
 		}
@@ -50,9 +50,20 @@ public class MentalHealthServicesImpl implements MentalHealthServices {
         return mentalDao.save(m2);
 	}
 	@Override
-	public mentalHealth addTips(mentalHealth m) {
+	public MentalHealth addTips(MentalHealth m) {
 		return mentalDao.save(m);
 		
+	}
+	@Override
+	public boolean deleteTips(Integer mentalRating) throws AllCustomException{
+		Optional<MentalHealth> m=mentalDao.findById(mentalRating);
+		if(m.isPresent()) {
+			mentalDao.deleteById(mentalRating);
+		}
+		else {
+			throw new AllCustomException("Health Rating not found for given ID, cannot delete");
+		}
+		return true;
 	}
 	
 }

@@ -1,7 +1,7 @@
 /*
  * Author-> Shania Dalal
  * This is the Junit Test class that checks all Service Class operations performed
- * on the Diseases model
+ * on the mentalHealth model
  * 
 */
 package com.cg.healthreminder.services;
@@ -14,19 +14,20 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
-import com.cg.healthreminder.dao.DiseaseJpaDao;
-import com.cg.healthreminder.model.Diseases;
+import com.cg.healthreminder.dao.MentalHealthJpaDao;
+import com.cg.healthreminder.model.MentalHealth;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DiseaseServicesTest {
+public class MentalHealthServicesTest {
 	  
 	  @MockBean
-	  private DiseaseJpaDao diseaseJpaDao;
+	  private MentalHealthJpaDao mentalJpaDao;
 
 	  @Autowired
-	  private DiseaseServices diseaseServices;
+	  private MentalHealthServices mentalServices;
 	  
 //	  @Autowired
 //	    private TestEntityManager entityManager;
@@ -62,16 +63,14 @@ public class DiseaseServicesTest {
 	    } */
 	  
 	 @Test
-	    public void testAddDisease(){
-		  Diseases d=new Diseases();
-		  d.setDiseaseId(5);
-		  d.setDiseaseName("Diabetes");
-		  d.setDiseaseInfo("Too much sugar");
-		  d.setDiseaseKeys("sugar");
+	    public void testAddTips(){
+		  MentalHealth m=new MentalHealth();
+		  m.setMentalRating(5);
+		  m.setMentalTip("You need to eat chocolate");
 
-		  Mockito.when(diseaseJpaDao.save(d)).thenReturn(d);
-          assertThat(diseaseServices.addDisease(d)).isEqualTo(d);
-	    }
+		  Mockito.when(mentalJpaDao.save(m)).thenReturn(m);
+          assertThat(mentalServices.addTips(m)).isEqualTo(m);
+	    } 
 	  
 	  
 

@@ -3,7 +3,7 @@ package com.cg.healthreminder.exception;
 
 public class ErrorMessage {
 	private Integer errorCode;
-	private String errorMessage;
+	private String errorMessge;
 	public Integer getErrorCode() {
 		return errorCode;
 	}
@@ -11,10 +11,10 @@ public class ErrorMessage {
 		this.errorCode = errorCode;
 	}
 	public String getErrorMessage() {
-		return errorMessage;
+		return errorMessge;
 	}
 	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
+		this.errorMessge = errorMessage;
 	}
 	
 	

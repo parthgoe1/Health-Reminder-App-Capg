@@ -7,10 +7,11 @@
 package com.cg.healthreminder.services;
 
 import com.cg.healthreminder.exception.AllCustomException;
-import com.cg.healthreminder.model.mentalHealth;
+import com.cg.healthreminder.model.MentalHealth;
 
 public interface MentalHealthServices {
-	public mentalHealth displayTips(Integer mentalRating) throws AllCustomException;
-	public mentalHealth updateTips(Integer mentalRating, String uptips) throws AllCustomException;
-	public mentalHealth addTips(mentalHealth m);
+	public MentalHealth displayTips(Integer mentalRating) throws AllCustomException;
+	public MentalHealth updateTips(Integer mentalRating, String uptips) throws AllCustomException;
+	public MentalHealth addTips(MentalHealth m);
+	public boolean deleteTips(Integer mentalRating) throws AllCustomException;
 }

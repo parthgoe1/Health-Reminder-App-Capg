@@ -51,6 +51,7 @@ public class AppointmentDetailsJpaDaoTest {
 	     AppointmentDetails saveInDb = testEntityManager.persist(apd);
 	     AppointmentDetails getFromInDb = appointmentDetailsJpaDao.findById(saveInDb.getAppId()).get();
 	     assertThat(getFromInDb).isEqualTo(saveInDb);
+	     assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
 	 }
 	 
 	 @Test
@@ -88,7 +89,7 @@ public class AppointmentDetailsJpaDaoTest {
 	        testEntityManager.remove(app);
 
 	        List<AppointmentDetails> tickets = (List<AppointmentDetails>) appointmentDetailsJpaDao.findAll();
-	        Assert.assertEquals(tickets.size(), 1);
+	        Assert.assertEquals(1,tickets.size());
 
 	    }
 

@@ -104,6 +104,26 @@ public class AppointmentSlotsControllerTest {
 
 	        assertThat(jsonInput).isEqualTo(jsonOutput);
 	    }
+	    
+	    
+	 /*   @Test
+	    public void testDeleteAppointmentSlot() throws Exception{
+	    	 String URI = "/healthreminder/deleteAppointmentSlot";  
+	    	 AppointmentSlots slot= new AppointmentSlots();
+			 slot.setDoctorEndTime(null);
+			 slot.setDoctorStartTime(null);
+			 Slot_Pk pk=new Slot_Pk();
+			 pk.setDoc_date("2020-12-16");
+			 pk.setDoc_id(1);
+			 slot.setPk(pk);
+			 
+	        
+			Mockito.when(appointmentSlotsService.deleteAppointmentSlot(Mockito.any(AppointmentSlots.class))).thenReturn(slot);
+	        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.delete(URI).accept(MediaType.APPLICATION_JSON)).andReturn();
+	        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
+	        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
 
+	    }
+*/
 
 }

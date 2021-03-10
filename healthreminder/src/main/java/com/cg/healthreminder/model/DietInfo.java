@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Max;
 
 //Author --> Parth Goel
 
@@ -17,6 +19,8 @@ public class DietInfo {
 	}
 	
 	@Id
+	@Min(1)
+	@Max(5)
     @Column(name = "bmi_value", nullable = false)
     private Integer bmiValue;
     @Column(name = "diet_info", nullable = false)

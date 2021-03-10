@@ -40,6 +40,7 @@ public class DietInfoJpaDaoTest {
         DietInfo saveInDb = testEntityManager.persist(dietInfo);
         DietInfo getFromInDb = dietInfoJpaDao.findById(saveInDb.getBmiValue()).get();
         assertThat(getFromInDb).isEqualTo(saveInDb);
+        assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
     }
     
     @Test

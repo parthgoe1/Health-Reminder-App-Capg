@@ -37,19 +37,19 @@ public class PatientServiceImpl implements PatientService{
 			throw new AllCustomException("Patient not found");
 		}
 	}
-	public void addPatient(Patient p) {
-		patientDao.save(p);
-	}
-
-	@Override
-	public Patient updatePatient(Patient p) {
-		// TODO Auto-generated method stub
+	public Patient addPatient(Patient p) {
 		return patientDao.save(p);
 	}
 
 	@Override
-	public void deletePatientById(int id) {
-		// TODO Auto-generated method stub
-		patientDao.deleteById(id);
+	public Patient updatePatient(Patient p) {
+		return patientDao.save(p);
+	}
+
+	@Override
+	public Integer deletePatientById(int id) {
+		 patientDao.deleteById(id);
+		 return id;
+		 
 	}
 }

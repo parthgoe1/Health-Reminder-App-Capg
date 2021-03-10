@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="mentalhealth_info")
-public class mentalHealth {
+public class MentalHealth {
 	@Id
 	@Column(name = "mental_rating", nullable=false)
 	private Integer mentalRating;
