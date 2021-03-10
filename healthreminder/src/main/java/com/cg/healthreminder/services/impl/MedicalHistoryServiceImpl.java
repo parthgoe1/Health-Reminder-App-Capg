@@ -20,6 +20,13 @@ public class MedicalHistoryServiceImpl implements MedicalHistoryService{
 	@Autowired
 	private MedicalHistoryDao medicalHistoryDao;
 	
+	private String validateMedHistory(MedicalHistory m) {
+		String msg;
+		if(m.getPatientId()<0)
+			msg="PatientId should be more than or equal to 0";
+		else msg="Validated";
+		return msg;
+	}
 	
 	public List<MedicalHistory> getByPatientId(int id) throws AllCustomException{
 		List<MedicalHistory> mhlst= medicalHistoryDao.findRecordsByPatientId(id);
@@ -31,8 +38,11 @@ public class MedicalHistoryServiceImpl implements MedicalHistoryService{
 		}
 		
 	}
-	public MedicalHistory addRecord(MedicalHistory m) {
+	public MedicalHistory addRecord(MedicalHistory m) throws AllCustomException{
+		String msg = validateMedHistory(m);
+		if(msg.equals("Validated"))
 		return medicalHistoryDao.save(m);
+		else throw new AllCustomException(msg);
 	}
 	public void deleteRecord(String file) {
 		medicalHistoryDao.deleteById(file);

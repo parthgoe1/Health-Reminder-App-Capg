@@ -31,7 +31,7 @@ public class MedicalHistoryController {
 	
 	//To add a new record
 	@PostMapping("/addrecord")
-	public MedicalHistory addRecord(MedicalHistory m){
+	public MedicalHistory addRecord(MedicalHistory m) throws AllCustomException{
 		return this.medicalHistoryService.addRecord(m);
 	}
 	

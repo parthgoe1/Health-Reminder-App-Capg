@@ -10,7 +10,7 @@ import com.cg.healthreminder.model.Patient;
 public interface PatientService {
 	public List<Patient> getAllPatients();
 	public Patient getPatient(int id) throws AllCustomException;
-	public Patient addPatient(Patient p);
+	public Patient addPatient(Patient p) throws AllCustomException;
 	public Patient updatePatient(Patient p);
 	public Integer deletePatientById(int id);
 }

@@ -12,6 +12,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.cg.healthreminder.dao.MedicalHistoryDao;
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.MedicalHistory;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -26,7 +27,7 @@ public class MedicalHistoryServiceTest {
     private MedicalHistoryService medicalHistoryService;
     
     @Test
-    public void testCreateMedicalHistory() {
+    public void testCreateMedicalHistory() throws AllCustomException{
     	MedicalHistory mh = new MedicalHistory();
     	mh.setFile("file name");
     	mh.setPatientId(1);
