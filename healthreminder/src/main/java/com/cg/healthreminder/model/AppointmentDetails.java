@@ -7,8 +7,7 @@
 
 package com.cg.healthreminder.model;
 
-import java.sql.Date;
-import java.sql.Timestamp;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -45,15 +44,15 @@ public class AppointmentDetails {
 	
 	@NotNull
 	@Column
-	private Date doctorDate;
+	private String doctorDate;
    
 	@NotNull
     @Column
-	private Timestamp doctorStartTime;
+	private String doctorStartTime;
 	
 	@NotNull
 	@Column
-	private Timestamp doctorEndTime;
+	private String doctorEndTime;
 
 	public int getAppId() {
 		return appId;
@@ -95,27 +94,27 @@ public class AppointmentDetails {
 		this.patientName = patientName;
 	}
 
-	public Date getDoctorDate() {
+	public String getDoctorDate() {
 		return doctorDate;
 	}
 
-	public void setDoctorDate(Date doctorDate) {
+	public void setDoctorDate(String doctorDate) {
 		this.doctorDate = doctorDate;
 	}
 
-	public Timestamp getDoctorStartTime() {
+	public String getDoctorStartTime() {
 		return doctorStartTime;
 	}
 
-	public void setDoctorStartTime(Timestamp doctorStartTime) {
+	public void setDoctorStartTime(String doctorStartTime) {
 		this.doctorStartTime = doctorStartTime;
 	}
 
-	public Timestamp getDoctorEndTime() {
+	public String getDoctorEndTime() {
 		return doctorEndTime;
 	}
 
-	public void setDoctorEndTime(Timestamp doctorEndTime) {
+	public void setDoctorEndTime(String doctorEndTime) {
 		this.doctorEndTime = doctorEndTime;
 	}
 

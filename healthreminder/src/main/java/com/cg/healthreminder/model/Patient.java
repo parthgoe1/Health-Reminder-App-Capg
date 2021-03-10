@@ -3,6 +3,7 @@ package com.cg.healthreminder.model;
 // Author: Naman Bhandari
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "patient")

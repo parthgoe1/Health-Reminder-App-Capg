@@ -31,3 +31,4 @@
 2021-03-10 18:00:14.021  INFO 21688 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 2021-03-10 18:00:15.212  INFO 21688 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
 2021-03-10 18:00:15.224  INFO 21688 --- [main] c.c.h.HealthreminderApplication          : Started HealthreminderApplication in 9.624 seconds (JVM running for 10.224)
+2021-03-10 18:00:46.338  INFO 21688 --- [http-nio-8086-exec-2] c.c.h.s.impl.DietInfoServicesImpl        : Creating diet information........

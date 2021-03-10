@@ -37,7 +37,7 @@ public class PatientController {
 	
 	//To add new patient
 	@PostMapping("/patient")
-	public Patient addPatient(Patient p) {
+	public Patient addPatient(Patient p) throws AllCustomException{
 		return this.patientService.addPatient(p);
 	}
 	
