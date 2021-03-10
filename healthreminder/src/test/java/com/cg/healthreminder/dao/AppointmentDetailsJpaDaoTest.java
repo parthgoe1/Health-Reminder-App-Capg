@@ -51,6 +51,7 @@ public class AppointmentDetailsJpaDaoTest {
 	     AppointmentDetails saveInDb = testEntityManager.persist(apd);
 	     AppointmentDetails getFromInDb = appointmentDetailsJpaDao.findById(saveInDb.getAppId()).get();
 	     assertThat(getFromInDb).isEqualTo(saveInDb);
+	     assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
 	 }
 	 
 	 @Test
