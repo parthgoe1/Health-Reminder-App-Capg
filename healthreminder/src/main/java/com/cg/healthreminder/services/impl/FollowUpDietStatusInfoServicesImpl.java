@@ -25,7 +25,7 @@ public class FollowUpDietStatusInfoServicesImpl implements FollowUpDietStatusInf
 	@Override
 	public FollowUpDietStatusInfo findDietStatusById(Integer patientId) throws AllCustomException{
 
-		logger.info("Finding follow up diet status information by ID ........");
+		logger.info("Finding follow up diet status information by ID in Implementation........");
 		Optional<FollowUpDietStatusInfo> followUpDiestStatusInfo = followUpDietStatusInfoJpaDao.findById(patientId);
 		FollowUpDietStatusInfo fudsi = null;
 		if(followUpDiestStatusInfo.isPresent()) {
@@ -40,7 +40,7 @@ public class FollowUpDietStatusInfoServicesImpl implements FollowUpDietStatusInf
 	@Override
 	public FollowUpDietStatusInfo updateDietStatusById(Integer patientId, Boolean dietStatus) throws AllCustomException{
 		
-		logger.info("Updating follow up diet status information by ID ........");
+		logger.info("Updating follow up diet status information by ID in Implementation........");
 		Optional<FollowUpDietStatusInfo> followUpDietStatusInfo = followUpDietStatusInfoJpaDao.findById(patientId);
 		FollowUpDietStatusInfo fudsi = null;
 		if(followUpDietStatusInfo.isPresent()) {
@@ -58,7 +58,7 @@ public class FollowUpDietStatusInfoServicesImpl implements FollowUpDietStatusInf
 	@Override
 	public FollowUpDietStatusInfo createDietStatus(FollowUpDietStatusInfo followUpDietStatusInfo) {
 		
-		logger.info("Creating follow up diet status information ........");
+		logger.info("Creating follow up diet status information in Implementation........");
 		return followUpDietStatusInfoJpaDao.save(followUpDietStatusInfo);
 	}
 
@@ -66,7 +66,7 @@ public class FollowUpDietStatusInfoServicesImpl implements FollowUpDietStatusInf
 	@Override
 	public boolean deleteDietStatus(Integer patientId) throws AllCustomException{
 
-		logger.info("Deleting follow up diet status information by ID ........");
+		logger.info("Deleting follow up diet status information by ID in Implementation........");
 		Optional<FollowUpDietStatusInfo> fdsi = followUpDietStatusInfoJpaDao.findById(patientId);
 	
 		if(fdsi.isPresent()) {
