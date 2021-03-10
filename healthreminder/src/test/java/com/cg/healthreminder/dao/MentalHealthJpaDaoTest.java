@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
-import com.cg.healthreminder.model.mentalHealth;
+import com.cg.healthreminder.model.MentalHealth;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -26,8 +26,8 @@ public class MentalHealthJpaDaoTest {
 	 @Autowired
      private MentalHealthJpaDao mentalJpaDao;
 	 
-	 private mentalHealth getTips() {
-		 mentalHealth m=new mentalHealth();
+	 private MentalHealth getTips() {
+		 MentalHealth m=new MentalHealth();
 		 m.setMentalRating(5);
 		 m.setMentalTip("You need to eat chocolate");
 		 return m;
@@ -35,12 +35,12 @@ public class MentalHealthJpaDaoTest {
 
 	 @Test
 	 public void testNewTips() throws Exception{
-	     mentalHealth mLocal = getTips();
-	     mentalHealth saveInDb = testEntityManager.persist(mLocal);
-	     mentalHealth getFromInDb = mentalJpaDao.findById(saveInDb.getMentalRating()).get();
+	     MentalHealth mLocal = getTips();
+	     MentalHealth saveInDb = testEntityManager.persist(mLocal);
+	     MentalHealth getFromInDb = mentalJpaDao.findById(saveInDb.getMentalRating()).get();
 	     assertThat(getFromInDb).isEqualTo(saveInDb);
-	     assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
-	     assertThat(getFromInDb.getMentalTip()).isEqualTo(saveInDb.getMentalTip());
+	     assertThat(getFromInDb.toString()).hasToString(saveInDb.toString());
+	     assertThat(getFromInDb.getMentalTip()).hasToString(saveInDb.getMentalTip());
 	 }
 	 
 
