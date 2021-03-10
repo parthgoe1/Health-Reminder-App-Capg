@@ -67,7 +67,7 @@ public class AppointmentSlotsJpaDaoTest {
          testEntityManager.remove(appslot);
 
          List<AppointmentSlots> tickets = (List<AppointmentSlots>) appointmentSlotsJpaDao.findAll();
-	     Assert.assertEquals(tickets.size(), 1);
+	     Assert.assertEquals(1,tickets.size());
 
 	    }
 	 
@@ -86,6 +86,6 @@ public class AppointmentSlotsJpaDaoTest {
          testEntityManager.persist(slot2);
       
          List<AppointmentSlots> tickets = (List<AppointmentSlots>) appointmentSlotsJpaDao.findAll();
-	     Assert.assertEquals(tickets.size(), 2);
+	     Assert.assertEquals(2,tickets.size());
 	    }
 }

@@ -32,8 +32,8 @@ public class MedicalHistoryServiceImpl implements MedicalHistoryService{
 		}
 		
 	}
-	public void addRecord(MedicalHistory m) {
-		medicalHistoryDao.save(m);
+	public MedicalHistory addRecord(MedicalHistory m) {
+		return medicalHistoryDao.save(m);
 	}
 	public void deleteRecord(String file) {
 		medicalHistoryDao.deleteById(file);

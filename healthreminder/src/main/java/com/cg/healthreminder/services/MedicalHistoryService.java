@@ -9,7 +9,7 @@ import com.cg.healthreminder.model.MedicalHistory;
 
 public interface MedicalHistoryService {
 public List<MedicalHistory> getByPatientId(int id) throws AllCustomException;
-public void addRecord(MedicalHistory m);
+public MedicalHistory addRecord(MedicalHistory m);
 public void deleteRecord(String file);
 public MedicalHistory updateRecord(MedicalHistory m);
 }

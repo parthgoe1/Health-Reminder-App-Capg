@@ -39,8 +39,8 @@ public class PatientController {
 	
 	//To add new patient
 	@PostMapping("/patient")
-	public void addPatient(Patient p) {
-		this.patientService.addPatient(p);
+	public Patient addPatient(Patient p) {
+		return this.patientService.addPatient(p);
 	}
 	
 	//To update patient details
