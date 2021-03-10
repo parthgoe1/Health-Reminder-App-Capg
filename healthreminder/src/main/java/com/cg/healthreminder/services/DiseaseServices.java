@@ -13,4 +13,5 @@ public interface DiseaseServices {
 	public Diseases viewDisease(Integer diseaseId) throws AllCustomException;
 	public Diseases updateDiseaseInfo(Integer diseaseId, String content) throws AllCustomException;
 	public Diseases addDisease(Diseases d);
+	public boolean deleteDisease(Integer diseaseId) throws AllCustomException;
 }

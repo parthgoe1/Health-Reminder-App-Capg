@@ -55,5 +55,16 @@ public class DiseaseServicesImpl implements DiseaseServices{
 		return diseaseDao.save(d);
 		
 	}
+	@Override
+	public boolean deleteDisease(Integer diseaseId) throws AllCustomException{
+		Optional<Diseases> m=diseaseDao.findById(diseaseId);
+		if(m.isPresent()) {
+			diseaseDao.deleteById(diseaseId);
+		}
+		else {
+			throw new AllCustomException("Disease not found for given ID, cannot delete");
+		}
+		return true;
+	}
 
 }

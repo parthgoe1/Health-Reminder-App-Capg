@@ -51,11 +51,11 @@ public class DiseaseControllerTest {
 	    @Test
 	    public void testNewDisease() throws Exception{
 	        String URI = "/healthreminder/addDisease";
-	         Diseases d=new Diseases();
-			 d.setDiseaseId(5);
-			 d.setDiseaseName("Cough");
-			 d.setDiseaseInfo("Throat Irritation");
-			 d.setDiseaseKeys("cough");
+	        Diseases d=new Diseases();
+			d.setDiseaseId(5);
+			d.setDiseaseName("Cough");
+			d.setDiseaseInfo("Throat Irritation");
+			d.setDiseaseKeys("cough");
 	        String jsonInput = this.converttoJson(d);
 
 	        Mockito.when(diseaseServices.addDisease(Mockito.any(Diseases.class))).thenReturn(d);
@@ -69,10 +69,10 @@ public class DiseaseControllerTest {
 	    public void testFindByDiseaseId() throws Exception{
 	        String URI = "/healthreminder/viewDisease/{id}";
 	        Diseases d=new Diseases();
-			 d.setDiseaseId(5);
-			 d.setDiseaseName("Cough");
-			 d.setDiseaseInfo("Throat Irritation");
-			 d.setDiseaseKeys("cough");
+			d.setDiseaseId(5);
+			d.setDiseaseName("Cough");
+			d.setDiseaseInfo("Throat Irritation");
+			d.setDiseaseKeys("cough");
 	        String jsonInput = this.converttoJson(d);
 
 	        Mockito.when(diseaseServices.viewDisease(Mockito.anyInt())).thenReturn(d);
@@ -88,15 +88,34 @@ public class DiseaseControllerTest {
 	    public void testUpdateByDiseaseId() throws Exception{
 	        String URI = "/healthreminder/updateDisease/{id}/{content}";
 	        Diseases d=new Diseases();
-			 d.setDiseaseId(5);
-			 d.setDiseaseName("Cough");
-			 d.setDiseaseInfo("Throat Irritation");
-			 d.setDiseaseKeys("cough");
+			d.setDiseaseId(5);
+			d.setDiseaseName("Cough");
+			d.setDiseaseInfo("Throat Irritation");
+			d.setDiseaseKeys("cough");
 
 	        Mockito.when(diseaseServices.updateDiseaseInfo(Mockito.anyInt(),Mockito.anyString())).thenReturn(d);
 	        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.post(URI, 5, "try this").accept(MediaType.APPLICATION_JSON))
 	                .andReturn();
 	        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
 	        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
-	    }  
+	    }
+	    
+	    @Test
+	    public void testDeleteByDiseaseId() throws Exception{
+	    	String URI = "/healthreminder/deleteDisease/{id}";
+	    	Diseases d=new Diseases();
+			d.setDiseaseId(5);
+			d.setDiseaseName("Cough");
+			d.setDiseaseInfo("Throat Irritation");
+			d.setDiseaseKeys("cough");
+
+	        Mockito.when(diseaseServices.viewDisease(Mockito.anyInt())).thenReturn(d);
+	        Mockito.when(diseaseServices.deleteDisease(Mockito.any())).thenReturn(true);
+	        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.delete(URI, 5).accept(MediaType.
+	        		APPLICATION_JSON)).andReturn();
+	        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
+
+	        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
+
+	    }
 }
