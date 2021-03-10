@@ -39,6 +39,7 @@ public class FollowUpMentalRatingInfoJpaDaoTest {
     	FollowUpMentalRatingInfo saveInDb = testEntityManager.persist(followUpMentalRatingInfo);
     	FollowUpMentalRatingInfo getFromInDb = followUpMentalRatingInfoJpaDao.findById(saveInDb.getPatientId()).get();
         assertThat(getFromInDb).isEqualTo(saveInDb);
+        assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
     }
     
     @Test

@@ -39,6 +39,7 @@ public class FollowUpDietStatusInfoJpaDaoTest {
     	FollowUpDietStatusInfo saveInDb = testEntityManager.persist(followUpDietStatusInfo);
     	FollowUpDietStatusInfo getFromInDb = followUpDietStatusInfoJpaDao.findById(saveInDb.getPatientId()).get();
         assertThat(getFromInDb).isEqualTo(saveInDb);
+        assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
     }
     
     @Test

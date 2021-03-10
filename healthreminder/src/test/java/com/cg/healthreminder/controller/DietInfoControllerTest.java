@@ -4,6 +4,7 @@ import com.cg.healthreminder.model.DietInfo;
 import com.cg.healthreminder.services.DietInfoServices;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,6 +21,8 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.Date;
 
 // Author --> Parth Goel
 
@@ -63,29 +66,60 @@ public class DietInfoControllerTest {
         Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
     }
 	
-//	@Test
-//    public void testFindDietByBMI() throws Exception{
-//        String URI = "/healthreminder/findAppointmentByPatId/{patientId}";
-//        AppointmentDetails apd = new AppointmentDetails();
-//        apd.setAppId(1);
-//	    apd.setDoctorId(5);
-//		apd.setDoctorName("Doctor Astin");
-//		apd.setDoctorStartTime(null);
-//		apd.setDoctorEndTime(null);
-//		apd.setDoctorDate(null); 
-//		apd.setPatientName("Sayantan");
-//		apd.setPatientId(4);
-//
-//		String jsonInput = this.converttoJson(apd);
-//
-//        Mockito.when(appointmentDetailsService.findAppointmentDetailByPatientId(Mockito.anyInt())).thenReturn(apd);
-//        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get(URI, 4).accept(MediaType.APPLICATION_JSON))
-//                .andReturn();
-//        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
-//        String jsonOutput = mockHttpServletResponse.getContentAsString();
-//
-//        assertThat(jsonInput).isEqualTo(jsonOutput);
-//    }
+	@Test
+    public void testFindDietByBMI() throws Exception{
+        String URI = "/healthreminder/diet_info_find/{bmi}";
+        DietInfo dietInfo = new DietInfo();
+        dietInfo.setBmiValue(1);
+        dietInfo.setDietInfo("pizza");
+		
+		String jsonInput = this.converttoJson(dietInfo);
+
+        Mockito.when(dietInfoService.findDietByBMI(Mockito.anyInt())).thenReturn(dietInfo);
+        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get(URI, 4).accept(MediaType.APPLICATION_JSON))
+                .andReturn();
+        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
+        String jsonOutput = mockHttpServletResponse.getContentAsString();
+
+        assertThat(jsonInput).isEqualTo(jsonOutput);
+    }
+	
+	@Test
+    public void testDeleteDietByBMI() throws Exception{
+    	String URI = "/healthreminder/delete_diet_by_bmi/{bmiValue}";  
+    	DietInfo dietInfo = new DietInfo();
+    	dietInfo.setBmiValue(1);
+        dietInfo.setDietInfo("pizza");
+
+        Mockito.when(dietInfoService.findDietByBMI(Mockito.anyInt())).thenReturn(dietInfo);
+        Mockito.when(dietInfoService.deleteDietByBMI(Mockito.any())).thenReturn(true);
+        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.delete(URI,1).accept(MediaType.
+        		APPLICATION_JSON)).andReturn();
+        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
+
+        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
+
+    }
+
+	@Test
+    public void testUpdateDietByBMI() throws Exception{
+
+        String URI = "/healthreminder/diet_info_update/{bmiValue}/info/{dietInformation}";
+        DietInfo dietInfo = new DietInfo();
+    	dietInfo.setBmiValue(1);
+        dietInfo.setDietInfo("pizza");
+        
+        String jsonInput = this.converttoJson(dietInfo);
+
+        Mockito.when(dietInfoService.updateDietByBMI(Mockito.any(),Mockito.anyString())).thenReturn(dietInfo);
+        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.put(URI, 1, "\"pizza\"").accept(MediaType.APPLICATION_JSON).content(jsonInput).contentType(MediaType.APPLICATION_JSON))
+                .andReturn();
+        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
+        String jsonOutput = mockHttpServletResponse.getContentAsString();
+
+        assertThat(jsonInput).isEqualTo(jsonOutput);
+    }
+
 
 
 }
