@@ -1,7 +1,6 @@
 package com.cg.healthreminder.services;
 
 import com.cg.healthreminder.dao.FollowUpMentalRatingInfoJpaDao;
-import com.cg.healthreminder.model.DietInfo;
 import com.cg.healthreminder.model.FollowUpMentalRatingInfo;
 import com.cg.healthreminder.services.FollowUpMentalRatingInfoServices;
 
@@ -15,9 +14,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
