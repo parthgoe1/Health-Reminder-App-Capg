@@ -39,7 +39,7 @@ public class FollowUpMentalRatingInfoJpaDaoTest {
     	FollowUpMentalRatingInfo saveInDb = testEntityManager.persist(followUpMentalRatingInfo);
     	FollowUpMentalRatingInfo getFromInDb = followUpMentalRatingInfoJpaDao.findById(saveInDb.getPatientId()).get();
         assertThat(getFromInDb).isEqualTo(saveInDb);
-        assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
+        assertThat(getFromInDb.toString()).hasToString(saveInDb.toString());
     }
     
     @Test
@@ -71,7 +71,7 @@ public class FollowUpMentalRatingInfoJpaDaoTest {
         testEntityManager.remove(followUpMentalRatingInfo);
 
         List<FollowUpMentalRatingInfo> followUpMentalRatingInfos = (List<FollowUpMentalRatingInfo>) followUpMentalRatingInfoJpaDao.findAll();
-        Assert.assertEquals(followUpMentalRatingInfos.size(), 1);
+        Assert.assertEquals(1, followUpMentalRatingInfos.size());
 
     }
     

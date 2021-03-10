@@ -19,7 +19,6 @@ import javax.validation.constraints.Min;
 import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.DietInfo;
 import com.cg.healthreminder.services.DietInfoServices;
-import com.cg.healthreminder.services.impl.DietInfoServicesImpl;
 
 //Author --> Parth Goel
 

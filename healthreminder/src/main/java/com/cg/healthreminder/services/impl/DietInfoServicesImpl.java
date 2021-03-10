@@ -45,13 +45,13 @@ public class DietInfoServicesImpl implements DietInfoServices{
 	}
 
 	@Override
-	public DietInfo updateDietByBMI(Integer bmiValue, String dietInformation) throws AllCustomException{
+	public DietInfo updateDietByBMI(Integer bmiValue, String diet) throws AllCustomException{
 		logger.info("Updating diet information by BMI in Implementation........");
 		Optional<DietInfo> dietInfo = dietInfoJpaDao.findById(bmiValue);
 		DietInfo di2 = null;
 		if(dietInfo.isPresent()) {
 			di2 = dietInfo.get();
-			di2.setDietInfo(dietInformation);
+			di2.setDiet(diet);
 		}
 		else {
 			throw new AllCustomException("Diet Information not found for the given Patient id, so can't be updated");
@@ -72,8 +72,7 @@ public class DietInfoServicesImpl implements DietInfoServices{
 		}
 		
 		
-		return true;
-		
+		return true;	
 	}
 
 	@Override

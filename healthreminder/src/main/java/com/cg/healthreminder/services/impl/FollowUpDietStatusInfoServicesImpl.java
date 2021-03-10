@@ -21,7 +21,7 @@ public class FollowUpDietStatusInfoServicesImpl implements FollowUpDietStatusInf
 	@Autowired
 	private FollowUpDietStatusInfoJpaDao followUpDietStatusInfoJpaDao;
 	private static final Logger logger=LogManager.getLogger(FollowUpDietStatusInfoServicesImpl.class);
-
+	
 	@Override
 	public FollowUpDietStatusInfo findDietStatusById(Integer patientId) throws AllCustomException{
 
@@ -70,13 +70,10 @@ public class FollowUpDietStatusInfoServicesImpl implements FollowUpDietStatusInf
 		Optional<FollowUpDietStatusInfo> fdsi = followUpDietStatusInfoJpaDao.findById(patientId);
 	
 		if(fdsi.isPresent()) {
-			
 			followUpDietStatusInfoJpaDao.deleteById(patientId);		}
 		else {
 			throw new AllCustomException("Diet Status Information not found for the given Patient id, so can't be deleted");
 		}
-		
-		
 		return true;
 	}
 

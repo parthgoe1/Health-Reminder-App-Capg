@@ -39,7 +39,7 @@ public class FollowUpDietStatusInfoJpaDaoTest {
     	FollowUpDietStatusInfo saveInDb = testEntityManager.persist(followUpDietStatusInfo);
     	FollowUpDietStatusInfo getFromInDb = followUpDietStatusInfoJpaDao.findById(saveInDb.getPatientId()).get();
         assertThat(getFromInDb).isEqualTo(saveInDb);
-        assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
+        assertThat(getFromInDb.toString()).hasToString(saveInDb.toString());
     }
     
     @Test
@@ -71,7 +71,7 @@ public class FollowUpDietStatusInfoJpaDaoTest {
         testEntityManager.remove(followUpDietStatusInfo);
 
         List<FollowUpDietStatusInfo> followUpDietStatusInfos = (List<FollowUpDietStatusInfo>) followUpDietStatusInfoJpaDao.findAll();
-        Assert.assertEquals(followUpDietStatusInfos.size(), 1);
+        Assert.assertEquals(1, followUpDietStatusInfos.size());
 
     }
     
@@ -88,7 +88,7 @@ public class FollowUpDietStatusInfoJpaDaoTest {
         getFromDb.setDietStatus(true);
         testEntityManager.persist(getFromDb);
 
-        assertThat(getFromDb.getDietStatus()).isEqualTo(true);
+        assertThat(getFromDb.getDietStatus()).isTrue();
     }
 
 

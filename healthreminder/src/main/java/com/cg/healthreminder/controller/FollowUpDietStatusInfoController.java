@@ -8,18 +8,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import javax.validation.Valid;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
 import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.FollowUpDietStatusInfo;
 import com.cg.healthreminder.services.FollowUpDietStatusInfoServices;
-import com.cg.healthreminder.services.impl.DietInfoServicesImpl;
 
 //Author --> Parth Goel
 

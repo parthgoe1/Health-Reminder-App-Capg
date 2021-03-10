@@ -15,7 +15,7 @@ public class DietInfo {
 
 	@Override
 	public String toString() {
-		return "DietInfo [bmi_value = " + bmiValue + ", dietInfo = " + dietInfo + "]";
+		return "DietInfo [bmi_value = " + bmiValue + ", diet = " + diet + "]";
 	}
 	
 	@Id
@@ -24,7 +24,7 @@ public class DietInfo {
     @Column(name = "bmi_value", nullable = false)
     private Integer bmiValue;
     @Column(name = "diet_info", nullable = false)
-    private String dietInfo;
+    private String diet;
 	
     public Integer getBmiValue() {
 		return bmiValue;
@@ -32,11 +32,11 @@ public class DietInfo {
 	public void setBmiValue(Integer bmiValue) {
 		this.bmiValue = bmiValue;
 	}
-	public String getDietInfo() {
-		return dietInfo;
+	public String getDiet() {
+		return diet;
 	}
-	public void setDietInfo(String dietInfo) {
-		this.dietInfo = dietInfo;
+	public void setDiet(String diet) {
+		this.diet = diet;
 	}
     
     

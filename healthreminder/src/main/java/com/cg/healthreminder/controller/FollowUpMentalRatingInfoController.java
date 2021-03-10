@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,7 +27,7 @@ public class FollowUpMentalRatingInfoController {
 
 	@Autowired
 	private FollowUpMentalRatingInfoServices followUpMentalRatingInfoServices;
-	private static final Logger logger=LogManager.getLogger(FollowUpDietStatusInfoController.class);
+	private static final Logger logger=LogManager.getLogger(FollowUpMentalRatingInfoController.class);
 	
 	//To find a particular follow up mental rating using id
 	@GetMapping("/followup_mentalrating_find/{patientId}")
@@ -39,9 +38,9 @@ public class FollowUpMentalRatingInfoController {
 	
 	//To update follow up mental rating details
 	@PutMapping("/followup_mentalrating_update/{patientId}/rating/{MentalRating}")
-	public FollowUpMentalRatingInfo updateMentalRatingById(@PathVariable @Min(1) Integer patientId, @PathVariable @Min(1) @Max(5) Integer MentalRating) throws AllCustomException{
+	public FollowUpMentalRatingInfo updateMentalRatingById(@PathVariable @Min(1) Integer patientId, @PathVariable @Min(1) @Max(5) Integer mentalRating) throws AllCustomException{
 		logger.info("Updating mental rating information by ID in Controller........");
-		return this.followUpMentalRatingInfoServices.updateMentalRatingById(patientId, MentalRating);
+		return this.followUpMentalRatingInfoServices.updateMentalRatingById(patientId, mentalRating);
 	}
 		
 	//To create follow up mental rating details

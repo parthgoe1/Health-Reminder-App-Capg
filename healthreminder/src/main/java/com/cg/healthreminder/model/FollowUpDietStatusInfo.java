@@ -45,13 +45,12 @@ public class FollowUpDietStatusInfo {
 	}
 
 	public void setDietStatus(Boolean dietStatus) {
-		if(dietStatus == true) {
+		boolean ds = dietStatus.booleanValue();
+		if(ds) {
 			this.streak++;
-			this.dietStatus = dietStatus;
 		}
 		else {
 			this.streak = 0;
-			this.dietStatus = dietStatus;
 		}
 		this.dietStatus = dietStatus;
 	}

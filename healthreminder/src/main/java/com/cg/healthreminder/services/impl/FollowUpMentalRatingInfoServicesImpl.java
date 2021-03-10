@@ -49,7 +49,6 @@ public class FollowUpMentalRatingInfoServicesImpl implements FollowUpMentalRatin
 		}
 		else {
 			throw new AllCustomException("Mental Rating Information not found for the given Patient id, so can't be updated");
-
 		}
 		return followUpMentalRatingInfoJpaDao.save(fumri);
 		

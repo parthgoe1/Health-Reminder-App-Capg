@@ -53,7 +53,7 @@ public class DietInfoControllerTest {
         String URI = "/healthreminder/create_diet";
         DietInfo dietInfo = new DietInfo();
         dietInfo.setBmiValue(1);
-        dietInfo.setDietInfo("pizza");
+        dietInfo.setDiet("pizza");
 		
         String jsonInput = this.converttoJson(dietInfo);
 
@@ -71,7 +71,7 @@ public class DietInfoControllerTest {
         String URI = "/healthreminder/diet_info_find/{bmi}";
         DietInfo dietInfo = new DietInfo();
         dietInfo.setBmiValue(1);
-        dietInfo.setDietInfo("pizza");
+        dietInfo.setDiet("pizza");
 		
 		String jsonInput = this.converttoJson(dietInfo);
 
@@ -89,7 +89,7 @@ public class DietInfoControllerTest {
     	String URI = "/healthreminder/delete_diet_by_bmi/{bmiValue}";  
     	DietInfo dietInfo = new DietInfo();
     	dietInfo.setBmiValue(1);
-        dietInfo.setDietInfo("pizza");
+        dietInfo.setDiet("pizza");
 
         Mockito.when(dietInfoService.findDietByBMI(Mockito.anyInt())).thenReturn(dietInfo);
         Mockito.when(dietInfoService.deleteDietByBMI(Mockito.any())).thenReturn(true);
@@ -107,7 +107,7 @@ public class DietInfoControllerTest {
         String URI = "/healthreminder/diet_info_update/{bmiValue}/info/{dietInformation}";
         DietInfo dietInfo = new DietInfo();
     	dietInfo.setBmiValue(1);
-        dietInfo.setDietInfo("pizza");
+        dietInfo.setDiet("pizza");
         
         String jsonInput = this.converttoJson(dietInfo);
 
