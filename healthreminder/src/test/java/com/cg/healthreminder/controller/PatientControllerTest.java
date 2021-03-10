@@ -64,13 +64,13 @@ public class PatientControllerTest {
                 .andReturn();
 		MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
         String jsonOutput = mockHttpServletResponse.getContentAsString();
-
         assertThat(jsonInput).isEqualTo(jsonOutput);
+        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
     }
     
     @Test
     public void testGetAllPatients() throws Exception{
-    	String URI = "healthreminder/patients";
+    	String URI = "/healthreminder/patients";
     	Patient pt1 = new Patient();
     	pt1.setPatientId(100);
 		pt1.setPatientEmail("trial@trial.com");
