@@ -46,6 +46,24 @@ public class DiseaseJpaDaoTest {
 	     assertThat(getFromInDb).isEqualTo(saveInDb);
 	 }
 	 
-
+/*	 @Test
+	 public void testNewDiseases() throws Exception{
+	     Diseases dLocal = getDiseases();
+	     //System.out.println(dLocal);
+	     Diseases saveInDb = testEntityManager.merge(dLocal);
+	     Diseases getFromInDb = diseaseJpaDao.findById(saveInDb.getDiseaseId()).get();
+	     assertThat(getFromInDb).isEqualTo(saveInDb);
+	 }
+	 */
+/*	 @Test
+	 public void testNewDiseases() throws Exception{
+	     Diseases dLocal = getDiseases();
+	     //System.out.println(dLocal);
+	     Diseases saveInDb = testEntityManager.merge(dLocal);
+	     Diseases getFromInDb = diseaseJpaDao.findById(saveInDb.getDiseaseId()).get();
+	     assertThat(getFromInDb).isEqualTo(saveInDb);
+	 }
+	 */
+	 
 
 } 
