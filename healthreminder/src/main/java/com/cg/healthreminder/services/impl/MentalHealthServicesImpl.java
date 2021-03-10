@@ -54,5 +54,16 @@ public class MentalHealthServicesImpl implements MentalHealthServices {
 		return mentalDao.save(m);
 		
 	}
+	@Override
+	public boolean deleteTips(Integer mentalRating) throws AllCustomException{
+		Optional<mentalHealth> m=mentalDao.findById(mentalRating);
+		if(m.isPresent()) {
+			mentalDao.deleteById(mentalRating);
+		}
+		else {
+			throw new AllCustomException("Health Rating not found for given ID, cannot delete");
+		}
+		return true;
+	}
 	
 }

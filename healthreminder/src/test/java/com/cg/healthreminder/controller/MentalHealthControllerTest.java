@@ -92,5 +92,22 @@ public class MentalHealthControllerTest {
 	                .andReturn();
 	        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
 	        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
-	    }  
+	    }
+	    
+	    @Test
+	    public void testDeleteByMentalRating() throws Exception{
+	    	String URI = "/healthreminder/deleteTips/{id}";
+	        mentalHealth m=new mentalHealth();
+			m.setMentalRating(5);
+			m.setMentalTip("You need to eat chocolate");
+
+	        Mockito.when(mentalServices.displayTips(Mockito.anyInt())).thenReturn(m);
+	        Mockito.when(mentalServices.deleteTips(Mockito.any())).thenReturn(true);
+	        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.delete(URI, 5).accept(MediaType.
+	        		APPLICATION_JSON)).andReturn();
+	        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
+
+	        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
+
+	    }
 }
