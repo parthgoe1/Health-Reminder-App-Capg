@@ -5,7 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import com.cg.healthreminder.model.DietInfo;
 
-//Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the DAO class for Diet Information
+ */
 
 @Repository
 public interface DietInfoJpaDao extends JpaRepository<DietInfo,Integer>{

@@ -24,7 +24,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Date;
 
-// Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the test class for Diet Information controller
+ */
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = DietInfoController.class)
@@ -42,12 +46,14 @@ public class DietInfoControllerTest {
      * @return
      * @throws JsonProcessingException
      */
-	
 	private String converttoJson(Object dietInfo) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(dietInfo);
     }
 	
+	/**
+	 * To test create diet information details  
+	 */
 	@Test
     public void testCreateDiet() throws Exception{
         String URI = "/healthreminder/create_diet";
@@ -66,6 +72,9 @@ public class DietInfoControllerTest {
         Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
     }
 	
+	/**
+	 * To test find diet information details using id  
+	 */
 	@Test
     public void testFindDietByBMI() throws Exception{
         String URI = "/healthreminder/diet_info_find/{bmi}";
@@ -84,6 +93,9 @@ public class DietInfoControllerTest {
         assertThat(jsonInput).isEqualTo(jsonOutput);
     }
 	
+	/**
+	 * To test delete diet information details using id  
+	 */
 	@Test
     public void testDeleteDietByBMI() throws Exception{
     	String URI = "/healthreminder/delete_diet_by_bmi/{bmiValue}";  
@@ -100,7 +112,10 @@ public class DietInfoControllerTest {
         Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
 
     }
-
+	
+	/**
+	 * To test update diet information details using id  
+	 */
 	@Test
     public void testUpdateDietByBMI() throws Exception{
 

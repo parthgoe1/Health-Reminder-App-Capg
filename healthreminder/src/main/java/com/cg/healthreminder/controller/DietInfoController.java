@@ -20,7 +20,11 @@ import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.DietInfo;
 import com.cg.healthreminder.services.DietInfoServices;
 
-//Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the controller class for Diet Information
+ */
 
 @RestController
 @RequestMapping("/healthreminder")
@@ -31,34 +35,45 @@ public class DietInfoController {
 	private DietInfoServices dietInfoService;
 	private static final Logger logger=LogManager.getLogger(DietInfoController.class);
 	
-	//To find a particular diet using bmi
+	/**
+	 * To find a particular diet using bmi
+	 */
 	@GetMapping("/diet_info_find/{bmi}")
 	public DietInfo findDietByBMI(@PathVariable @Min(1) @Max(4) Integer bmi) throws AllCustomException{
 		logger.info("Finding diet information by BMI in Controller........");
 		return this.dietInfoService.findDietByBMI(bmi);
 	}
 	
-	//To find list of all diets
+	/**
+	 * To find list of all diets
+	 */
 	@GetMapping("/diet_info_find_all")
 	public Iterable<DietInfo> getAllDiets(){
 		logger.info("Finding all diet information by BMI in Controller........");
 		return this.dietInfoService.getAllDiets();
 	}
 	
-	//To update diet details
+	/**
+	 * To update diet details by bmi
+	 */
 	@PutMapping("/diet_info_update/{bmiValue}/info/{dietInformation}")
 	public DietInfo updateDietByBMI(@PathVariable @Min(1) @Max(4) Integer bmiValue, @PathVariable String dietInformation) throws AllCustomException{
 		logger.info("Updating diet information by BMI in Controller........");
 		return this.dietInfoService.updateDietByBMI(bmiValue, dietInformation);
 	}
 	
-	//To delete diet details
+	/**
+	 * To delete diet details by bmi
+	 */
 	@DeleteMapping("/delete_diet_by_bmi/{bmiValue}")
     public boolean deleteDietByBMI(@PathVariable @Min(1) @Max(4) Integer bmiValue) throws AllCustomException{
 		logger.info("Deleting diet information by BMI in Controller........");
         return dietInfoService.deleteDietByBMI(bmiValue);
     }
 	
+	/**
+	 * To create diet details
+	 */
 	 @PostMapping("/create_diet")
 	 public DietInfo createDiet(@Valid @RequestBody DietInfo dietInfo) {
 		 logger.info("Deleting diet information in Controller........");

@@ -14,7 +14,11 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-// Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the test class for Follow Up Diet Status Information Dao
+ */
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -33,6 +37,9 @@ public class FollowUpDietStatusInfoJpaDaoTest {
         return followUpDietStatusInfo;
     }
     
+    /**
+	 * To test create follow up diet status information details   
+	 */
     @Test
     public void testNewFollowUpDiet() throws Exception{
     	FollowUpDietStatusInfo followUpDietStatusInfo = getFollowUpDietStatusInfo();
@@ -42,6 +49,9 @@ public class FollowUpDietStatusInfoJpaDaoTest {
         assertThat(getFromInDb.toString()).hasToString(saveInDb.toString());
     }
     
+    /**
+	 * To test get follow up diet status information details using id  
+	 */
     @Test
     public void testGetFollowUpDietStatusById() throws Exception{
     	FollowUpDietStatusInfo followUpDietStatusInfo = new FollowUpDietStatusInfo();
@@ -54,6 +64,9 @@ public class FollowUpDietStatusInfoJpaDaoTest {
         assertThat(getInDb).isEqualTo(saveInDb);
     }
     
+    /**
+	 * To test delete follow up diet status information details using id  
+	 */
     @Test
     public void testDeleteFollowUpDietStatusInfoById() throws Exception{
     	FollowUpDietStatusInfo followUpDietStatusInfo1 = new FollowUpDietStatusInfo();
@@ -75,6 +88,9 @@ public class FollowUpDietStatusInfoJpaDaoTest {
 
     }
     
+    /**
+	 * To test update follow up diet status information details using id  
+	 */
     @Test
     public void testUpdateFollowUpDietStatusInfo(){
 

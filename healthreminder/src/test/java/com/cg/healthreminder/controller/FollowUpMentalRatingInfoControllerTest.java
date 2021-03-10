@@ -24,7 +24,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Date;
 
-// Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the test class for Follow Up Mental Rating Information controller
+ */
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = FollowUpMentalRatingInfoController.class)

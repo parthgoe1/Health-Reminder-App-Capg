@@ -15,7 +15,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-// Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the test class for Follow Up Diet Status Information services
+ */
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -27,6 +31,9 @@ public class FollowUpDietStatusInfoServicesTest {
     @Autowired
     private FollowUpDietStatusInfoServices followUpDietStatusInfoServices;
     
+    /**
+	 * To test create follow up diet status information details
+	 */
     @Test
     public void testCreateDietStatus(){
         FollowUpDietStatusInfo followUpDietStatusInfo = new FollowUpDietStatusInfo();

@@ -24,7 +24,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Date;
 
-// Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the test class for Follow Up Diet Status Information controller
+ */
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = FollowUpDietStatusInfoController.class)
@@ -42,12 +46,14 @@ public class FollowUpDietStatusInfoControllerTest {
      * @return
      * @throws JsonProcessingException
      */
-	
 	private String converttoJson(Object followUpDietStatusInfo) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(followUpDietStatusInfo);
     }
 	
+	/**
+	 * To test create follow up diet status information details  
+	 */
 	@Test
     public void testCreateDietStatus() throws Exception{
         String URI = "/healthreminder/create_followup_dietstatus";
@@ -66,6 +72,9 @@ public class FollowUpDietStatusInfoControllerTest {
         Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
     }
 	
+	/**
+	 * To test find follow up diet status information details using id  
+	 */
 	@Test
     public void testFindDietStatusById() throws Exception{
         String URI = "/healthreminder/followup_dietstatus_find/{patientId}";
@@ -84,6 +93,9 @@ public class FollowUpDietStatusInfoControllerTest {
         assertThat(jsonInput).isEqualTo(jsonOutput);
     }
 	
+	/**
+	 * To test delete follow up diet status information details using id  
+	 */
 	@Test
     public void testDeleteDietStatus() throws Exception{
     	String URI = "/healthreminder/delete_dietstatus_by_id/{patientId}";  
@@ -101,6 +113,9 @@ public class FollowUpDietStatusInfoControllerTest {
 
     }
 	
+	/**
+	 * To test update follow up diet status information details using id  
+	 */
 	@Test
     public void testUpdateDietStatusById() throws Exception{
 

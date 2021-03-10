@@ -14,7 +14,11 @@ import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.DietInfo;
 import com.cg.healthreminder.services.DietInfoServices;
 
-// Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the services implementation class for Diet Information
+ */
 
 @Service
 @Transactional
@@ -24,6 +28,9 @@ public class DietInfoServicesImpl implements DietInfoServices{
 	private DietInfoJpaDao dietInfoJpaDao;
 	private static final Logger logger=LogManager.getLogger(DietInfoServicesImpl.class);
 
+	/**
+	 * To find diet information details using bmi
+	 */
 	@Override
 	public DietInfo findDietByBMI(Integer bmiValue) throws AllCustomException{
 		logger.info("Finding diet information by BMI in Implementation........");
@@ -38,12 +45,18 @@ public class DietInfoServicesImpl implements DietInfoServices{
 		return di2;
 	}
 
+	/**
+	 * To find all diet information details 
+	 */
 	@Override
 	public Iterable<DietInfo> getAllDiets() {
 		logger.info("Finding all diet information by BMI in Implementation........");
 		return dietInfoJpaDao.findAll();
 	}
-
+	
+	/**
+	 * To update diet information details using bmi
+	 */
 	@Override
 	public DietInfo updateDietByBMI(Integer bmiValue, String diet) throws AllCustomException{
 		logger.info("Updating diet information by BMI in Implementation........");
@@ -60,6 +73,9 @@ public class DietInfoServicesImpl implements DietInfoServices{
 		
 	}
 
+	/**
+	 * To delete diet information details using bmi
+	 */
 	@Override
 	public boolean deleteDietByBMI(Integer bmiValue) throws AllCustomException{
 		logger.info("Deleting diet information by BMI in Implementation........");
@@ -75,6 +91,9 @@ public class DietInfoServicesImpl implements DietInfoServices{
 		return true;	
 	}
 
+	/**
+	 * To create diet information details 
+	 */
 	@Override
 	public DietInfo createDiet(DietInfo dietInfo) {
 		logger.info("Creating diet information in Implementation........");

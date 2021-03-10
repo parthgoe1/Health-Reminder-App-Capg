@@ -20,7 +20,11 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-// Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the test class for Diet Information services
+ */
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -32,6 +36,9 @@ public class DietInfoServicesTest {
     @Autowired
     private DietInfoServices dietInfoServices;
     
+    /**
+	 * To test create diet information details
+	 */
     @Test
     public void testCreateDiet(){
         DietInfo dietInfo = new DietInfo();

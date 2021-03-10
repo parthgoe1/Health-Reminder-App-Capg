@@ -12,7 +12,11 @@ import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.FollowUpMentalRatingInfo;
 import com.cg.healthreminder.services.FollowUpMentalRatingInfoServices;
 
-// Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the services implemenatation class for Follow Up Mental Rating Information
+ */
 
 @Service
 @Transactional
@@ -22,6 +26,9 @@ public class FollowUpMentalRatingInfoServicesImpl implements FollowUpMentalRatin
 	private FollowUpMentalRatingInfoJpaDao followUpMentalRatingInfoJpaDao;
 	private static final Logger logger=LogManager.getLogger(FollowUpMentalRatingInfoServicesImpl.class);
 	
+	/**
+	 * To find follow up mental rating information details using id 
+	 */
 	@Override
 	public FollowUpMentalRatingInfo findMentalRatingById(Integer patientId) throws AllCustomException{
 
@@ -37,6 +44,9 @@ public class FollowUpMentalRatingInfoServicesImpl implements FollowUpMentalRatin
 		return fumri2;
 	}
 
+	/**
+	 * To update follow up mental rating information details using id 
+	 */
 	@Override
 	public FollowUpMentalRatingInfo updateMentalRatingById(Integer patientId, Integer mentalRating) throws AllCustomException{
 
@@ -54,6 +64,9 @@ public class FollowUpMentalRatingInfoServicesImpl implements FollowUpMentalRatin
 		
 	}
 
+	/**
+	 * To create follow up mental rating information details 
+	 */
 	@Override
 	public FollowUpMentalRatingInfo createMentalRating(FollowUpMentalRatingInfo followUpMentalRatingInfo) {
 		
@@ -61,7 +74,9 @@ public class FollowUpMentalRatingInfoServicesImpl implements FollowUpMentalRatin
 		return followUpMentalRatingInfoJpaDao.save(followUpMentalRatingInfo);
 	}
 
-
+	/**
+	 * To delete follow up mental rating information details using id 
+	 */
 	@Override
 	public boolean deleteMentalRating(Integer patientId) throws AllCustomException{
 	

@@ -12,7 +12,11 @@ import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.FollowUpDietStatusInfo;
 import com.cg.healthreminder.services.FollowUpDietStatusInfoServices;
 
-// Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the services implementation class for Follow Up Diet status Information
+ */
 
 @Service
 @Transactional
@@ -22,6 +26,9 @@ public class FollowUpDietStatusInfoServicesImpl implements FollowUpDietStatusInf
 	private FollowUpDietStatusInfoJpaDao followUpDietStatusInfoJpaDao;
 	private static final Logger logger=LogManager.getLogger(FollowUpDietStatusInfoServicesImpl.class);
 	
+	/**
+	 * To find follow up diet status information details using id 
+	 */
 	@Override
 	public FollowUpDietStatusInfo findDietStatusById(Integer patientId) throws AllCustomException{
 
@@ -37,6 +44,9 @@ public class FollowUpDietStatusInfoServicesImpl implements FollowUpDietStatusInf
 		return fudsi;
 	}
 
+	/**
+	 * To update follow up diet status information details using id 
+	 */
 	@Override
 	public FollowUpDietStatusInfo updateDietStatusById(Integer patientId, Boolean dietStatus) throws AllCustomException{
 		
@@ -55,6 +65,9 @@ public class FollowUpDietStatusInfoServicesImpl implements FollowUpDietStatusInf
 		
 	}
 
+	/**
+	 * To create follow up diet status information details 
+	 */
 	@Override
 	public FollowUpDietStatusInfo createDietStatus(FollowUpDietStatusInfo followUpDietStatusInfo) {
 		
@@ -62,7 +75,9 @@ public class FollowUpDietStatusInfoServicesImpl implements FollowUpDietStatusInf
 		return followUpDietStatusInfoJpaDao.save(followUpDietStatusInfo);
 	}
 
-
+	/**
+	 * To delete follow up diet status information details using id 
+	 */
 	@Override
 	public boolean deleteDietStatus(Integer patientId) throws AllCustomException{
 

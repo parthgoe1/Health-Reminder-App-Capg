@@ -5,7 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import com.cg.healthreminder.model.FollowUpMentalRatingInfo;
 
-//Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the DAO class for Follow Up Mental Rating Information
+ */
 
 @Repository
 public interface FollowUpMentalRatingInfoJpaDao extends JpaRepository<FollowUpMentalRatingInfo,Integer>{

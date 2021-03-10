@@ -3,7 +3,11 @@ package com.cg.healthreminder.services;
 import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.DietInfo;
 
-//Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the services class for Diet status Information
+ */
 
 public interface DietInfoServices {
 

@@ -14,7 +14,11 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-// Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the test class for Diet Information Dao
+ */
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -34,6 +38,9 @@ public class DietInfoJpaDaoTest {
         return dietInfo;
     }
     
+    /**
+	 * To test create diet information details  
+	 */
     @Test
     public void testNewDiet() throws Exception{
         DietInfo dietInfo = getDietInfo();
@@ -43,6 +50,9 @@ public class DietInfoJpaDaoTest {
         assertThat(getFromInDb.toString()).hasToString(saveInDb.toString());
     }
     
+    /**
+	 * To test get diet information details using bmi  
+	 */
     @Test
     public void testGetDietByBMI() throws Exception{
         DietInfo dietInfo = new DietInfo();
@@ -55,6 +65,9 @@ public class DietInfoJpaDaoTest {
         assertThat(getInDb).isEqualTo(saveInDb);
     }
     
+    /**
+	 * To test get all diet information details 
+	 */
     @Test
     public void testGetAllDietInfo() throws Exception{
         DietInfo dietInfo1  = new DietInfo();
@@ -73,6 +86,9 @@ public class DietInfoJpaDaoTest {
         Assert.assertEquals(2, dietInfoList.size());
     }
     
+    /**
+	 * To test delete diet information details using bmi  
+	 */
     @Test
     public void testDeleteDietInfoByBMI() throws Exception{
     	DietInfo dietInfo1 = new DietInfo();
@@ -94,6 +110,9 @@ public class DietInfoJpaDaoTest {
 
     }
     
+    /**
+	 * To test update diet information details using bmi  
+	 */
     @Test
     public void testUpdateDietInfo(){
 
