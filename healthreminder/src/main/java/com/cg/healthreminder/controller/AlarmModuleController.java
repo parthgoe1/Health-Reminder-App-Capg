@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.AlarmModule;
 import com.cg.healthreminder.services.AlarmModuleService;
 
@@ -23,22 +24,22 @@ public class AlarmModuleController {
     private AlarmModuleService alarmModuleService;
 	
 	@GetMapping("/getAllAlarms")
-    public List<AlarmModule> getAllAlarms(){
+    public List<AlarmModule> getAllAlarms() throws AllCustomException{
         return (List<AlarmModule>) alarmModuleService.getAllAlarms();
     }
 	
 	@GetMapping("/getAlarmById/{alarmId}")
-    public AlarmModule getAlarmById(@PathVariable Integer alarmId){
+    public AlarmModule getAlarmById(@PathVariable Integer alarmId) throws AllCustomException{
         return alarmModuleService.findAlarmById(alarmId);
     }
 	
 	@GetMapping("/getAlarmByName/{alarmName}")
-    public AlarmModule getAlarmByEmail(@PathVariable String alarmName){
+    public AlarmModule getAlarmByEmail(@PathVariable String alarmName) throws AllCustomException{
         return alarmModuleService.findAlarmByName(alarmName);
     }
 	
 	@PutMapping("/updateAlarmNamebyId/{alarmName}/alarm/{alarmId}")
-    public AlarmModule updateAlarmById(@PathVariable String alarmName, @PathVariable Integer alarmId){
+    public AlarmModule updateAlarmById(@PathVariable String alarmName, @PathVariable Integer alarmId) throws AllCustomException{
         return alarmModuleService.updateAlarmNameById(alarmId, alarmName);
     }
 	
@@ -48,7 +49,7 @@ public class AlarmModuleController {
     }
 	
 	@DeleteMapping("/deleteAlarmById/alarm/{alarmId}")
-    public boolean deleteAlarmById(@PathVariable Integer alarmId){
+    public AlarmModule deleteAlarmById(@PathVariable Integer alarmId) throws AllCustomException{
         return alarmModuleService.deleteAlarmById(alarmId);
     }
 	
