@@ -97,5 +97,76 @@ public class AppointmentDetailsControllerTest {
 
 	        assertThat(jsonInput).isEqualTo(jsonOutput);
 	    }
+	    
+	    @Test
+	    public void testFindByDoctorId() throws Exception{
+	        String URI = "/healthreminder/findAppointmentByDocId/{doctorId}";
+	        AppointmentDetails apd = new AppointmentDetails();
+	        apd.setAppId(1);
+		    apd.setDoctorId(5);
+			apd.setDoctorName("Doctor Astin");
+			apd.setDoctorStartTime(null);
+			apd.setDoctorEndTime(null);
+			apd.setDoctorDate(null); 
+			apd.setPatientName("Sayantan");
+			apd.setPatientId(4);
+
+			String jsonInput = this.converttoJson(apd);
+
+	        Mockito.when(appointmentDetailsService.findAppointmentDetailByDoctorId(Mockito.anyInt())).thenReturn(apd);
+	        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get(URI, 5).accept(MediaType.APPLICATION_JSON))
+	                .andReturn();
+	        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
+	        String jsonOutput = mockHttpServletResponse.getContentAsString();
+
+	        assertThat(jsonInput).isEqualTo(jsonOutput);
+	    }
+	    
+	    
+	    @Test
+	    public void testDeleteAppointmentByPatientId() throws Exception{
+	    	 String URI = "/healthreminder/deleteAppointmentByPatId/{patientId}";  
+	    	 AppointmentDetails apd = new AppointmentDetails();
+		      apd.setAppId(1);
+			  apd.setDoctorId(5);
+			  apd.setDoctorName("Doctor Astin");
+			  apd.setDoctorStartTime(null);
+			  apd.setDoctorEndTime(null);
+			  apd.setDoctorDate(null); 
+			  apd.setPatientName("Sayantan");
+			  apd.setPatientId(4);
+
+	        Mockito.when(appointmentDetailsService.findAppointmentDetailByPatientId(Mockito.anyInt())).thenReturn(apd);
+	        Mockito.when(appointmentDetailsService.deleteAppointmentByPatientId(Mockito.anyInt())).thenReturn(apd);
+	        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.delete(URI,4).accept(MediaType.
+	        		APPLICATION_JSON)).andReturn();
+	        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
+
+	        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
+
+	    }
+	    
+	    @Test
+	    public void testDeleteAppointmenttByDoctorId() throws Exception{
+	    	 String URI = "/healthreminder/deleteAppointmentByDocId/{doctorId}";  
+	    	 AppointmentDetails apd = new AppointmentDetails();
+		      apd.setAppId(1);
+			  apd.setDoctorId(5);
+			  apd.setDoctorName("Doctor Astin");
+			  apd.setDoctorStartTime(null);
+			  apd.setDoctorEndTime(null);
+			  apd.setDoctorDate(null); 
+			  apd.setPatientName("Sayantan");
+			  apd.setPatientId(4);
+
+	        Mockito.when(appointmentDetailsService.findAppointmentDetailByDoctorId(Mockito.anyInt())).thenReturn(apd);
+	        Mockito.when(appointmentDetailsService.deleteAppointmentByDoctorId(Mockito.anyInt())).thenReturn(apd);
+	        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.delete(URI,4).accept(MediaType.
+	        		APPLICATION_JSON)).andReturn();
+	        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
+
+	        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
+
+	    }
 
 }
