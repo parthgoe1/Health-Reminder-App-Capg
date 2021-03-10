@@ -1,6 +1,7 @@
 package com.cg.healthreminder.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.DietInfo;
@@ -21,6 +25,7 @@ import com.cg.healthreminder.services.impl.DietInfoServicesImpl;
 
 @RestController
 @RequestMapping("/healthreminder")
+@Validated
 public class DietInfoController {
 
 	@Autowired
@@ -29,7 +34,7 @@ public class DietInfoController {
 	
 	//To find a particular diet using bmi
 	@GetMapping("/diet_info_find/{bmi}")
-	public DietInfo findDietByBMI(@PathVariable Integer bmi) throws AllCustomException{
+	public DietInfo findDietByBMI(@PathVariable @Min(1) @Max(4) Integer bmi) throws AllCustomException{
 		logger.info("Finding diet information by BMI in Controller........");
 		return this.dietInfoService.findDietByBMI(bmi);
 	}
@@ -43,20 +48,20 @@ public class DietInfoController {
 	
 	//To update diet details
 	@PutMapping("/diet_info_update/{bmiValue}/info/{dietInformation}")
-	public DietInfo updateDietByBMI(@PathVariable Integer bmiValue, @PathVariable String dietInformation) throws AllCustomException{
+	public DietInfo updateDietByBMI(@PathVariable @Min(1) @Max(4) Integer bmiValue, @PathVariable String dietInformation) throws AllCustomException{
 		logger.info("Updating diet information by BMI in Controller........");
 		return this.dietInfoService.updateDietByBMI(bmiValue, dietInformation);
 	}
 	
 	//To delete diet details
 	@DeleteMapping("/delete_diet_by_bmi/{bmiValue}")
-    public boolean deleteDietByBMI(@PathVariable Integer bmiValue) throws AllCustomException{
+    public boolean deleteDietByBMI(@PathVariable @Min(1) @Max(4) Integer bmiValue) throws AllCustomException{
 		logger.info("Deleting diet information by BMI in Controller........");
         return dietInfoService.deleteDietByBMI(bmiValue);
     }
 	
 	 @PostMapping("/create_diet")
-	 public DietInfo createDiet(@RequestBody DietInfo dietInfo) {
+	 public DietInfo createDiet(@Valid @RequestBody DietInfo dietInfo) {
 		 logger.info("Deleting diet information in Controller........");
 		 return dietInfoService.createDiet(dietInfo);
 	 }
