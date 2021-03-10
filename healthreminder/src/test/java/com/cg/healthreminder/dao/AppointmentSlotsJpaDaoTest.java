@@ -48,6 +48,7 @@ public class AppointmentSlotsJpaDaoTest {
 	     AppointmentSlots saveInDb = testEntityManager.persist(slot);
 	     AppointmentSlots getFromInDb = appointmentSlotsJpaDao.findById(saveInDb.getPk()).get();
 	     assertThat(getFromInDb).isEqualTo(saveInDb);
+	     assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
 	 }
 	 
 	 @Test
