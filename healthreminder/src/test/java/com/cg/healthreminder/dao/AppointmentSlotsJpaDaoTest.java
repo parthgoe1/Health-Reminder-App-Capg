@@ -16,7 +16,6 @@ import org.junit.Assert;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.sql.Date;
 import java.util.List;
 
 
@@ -37,7 +36,7 @@ public class AppointmentSlotsJpaDaoTest {
 		 slot.setDoctorEndTime(null);
 		 slot.setDoctorStartTime(null);
 		 Slot_Pk pk=new Slot_Pk();
-		 pk.setDoc_date(Date.valueOf("2020-12-16"));
+		 pk.setDoc_date("2020-12-16");
 		 pk.setDoc_id(1);
 		 slot.setPk(pk);
 		 return slot;
@@ -58,7 +57,7 @@ public class AppointmentSlotsJpaDaoTest {
 		 slot2.setDoctorEndTime(null);
 		 slot2.setDoctorStartTime(null);
 		 Slot_Pk pk2=new Slot_Pk();
-		 pk2.setDoc_date(Date.valueOf("2020-12-17"));
+		 pk2.setDoc_date("2020-12-17");
 		 pk2.setDoc_id(12);
 		 slot2.setPk(pk2);
 
@@ -78,7 +77,7 @@ public class AppointmentSlotsJpaDaoTest {
 		 slot2.setDoctorEndTime(null);
 		 slot2.setDoctorStartTime(null);
 		 Slot_Pk pk2=new Slot_Pk();
-		 pk2.setDoc_date(Date.valueOf("2020-12-17"));
+		 pk2.setDoc_date("2020-12-17");
 		 pk2.setDoc_id(12);
 		 slot2.setPk(pk2);
 
