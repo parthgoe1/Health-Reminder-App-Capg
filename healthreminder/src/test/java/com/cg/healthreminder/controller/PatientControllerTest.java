@@ -60,8 +60,8 @@ public class PatientControllerTest {
 		
 		Mockito.when(patientService.addPatient(Mockito.any(Patient.class))).thenReturn(pt);    
 		
-		MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.post(URI).accept(MediaType.APPLICATION_JSON).content(jsonInput).contentType(MediaType.APPLICATION_JSON))
-                .andReturn();
+		MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.post(URI).accept(MediaType.APPLICATION_JSON)
+				.content(jsonInput).contentType(MediaType.APPLICATION_JSON)).andReturn();
 		MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
         String jsonOutput = mockHttpServletResponse.getContentAsString();
         assertThat(jsonInput).isEqualTo(jsonOutput);
@@ -122,4 +122,5 @@ public class PatientControllerTest {
 
 	        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
     }
+    
 }

@@ -42,6 +42,14 @@ public class PatientJpaDaoTest {
 		Patient saveInDb = testEntityManager.persist(p);
 		Patient getFromInDb = patientDao.findById(saveInDb.getPatientId()).get();
 		assertThat(getFromInDb).isEqualTo(saveInDb);
+		assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
+		assertThat(getFromInDb.getPatientId()).isEqualTo(saveInDb.getPatientId());
+		assertThat(getFromInDb.getPatientAge()).isEqualTo(saveInDb.getPatientAge());
+		assertThat(getFromInDb.getPatientEmail()).isEqualTo(saveInDb.getPatientEmail());
+		assertThat(getFromInDb.getPatientHeight()).isEqualTo(saveInDb.getPatientHeight());
+		assertThat(getFromInDb.getPatientWeight()).isEqualTo(saveInDb.getPatientWeight());
+		assertThat(getFromInDb.getPatientName()).isEqualTo(saveInDb.getPatientName());
+		assertThat(getFromInDb.getPatientMobile()).isEqualTo(saveInDb.getPatientMobile());
 	}
 	
 	@Test

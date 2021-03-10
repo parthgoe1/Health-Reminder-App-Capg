@@ -23,7 +23,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import com.cg.healthreminder.model.mentalHealth;
+import com.cg.healthreminder.model.MentalHealth;
 import com.cg.healthreminder.services.MentalHealthServices;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -51,12 +51,12 @@ public class MentalHealthControllerTest {
 	    @Test
 	    public void testNewMentalHealth() throws Exception{
 	        String URI = "/healthreminder/addTips";
-	        mentalHealth m=new mentalHealth();
+	        MentalHealth m=new MentalHealth();
 			m.setMentalRating(5);
 			m.setMentalTip("You need to eat chocolate");
 	        String jsonInput = this.converttoJson(m);
 
-	        Mockito.when(mentalServices.addTips(Mockito.any(mentalHealth.class))).thenReturn(m);
+	        Mockito.when(mentalServices.addTips(Mockito.any(MentalHealth.class))).thenReturn(m);
 	        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.post(URI).accept(MediaType.APPLICATION_JSON).content(jsonInput).contentType(MediaType.APPLICATION_JSON))
 	                .andReturn();
 	        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
@@ -66,7 +66,7 @@ public class MentalHealthControllerTest {
 	    @Test
 	    public void testFindByMentalRating() throws Exception{
 	    	String URI = "/healthreminder/viewTips/{id}";
-	        mentalHealth m=new mentalHealth();
+	        MentalHealth m=new MentalHealth();
 			m.setMentalRating(5);
 			m.setMentalTip("You need to eat chocolate");
 	        String jsonInput = this.converttoJson(m);
@@ -83,7 +83,7 @@ public class MentalHealthControllerTest {
 	    @Test
 	    public void testUpdateByMentalRating() throws Exception{
 	        String URI = "/healthreminder/updateTips/{id}/{content}";
-	        mentalHealth m=new mentalHealth();
+	        MentalHealth m=new MentalHealth();
 			m.setMentalRating(5);
 			m.setMentalTip("You need to eat chocolate");
 
@@ -97,7 +97,7 @@ public class MentalHealthControllerTest {
 	    @Test
 	    public void testDeleteByMentalRating() throws Exception{
 	    	String URI = "/healthreminder/deleteTips/{id}";
-	        mentalHealth m=new mentalHealth();
+	        MentalHealth m=new MentalHealth();
 			m.setMentalRating(5);
 			m.setMentalTip("You need to eat chocolate");
 

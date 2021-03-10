@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.healthreminder.exception.AllCustomException;
-import com.cg.healthreminder.model.mentalHealth;
+import com.cg.healthreminder.model.MentalHealth;
 import com.cg.healthreminder.services.MentalHealthServices;
 
 @RestController
@@ -31,14 +31,14 @@ public class MentalHealthController {
 	private MentalHealthServices mentalServices;
 	
 	@GetMapping("/viewTips/{id}")
-	public mentalHealth displayTips(@PathVariable Integer id) throws AllCustomException{
+	public MentalHealth displayTips(@PathVariable Integer id) throws AllCustomException{
 		return this.mentalServices.displayTips(id);
 	}
 	
 	
 	@SuppressWarnings("unchecked")
 	@PostMapping(value="/addTips")
-	public ResponseEntity addTips(@RequestBody mentalHealth h) {
+	public ResponseEntity addTips(@RequestBody MentalHealth h) {
 		this.mentalServices.addTips(h);
 		return new ResponseEntity("Tip added successfully", HttpStatus.OK);
 	}
