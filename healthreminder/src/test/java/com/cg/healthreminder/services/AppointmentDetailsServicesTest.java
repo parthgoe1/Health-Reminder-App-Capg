@@ -84,7 +84,7 @@ public class AppointmentDetailsServicesTest {
 	      assertThat(appointmentDetailServices.findAppointmentDetailByDoctorId(5)).isEqualTo(a);
 	    }
 	  
-	  @Test
+	 /* @Test
 	    public void testDeleteAppointmentByPatientId() throws Exception{
 		  AppointmentDetails a= new AppointmentDetails();
 		  a.setAppId(1);
@@ -106,5 +106,5 @@ public class AppointmentDetailsServicesTest {
 		  
 	      //assertThat(appointmentDetailServices.deleteAppointmentByPatientId(4)).isEqualTo(a);
 		  System.out.println(appointmentDetailServices.deleteAppointmentByPatientId(4));
-	    }
+	    }*/
 }
