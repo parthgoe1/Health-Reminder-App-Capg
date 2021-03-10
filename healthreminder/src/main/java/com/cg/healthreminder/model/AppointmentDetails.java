@@ -33,12 +33,10 @@ public class AppointmentDetails {
 	private int doctorId;
 	
 	@NotNull
-	@Size(min=2, max=10)
 	@Column
 	private String doctorName;
 	
 	@NotNull
-	@Size(min=2, max=10)
 	@Column
 	private String patientName;
 	

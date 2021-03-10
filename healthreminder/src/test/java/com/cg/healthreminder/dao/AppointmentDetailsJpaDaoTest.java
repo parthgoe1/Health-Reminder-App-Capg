@@ -35,9 +35,9 @@ public class AppointmentDetailsJpaDaoTest {
 		 AppointmentDetails a= new AppointmentDetails();
 		  a.setDoctorId(5);
 		  a.setDoctorName("Doctor Astin");
-		  a.setDoctorStartTime(null);
-		  a.setDoctorEndTime(null);
-		  a.setDoctorDate(null); 
+		  a.setDoctorStartTime("12:00");
+		  a.setDoctorEndTime("9:00");
+		  a.setDoctorDate("2020-12-05"); 
 		  a.setPatientName("Sayantan");
 		  a.setPatientId(4);
 
@@ -76,9 +76,9 @@ public class AppointmentDetailsJpaDaoTest {
 	       AppointmentDetails apd2= new AppointmentDetails();
 	       apd2.setDoctorId(3);
 		   apd2.setDoctorName("Doctor Karan");
-		   apd2.setDoctorStartTime(null);
-		   apd2.setDoctorEndTime(null);
-		   apd2.setDoctorDate(null); 
+		   apd2.setDoctorStartTime("12:00");
+		   apd2.setDoctorEndTime("9:00");
+		   apd2.setDoctorDate("2020-12-16"); 
 		   apd2.setPatientName("Deepak");
 		   apd2.setPatientId(7);
 

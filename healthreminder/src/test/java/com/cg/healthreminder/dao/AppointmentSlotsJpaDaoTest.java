@@ -33,8 +33,8 @@ public class AppointmentSlotsJpaDaoTest {
 	 
 	 private AppointmentSlots getAppointmentSlot() {
 		 AppointmentSlots slot= new AppointmentSlots();
-		 slot.setDoctorEndTime(null);
-		 slot.setDoctorStartTime(null);
+		 slot.setDoctorEndTime("12:00");
+		 slot.setDoctorStartTime("9:00");
 		 Slot_Pk pk=new Slot_Pk();
 		 pk.setDoc_date("2020-12-16");
 		 pk.setDoc_id(1);
@@ -55,8 +55,8 @@ public class AppointmentSlotsJpaDaoTest {
 	 public void testDeleteAppointmentSlot() throws Exception{
 		 AppointmentSlots slot1 = getAppointmentSlot();
 		 AppointmentSlots slot2= new AppointmentSlots();
-		 slot2.setDoctorEndTime(null);
-		 slot2.setDoctorStartTime(null);
+		 slot2.setDoctorEndTime("12:00");
+		 slot2.setDoctorStartTime("9:00");
 		 Slot_Pk pk2=new Slot_Pk();
 		 pk2.setDoc_date("2020-12-17");
 		 pk2.setDoc_id(12);
@@ -75,8 +75,8 @@ public class AppointmentSlotsJpaDaoTest {
 	    public void testGetAllSlots() throws Exception{
 		 AppointmentSlots slot1 = getAppointmentSlot();
 		 AppointmentSlots slot2= new AppointmentSlots();
-		 slot2.setDoctorEndTime(null);
-		 slot2.setDoctorStartTime(null);
+		 slot2.setDoctorEndTime("12:00");
+		 slot2.setDoctorStartTime("9:00");
 		 Slot_Pk pk2=new Slot_Pk();
 		 pk2.setDoc_date("2020-12-17");
 		 pk2.setDoc_id(12);
