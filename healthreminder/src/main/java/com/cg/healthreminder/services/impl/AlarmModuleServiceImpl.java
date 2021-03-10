@@ -1,15 +1,18 @@
+//AUTHOR --> Ankit Banerjee
 package com.cg.healthreminder.services.impl;
 
 import java.sql.Date;
-
 import java.sql.Timestamp;
+import java.util.Optional;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.cg.healthreminder.dao.AlarmModuleDao;
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.AlarmModule;
-import org.springframework.stereotype.Service;
-import javax.transaction.Transactional;
 
 @Service
 @Transactional
@@ -19,15 +22,25 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 	private AlarmModuleDao alarmModuleDao;
 	
 	@Override
-	public AlarmModule findAlarmById(Integer id)
+	public AlarmModule findAlarmById(Integer id)  throws AllCustomException
 	{
-		return alarmModuleDao.findAlarmById(id);
+		AlarmModule ob =  alarmModuleDao.findAlarmById(id);
+		if(ob == null) {
+			throw new AllCustomException("AlarmModule not found");
+		}
+		
+		return ob;
 	}
 	
 	@Override
-	public AlarmModule findAlarmByName(String alarmName)
+	public AlarmModule findAlarmByName(String alarmName)  throws AllCustomException
 	{
-		return alarmModuleDao.findAlarmByName(alarmName);
+		AlarmModule ob = alarmModuleDao.findAlarmByName(alarmName);
+		if(ob == null) {
+			throw new AllCustomException("AlarmModule not found");
+		}
+		
+		return ob;
 	}
 	
 	@Override
@@ -37,47 +50,65 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 	}
 	
 	@Override
-	public AlarmModule updateAlarmNameById(Integer id, String name)
+	public AlarmModule updateAlarmNameById(Integer id, String name) throws AllCustomException
 	{
 		AlarmModule alarmModules = alarmModuleDao.findById(id).get();
+		if(alarmModules == null) {
+			throw new AllCustomException("AlarmModule not found");
+		}
 		alarmModules.setAlarmName(name);
 		return alarmModuleDao.save(alarmModules);
 	}
 	
 	@Override
-	public AlarmModule updateAlarmTimeById(Integer id, Timestamp alarmTime)
+	public AlarmModule updateAlarmTimeById(Integer id, Timestamp alarmTime)  throws AllCustomException
 	{
 		AlarmModule alarmModules = alarmModuleDao.findById(id).get();
+		if(alarmModules == null) {
+			throw new AllCustomException("AlarmModule not found");
+		}
 		alarmModules.setAlarmTime(alarmTime);
 		return alarmModuleDao.save(alarmModules);
 	}
 	
 	@Override
-	public AlarmModule updateAlarmDateById(Integer id, Date alarmDate)
+	public AlarmModule updateAlarmDateById(Integer id, Date alarmDate)  throws AllCustomException
 	{
 		AlarmModule alarmModules = alarmModuleDao.findById(id).get();
+		if(alarmModules == null) {
+			throw new AllCustomException("AlarmModule not found");
+		}
 		alarmModules.setAlarmDate(alarmDate);
 		return alarmModuleDao.save(alarmModules);
 	}
 	
 	@Override
-	public AlarmModule updateAlarmNoteById(Integer id, String note)
+	public AlarmModule updateAlarmNoteById(Integer id, String note)  throws AllCustomException
 	{
 		AlarmModule alarmModules = alarmModuleDao.findById(id).get();
+		if(alarmModules == null) {
+			throw new AllCustomException("AlarmModule not found");
+		}
 		alarmModules.setAlarmNotes(note);
 		return alarmModuleDao.save(alarmModules);
 	}
 	
 	@Override
-	public boolean deleteAlarmById(Integer id)
+	public AlarmModule deleteAlarmById(Integer id)  throws AllCustomException
 	{
-		alarmModuleDao.deleteById(id);
-		AlarmModule alarmModule = alarmModuleDao.findById(id).get();
-		if(null == alarmModule)
-		{
-			return true;
+		Optional<AlarmModule> alarmModule = alarmModuleDao.findById(id);
+		AlarmModule ob = null;
+		if(alarmModule.isPresent()) {
+			
+			ob = alarmModule.get();
+			alarmModuleDao.delete(ob);
 		}
-		return false;
+		else {
+			throw new AllCustomException("AlarmModule not found");
+			
+		}
+		
+		return ob;
 	}
 	
 	@Override
