@@ -7,6 +7,9 @@
 package com.cg.healthreminder.services.impl;
 
 import com.cg.healthreminder.exception.AllCustomException;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cg.healthreminder.dao.MentalHealthJpaDao;
@@ -23,46 +26,58 @@ import javax.transaction.Transactional;
 public class MentalHealthServicesImpl implements MentalHealthServices {
 	@Autowired
 	MentalHealthJpaDao mentalDao;
+	private static final Logger logger=LogManager.getLogger(MentalHealthServicesImpl.class);
 	
 	@Override
 	public MentalHealth displayTips(Integer mentalRating) throws AllCustomException{
+		logger.info("Finding Mental Health Tip using the Rating ........");
 		Optional<MentalHealth> m = mentalDao.findById(mentalRating);
 		MentalHealth m2 = null;
 		if(m.isPresent()) {
 			m2 = m.get();
 		}
 		else {
+			logger.info("Exception Thrown while finding-----");
 			throw new AllCustomException("Health Rating Record not found for given ID");
 		}
+		logger.info("Returning Tip-----");
 		return m2;
 	}
 	@Override
 	public MentalHealth updateTips(Integer mentalRating, String uptips) throws AllCustomException{
+		logger.info("Updating Mental Health Tip using the Rating ........");
 		Optional<MentalHealth> m= mentalDao.findById(mentalRating);
 		MentalHealth m2 = null;
 		if(m.isPresent()) {
 			m2 = m.get();
 		}
 		else {
+			logger.info("Exception Thrown while updating-----");
 			throw new AllCustomException("Health Rating not found for given ID, cannot update Tip");
 		}
         m2.setMentalTip(uptips);
+        logger.info("Returning Updating Value-----");
         return mentalDao.save(m2);
 	}
 	@Override
 	public MentalHealth addTips(MentalHealth m) {
+		logger.info("Adding new Mental Health Tip ........");
+		logger.info("Returning MentalHealth-----");
 		return mentalDao.save(m);
 		
 	}
 	@Override
 	public boolean deleteTips(Integer mentalRating) throws AllCustomException{
+		logger.info("Deleting Mental Health Tip using the Rating ........");
 		Optional<MentalHealth> m=mentalDao.findById(mentalRating);
 		if(m.isPresent()) {
 			mentalDao.deleteById(mentalRating);
 		}
 		else {
+			logger.info("Exception Thrown while deleting-----");
 			throw new AllCustomException("Health Rating not found for given ID, cannot delete");
 		}
+		logger.info("Returning True for Deletion-----");
 		return true;
 	}
 	

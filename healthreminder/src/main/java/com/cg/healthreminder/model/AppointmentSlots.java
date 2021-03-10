@@ -9,7 +9,6 @@ package com.cg.healthreminder.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-import java.sql.Timestamp;
 
 @Entity
 @Table(name="Appointment_Slots")
@@ -20,11 +19,11 @@ public class AppointmentSlots {
 	
 	@NotNull
 	@Column
-	private Timestamp doctorStartTime;
+	private String doctorStartTime;
 	
 	@NotNull
 	@Column
-	private Timestamp doctorEndTime;
+	private String doctorEndTime;
 
 	public Slot_Pk getPk() {
 		return pk;
@@ -34,19 +33,19 @@ public class AppointmentSlots {
 		this.pk = pk;
 	}
 
-	public Timestamp getDoctorStartTime() {
+	public String getDoctorStartTime() {
 		return doctorStartTime;
 	}
 
-	public void setDoctorStartTime(Timestamp doctorStartTime) {
+	public void setDoctorStartTime(String doctorStartTime) {
 		this.doctorStartTime = doctorStartTime;
 	}
 
-	public Timestamp getDoctorEndTime() {
+	public String getDoctorEndTime() {
 		return doctorEndTime;
 	}
 
-	public void setDoctorEndTime(Timestamp doctorEndTime) {
+	public void setDoctorEndTime(String doctorEndTime) {
 		this.doctorEndTime = doctorEndTime;
 	}
 
