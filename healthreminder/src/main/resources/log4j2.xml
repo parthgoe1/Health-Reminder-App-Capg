@@ -5,12 +5,13 @@
 		<Console name="LogToConsole" target="SYSTEM_OUT">
 			<PatternLayout pattern="%d{HH:mm:ss.SSS} {%t} %-5level %logger{36} - %msg%n"/>
 		</Console>
-		<File name="LogToFile" filename="C:\\Users\\goelp\\Desktop\\Notes">
+		<File name="LogToFile" filename="D:\Capgemini\Project Intern\HealthReminderLog.out">
 			<PatternLayout>
 				<Pattern>%d %p %c{1.} {%t} %m%n</Pattern>
 			</PatternLayout>
 		</File>
 	</Appenders>
+	
 	<loggers>
 		<logger name="com.cg.healthreminder.controller" level="debug" additivity="false">
 			<AppenderRef ref="LogToFile"/>

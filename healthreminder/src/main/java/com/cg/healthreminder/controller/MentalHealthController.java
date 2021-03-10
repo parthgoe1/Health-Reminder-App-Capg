@@ -7,6 +7,8 @@
 
 package com.cg.healthreminder.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +40,7 @@ public class MentalHealthController {
 	
 	@SuppressWarnings("unchecked")
 	@PostMapping(value="/addTips")
-	public ResponseEntity addTips(@RequestBody MentalHealth h) {
+	public ResponseEntity addTips(@Valid @RequestBody MentalHealth h) {
 		this.mentalServices.addTips(h);
 		return new ResponseEntity("Tip added successfully", HttpStatus.OK);
 	}
