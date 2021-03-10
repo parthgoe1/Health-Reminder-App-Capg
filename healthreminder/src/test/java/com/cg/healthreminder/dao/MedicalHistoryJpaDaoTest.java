@@ -61,6 +61,6 @@ public class MedicalHistoryJpaDaoTest {
 		testEntityManager.persist(m2);
 		testEntityManager.remove(m1);
 		List<MedicalHistory> mhlst = medicalHistoryDao.findAll();
-		Assert.assertEquals(mhlst.size(), 1);
+		Assert.assertEquals( 1,mhlst.size());
 }
 }
