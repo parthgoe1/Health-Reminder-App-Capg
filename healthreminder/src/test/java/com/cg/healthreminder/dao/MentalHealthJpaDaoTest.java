@@ -39,6 +39,8 @@ public class MentalHealthJpaDaoTest {
 	     mentalHealth saveInDb = testEntityManager.persist(mLocal);
 	     mentalHealth getFromInDb = mentalJpaDao.findById(saveInDb.getMentalRating()).get();
 	     assertThat(getFromInDb).isEqualTo(saveInDb);
+	     assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
+	     assertThat(getFromInDb.getMentalTip()).isEqualTo(saveInDb.getMentalTip());
 	 }
 	 
 

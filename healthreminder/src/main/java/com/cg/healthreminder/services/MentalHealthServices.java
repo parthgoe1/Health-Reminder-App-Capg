@@ -13,4 +13,5 @@ public interface MentalHealthServices {
 	public mentalHealth displayTips(Integer mentalRating) throws AllCustomException;
 	public mentalHealth updateTips(Integer mentalRating, String uptips) throws AllCustomException;
 	public mentalHealth addTips(mentalHealth m);
+	public boolean deleteTips(Integer mentalRating) throws AllCustomException;
 }
