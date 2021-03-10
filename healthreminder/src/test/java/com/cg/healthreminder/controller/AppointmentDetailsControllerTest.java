@@ -1,6 +1,6 @@
 /*
  * Author-> Sayantan Das
- * This class is a junit test class for testing the Appointment Details Controller class and services
+ * This class is a junit test class for testing the Appointment Details Controller class and URL mappings
  */
 
 
@@ -24,11 +24,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
@@ -42,7 +37,7 @@ public class AppointmentDetailsControllerTest {
 	    
 	    /**
 	     * Convert Object into Json String by using Jackson ObjectMapper
-	     * @param ticket
+	     * @param appointmentDetails
 	     * @return
 	     * @throws JsonProcessingException
 	     */
