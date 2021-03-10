@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Max;
 
 //Author --> Parth Goel
 
@@ -17,9 +19,12 @@ public class FollowUpMentalRatingInfo {
 	}
 	
     @Id
+    @Min(1)
 	@Column(name = "patient_id", nullable = false)
     private Integer patientId;
     
+    @Min(1)
+    @Max(5)
     @Column(name = "mental_rating")
     private Integer mentalRating;   
 

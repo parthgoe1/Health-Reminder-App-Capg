@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 
 //Author --> Parth Goel
 
@@ -17,6 +18,7 @@ public class FollowUpDietStatusInfo {
 	}
 	
     @Id
+    @Min(1)
 	@Column(name = "patient_id", nullable = false)
     private Integer patientId;
     

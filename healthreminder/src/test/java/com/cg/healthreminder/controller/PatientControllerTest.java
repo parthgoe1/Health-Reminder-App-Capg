@@ -64,8 +64,8 @@ public class PatientControllerTest {
 				.content(jsonInput).contentType(MediaType.APPLICATION_JSON)).andReturn();
 		MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
         String jsonOutput = mockHttpServletResponse.getContentAsString();
-
         assertThat(jsonInput).isEqualTo(jsonOutput);
+        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
     }
     
     @Test
