@@ -25,7 +25,7 @@ public class FollowUpMentalRatingInfoServicesImpl implements FollowUpMentalRatin
 	@Override
 	public FollowUpMentalRatingInfo findMentalRatingById(Integer patientId) throws AllCustomException{
 
-		logger.info("Finding follow up mental rating information by ID ........");
+		logger.info("Finding follow up mental rating information by ID in Implementation........");
 		Optional<FollowUpMentalRatingInfo> fumri = followUpMentalRatingInfoJpaDao.findById(patientId);
 		FollowUpMentalRatingInfo fumri2 = null;
 		if(fumri.isPresent()) {
@@ -40,7 +40,7 @@ public class FollowUpMentalRatingInfoServicesImpl implements FollowUpMentalRatin
 	@Override
 	public FollowUpMentalRatingInfo updateMentalRatingById(Integer patientId, Integer mentalRating) throws AllCustomException{
 
-		logger.info("Updating follow up mental rating information by ID ........");
+		logger.info("Updating follow up mental rating information by ID in Implementation........");
 		Optional<FollowUpMentalRatingInfo> followUpMentalRatingInfo = followUpMentalRatingInfoJpaDao.findById(patientId);
 		FollowUpMentalRatingInfo fumri = null;
 		if(followUpMentalRatingInfo.isPresent()) {
@@ -58,7 +58,7 @@ public class FollowUpMentalRatingInfoServicesImpl implements FollowUpMentalRatin
 	@Override
 	public FollowUpMentalRatingInfo createMentalRating(FollowUpMentalRatingInfo followUpMentalRatingInfo) {
 		
-		logger.info("Creating follow up mental rating information ........");
+		logger.info("Creating follow up mental rating information in Implementation........");
 		return followUpMentalRatingInfoJpaDao.save(followUpMentalRatingInfo);
 	}
 
@@ -66,7 +66,7 @@ public class FollowUpMentalRatingInfoServicesImpl implements FollowUpMentalRatin
 	@Override
 	public boolean deleteMentalRating(Integer patientId) throws AllCustomException{
 	
-		logger.info("Deleting follow up mental rating information by ID ........");
+		logger.info("Deleting follow up mental rating information by ID in Implementation........");
 		Optional<FollowUpMentalRatingInfo> fumri= followUpMentalRatingInfoJpaDao.findById(patientId);
 		if(fumri.isPresent()) {
 			followUpMentalRatingInfoJpaDao.deleteById(patientId);
