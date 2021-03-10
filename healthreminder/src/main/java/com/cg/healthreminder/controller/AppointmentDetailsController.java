@@ -7,6 +7,8 @@
 */
 package com.cg.healthreminder.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,36 +23,48 @@ import com.cg.healthreminder.model.AppointmentDetails;
 import com.cg.healthreminder.services.AppointmentDetailsServices;
 
 
+
 @RestController
 @RequestMapping("/healthreminder")
 public class AppointmentDetailsController{
 	
 	    @Autowired
 	    private AppointmentDetailsServices appointmentDetailService;
-
+	    private static final Logger logger=LogManager.getLogger( AppointmentDetailsController.class);
+	    
 	    @GetMapping("/findAppointmentByPatId/{patientId}")
 	    public AppointmentDetails findAppointmentDetailsByPatientId(@PathVariable int patientId) throws AllCustomException{
-	        return appointmentDetailService.findAppointmentDetailByPatientId(patientId);
+	    	logger.info("In controller class of finding appointment by patient ids ........"); 
+	    	
+	      	return appointmentDetailService.findAppointmentDetailByPatientId(patientId);
 	    }
 
 	    @GetMapping("/findAppointmentByDocId/{doctorId}")
 	    public AppointmentDetails findAppointmentDetailsByDoctorId(@PathVariable int doctorId) throws AllCustomException{
-	        return appointmentDetailService.findAppointmentDetailByDoctorId(doctorId);
+	    	logger.info("In controller class of finding appointment by doctor ids ........");
+	    	
+	    	return appointmentDetailService.findAppointmentDetailByDoctorId(doctorId);
 	    }
 
 	    @PostMapping("/createAppointment")
 	    public AppointmentDetails createTicket(@RequestBody AppointmentDetails apd){
-	        return appointmentDetailService.createAppointment(apd);
+	    	logger.info("In controller class of creating appointment ........");
+	    	
+	    	return appointmentDetailService.createAppointment(apd);
 	    }
 
 	    @DeleteMapping("/deleteAppointmentByPatId/{patientId}")
 	    public AppointmentDetails deleteAppointmentByPatientId(@PathVariable int patientId) throws AllCustomException{
-	        return appointmentDetailService.deleteAppointmentByPatientId(patientId);
+	    	logger.info("In controller class of deleting appointment by patient ids ........");
+	    	
+	    	return appointmentDetailService.deleteAppointmentByPatientId(patientId);
 	    }
 
 
 	    @DeleteMapping("/deleteAppointmentByDocId/{doctorId}")
 	    public AppointmentDetails deleteAppointmentByDoctorId(@PathVariable int doctorId) throws AllCustomException{
-	        return appointmentDetailService.deleteAppointmentByDoctorId(doctorId);
+	    	logger.info("In controller class of deleting appointment by doctor ids ........");
+	    	
+	    	return appointmentDetailService.deleteAppointmentByDoctorId(doctorId);
 	    }
 }
