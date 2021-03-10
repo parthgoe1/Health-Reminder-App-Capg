@@ -7,7 +7,7 @@
 
 
 package com.cg.healthreminder.services;
-import org.junit.Assert;
+
 import static org.mockito.ArgumentMatchers.any;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,10 +20,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.cg.healthreminder.dao.AppointmentDetailsJpaDao;
 import com.cg.healthreminder.model.AppointmentDetails;
 
-import java.util.ArrayList;
+
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.util.List;
+
 
 import static org.assertj.core.api.Assertions.assertThat;
 
