@@ -37,7 +37,7 @@ public class MentalHealthController {
 	private MentalHealthServices mentalServices;
 	
 	@GetMapping("/viewTips/{id}")
-	public MentalHealth displayTips(@PathVariable @Min(1) @Max(10) Integer id) throws AllCustomException{
+	public MentalHealth displayTips(@PathVariable @Min(1) @Max(5) Integer id) throws AllCustomException{
 		return this.mentalServices.displayTips(id);
 	}
 	
@@ -52,7 +52,7 @@ public class MentalHealthController {
 	
 	@SuppressWarnings("unchecked")
 	@PostMapping("/updateTips/{id}/{content}")
-	public ResponseEntity updateTips(@PathVariable("id") @Min(1) @Max(10) Integer id, @PathVariable("content") String content) throws AllCustomException{
+	public ResponseEntity updateTips(@PathVariable("id") @Min(1) @Max(5) Integer id, @PathVariable("content") String content) throws AllCustomException{
 		this.mentalServices.updateTips(id, content);
 		return new ResponseEntity("Health Tip Updated successfully", HttpStatus.OK);
 
@@ -60,7 +60,7 @@ public class MentalHealthController {
 	
 	@SuppressWarnings("unchecked")
 	@DeleteMapping("/deleteTips/{id}")
-	public ResponseEntity deleteTips(@PathVariable @Min(1) @Max(10) Integer id) throws AllCustomException{
+	public ResponseEntity deleteTips(@PathVariable @Min(1) @Max(5) Integer id) throws AllCustomException{
 		this.mentalServices.deleteTips(id);
 		return new ResponseEntity("Health Tip deleted successfully", HttpStatus.OK);
 
