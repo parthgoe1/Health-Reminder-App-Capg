@@ -43,13 +43,11 @@ public class PatientServiceImpl implements PatientService{
 
 	@Override
 	public Patient updatePatient(Patient p) {
-		// TODO Auto-generated method stub
 		return patientDao.save(p);
 	}
 
 	@Override
 	public Integer deletePatientById(int id) {
-		// TODO Auto-generated method stub
 		 patientDao.deleteById(id);
 		 return id;
 		 

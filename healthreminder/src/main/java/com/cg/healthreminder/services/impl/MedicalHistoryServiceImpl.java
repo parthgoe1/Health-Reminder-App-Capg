@@ -11,7 +11,6 @@ import com.cg.healthreminder.dao.MedicalHistoryDao;
 import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.MedicalHistory;
 import com.cg.healthreminder.services.MedicalHistoryService;
-import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 @Service

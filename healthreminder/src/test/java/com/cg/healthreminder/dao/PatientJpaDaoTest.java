@@ -98,6 +98,6 @@ public class PatientJpaDaoTest {
 		testEntityManager.persist(pt);
 		testEntityManager.remove(pt);
 		List<Patient> lst = patientDao.findAll();
-		Assert.assertEquals(lst.size(), 1);
+		Assert.assertEquals(1,lst.size());
 	}
 }
