@@ -35,7 +35,7 @@ public class AlarmModuleDaoTest {
     	a.setAlarmTime(null);
     	a.setAlarmNotes("Take the medicine after lunch");
 		 
-		 return a;
+		return a;
 	 }
     
     @Test
