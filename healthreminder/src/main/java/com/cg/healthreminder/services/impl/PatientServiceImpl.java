@@ -37,8 +37,8 @@ public class PatientServiceImpl implements PatientService{
 			throw new AllCustomException("Patient not found");
 		}
 	}
-	public void addPatient(Patient p) {
-		patientDao.save(p);
+	public Patient addPatient(Patient p) {
+		return patientDao.save(p);
 	}
 
 	@Override
@@ -48,8 +48,10 @@ public class PatientServiceImpl implements PatientService{
 	}
 
 	@Override
-	public void deletePatientById(int id) {
+	public Integer deletePatientById(int id) {
 		// TODO Auto-generated method stub
-		patientDao.deleteById(id);
+		 patientDao.deleteById(id);
+		 return id;
+		 
 	}
 }

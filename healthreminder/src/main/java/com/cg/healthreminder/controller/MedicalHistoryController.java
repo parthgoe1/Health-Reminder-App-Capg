@@ -31,8 +31,8 @@ public class MedicalHistoryController {
 	
 	//To add a new record
 	@PostMapping("/addrecord")
-	public void addRecord(MedicalHistory m){
-		this.medicalHistoryService.addRecord(m);
+	public MedicalHistory addRecord(MedicalHistory m){
+		return this.medicalHistoryService.addRecord(m);
 	}
 	
 	//To delete a particular record
