@@ -4,6 +4,8 @@ package com.cg.healthreminder.services.impl;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Optional;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.transaction.Transactional;
 
@@ -18,14 +20,17 @@ import com.cg.healthreminder.model.AlarmModule;
 @Transactional
 public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.AlarmModuleService {
 	
-	public static String Excep = "AlarmModule not found";
+	public static final String Excep = "AlarmModule not found";
 	
 	@Autowired
 	private AlarmModuleDao alarmModuleDao;
+	private static final Logger logger=LogManager.getLogger(AlarmModuleServiceImpl.class);
 	
 	@Override
 	public AlarmModule findAlarmById(Integer id)  throws AllCustomException
 	{
+		logger.info("AlarmModuleServiceImpl: Finding Alarm details by Alarm Id ........");
+		
 		AlarmModule ob =  alarmModuleDao.findAlarmById(id);
 		if(ob == null) {
 			throw new AllCustomException(Excep);
@@ -37,6 +42,8 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 	@Override
 	public AlarmModule findAlarmByName(String alarmName)  throws AllCustomException
 	{
+		logger.info("AlarmModuleServiceImpl: Finding Alarm Details by Name........");
+		
 		AlarmModule ob = alarmModuleDao.findAlarmByName(alarmName);
 		if(ob == null) {
 			throw new AllCustomException(Excep);
@@ -48,12 +55,15 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 	@Override
 	public Iterable<AlarmModule> getAllAlarms()
 	{
+		logger.info("AlarmModuleServiceImpl: Retrieving ALl Alarm Modules ........");
 		return alarmModuleDao.findAll();
 	}
 	
 	@Override
 	public AlarmModule updateAlarmById(Integer aid, Integer pid, String name, Timestamp alarmTime, Date alarmDate, String note) throws AllCustomException
 	{
+		logger.info("AlarmModuleServiceImpl: Updating Alarm Details using Alarm Id........");
+		
 		Optional<AlarmModule> alarmModules = alarmModuleDao.findById(aid);
 		AlarmModule ob = null;
 		
@@ -77,6 +87,8 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 	@Override
 	public AlarmModule deleteAlarmById(Integer id)  throws AllCustomException
 	{
+		logger.info("AlarmModuleServiceImpl: Deleting Alarm details by Alarm Id ........");
+		
 		Optional<AlarmModule> alarmModule = alarmModuleDao.findById(id);
 		AlarmModule ob = null;
 		if(alarmModule.isPresent()) {
@@ -95,6 +107,8 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 	@Override
 	public AlarmModule createAlarm(AlarmModule alarmModule)
 	{
+		logger.info("AlarmModuleServiceImpl: Creating Alarm details ........");
+		
 		return alarmModuleDao.save(alarmModule);
 	}
 	

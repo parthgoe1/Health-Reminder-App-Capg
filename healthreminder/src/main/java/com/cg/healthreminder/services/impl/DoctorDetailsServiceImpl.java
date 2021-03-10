@@ -1,9 +1,10 @@
 //AUTHOR --> Ankit Banerjee
 package com.cg.healthreminder.services.impl;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
-
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import com.cg.healthreminder.dao.DoctorDetailsDao;
 import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.DoctorDetails;
@@ -18,14 +19,17 @@ import javax.transaction.Transactional;
 @Transactional
 public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 
-	public static String doctorExcepMessage = "Doctor Details Not Found";
+	public static final String doctorExcepMessage = "Doctor Details Not Found";
 	
 	@Autowired
 	private DoctorDetailsDao doctorDetailsDao;
+	private static final Logger logger=LogManager.getLogger(DoctorDetailsServiceImpl.class);
 	
 	@Override
 	public DoctorDetails findDoctorById(Integer id) throws AllCustomException
 	{
+		logger.info("DoctorDetailsServiceImpl: Finding Doctor Details by Doctor Id........");
+		
 		DoctorDetails ob = doctorDetailsDao.findDoctorById(id);
 		if(ob == null) {
 			throw new AllCustomException(doctorExcepMessage);
@@ -38,6 +42,8 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 	@Override
 	public DoctorDetails findDoctorBySpec(String doctorSpec) throws AllCustomException
 	{
+		logger.info("DoctorDetailsServiceImpl: Finding Doctor Details by Doctor Specialization........");
+		
 		DoctorDetails ob = doctorDetailsDao.findDoctorBySpec(doctorSpec);
 		if(ob == null) {
 			throw new AllCustomException(doctorExcepMessage);
@@ -49,12 +55,16 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 	@Override
 	public Iterable<DoctorDetails> getAllDoctorDetails()
 	{
+		logger.info("DoctorDetailsServiceImpl: Retreiving All Doctor Details........");
+		
 		return doctorDetailsDao.findAll();
 	}
 	
 	@Override
 	public DoctorDetails updateDoctorById(Integer doctorId,String doctorName,boolean verfStatus,  String doctorCertFile,  String doctorSpec) throws AllCustomException
 	{
+		logger.info("DoctorDetailsServiceImpl: Updating Doctor Details by Doctor Id........");
+		
 		Optional<DoctorDetails> doctorDetails = doctorDetailsDao.findById(doctorId);
 		DoctorDetails ob = null;
 		
@@ -77,6 +87,8 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 	@Override
 	public DoctorDetails deleteDoctorById(Integer id) throws AllCustomException
 	{
+		logger.info("DoctorDetailsServiceImpl: Deleting Doctor Details by Doctor Id........");
+		
 		Optional<DoctorDetails> doctorDetails = doctorDetailsDao.findById(id);
 		DoctorDetails ob = null;
 		
@@ -95,6 +107,8 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 	@Override
 	public DoctorDetails createDoctor(DoctorDetails doctorDetails)
 	{
+		logger.info("DoctorDetailsServiceImpl: Creating Doctor Details........");
+		
 		return doctorDetailsDao.save(doctorDetails);
 	}
 	
