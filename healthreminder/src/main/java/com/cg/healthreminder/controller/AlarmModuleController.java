@@ -1,5 +1,8 @@
+//Author - Ankit Banerjee
 package com.cg.healthreminder.controller;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,10 +41,12 @@ public class AlarmModuleController {
         return alarmModuleService.findAlarmByName(alarmName);
     }
 	
-	@PutMapping("/updateAlarmNamebyId/{alarmName}/alarm/{alarmId}")
-    public AlarmModule updateAlarmById(@PathVariable String alarmName, @PathVariable Integer alarmId) throws AllCustomException{
-        return alarmModuleService.updateAlarmNameById(alarmId, alarmName);
+	@PutMapping("/updateAlarmbyId/{alarmId}/{patientId}/{alarmName}/{alarmTime}/{alarmDate}/{alarmNotes}")
+    public AlarmModule updateAlarmById(@PathVariable Integer alarmId, @PathVariable Integer patientId,@PathVariable String alarmName,
+    		@PathVariable Timestamp alarmTime,@PathVariable Date alarmDate, @PathVariable String alarmNotes) throws AllCustomException{
+        return alarmModuleService.updateAlarmById(alarmId, patientId, alarmName, alarmTime, alarmDate, alarmNotes);
     }
+	
 	
 	@PostMapping("/createAlarm")
     public AlarmModule createAlarm(@RequestBody AlarmModule alarm){

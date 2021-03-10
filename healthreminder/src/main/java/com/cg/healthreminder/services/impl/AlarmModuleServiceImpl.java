@@ -50,48 +50,19 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 	}
 	
 	@Override
-	public AlarmModule updateAlarmNameById(Integer id, String name) throws AllCustomException
+	public AlarmModule updateAlarmById(Integer aid, Integer pid, String name, Timestamp alarmTime, Date alarmDate, String note) throws AllCustomException
 	{
-		AlarmModule alarmModules = alarmModuleDao.findById(id).get();
+		AlarmModule alarmModules = alarmModuleDao.findById(aid).get();
 		if(alarmModules == null) {
 			throw new AllCustomException("AlarmModule not found");
 		}
 		alarmModules.setAlarmName(name);
-		return alarmModuleDao.save(alarmModules);
-	}
-	
-	@Override
-	public AlarmModule updateAlarmTimeById(Integer id, Timestamp alarmTime)  throws AllCustomException
-	{
-		AlarmModule alarmModules = alarmModuleDao.findById(id).get();
-		if(alarmModules == null) {
-			throw new AllCustomException("AlarmModule not found");
-		}
 		alarmModules.setAlarmTime(alarmTime);
-		return alarmModuleDao.save(alarmModules);
-	}
-	
-	@Override
-	public AlarmModule updateAlarmDateById(Integer id, Date alarmDate)  throws AllCustomException
-	{
-		AlarmModule alarmModules = alarmModuleDao.findById(id).get();
-		if(alarmModules == null) {
-			throw new AllCustomException("AlarmModule not found");
-		}
 		alarmModules.setAlarmDate(alarmDate);
-		return alarmModuleDao.save(alarmModules);
-	}
-	
-	@Override
-	public AlarmModule updateAlarmNoteById(Integer id, String note)  throws AllCustomException
-	{
-		AlarmModule alarmModules = alarmModuleDao.findById(id).get();
-		if(alarmModules == null) {
-			throw new AllCustomException("AlarmModule not found");
-		}
 		alarmModules.setAlarmNotes(note);
 		return alarmModuleDao.save(alarmModules);
 	}
+	
 	
 	@Override
 	public AlarmModule deleteAlarmById(Integer id)  throws AllCustomException

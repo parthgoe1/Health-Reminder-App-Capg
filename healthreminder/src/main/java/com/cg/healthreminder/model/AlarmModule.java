@@ -3,7 +3,7 @@ package com.cg.healthreminder.model;
 
 import javax.persistence.*;
 import java.sql.*;
-//import java.util.Date;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "Alarm_Module")
@@ -21,10 +21,13 @@ public class AlarmModule {
     private Integer alarmId;
 	
 	//foreign key
-    @Column(name = "patient_id", nullable = true)
+	@NotNull
+    @Column(name = "patient_id")
     private Integer patientId;
     
-    @Column(name = "alarm_name", nullable = true)
+	@NotNull
+	@Size(min=2, max=30)
+    @Column(name = "alarm_name")
     private String alarmName;
     
     @Column(name = "alarm_time", nullable = true)
@@ -33,7 +36,9 @@ public class AlarmModule {
     @Column(name = "alarm_date", nullable = true)
     private Date alarmDate;
     
-    @Column(name = "notes", nullable = true)
+    @NotNull
+    @Size(min=2, max=30)
+    @Column(name = "notes")
     private String alarmNotes;
 
 	public Integer getAlarmId() {

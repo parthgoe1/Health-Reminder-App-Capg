@@ -2,16 +2,19 @@
 package com.cg.healthreminder.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "Doctor_Details")
 public class DoctorDetails {
 	
 	
+	
+	
 	@Override
 	public String toString() {
 		return "DoctorDetails [doctorId=" + doctorId + ", verfStatus=" + verfStatus + ", doctorName=" + doctorName
-				+ ", doctorSpec=" + doctorSpec + ", DoctorCertFile=" + DoctorCertFile + "]";
+				+ ", doctorSpec=" + doctorSpec + ", doctorCertFile=" + doctorCertFile + "]";
 	}
 
 	@Id
@@ -19,17 +22,24 @@ public class DoctorDetails {
     @Column(name = "doct_id")
     private Integer doctorId;
 	
-    @Column(name = "verf_status", nullable = false)
+	@NotNull
+    @Column(name = "verf_status")
     private boolean verfStatus;
     
-    @Column(name = "doc_name", nullable = false)
+	@NotNull
+	@Size(min=2, max=30)
+    @Column(name = "doc_name")
     private String doctorName;
     
-    @Column(name = "doc_spec", nullable = false)
+	@NotNull
+	@Size(min=2, max=30)
+    @Column(name = "doc_spec")
     private String doctorSpec;
     
-    @Column(name = "certificate_file", nullable = false)
-    private String DoctorCertFile;
+	@NotNull
+	@Size(min=2, max=30)
+    @Column(name = "certificate_file")
+    private String doctorCertFile;
 
 	public Integer getDoctorId() {
 		return doctorId;
@@ -64,13 +74,14 @@ public class DoctorDetails {
 	}
 
 	public String getDoctorCertFile() {
-		return DoctorCertFile;
+		return doctorCertFile;
 	}
 
 	public void setDoctorCertFile(String doctorCertFile) {
-		DoctorCertFile = doctorCertFile;
+		this.doctorCertFile = doctorCertFile;
 	}
 
+	
 	
 	
     

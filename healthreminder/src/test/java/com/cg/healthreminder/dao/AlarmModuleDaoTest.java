@@ -44,7 +44,8 @@ public class AlarmModuleDaoTest {
     	AlarmModule saveInDb = testEntityManager.persist(alarm);
     	AlarmModule getFromInDb = alarmModuleDao.findById(saveInDb.getAlarmId()).get();
 	    assertThat(getFromInDb).isEqualTo(saveInDb);
-	 }
+	    assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
+    }
     
     @Test
 	public void  testAlarmModuleDetailsByPatientId() throws Exception{
