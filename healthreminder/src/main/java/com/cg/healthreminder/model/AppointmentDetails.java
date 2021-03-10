@@ -11,6 +11,8 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -23,24 +25,33 @@ public class AppointmentDetails {
     @Column(name = "app_id")
     private int appId;
 	
+	@NotNull
 	@Column
 	private int patientId;
     
+	@NotNull
 	@Column
 	private int doctorId;
 	
+	@NotNull
+	@Size(min=2, max=10)
 	@Column
 	private String doctorName;
 	
+	@NotNull
+	@Size(min=2, max=10)
 	@Column
 	private String patientName;
 	
+	@NotNull
 	@Column
 	private Date doctorDate;
    
+	@NotNull
     @Column
 	private Timestamp doctorStartTime;
 	
+	@NotNull
 	@Column
 	private Timestamp doctorEndTime;
 
