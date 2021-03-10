@@ -20,7 +20,7 @@ public class DietInfo {
 	
 	@Id
 	@Min(1)
-	@Max(5)
+	@Max(4)
     @Column(name = "bmi_value", nullable = false)
     private Integer bmiValue;
     @Column(name = "diet_info", nullable = false)

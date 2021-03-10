@@ -61,20 +61,17 @@ public class FollowUpMentalRatingInfoServicesImpl implements FollowUpMentalRatin
 	public boolean deleteMentalRating(Integer patientId) throws AllCustomException{
 
 		Optional<FollowUpMentalRatingInfo> fumri= followUpMentalRatingInfoJpaDao.findById(patientId);
-		FollowUpMentalRatingInfo fumri2 = null;
+		
 		if(fumri.isPresent()) {
-			fumri2 = fumri.get();
+			
 			followUpMentalRatingInfoJpaDao.deleteById(patientId);
 		}
 		else {
 			throw new AllCustomException("Mental Rating Information not found for the given Patient id, so can't be deleted");
 		}
 		
-		FollowUpMentalRatingInfo followUpMentalRatingInfo= followUpMentalRatingInfoJpaDao.findById(patientId).get();
-		if(null == followUpMentalRatingInfo) {
-			return true;
-		}
-		return false;
+		
+		return true;
 	}
 
 }

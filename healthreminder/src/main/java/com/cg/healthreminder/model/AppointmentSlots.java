@@ -7,6 +7,7 @@
 package com.cg.healthreminder.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import java.sql.Timestamp;
 
@@ -17,9 +18,11 @@ public class AppointmentSlots {
 	@EmbeddedId      // this pk contains doc_id + doc_date as the primary key ->composite key 
 	private Slot_Pk pk;
 	
+	@NotNull
 	@Column
 	private Timestamp doctorStartTime;
 	
+	@NotNull
 	@Column
 	private Timestamp doctorEndTime;
 

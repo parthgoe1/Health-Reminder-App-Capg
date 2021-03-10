@@ -62,19 +62,16 @@ public class FollowUpDietStatusInfoServicesImpl implements FollowUpDietStatusInf
 	public boolean deleteDietStatus(Integer patientId) throws AllCustomException{
 
 		Optional<FollowUpDietStatusInfo> fdsi = followUpDietStatusInfoJpaDao.findById(patientId);
-		FollowUpDietStatusInfo fdsi2 = null;
+	
 		if(fdsi.isPresent()) {
-			fdsi2 = fdsi.get();
+			
 			followUpDietStatusInfoJpaDao.deleteById(patientId);		}
 		else {
 			throw new AllCustomException("Diet Status Information not found for the given Patient id, so can't be deleted");
 		}
 		
-		FollowUpDietStatusInfo followUpDietStatusInfo = followUpDietStatusInfoJpaDao.findById(patientId).get();
-		if(null == followUpDietStatusInfo) {
-			return true;
-		}
-		return false;
+		
+		return true;
 	}
 
 }
