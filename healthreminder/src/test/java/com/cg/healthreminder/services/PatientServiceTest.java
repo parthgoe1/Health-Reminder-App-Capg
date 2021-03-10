@@ -12,6 +12,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.cg.healthreminder.dao.PatientDao;
+import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.Patient;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class PatientServiceTest {
     private PatientService patientService;
     
     @Test
-    public void testCreatePatient() {
+    public void testCreatePatient() throws AllCustomException{
     	Patient pt = new Patient();
     	pt.setPatientId(100);
 		pt.setPatientEmail("trial@trial.com");
