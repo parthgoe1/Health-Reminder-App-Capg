@@ -1,16 +1,15 @@
 //AUTHOR --> Ankit Banerjee
 package com.cg.healthreminder.services.impl;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
-
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import com.cg.healthreminder.dao.DoctorDetailsDao;
 import com.cg.healthreminder.exception.AllCustomException;
-import com.cg.healthreminder.model.AlarmModule;
 import com.cg.healthreminder.model.DoctorDetails;
 import com.cg.healthreminder.services.DoctorDetailsService;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Optional;
 
@@ -20,15 +19,20 @@ import javax.transaction.Transactional;
 @Transactional
 public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 
+	public static final String doctorExcepMessage = "Doctor Details Not Found";
+	
 	@Autowired
 	private DoctorDetailsDao doctorDetailsDao;
+	private static final Logger logger=LogManager.getLogger(DoctorDetailsServiceImpl.class);
 	
 	@Override
 	public DoctorDetails findDoctorById(Integer id) throws AllCustomException
 	{
+		logger.info("DoctorDetailsServiceImpl: Finding Doctor Details by Doctor Id........");
+		
 		DoctorDetails ob = doctorDetailsDao.findDoctorById(id);
 		if(ob == null) {
-			throw new AllCustomException("Doctor Details Not Found");
+			throw new AllCustomException(doctorExcepMessage);
 		}
 		
 		return ob;
@@ -38,9 +42,11 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 	@Override
 	public DoctorDetails findDoctorBySpec(String doctorSpec) throws AllCustomException
 	{
+		logger.info("DoctorDetailsServiceImpl: Finding Doctor Details by Doctor Specialization........");
+		
 		DoctorDetails ob = doctorDetailsDao.findDoctorBySpec(doctorSpec);
 		if(ob == null) {
-			throw new AllCustomException("Doctor Details Not Found");
+			throw new AllCustomException(doctorExcepMessage);
 		}
 		
 		return ob;
@@ -49,61 +55,40 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 	@Override
 	public Iterable<DoctorDetails> getAllDoctorDetails()
 	{
+		logger.info("DoctorDetailsServiceImpl: Retreiving All Doctor Details........");
+		
 		return doctorDetailsDao.findAll();
 	}
 	
 	@Override
 	public DoctorDetails updateDoctorById(Integer doctorId,String doctorName,boolean verfStatus,  String doctorCertFile,  String doctorSpec) throws AllCustomException
 	{
-		DoctorDetails doctorDetails = doctorDetailsDao.findById(doctorId).get();
-		if(doctorDetails == null) {
-			throw new AllCustomException("Doctor Details Not Found");
+		logger.info("DoctorDetailsServiceImpl: Updating Doctor Details by Doctor Id........");
+		
+		Optional<DoctorDetails> doctorDetails = doctorDetailsDao.findById(doctorId);
+		DoctorDetails ob = null;
+		
+		if(doctorDetails.isPresent()) {
+			ob = doctorDetails.get();
+			ob.setDoctorName(doctorName);
+			ob.setVerfStatus(true);
+			ob.setDoctorCertFile("Certified");
+			ob.setDoctorSpec("Lungs");
 		}
-		doctorDetails.setDoctorName(doctorName);
-		doctorDetails.setVerfStatus(true);
-		doctorDetails.setDoctorCertFile("Certified");
-		doctorDetails.setDoctorSpec("Lungs");
-		return doctorDetailsDao.save(doctorDetails);
+		else
+		{
+			throw new AllCustomException(doctorExcepMessage);
+		}
+		
+		return doctorDetailsDao.save(ob);
 	}
-	
-	
-//	@Override
-//	public DoctorDetails updateDocVerfStatusById(Integer id, boolean verfStatus) throws AllCustomException
-//	{
-//		DoctorDetails doctorDetails = doctorDetailsDao.findById(id).get();
-//		if(doctorDetails == null) {
-//			throw new AllCustomException("Doctor Details Not Found");
-//		}
-//		doctorDetails.setVerfStatus(verfStatus);
-//		return doctorDetailsDao.save(doctorDetails);
-//	}
-//	
-//	@Override
-//	public DoctorDetails updateDocCertById(Integer id, String certFile) throws AllCustomException
-//	{
-//		DoctorDetails doctorDetails = doctorDetailsDao.findById(id).get();
-//		if(doctorDetails == null) {
-//			throw new AllCustomException("Doctor Details Not Found");
-//		}
-//		doctorDetails.setDoctorCertFile(certFile);
-//		return doctorDetailsDao.save(doctorDetails);
-//	}
-//	
-//	@Override
-//	public DoctorDetails updateDocSpecById(Integer id, String docSpec) throws AllCustomException
-//	{
-//		DoctorDetails doctorDetails = doctorDetailsDao.findById(id).get();
-//		if(doctorDetails == null) {
-//			throw new AllCustomException("Doctor Details Not Found");
-//		}
-//		doctorDetails.setDoctorSpec(docSpec);
-//		return doctorDetailsDao.save(doctorDetails);
-//	}
 	
 	
 	@Override
 	public DoctorDetails deleteDoctorById(Integer id) throws AllCustomException
 	{
+		logger.info("DoctorDetailsServiceImpl: Deleting Doctor Details by Doctor Id........");
+		
 		Optional<DoctorDetails> doctorDetails = doctorDetailsDao.findById(id);
 		DoctorDetails ob = null;
 		
@@ -114,7 +99,7 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 		}
 		else
 		{
-			throw new AllCustomException("Doctor Details Not Found");
+			throw new AllCustomException(doctorExcepMessage);
 		}
 		return ob;
 	}
@@ -122,6 +107,8 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 	@Override
 	public DoctorDetails createDoctor(DoctorDetails doctorDetails)
 	{
+		logger.info("DoctorDetailsServiceImpl: Creating Doctor Details........");
+		
 		return doctorDetailsDao.save(doctorDetails);
 	}
 	

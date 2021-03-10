@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.FollowUpDietStatusInfo;
@@ -30,28 +33,28 @@ public class FollowUpDietStatusInfoController {
 	
 	//To find a particular follow up diet status using id
 	@GetMapping("/followup_dietstatus_find/{patientId}")
-	public FollowUpDietStatusInfo findDietStatusById(@PathVariable Integer patientId) throws AllCustomException{
+	public FollowUpDietStatusInfo findDietStatusById(@PathVariable @Min(1) Integer patientId) throws AllCustomException{
 		logger.info("Finding diet status information by ID in Controller........");
 		return this.followUpDietStatusInfoServices.findDietStatusById(patientId);
 	}
 	
 	//To update follow up diet details
 	@PutMapping("/followup_dietstatus_update/{patientId}/status/{dietStatus}")
-	public FollowUpDietStatusInfo updateDietStatusById(@PathVariable Integer patientId, @PathVariable Boolean dietStatus) throws AllCustomException{
+	public FollowUpDietStatusInfo updateDietStatusById(@PathVariable @Min(1) Integer patientId, @PathVariable Boolean dietStatus) throws AllCustomException{
 		logger.info("Updating diet status information by ID in Controller........");
 		return this.followUpDietStatusInfoServices.updateDietStatusById(patientId, dietStatus);
 	}
 	
 	//To create follow up diet details
 	@PostMapping("/create_followup_dietstatus")
-	public FollowUpDietStatusInfo createDietStatus(@RequestBody FollowUpDietStatusInfo followUpDietStatusInfo) {
+	public FollowUpDietStatusInfo createDietStatus(@Valid @RequestBody FollowUpDietStatusInfo followUpDietStatusInfo) {
 		logger.info("Creating diet status information in Controller........");
 		return followUpDietStatusInfoServices.createDietStatus(followUpDietStatusInfo);
 	}
 	
 	//To delete follow up diet details
 	@DeleteMapping("/delete_dietstatus_by_id/{patientId}")
-    public boolean deleteDietStatus(@PathVariable Integer patientId) throws AllCustomException{
+    public boolean deleteDietStatus(@PathVariable @Min(1) Integer patientId) throws AllCustomException{
 		logger.info("Deleting diet status information by ID in Controller........");
         return followUpDietStatusInfoServices.deleteDietStatus(patientId);
     }
