@@ -1,4 +1,4 @@
-package com.cg.healthreminder.services;
+package com.cg.healthreminder.dao;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,7 +8,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.cg.healthreminder.dao.FollowUpMentalRatingInfoJpaDao;
 import com.cg.healthreminder.model.FollowUpMentalRatingInfo;
 
 import java.util.List;
@@ -19,14 +18,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class FollowUpMentalRatingInfoServicesTest {
+public class FollowUpMentalRatingInfoJpaDaoTest {
 
 	@Autowired
     private FollowUpMentalRatingInfoJpaDao followUpMentalRatingInfoJpaDao ;
 
     @Autowired
     private TestEntityManager testEntityManager;
-    
+
     private FollowUpMentalRatingInfo getFollowUpMentalRatingInfo() {
     	FollowUpMentalRatingInfo followUpMentalRatingInfo = new FollowUpMentalRatingInfo();
     	followUpMentalRatingInfo.setPatientId(1);
@@ -35,7 +34,7 @@ public class FollowUpMentalRatingInfoServicesTest {
     }
     
     @Test
-    public void testNewFollowUpDiet() throws Exception{
+    public void testNewFollowUpMentalRating() throws Exception{
     	FollowUpMentalRatingInfo followUpMentalRatingInfo = getFollowUpMentalRatingInfo();
     	FollowUpMentalRatingInfo saveInDb = testEntityManager.persist(followUpMentalRatingInfo);
     	FollowUpMentalRatingInfo getFromInDb = followUpMentalRatingInfoJpaDao.findById(saveInDb.getPatientId()).get();
@@ -46,7 +45,7 @@ public class FollowUpMentalRatingInfoServicesTest {
     public void testGetFollowUpMentalRatingById() throws Exception{
     	FollowUpMentalRatingInfo followUpMentalRatingInfo = new FollowUpMentalRatingInfo();
     	followUpMentalRatingInfo.setPatientId(2);
-    	followUpMentalRatingInfo.setMentalRating(4);
+    	followUpMentalRatingInfo.setMentalRating(5);
        
     	FollowUpMentalRatingInfo saveInDb = testEntityManager.persist(followUpMentalRatingInfo);
         
@@ -74,23 +73,23 @@ public class FollowUpMentalRatingInfoServicesTest {
         Assert.assertEquals(followUpMentalRatingInfos.size(), 1);
 
     }
-
+    
     @Test
     public void testUpdateFollowUpMentalRatingInfo(){
 
     	FollowUpMentalRatingInfo followUpMentalRatingInfo = new FollowUpMentalRatingInfo();
     	followUpMentalRatingInfo.setPatientId(3);
-    	followUpMentalRatingInfo.setMentalRating(1);
+    	followUpMentalRatingInfo.setMentalRating(3);
         
         testEntityManager.persist(followUpMentalRatingInfo);
 
         FollowUpMentalRatingInfo getFromDb = followUpMentalRatingInfoJpaDao.findById(3).get();
-        getFromDb.setMentalRating(5);
+        getFromDb.setMentalRating(2);
         testEntityManager.persist(getFromDb);
 
-        assertThat(getFromDb.getMentalRating()).isEqualTo(5);
+        assertThat(getFromDb.getMentalRating()).isEqualTo(2);
     }
 
 
-	
+
 }
