@@ -1,7 +1,7 @@
 /**
  * @SayantanDas
  * 
- * This is the Testing SUite for running test cases together.
+ * This is the Testing SUite containing test cases.
 */
 
 package com.cg.healthreminder.testsuites;

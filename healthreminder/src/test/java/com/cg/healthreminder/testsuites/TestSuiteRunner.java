@@ -1,3 +1,9 @@
+/**
+ * @SayantanDas
+ * 
+ * This is the Class for running the test suite.
+*/
+
 package com.cg.healthreminder.testsuites;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
