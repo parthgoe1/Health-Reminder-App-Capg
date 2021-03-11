@@ -52,10 +52,10 @@ public class DiseaseJpaDaoTest {
 	     Diseases saveInDb = testEntityManager.merge(dLocal);
 	     Diseases getFromInDb = diseaseJpaDao.findById(saveInDb.getDiseaseId()).get();
 	     assertThat(getFromInDb).isEqualTo(saveInDb);
-	     assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
-	     assertThat(getFromInDb.getDiseaseName()).isEqualTo(saveInDb.getDiseaseName());
-	     assertThat(getFromInDb.getDiseaseInfo()).isEqualTo(saveInDb.getDiseaseInfo());
-	     assertThat(getFromInDb.getDiseaseKeys()).isEqualTo(saveInDb.getDiseaseKeys());
+	     assertThat(getFromInDb.toString()).hasToString(saveInDb.toString());
+	     assertThat(getFromInDb.getDiseaseName()).hasToString(saveInDb.getDiseaseName());
+	     assertThat(getFromInDb.getDiseaseInfo()).hasToString(saveInDb.getDiseaseInfo());
+	     assertThat(getFromInDb.getDiseaseKeys()).hasToString(saveInDb.getDiseaseKeys());
 	 }
 	 
 /*	 @Test
