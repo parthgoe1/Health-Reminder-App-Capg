@@ -32,7 +32,8 @@ public class AppointmentDetailsController{
 	    
 	    /**
 	     * To find Appointments by patient Id.
-	     * 
+	     * @param patientId
+	     * throws AllCustomException if not found
 	    */
 	    @GetMapping("/findAppointmentByPatId/{patientId}")
 	    public AppointmentDetails findAppointmentDetailsByPatientId(@PathVariable int patientId) throws AllCustomException{
@@ -44,7 +45,8 @@ public class AppointmentDetailsController{
 
 	    /**
 	     * To find Appointments by doctor Id.
-	     * 
+	     * @param doctorId
+	     * throws AllCustomException if not found
 	    */
 	    @GetMapping("/findAppointmentByDocId/{doctorId}")
 	    public AppointmentDetails findAppointmentDetailsByDoctorId(@PathVariable int doctorId) throws AllCustomException{
@@ -56,6 +58,7 @@ public class AppointmentDetailsController{
 	    
 	    /**
 	     * To create an Appointment
+	     * @param Json Body
 	     * 
 	    */
 	    @PostMapping("/createAppointment")
@@ -68,7 +71,8 @@ public class AppointmentDetailsController{
 	    
 	    /**
 	     * To delete an Appointment by Patient Id
-	     * 
+	     * @param patientId
+	     * throws AllCustomException if not found
 	    */
 	    @DeleteMapping("/deleteAppointmentByPatId/{patientId}")
 	    public AppointmentDetails deleteAppointmentByPatientId(@PathVariable int patientId) throws AllCustomException{
@@ -80,7 +84,8 @@ public class AppointmentDetailsController{
 
 	    /**
 	     * To delete an Appointment by Doctor Id
-	     * 
+	     * @param DoctorId
+	     * throws AllCustomException if not found
 	    */
 	    @DeleteMapping("/deleteAppointmentByDocId/{doctorId}")
 	    public AppointmentDetails deleteAppointmentByDoctorId(@PathVariable int doctorId) throws AllCustomException{
