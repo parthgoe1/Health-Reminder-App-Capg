@@ -1,6 +1,6 @@
 package com.cg.healthreminder.model;
 
-// @author Naman Bhandari
+/* @author Naman Bhandari*/
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -18,8 +18,10 @@ public class Patient {
 	private String patientName;
 	@Column(name = "mobile", nullable=false)
 	private String patientMobile;
+	@Min(0)
 	@Column(name = "age")
 	private Integer patientAge;
+	@Min(1)
 	@Column(name="height")
 	private Double patientHeight;
 	@Column(name="weight")
