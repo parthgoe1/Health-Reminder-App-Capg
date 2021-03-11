@@ -1,4 +1,8 @@
-//AUTHOR --> Ankit Banerjee
+/**
+ * @AnkitBanerjee
+ * 
+ * This is the Service Testing Class for Doctor Details.
+*/
 package com.cg.healthreminder.services;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -32,6 +36,10 @@ public class DoctorDetailsServiceTest {
     @Autowired
     private DoctorDetailsService doctorDetailsService;
 	
+    /**
+	 * 
+	 * To check if a new Doctor Details module gets created
+	*/
     @Test
     public void testCreateDoctor(){
     	DoctorDetails doctorDetails = new DoctorDetails();
@@ -60,7 +68,10 @@ public class DoctorDetailsServiceTest {
 //        assertThat(doctorDetailsService.findDoctorById(null)).isEqualTo(doctorDetails);
 //    }
     
-    
+    /**
+	 * 
+	 * To check if we able to find Doctor Details using Doctor specialization
+	*/
     @Test
     public void testFindByDoctorSpec() throws Exception{
     	DoctorDetails doctorDetails = new DoctorDetails();
@@ -74,6 +85,10 @@ public class DoctorDetailsServiceTest {
       assertThat(doctorDetailsService.findDoctorBySpec("Surgeon")).isEqualTo(doctorDetails);
     }
     
+    /**
+	 * 
+	 * To check if we able to get All Doctor Details 
+	*/
     @Test
     public void testGetAllDoctors() throws Exception{
     	DoctorDetails d1 = new DoctorDetails();

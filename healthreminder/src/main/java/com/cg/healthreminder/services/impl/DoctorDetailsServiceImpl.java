@@ -1,4 +1,9 @@
-//AUTHOR --> Ankit Banerjee
+/**
+ * @SayantanDas
+ * 
+ * This is the Service Class for Doctor Details.
+*/
+
 package com.cg.healthreminder.services.impl;
 
 
@@ -25,6 +30,10 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 	private DoctorDetailsDao doctorDetailsDao;
 	private static final Logger logger=LogManager.getLogger(DoctorDetailsServiceImpl.class);
 	
+	/**
+	 * 
+	 * To find Doctor Details by Doctor Id.
+	*/
 	@Override
 	public DoctorDetails findDoctorById(Integer id) throws AllCustomException
 	{
@@ -38,7 +47,10 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 		return ob;
 	}
 	
-	
+	/**
+	 * 
+	 * To find Doctor Details by Doctor Specialization.
+	*/
 	@Override
 	public DoctorDetails findDoctorBySpec(String doctorSpec) throws AllCustomException
 	{
@@ -52,6 +64,10 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 		return ob;
 	}
 	
+	/**
+	 * 
+	 * To Get All Doctor Details.
+	*/
 	@Override
 	public Iterable<DoctorDetails> getAllDoctorDetails()
 	{
@@ -60,6 +76,10 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 		return doctorDetailsDao.findAll();
 	}
 	
+	/**
+	 * 
+	 * To update Doctor Details by Doctor Id.
+	*/
 	@Override
 	public DoctorDetails updateDoctorById(Integer doctorId,String doctorName,boolean verfStatus,  String doctorCertFile,  String doctorSpec) throws AllCustomException
 	{
@@ -83,7 +103,10 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 		return doctorDetailsDao.save(ob);
 	}
 	
-	
+	/**
+	 * 
+	 * To delete Doctor Details by Doctor Id.
+	*/
 	@Override
 	public DoctorDetails deleteDoctorById(Integer id) throws AllCustomException
 	{
@@ -104,6 +127,10 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 		return ob;
 	}
 	
+	/**
+	 * 
+	 * To create Doctor Details.
+	*/
 	@Override
 	public DoctorDetails createDoctor(DoctorDetails doctorDetails)
 	{

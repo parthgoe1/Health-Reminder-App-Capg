@@ -1,4 +1,8 @@
-//AUTHOR --> Ankit Banerjee
+/**
+ * @AnkitBanerjee
+ * 
+ * This is the Service Testing Class for Alarm Module.
+*/
 package com.cg.healthreminder.services;
 
 
@@ -29,6 +33,10 @@ public class AlarmModuleServiceTest {
 	@Autowired
     private AlarmModuleService alarmModuleService;
     
+	/**
+	 * 
+	 * To check if a new Alarm Module gets created
+	*/
 	@Test
     public void testCreateAlarmModule() {
     	AlarmModule a= new AlarmModule();
@@ -43,6 +51,10 @@ public class AlarmModuleServiceTest {
         assertThat(alarmModuleService.createAlarm(a)).isEqualTo(a);
     }
 	
+	/**
+	 * 
+	 * To check if we able to find Alarm Module using alarm name
+	*/
 	@Test
     public void testGetAlarmModuleByName() throws Exception{
 		AlarmModule alarm = new AlarmModule();
@@ -58,6 +70,10 @@ public class AlarmModuleServiceTest {
         assertThat(alarmModuleService.findAlarmByName("Lung Medicine")).isEqualTo(alarm);
     }
 	
+	/**
+	 * 
+	 * To check if we can get All Alarm Module
+	*/
 	@Test
     public void testGetAllAlarm() throws Exception{
 		AlarmModule a1 = new AlarmModule();

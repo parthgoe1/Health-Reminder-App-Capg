@@ -1,4 +1,8 @@
-//AUTHOR --> Ankit Banerjee
+/**
+ * @AnkitBanerjee
+ * 
+ * This is the DAO Repository Testing Class for Doctor Details.
+*/
 package com.cg.healthreminder.dao;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -39,6 +43,10 @@ public class DoctorDetailsDaoTest {
 		return d;
 	}
     
+    /**
+	 * 
+	 * Testing if new Doctor Details gets created.
+	*/
     @Test
 	public void testNewDoctorDetails() throws Exception{
     	DoctorDetails doctor = getDoctorDetails();
@@ -48,6 +56,10 @@ public class DoctorDetailsDaoTest {
 		assertThat(getFromInDb.toString()).hasToString(saveInDb.toString());
     }
     
+    /**
+	 * 
+	 * Testing if Doctor Details can be found using doctor specialization.
+	*/
     @Test
 	public void testNewDoctorSpec() throws Exception{
     	DoctorDetails doctor = getDoctorDetails();
@@ -57,7 +69,10 @@ public class DoctorDetailsDaoTest {
 	}
     
    
-    
+    /**
+	 * 
+	 * Testing the deletion of Doctor Details using doctor id.
+	*/
     @Test
     public void testDeleteDoctorbyId() throws Exception{
     	

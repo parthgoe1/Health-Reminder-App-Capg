@@ -1,4 +1,8 @@
-//AUTHOR --> Ankit Banerjee
+/**
+ * @AnkitBanerjee
+ * 
+ * This is the DAO Repository Testing Class for Alarm Module.
+*/
 package com.cg.healthreminder.dao;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -38,6 +42,10 @@ public class AlarmModuleDaoTest {
 		return a;
 	 }
     
+    /**
+	 * 
+	 * Check if we able to create new Alarm Module.
+	*/
     @Test
 	 public void testNewAlarmModuleDetails() throws Exception{
     	AlarmModule alarm = getAlarmDetails();
@@ -47,6 +55,10 @@ public class AlarmModuleDaoTest {
 	    assertThat(getFromInDb.toString()).hasToString(saveInDb.toString());
     }
     
+    /**
+	 * 
+	 * Testing alarm module using patient id .
+	*/
     @Test
 	public void  testAlarmModuleDetailsByPatientId() throws Exception{
     	AlarmModule alarm = getAlarmDetails();
@@ -55,6 +67,10 @@ public class AlarmModuleDaoTest {
 	     assertThat(getInDb).isEqualTo(saveInDb);
 	}
     
+    /**
+	 * 
+	 * Testing of deletion of alarm module using alarm id .
+	*/
     @Test
     public void testDeleteAlarmModulesbyId() throws Exception{
     	
