@@ -1,79 +1,83 @@
-2021-03-10 18:58:18.522  INFO 17908 --- [main] c.c.h.HealthreminderApplication          : Starting HealthreminderApplication on DESKTOP-2PJIAO0 with PID 17908 (C:\Users\goelp\Desktop\Health Reminder Capg\Health-Reminder-App-Capg\healthreminder\target\classes started by goelp in C:\Users\goelp\Desktop\Health Reminder Capg\Health-Reminder-App-Capg\healthreminder)
-2021-03-10 18:58:18.526  INFO 17908 --- [main] c.c.h.HealthreminderApplication          : No active profile set, falling back to default profiles: default
-2021-03-10 18:58:20.194  INFO 17908 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2021-03-10 18:58:20.336  INFO 17908 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 130ms. Found 11 JPA repository interfaces.
-2021-03-10 18:58:21.536  INFO 17908 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
-2021-03-10 18:58:21.551  INFO 17908 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-10 18:58:21.551  INFO 17908 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2021-03-10 18:58:21.738  INFO 17908 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-10 18:58:21.739  INFO 17908 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3135 ms
-2021-03-10 18:58:22.015  INFO 17908 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-03-10 18:58:22.190  INFO 17908 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-03-10 18:58:22.316  INFO 17908 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.22.Final
-2021-03-10 18:58:22.695  INFO 17908 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2021-03-10 18:58:32.378  INFO 22712 --- [main] c.c.h.HealthreminderApplication          : Starting HealthreminderApplication on DESKTOP-2PJIAO0 with PID 22712 (C:\Users\goelp\Desktop\Health Reminder Capg\Health-Reminder-App-Capg\healthreminder\target\classes started by goelp in C:\Users\goelp\Desktop\Health Reminder Capg\Health-Reminder-App-Capg\healthreminder)
-2021-03-10 18:58:32.382  INFO 22712 --- [main] c.c.h.HealthreminderApplication          : No active profile set, falling back to default profiles: default
-2021-03-10 18:58:33.940  INFO 22712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2021-03-10 18:58:34.123  INFO 22712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 159ms. Found 11 JPA repository interfaces.
-2021-03-10 18:58:35.137  INFO 22712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
-2021-03-10 18:58:35.150  INFO 22712 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-10 18:58:35.150  INFO 22712 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2021-03-10 18:58:35.274  INFO 22712 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-10 18:58:35.276  INFO 22712 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2816 ms
-2021-03-10 18:58:35.561  INFO 22712 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-03-10 18:58:35.647  INFO 22712 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-03-10 18:58:35.846  INFO 22712 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.22.Final
-2021-03-10 18:58:36.236  INFO 22712 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2021-03-10 18:58:36.620  WARN 22712 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-03-10 18:58:36.649  INFO 22712 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-03-10 18:58:36.999  INFO 22712 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-03-10 18:58:37.650  INFO 22712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
-2021-03-10 18:58:37.651  INFO 22712 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-03-10 18:58:37.780  INFO 22712 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-03-10 18:58:37.918  INFO 22712 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-03-10 18:58:37.995  INFO 22712 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-03-10 18:58:38.066  INFO 22712 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2021-03-10 18:58:38.423  INFO 22712 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createTicketUsingPOST_1
-2021-03-10 18:58:38.719  INFO 22712 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2021-03-10 18:58:39.306  WARN 22712 --- [task-1] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.cg.healthreminder.model.Slot_Pk
-2021-03-10 18:58:39.306  WARN 22712 --- [task-1] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.cg.healthreminder.model.Slot_Pk
-2021-03-10 18:58:40.431  INFO 22712 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-03-10 18:58:40.439  INFO 22712 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-03-10 18:58:41.136  INFO 22712 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2021-03-10 18:58:41.148  INFO 22712 --- [main] c.c.h.HealthreminderApplication          : Started HealthreminderApplication in 9.291 seconds (JVM running for 9.87)
-2021-03-10 18:58:54.240  INFO 22712 --- [http-nio-8086-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-03-10 18:58:54.241  INFO 22712 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-03-10 18:58:54.251  INFO 22712 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
-2021-03-10 18:59:17.283  INFO 22712 --- [http-nio-8086-exec-9] c.c.h.controller.DietInfoController      : Deleting diet information in Controller........
-2021-03-10 18:59:17.301  INFO 22712 --- [http-nio-8086-exec-9] c.c.h.s.impl.DietInfoServicesImpl        : Creating diet information in Implementation........
-2021-03-10 19:17:21.626  INFO 26452 --- [main] c.c.h.HealthreminderApplication          : Starting HealthreminderApplication on DESKTOP-2PJIAO0 with PID 26452 (C:\Users\goelp\Desktop\Health Reminder Capg\Health-Reminder-App-Capg\healthreminder\target\classes started by goelp in C:\Users\goelp\Desktop\Health Reminder Capg\Health-Reminder-App-Capg\healthreminder)
-2021-03-10 19:17:21.629  INFO 26452 --- [main] c.c.h.HealthreminderApplication          : No active profile set, falling back to default profiles: default
-2021-03-10 19:17:22.941  INFO 26452 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2021-03-10 19:17:23.071  INFO 26452 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 121ms. Found 11 JPA repository interfaces.
-2021-03-10 19:17:24.139  INFO 26452 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
-2021-03-10 19:17:24.155  INFO 26452 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-10 19:17:24.156  INFO 26452 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2021-03-10 19:17:24.290  INFO 26452 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-10 19:17:24.290  INFO 26452 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2589 ms
-2021-03-10 19:17:24.494  INFO 26452 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-03-10 19:17:24.675  INFO 26452 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-03-10 19:17:24.810  INFO 26452 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.22.Final
-2021-03-10 19:17:25.149  INFO 26452 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2021-03-10 19:17:25.385  WARN 26452 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-03-10 19:17:25.414  INFO 26452 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-03-10 19:17:25.734  INFO 26452 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-03-10 19:17:26.296  INFO 26452 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
-2021-03-10 19:17:26.297  INFO 26452 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-03-10 19:17:26.366  INFO 26452 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-03-10 19:17:26.447  INFO 26452 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-03-10 19:17:26.481  INFO 26452 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-03-10 19:17:26.514  INFO 26452 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2021-03-10 19:17:26.955  INFO 26452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createTicketUsingPOST_1
-2021-03-10 19:17:27.232  INFO 26452 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2021-03-10 19:17:27.703  WARN 26452 --- [task-1] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.cg.healthreminder.model.Slot_Pk
-2021-03-10 19:17:27.709  WARN 26452 --- [task-1] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.cg.healthreminder.model.Slot_Pk
-2021-03-10 19:17:28.735  INFO 26452 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-03-10 19:17:28.745  INFO 26452 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-03-10 19:17:29.430  INFO 26452 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2021-03-10 19:17:29.439  INFO 26452 --- [main] c.c.h.HealthreminderApplication          : Started HealthreminderApplication in 8.281 seconds (JVM running for 8.804)
-2021-03-10 19:17:32.593  INFO 26452 --- [http-nio-8086-exec-9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-11 09:09:53.149  INFO 15132 --- [main] c.c.h.HealthreminderApplication          : Starting HealthreminderApplication on LAPTOP-VDGCNLMT with PID 15132 (D:\Capgemini\Project Intern\HealthReminder\Health-Reminder-App-Capg\healthreminder\target\classes started by Shania in D:\Capgemini\Project Intern\HealthReminder\Health-Reminder-App-Capg\healthreminder)
+2021-03-11 09:09:53.159  INFO 15132 --- [main] c.c.h.HealthreminderApplication          : No active profile set, falling back to default profiles: default
+2021-03-11 09:09:54.136  INFO 15132 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-03-11 09:09:54.264  INFO 15132 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 115ms. Found 11 JPA repository interfaces.
+2021-03-11 09:09:55.011  INFO 15132 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
+2021-03-11 09:09:55.020  INFO 15132 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-11 09:09:55.020  INFO 15132 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-03-11 09:09:55.137  INFO 15132 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-11 09:09:55.137  INFO 15132 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1936 ms
+2021-03-11 09:09:55.297  INFO 15132 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-11 09:09:55.361  INFO 15132 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-11 09:09:55.433  INFO 15132 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.22.Final
+2021-03-11 09:09:55.580  INFO 15132 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2021-03-11 09:09:55.705  INFO 15132 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-11 09:09:55.748  WARN 15132 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-11 09:09:55.990  INFO 15132 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-03-11 09:09:56.101  INFO 15132 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-11 09:09:56.133  INFO 15132 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-03-11 09:09:56.423  INFO 15132 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
+2021-03-11 09:09:56.425  INFO 15132 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-03-11 09:09:56.461  INFO 15132 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-03-11 09:09:56.511  INFO 15132 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-03-11 09:09:56.689  WARN 15132 --- [task-1] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.cg.healthreminder.model.Slot_Pk
+2021-03-11 09:09:56.689  WARN 15132 --- [task-1] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.cg.healthreminder.model.Slot_Pk
+2021-03-11 09:09:56.821  INFO 15132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createTicketUsingPOST_1
+2021-03-11 09:09:57.110  INFO 15132 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2021-03-11 09:09:57.515  INFO 15132 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-11 09:09:57.522  INFO 15132 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-03-11 09:09:58.049  INFO 15132 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2021-03-11 09:09:58.070  INFO 15132 --- [main] c.c.h.HealthreminderApplication          : Started HealthreminderApplication in 5.3 seconds (JVM running for 5.809)
+2021-03-11 09:10:20.271  INFO 15132 --- [http-nio-8086-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-11 09:10:20.271  INFO 15132 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-03-11 09:10:20.284  INFO 15132 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2021-03-11 09:10:20.502  INFO 15132 --- [http-nio-8086-exec-1] c.c.h.services.impl.DiseaseServicesImpl  : Adding new Disease........
+2021-03-11 09:10:20.504  INFO 15132 --- [http-nio-8086-exec-1] c.c.h.services.impl.DiseaseServicesImpl  : Returning New Disease-----
+2021-03-11 09:10:20.603  WARN 15132 --- [http-nio-8086-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 23505
+2021-03-11 09:10:20.603 ERROR 15132 --- [http-nio-8086-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: duplicate key value violates unique constraint "diseases_info_pkey"
+  Detail: Key (disease_id)=(3) already exists.
+2021-03-11 09:10:46.340  INFO 15132 --- [http-nio-8086-exec-3] c.c.h.services.impl.DiseaseServicesImpl  : Adding new Disease........
+2021-03-11 09:10:46.340  INFO 15132 --- [http-nio-8086-exec-3] c.c.h.services.impl.DiseaseServicesImpl  : Returning New Disease-----
+2021-03-11 09:11:06.472  INFO 15132 --- [http-nio-8086-exec-6] c.c.h.services.impl.DiseaseServicesImpl  : Adding new Disease........
+2021-03-11 09:11:06.473  INFO 15132 --- [http-nio-8086-exec-6] c.c.h.services.impl.DiseaseServicesImpl  : Returning New Disease-----
+2021-03-11 09:13:36.163  INFO 15132 --- [http-nio-8086-exec-4] c.c.h.services.impl.DiseaseServicesImpl  : Adding new Disease........
+2021-03-11 09:13:36.164  INFO 15132 --- [http-nio-8086-exec-4] c.c.h.services.impl.DiseaseServicesImpl  : Returning New Disease-----
+2021-03-11 09:14:18.237  INFO 11892 --- [main] c.c.h.HealthreminderApplication          : Starting HealthreminderApplication on LAPTOP-VDGCNLMT with PID 11892 (D:\Capgemini\Project Intern\HealthReminder\Health-Reminder-App-Capg\healthreminder\target\classes started by Shania in D:\Capgemini\Project Intern\HealthReminder\Health-Reminder-App-Capg\healthreminder)
+2021-03-11 09:14:18.240  INFO 11892 --- [main] c.c.h.HealthreminderApplication          : No active profile set, falling back to default profiles: default
+2021-03-11 09:14:19.150  INFO 11892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-03-11 09:14:19.267  INFO 11892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 106ms. Found 11 JPA repository interfaces.
+2021-03-11 09:14:19.906  INFO 11892 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
+2021-03-11 09:14:19.915  INFO 11892 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-11 09:14:19.915  INFO 11892 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-03-11 09:14:20.019  INFO 11892 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-11 09:14:20.019  INFO 11892 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1739 ms
+2021-03-11 09:14:20.169  INFO 11892 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-11 09:14:20.211  INFO 11892 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-11 09:14:20.261  INFO 11892 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.22.Final
+2021-03-11 09:14:20.398  INFO 11892 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2021-03-11 09:14:20.497  INFO 11892 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-11 09:14:20.562  WARN 11892 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-11 09:14:20.783  INFO 11892 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-03-11 09:14:20.830  INFO 11892 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-11 09:14:20.853  INFO 11892 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-03-11 09:14:21.185  INFO 11892 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
+2021-03-11 09:14:21.187  INFO 11892 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-03-11 09:14:21.214  INFO 11892 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-03-11 09:14:21.264  INFO 11892 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-03-11 09:14:21.305  WARN 11892 --- [task-1] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.cg.healthreminder.model.Slot_Pk
+2021-03-11 09:14:21.306  WARN 11892 --- [task-1] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.cg.healthreminder.model.Slot_Pk
+2021-03-11 09:14:21.532  INFO 11892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createTicketUsingPOST_1
+2021-03-11 09:14:21.724  INFO 11892 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2021-03-11 09:14:22.070  INFO 11892 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-11 09:14:22.079  INFO 11892 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-03-11 09:14:22.583  INFO 11892 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2021-03-11 09:14:22.594  INFO 11892 --- [main] c.c.h.HealthreminderApplication          : Started HealthreminderApplication in 4.733 seconds (JVM running for 5.251)
+2021-03-11 09:14:42.825  INFO 11892 --- [http-nio-8086-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-11 09:14:42.825  INFO 11892 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-03-11 09:14:42.836  INFO 11892 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2021-03-11 09:14:43.039  INFO 11892 --- [http-nio-8086-exec-1] c.c.h.services.impl.DiseaseServicesImpl  : Adding new Disease........
+2021-03-11 09:14:43.040  INFO 11892 --- [http-nio-8086-exec-1] c.c.h.services.impl.DiseaseServicesImpl  : Returning New Disease-----
+2021-03-11 09:15:46.079  INFO 11892 --- [http-nio-8086-exec-8] c.c.h.services.impl.DiseaseServicesImpl  : Adding new Disease........
+2021-03-11 09:15:46.079  INFO 11892 --- [http-nio-8086-exec-8] c.c.h.services.impl.DiseaseServicesImpl  : Returning New Disease-----
+2021-03-11 09:16:33.963  INFO 11892 --- [http-nio-8086-exec-9] c.c.h.services.impl.DiseaseServicesImpl  : Adding new Disease........
+2021-03-11 09:16:33.964  INFO 11892 --- [http-nio-8086-exec-9] c.c.h.services.impl.DiseaseServicesImpl  : Returning New Disease-----
