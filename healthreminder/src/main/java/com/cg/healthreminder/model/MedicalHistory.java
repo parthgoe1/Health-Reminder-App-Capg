@@ -1,6 +1,6 @@
 package com.cg.healthreminder.model;
 
-// @author Naman Bhandari
+/* @author Naman Bhandari*/
 
 import javax.persistence.*;
 

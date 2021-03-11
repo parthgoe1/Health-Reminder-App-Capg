@@ -1,6 +1,6 @@
 package com.cg.healthreminder.controller;
 
-// @author Naman Bhandari
+/* @author Naman Bhandari*/
 
 import java.util.List;
 

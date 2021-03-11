@@ -15,7 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * @ShaniaDalal
  * 
- * This is the Swagger class for Health Reminder Application
+ * This is the Swagger  Configuration class for Health Reminder Application
  */
 
 @Configuration
