@@ -1,13 +1,9 @@
-/*
- * Author-> Shania Dalal
- * This is the Controller Class for performing operations on Diseases model using
- * URL Mapping
- * Operations in this class : viewing, updating diseaseInfo with id, and also adding new diseases
- */
 package com.cg.healthreminder.controller;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -26,6 +22,12 @@ import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.Diseases;
 import com.cg.healthreminder.services.DiseaseServices;
 
+/**
+ * @ShaniaDalal
+ * 
+ * This is the Controller Class for Diseases model
+ */
+
 @RestController
 @RequestMapping("/healthreminder")
 @SuppressWarnings("rawtypes")
@@ -35,12 +37,20 @@ public class DiseaseController {
 	@Autowired
 	private DiseaseServices diseaseServices;
 	
+	/**
+	 * Finds a Disease
+	 * @param id value for disease
+	 * @throws AllCustomException if id doesn't exist
+	 */
 	@GetMapping("/viewDisease/{id}")
 	public Diseases viewDisease(@PathVariable @Min(1) Integer id) throws AllCustomException{
 		return this.diseaseServices.viewDisease(id);
 	}
 	
-	
+	/**
+	 * Adds new Disease
+	 * @param id value for disease
+	 */
 	@SuppressWarnings("unchecked")
 	@PostMapping(value="/addDisease")
 	public ResponseEntity addDisease(@Valid @RequestBody Diseases d) {
@@ -48,15 +58,26 @@ public class DiseaseController {
 		return new ResponseEntity("Disease added successfully", HttpStatus.OK);
 	}
 	
-	
+	/**
+	 * Updates Disease Information
+	 * @param id value, string for info
+	 * @throws AllCustomException if id doesn't exist
+	 */
 	@SuppressWarnings("unchecked")
 	@PostMapping("/updateDisease/{id}/{content}")
-	public ResponseEntity updateDiseaseInfo(@PathVariable("id") @Min(1) Integer id, @PathVariable("content") String content) throws AllCustomException{
+	public ResponseEntity updateDiseaseInfo(@PathVariable("id") @Min(1) Integer id,
+			@PathVariable("content") @NotNull @Pattern(regexp = ".*[a-zA-Z]+.*",message="Please enter atleast one Alphabet") String content ) 
+					throws AllCustomException{
 		this.diseaseServices.updateDiseaseInfo(id, content);
 		return new ResponseEntity("Disease Information Updated successfully", HttpStatus.OK);
 
 	}
 	
+	/**
+	 * Deletes Disease
+	 * @param id value for disease
+	 * @throws AllCustomException if id doesn't exist
+	 */
 	@SuppressWarnings("unchecked")
 	@DeleteMapping(value="/deleteDisease/{id}")
 	public ResponseEntity deleteDisease(@PathVariable @Min(1) Integer id) throws AllCustomException{

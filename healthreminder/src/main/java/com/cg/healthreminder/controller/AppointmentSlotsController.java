@@ -45,6 +45,7 @@ public class AppointmentSlotsController {
 	    
 	    /**
 	     * To create an appointment slot
+	     * @param Json Body
 	     * 
 	    */
 	    @PostMapping("/createAppointmentSlot")
@@ -57,7 +58,8 @@ public class AppointmentSlotsController {
 	    
 	    /**
 	     * To delete an Appointment Slot
-	     * 
+	     * @param Json Body
+	     * throws AllCustomException if not found
 	    */
 	    @DeleteMapping("/deleteAppointmentSlot")
 	    public AppointmentSlots deleteAppointmentSlot(@RequestBody AppointmentSlots aps)  throws AllCustomException{

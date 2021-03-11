@@ -9,7 +9,9 @@ package com.cg.healthreminder.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 
 @Entity
@@ -24,30 +26,37 @@ public class AppointmentDetails {
 	
 	@NotNull
 	@Column
+	@Min(1)
 	private int patientId;
     
 	@NotNull
 	@Column
+	@Min(1)
 	private int doctorId;
 	
 	@NotNull
 	@Column
+	@Pattern(regexp = "[A-Za-z]+",message="Please enter only Alphabets")
 	private String doctorName;
 	
 	@NotNull
 	@Column
+	@Pattern(regexp = "[A-Za-z]+",message="Please enter only Alphabets")
 	private String patientName;
 	
 	@NotNull
 	@Column
+	@Pattern(regexp = "^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$",message="Please enter Correct Date in MM/DD/YYYY")
 	private String doctorDate;
    
 	@NotNull
     @Column
+    @Pattern(regexp = "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$",message="Please enter correct time")
 	private String doctorStartTime;
 	
 	@NotNull
 	@Column
+	@Pattern(regexp = "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$",message="Please enter correct time")
 	private String doctorEndTime;
 
 	public int getAppId() {

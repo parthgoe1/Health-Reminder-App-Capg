@@ -60,11 +60,11 @@ public class AppointmentSlotsControllerTest {
 	        String URI = "/healthreminder/createAppointmentSlot";
 	        AppointmentSlots slot2= new AppointmentSlots();
 			Slot_Pk pk2=new Slot_Pk();
-			pk2.setDoc_date("2020-12-17");
+			pk2.setDoc_date("12/17/2020");
 			pk2.setDoc_id(12);
 			slot2.setPk(pk2);
-			slot2.setDoctorEndTime(null);
-			slot2.setDoctorStartTime(null);
+			slot2.setDoctorEndTime("12:00");
+			slot2.setDoctorStartTime("9:00");
 			String jsonInput = this.converttoJson(slot2);
 
 	        Mockito.when(appointmentSlotsService.createAppointmentSlot(Mockito.any(AppointmentSlots.class))).thenReturn(slot2);
@@ -84,20 +84,20 @@ public class AppointmentSlotsControllerTest {
 	    public void testGetAllSlots() throws Exception{
 	        String URI = "/healthreminder/getAllSlots";
 	        AppointmentSlots slot= new AppointmentSlots();
-			 slot.setDoctorEndTime(null);
-			 slot.setDoctorStartTime(null);
+			 slot.setDoctorEndTime("12:00");
+			 slot.setDoctorStartTime("9:00");
 			 Slot_Pk pk=new Slot_Pk();
-			 pk.setDoc_date("2020-12-16");
+			 pk.setDoc_date("12/16/2020");
 			 pk.setDoc_id(1);
 			 slot.setPk(pk);
 
 	        AppointmentSlots slot2= new AppointmentSlots();
 			Slot_Pk pk2=new Slot_Pk();
-			pk2.setDoc_date("2020-12-17");
+			pk2.setDoc_date("12/17/2020");
 			pk2.setDoc_id(12);
 			slot2.setPk(pk2);
-			slot2.setDoctorEndTime(null);
-			slot2.setDoctorStartTime(null);
+			slot2.setDoctorEndTime("12:00");
+			slot2.setDoctorStartTime("9:00");
 
 	        List<AppointmentSlots> asl = new ArrayList<>();
 	        asl.add(slot);

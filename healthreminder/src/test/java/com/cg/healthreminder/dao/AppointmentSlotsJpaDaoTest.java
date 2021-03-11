@@ -35,7 +35,7 @@ public class AppointmentSlotsJpaDaoTest {
 		 slot.setDoctorEndTime("12:00");
 		 slot.setDoctorStartTime("9:00");
 		 Slot_Pk pk=new Slot_Pk();
-		 pk.setDoc_date("2020-12-16");
+		 pk.setDoc_date("12/16/2020");
 		 pk.setDoc_id(1);
 		 slot.setPk(pk);
 		 return slot;
@@ -65,7 +65,7 @@ public class AppointmentSlotsJpaDaoTest {
 		 slot2.setDoctorEndTime("12:00");
 		 slot2.setDoctorStartTime("9:00");
 		 Slot_Pk pk2=new Slot_Pk();
-		 pk2.setDoc_date("2020-12-17");
+		 pk2.setDoc_date("12/17/2020");
 		 pk2.setDoc_id(12);
 		 slot2.setPk(pk2);
 
@@ -91,7 +91,7 @@ public class AppointmentSlotsJpaDaoTest {
 		 slot2.setDoctorEndTime("12:00");
 		 slot2.setDoctorStartTime("9:00");
 		 Slot_Pk pk2=new Slot_Pk();
-		 pk2.setDoc_date("2020-12-17");
+		 pk2.setDoc_date("12/17/2020");
 		 pk2.setDoc_id(12);
 		 slot2.setPk(pk2);
 

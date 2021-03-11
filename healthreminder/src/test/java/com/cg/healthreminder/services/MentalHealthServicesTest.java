@@ -19,6 +19,12 @@ import com.cg.healthreminder.model.MentalHealth;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * @ShaniaDalal
+ * 
+ * This is the Test Class for Disease Service Implementation Class
+ */
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MentalHealthServicesTest {
@@ -28,6 +34,20 @@ public class MentalHealthServicesTest {
 
 	  @Autowired
 	  private MentalHealthServices mentalServices;
+	  
+	  /**
+	   * To test adding a MentalHealth Tip
+	   */
+	  @Test
+	    public void testAddTips(){
+		  MentalHealth m=new MentalHealth();
+		  m.setMentalRating(5);
+		  m.setMentalTip("You need to eat chocolate");
+
+		  Mockito.when(mentalJpaDao.save(m)).thenReturn(m);
+        assertThat(mentalServices.addTips(m)).isEqualTo(m);
+	    } 
+	  
 	  
 //	  @Autowired
 //	    private TestEntityManager entityManager;
@@ -60,19 +80,7 @@ public class MentalHealthServicesTest {
 		  Mockito.when(diseaseJpaDao.save(d)).thenReturn(d);
 		  System.out.println(d);
 		  assertThat(diseaseServices.updateDiseaseInfo(4, "Too much Phlegm")).isEqualTo(d);
-	    } */
-	  
-	 @Test
-	    public void testAddTips(){
-		  MentalHealth m=new MentalHealth();
-		  m.setMentalRating(5);
-		  m.setMentalTip("You need to eat chocolate");
-
-		  Mockito.when(mentalJpaDao.save(m)).thenReturn(m);
-          assertThat(mentalServices.addTips(m)).isEqualTo(m);
-	    } 
-	  
-	  
+	    } */	  
 
 	}
 

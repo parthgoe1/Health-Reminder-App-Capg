@@ -7,6 +7,8 @@
 
 package com.cg.healthreminder.model;
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 
 import java.io.Serializable;
 
@@ -17,7 +19,9 @@ public class Slot_Pk implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	@Min(1)
 	private int doc_id;
+	@Pattern(regexp = "^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$",message="Please enter Correct Date in MM/DD/YYYY")
 	private String doc_date;
 	
 	public Slot_Pk() {

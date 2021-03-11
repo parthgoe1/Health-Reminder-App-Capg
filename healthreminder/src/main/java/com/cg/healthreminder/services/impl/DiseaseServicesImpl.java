@@ -1,9 +1,3 @@
-/*
- * Author-> Shania Dalal
- * This class implements the DiseasesServices interface
- * It accesses the Postgres DB to perform admin/user operations
- * 
-*/
 package com.cg.healthreminder.services.impl;
 
 import java.util.Optional;
@@ -20,6 +14,12 @@ import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.Diseases;
 import com.cg.healthreminder.services.DiseaseServices;
 
+/**
+ * @ShaniaDalal
+ * 
+ * This is the Service Implementation Class for Diseases model
+ */
+
 @Service
 @Transactional
 public class DiseaseServicesImpl implements DiseaseServices{
@@ -27,7 +27,11 @@ public class DiseaseServicesImpl implements DiseaseServices{
 	private DiseaseJpaDao diseaseDao;
 	private static final Logger logger=LogManager.getLogger(DiseaseServicesImpl.class);
 	
-	
+	/**
+	 * Finds a Disease
+	 * @param id value for disease
+	 * @throws AllCustomException if id doesn't exist
+	 */
 	@Override
 	public Diseases viewDisease(Integer diseaseId) throws AllCustomException {
 		logger.info("Finding Disease using Disease ID ........");
@@ -43,6 +47,12 @@ public class DiseaseServicesImpl implements DiseaseServices{
 		logger.info("Returning Disease Value-----");
 		return d2;
 	}
+	
+	/**
+	 * Updates Disease Information
+	 * @param id value, string for info
+	 * @throws AllCustomException if id doesn't exist
+	 */
 	@Override
 	public Diseases updateDiseaseInfo(Integer diseaseId, String content) throws AllCustomException{
 		logger.info("Updating Disease using Disease ID ........");
@@ -59,7 +69,11 @@ public class DiseaseServicesImpl implements DiseaseServices{
         logger.info("Returning Updated Value-----");
         return diseaseDao.save(d2);
 	}
-	
+
+	/**
+	 * Adds new Disease
+	 * @param id value for disease
+	 */
 	@Override
 	public Diseases addDisease(Diseases d) {
 		logger.info("Adding new Disease........");
@@ -68,6 +82,11 @@ public class DiseaseServicesImpl implements DiseaseServices{
 		
 	}
 	
+	/**
+	 * Deletes Disease
+	 * @param id value for disease
+	 * @throws AllCustomException if id doesn't exist
+	 */
 	@Override
 	public boolean deleteDisease(Integer diseaseId) throws AllCustomException{
 		logger.info("Deleting Disease using Disease ID ........");

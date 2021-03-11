@@ -1,9 +1,3 @@
-/*
- * Author-> Shania Dalal
- * This is the Junit Test class that checks all Service Class operations performed
- * on the Diseases model
- * 
-*/
 package com.cg.healthreminder.services;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +12,12 @@ import com.cg.healthreminder.dao.DiseaseJpaDao;
 import com.cg.healthreminder.model.Diseases;
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * @ShaniaDalal
+ * 
+ * This is the Test Class for Disease Service Implementation Class
+ */
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DiseaseServicesTest {
@@ -27,6 +27,21 @@ public class DiseaseServicesTest {
 
 	  @Autowired
 	  private DiseaseServices diseaseServices;
+	  
+	  /**
+	   * To test adding new Disease
+	   */
+	  @Test
+	    public void testAddDisease(){
+		  Diseases d=new Diseases();
+		  d.setDiseaseId(5);
+		  d.setDiseaseName("Diabetes");
+		  d.setDiseaseInfo("Too much sugar");
+		  d.setDiseaseKeys("sugar");
+
+		  Mockito.when(diseaseJpaDao.save(d)).thenReturn(d);
+        assertThat(diseaseServices.addDisease(d)).isEqualTo(d);
+	    }
 	  
 //	  @Autowired
 //	    private TestEntityManager entityManager;
@@ -59,21 +74,7 @@ public class DiseaseServicesTest {
 		  Mockito.when(diseaseJpaDao.save(d)).thenReturn(d);
 		  System.out.println(d);
 		  assertThat(diseaseServices.updateDiseaseInfo(4, "Too much Phlegm")).isEqualTo(d);
-	    } */
-	  
-	 @Test
-	    public void testAddDisease(){
-		  Diseases d=new Diseases();
-		  d.setDiseaseId(5);
-		  d.setDiseaseName("Diabetes");
-		  d.setDiseaseInfo("Too much sugar");
-		  d.setDiseaseKeys("sugar");
-
-		  Mockito.when(diseaseJpaDao.save(d)).thenReturn(d);
-          assertThat(diseaseServices.addDisease(d)).isEqualTo(d);
-	    }
-	  
-	  
+	    } */ 
 
 	}
 
