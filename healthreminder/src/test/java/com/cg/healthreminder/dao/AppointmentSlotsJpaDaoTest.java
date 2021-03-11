@@ -1,8 +1,7 @@
-/*
- * Author-> Sayantan Das
- * This is the Java Test class which Tests all the CRUD operations performed by the Repository/DAO
- * using jpa properties, for AppointmentSlots Entity
-
+/**
+ * @SayantanDas
+ * 
+ * This is the DAORepository Testing Class for AppointmentDetails.
 */
 
 package com.cg.healthreminder.dao;
@@ -42,6 +41,10 @@ public class AppointmentSlotsJpaDaoTest {
 		 return slot;
 	 }
 	 
+	 /**
+	 * 
+	 * To check if a new appointment slot gets created
+	*/	 
 	 @Test
 	 public void testNewAppointmentSlot() throws Exception{
 	     AppointmentSlots slot = getAppointmentSlot();
@@ -50,7 +53,11 @@ public class AppointmentSlotsJpaDaoTest {
 	     assertThat(getFromInDb).isEqualTo(saveInDb);
 	     assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
 	 }
-	 
+
+	 /**
+	 * 
+	 * To check if Appointment SLot gets deleted.
+	*/
 	 @Test
 	 public void testDeleteAppointmentSlot() throws Exception{
 		 AppointmentSlots slot1 = getAppointmentSlot();
@@ -70,7 +77,13 @@ public class AppointmentSlotsJpaDaoTest {
 	     Assert.assertEquals(1,tickets.size());
 
 	    }
+
 	 
+	 
+	 /**
+	 * 
+	 * To check if All slots are displayed
+	*/
 	 @Test
 	    public void testGetAllSlots() throws Exception{
 		 AppointmentSlots slot1 = getAppointmentSlot();

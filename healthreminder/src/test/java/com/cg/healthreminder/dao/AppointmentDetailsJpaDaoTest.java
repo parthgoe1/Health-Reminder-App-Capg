@@ -1,8 +1,7 @@
-/*
- * Author-> Sayantan Das
- * This is the Java Test class which Tests all the CRUD operations performed by the Repository/DAO
- * using jpa properties, for AppointmentDetails Entity
-
+/**
+ * @SayantanDas
+ * 
+ * This is the DAORepository Testing Class for AppointmentDetails.
 */
 package com.cg.healthreminder.dao;
 
@@ -45,6 +44,10 @@ public class AppointmentDetailsJpaDaoTest {
 		 return a;
 	 }
 
+	/**
+	 * 
+	 * To check if a new appointment gets created
+	*/
 	 @Test
 	 public void testNewAppointmentDetails() throws Exception{
 	     AppointmentDetails apd = getAppointmentDetails();
@@ -54,6 +57,11 @@ public class AppointmentDetailsJpaDaoTest {
 	     assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
 	 }
 	 
+	   
+	 /**
+	 * 
+	 * Check if able to find Appointment by PatientId.
+	*/
 	 @Test
 	 public void testGetAppointmentDetailsByPatientId() throws Exception{
 		 AppointmentDetails apd = getAppointmentDetails();
@@ -62,6 +70,11 @@ public class AppointmentDetailsJpaDaoTest {
 	     assertThat(getInDb).isEqualTo(saveInDb);
 	    }
 	 
+	 
+	 /**
+	 * 
+	 * Check if able to find Appointment by DoctorId.
+	*/
 	 @Test
 	 public void testGetAppointmentDetailsByDoctorId() throws Exception{
 		 AppointmentDetails apd = getAppointmentDetails();
@@ -70,6 +83,11 @@ public class AppointmentDetailsJpaDaoTest {
 	     assertThat(getInDb).isEqualTo(saveInDb);
 	    }
 	 
+	 
+	/**
+	 * 
+	 * Check if able to delete Appointment.
+	*/
 	 @Test
 	 public void testDeleteAppointment() throws Exception{
 	       AppointmentDetails apd1 = getAppointmentDetails();

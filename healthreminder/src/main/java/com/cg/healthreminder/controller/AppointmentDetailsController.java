@@ -1,9 +1,7 @@
-/*
- * Author-> Sayantan Das
- * This is the ControllerClass for making various operations related to AppointmentDetails using
- * URL request mapping.
- * Operations available: finding appointment by Patient Id, Doctor Id, creation and deletion of appointments
-
+/**
+ * @SayantanDas
+ * 
+ * This is the ControllerClass for AppointmentDetails 
 */
 package com.cg.healthreminder.controller;
 
@@ -32,27 +30,46 @@ public class AppointmentDetailsController{
 	    private AppointmentDetailsServices appointmentDetailService;
 	    private static final Logger logger=LogManager.getLogger( AppointmentDetailsController.class);
 	    
+	    /**
+	     * To find Appointments by patient Id.
+	     * 
+	    */
 	    @GetMapping("/findAppointmentByPatId/{patientId}")
 	    public AppointmentDetails findAppointmentDetailsByPatientId(@PathVariable int patientId) throws AllCustomException{
 	    	logger.info("In controller class of finding appointment by patient ids ........"); 
 	    	
 	      	return appointmentDetailService.findAppointmentDetailByPatientId(patientId);
 	    }
+	    
 
+	    /**
+	     * To find Appointments by doctor Id.
+	     * 
+	    */
 	    @GetMapping("/findAppointmentByDocId/{doctorId}")
 	    public AppointmentDetails findAppointmentDetailsByDoctorId(@PathVariable int doctorId) throws AllCustomException{
 	    	logger.info("In controller class of finding appointment by doctor ids ........");
 	    	
 	    	return appointmentDetailService.findAppointmentDetailByDoctorId(doctorId);
 	    }
-
+	    
+	    
+	    /**
+	     * To create an Appointment
+	     * 
+	    */
 	    @PostMapping("/createAppointment")
 	    public AppointmentDetails createTicket(@RequestBody AppointmentDetails apd){
 	    	logger.info("In controller class of creating appointment ........");
 	    	
 	    	return appointmentDetailService.createAppointment(apd);
 	    }
-
+	    
+	    
+	    /**
+	     * To delete an Appointment by Patient Id
+	     * 
+	    */
 	    @DeleteMapping("/deleteAppointmentByPatId/{patientId}")
 	    public AppointmentDetails deleteAppointmentByPatientId(@PathVariable int patientId) throws AllCustomException{
 	    	logger.info("In controller class of deleting appointment by patient ids ........");
@@ -61,6 +78,10 @@ public class AppointmentDetailsController{
 	    }
 
 
+	    /**
+	     * To delete an Appointment by Doctor Id
+	     * 
+	    */
 	    @DeleteMapping("/deleteAppointmentByDocId/{doctorId}")
 	    public AppointmentDetails deleteAppointmentByDoctorId(@PathVariable int doctorId) throws AllCustomException{
 	    	logger.info("In controller class of deleting appointment by doctor ids ........");

@@ -1,7 +1,8 @@
-/*
- * Author-> Sayantan Das
- * This is the Repository interface for performing JPA related operations on the AppointmentDetails Entity
-
+/**
+ * @SayantanDas
+ * 
+ * This is the DAO Repository interface for AppointmentDetails
+ * It also contains few custom queries.
 */
 
 

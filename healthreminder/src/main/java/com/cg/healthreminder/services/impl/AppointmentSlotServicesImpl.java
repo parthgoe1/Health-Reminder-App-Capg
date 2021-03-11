@@ -1,10 +1,8 @@
-/*
- * Author-> Sayantan Das
- * This is the class that implements the respective Service interfaces and accesses the postgress database
- * and perform CRUD operations as asked by client or the admin -> AppointmentSlotsServices
-
+/**
+ * @SayantanDas
+ * 
+ * This is the Service Class for AppointmentDetails.
 */
-
 package com.cg.healthreminder.services.impl;
 
 
@@ -30,6 +28,11 @@ public class AppointmentSlotServicesImpl implements AppointmentSlotsServices {
     private AppointmentSlotsJpaDao appointmentSlotsJpaDao;
 	private static final Logger logger=LogManager.getLogger(AppointmentSlotServicesImpl.class);
 	
+	
+	/**
+	 * 
+	 * To get all available appointment slots.
+	*/
 	public List<AppointmentSlots> getAllSlots(){
 		logger.info("Sending all SLots ........"); 
 		
@@ -38,12 +41,22 @@ public class AppointmentSlotServicesImpl implements AppointmentSlotsServices {
 	}
 	
 	
+	
+	/**
+	 * 
+	 * To create an Appointment SLot
+	*/
 	public AppointmentSlots createAppointmentSlot(AppointmentSlots as) {
 		logger.info("Creating Appointment SLot ........");
 		
 		return  appointmentSlotsJpaDao.save(as);
 	}
 	
+	
+	/**
+	 * 
+	 * To delete an Appointment SLot
+	*/
 	public AppointmentSlots deleteAppointmentSlot(AppointmentSlots as) throws AllCustomException {
 		logger.info("Deleting appointment SLot ........");
 		

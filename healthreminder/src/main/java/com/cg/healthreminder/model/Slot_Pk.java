@@ -1,3 +1,10 @@
+/**
+ * @SayantanDas
+ * 
+ * This Class is just dedicated for creating the Composite key for the Model AppointmentSlots
+*/
+
+
 package com.cg.healthreminder.model;
 import javax.persistence.*;
 
@@ -6,6 +13,10 @@ import java.io.Serializable;
 @Embeddable
 public class Slot_Pk implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int doc_id;
 	private String doc_date;
 	

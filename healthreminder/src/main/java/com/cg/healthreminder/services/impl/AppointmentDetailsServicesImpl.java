@@ -1,10 +1,8 @@
-/*
- * Author-> Sayantan Das
- * This is the class that implements the respective Service interfaces and accesses the postgress database
- * and perform CRUD operations as asked by client or the admin -> AppointmentDetailsServices
-
+/**
+ * @SayantanDas
+ * 
+ * This is the Service Class for AppointmentDetails.
 */
-
 
 package com.cg.healthreminder.services.impl;
 import org.apache.logging.log4j.LogManager;
@@ -25,6 +23,11 @@ public class AppointmentDetailsServicesImpl implements AppointmentDetailsService
     private AppointmentDetailsJpaDao appointmentDetailsJpaDao;
 	private static final Logger logger=LogManager.getLogger(AppointmentDetailsServicesImpl.class);
 	
+	
+	/**
+	 * 
+	 * To find Appointment by Patient Id.
+	*/
 	@Override
 	public AppointmentDetails findAppointmentDetailByPatientId(int patient_id) throws AllCustomException {
 		
@@ -38,6 +41,10 @@ public class AppointmentDetailsServicesImpl implements AppointmentDetailsService
 	}
 	
 	
+	/**
+	 * 
+	 * To find Appointment by Doctor Id.
+	*/
 	public AppointmentDetails findAppointmentDetailByDoctorId(int doc_id) throws AllCustomException {
 		
 		logger.info("Finding appointment details by doctor Id ........");
@@ -49,12 +56,22 @@ public class AppointmentDetailsServicesImpl implements AppointmentDetailsService
 		return a;
 	}
     
+	
+	/**
+	 * 
+	 * To create an Appointment.
+	*/
 	public AppointmentDetails createAppointment(AppointmentDetails amp){
 		logger.info("Creating Appointment ........");
 		
 		return appointmentDetailsJpaDao.save(amp);
     }
     
+	
+	/**
+	 * 
+	 * To delete Appointment by Patient Id.
+	*/
 	public AppointmentDetails deleteAppointmentByPatientId(int patient_id)  throws AllCustomException{
 		
 		logger.info("Deleting appointment details by patient Id ........");
@@ -70,6 +87,10 @@ public class AppointmentDetailsServicesImpl implements AppointmentDetailsService
     }
 	
 	
+	/**
+	 * 
+	 * To delete Appointment by Doctor Id.
+	*/
     public AppointmentDetails deleteAppointmentByDoctorId(int doc_id) throws AllCustomException {
     	logger.info("Deleting appointment details by doctor Id ........");
     	
