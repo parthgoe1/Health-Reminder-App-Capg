@@ -1,6 +1,6 @@
 package com.cg.healthreminder.dao;
 
-// Author: Naman Bhandari
+// @author Naman Bhandari
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

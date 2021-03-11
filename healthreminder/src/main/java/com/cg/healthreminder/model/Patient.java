@@ -1,6 +1,6 @@
 package com.cg.healthreminder.model;
 
-// Author: Naman Bhandari
+// @author Naman Bhandari
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -8,6 +8,7 @@ import javax.validation.constraints.*;
 @Entity
 @Table(name = "patient")
 public class Patient {
+	
 	@Id
 	@Column(name = "patient_id")
 	private Integer patientId;
@@ -23,6 +24,8 @@ public class Patient {
 	private Double patientHeight;
 	@Column(name="weight")
 	private Double patientWeight;
+	
+	/*Setters and Getters*/
 	public Integer getPatientId() {
 		return patientId;
 	}

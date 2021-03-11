@@ -1,12 +1,13 @@
 package com.cg.healthreminder.model;
 
-//Author: Naman Bhandari
+// @author Naman Bhandari
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="medhistory")
 public class MedicalHistory {
+	
 	@Id
 	@Column(name="file")
 	private String file;
@@ -14,6 +15,9 @@ public class MedicalHistory {
 	private int patientId;
 	@Column(name="notes")
 	private String notes;
+	
+	
+	/* Setters and Getters*/
 	public String getFile() {
 		return file;
 	}

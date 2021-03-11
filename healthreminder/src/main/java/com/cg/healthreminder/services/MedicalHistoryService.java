@@ -1,6 +1,6 @@
 package com.cg.healthreminder.services;
 
-// Author: Naman Bhandari
+// @author Naman Bhandari
 
 import java.util.List;
 
@@ -11,5 +11,5 @@ public interface MedicalHistoryService {
 public List<MedicalHistory> getByPatientId(int id) throws AllCustomException;
 public MedicalHistory addRecord(MedicalHistory m) throws AllCustomException;
 public void deleteRecord(String file);
-public MedicalHistory updateRecord(MedicalHistory m);
+public MedicalHistory updateRecord(MedicalHistory m) throws AllCustomException;
 }

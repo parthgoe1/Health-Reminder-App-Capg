@@ -1,6 +1,6 @@
 package com.cg.healthreminder.dao;
 
-// Author: Naman Bhandari
+// @author Naman Bhandari
 
 import java.util.List;
 
