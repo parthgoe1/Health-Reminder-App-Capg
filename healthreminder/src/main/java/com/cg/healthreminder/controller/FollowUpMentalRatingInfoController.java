@@ -45,7 +45,7 @@ public class FollowUpMentalRatingInfoController {
 	/**
 	 * To update follow up mental rating details using id
 	 */
-	@PutMapping("/followup_mentalrating_update/{patientId}/rating/{MentalRating}")
+	@PutMapping("/followup_mentalrating_update/{patientId}/rating/{mentalRating}")
 	public FollowUpMentalRatingInfo updateMentalRatingById(@PathVariable @Min(1) Integer patientId, @PathVariable @Min(1) @Max(5) Integer mentalRating) throws AllCustomException{
 		logger.info("Updating mental rating information by ID in Controller........");
 		return this.followUpMentalRatingInfoServices.updateMentalRatingById(patientId, mentalRating);
