@@ -2,6 +2,8 @@ package com.cg.healthreminder.controller;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -63,7 +65,9 @@ public class DiseaseController {
 	 */
 	@SuppressWarnings("unchecked")
 	@PostMapping("/updateDisease/{id}/{content}")
-	public ResponseEntity updateDiseaseInfo(@PathVariable("id") @Min(1) Integer id, @PathVariable("content") String content) throws AllCustomException{
+	public ResponseEntity updateDiseaseInfo(@PathVariable("id") @Min(1) Integer id,
+			@PathVariable("content") @NotNull @Pattern(regexp = ".*[a-zA-Z]+.*",message="Please enter atleast one Alphabet") String content ) 
+					throws AllCustomException{
 		this.diseaseServices.updateDiseaseInfo(id, content);
 		return new ResponseEntity("Disease Information Updated successfully", HttpStatus.OK);
 

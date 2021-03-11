@@ -2,6 +2,8 @@ package com.cg.healthreminder.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 /**
  * @ShaniaDalal
@@ -19,14 +21,18 @@ public class Diseases {
 	private Integer diseaseId;
 	
 	@Column(name = "dis_name")
-	//@Pattern(regexp = "^(?:[a-z]+[0-9])[a-z0-9]*/i")
+	@NotNull
+	@Pattern(regexp = ".*[a-zA-Z]+.*",message="Please enter atleast one Alphabet")
 	private String diseaseName;
 	
 	@Column(name = "dis_info")
+	@NotNull
+	@Pattern(regexp = ".*[a-zA-Z]+.*",message="Please enter atleast one Alphabet")
 	private String diseaseInfo;
 	
 	@Column(name = "dis_keys")
-	//@Pattern(regexp=".*[a-zA-Z]+.*")
+	@NotNull
+	@Pattern(regexp = ".*[a-zA-Z]+.*",message="Please enter atleast one Alphabet")
 	private String diseaseKeys;
 	
 	public Integer getDiseaseId() {
