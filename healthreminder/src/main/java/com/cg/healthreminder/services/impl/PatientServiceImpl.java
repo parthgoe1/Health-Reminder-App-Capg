@@ -1,10 +1,12 @@
 package com.cg.healthreminder.services.impl;
 
-// Author: Naman Bhandari
+// @author Naman Bhandari
 
 import java.util.*;
 import java.util.regex.Pattern;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +24,9 @@ public class PatientServiceImpl implements PatientService{
 	//Dao object created
 	@Autowired
 	private PatientDao patientDao;
+	private static final Logger logger=LogManager.getLogger(DietInfoServicesImpl.class);
 	
+	/* Patient validation */
 	private String validatePatientData(Patient p) {
 		String msg;
 		if(p.getPatientId()<0)
@@ -43,11 +47,16 @@ public class PatientServiceImpl implements PatientService{
 		return msg;
 	}
 	
+	/* @Get
+	 * To get all patients*/
 	public List<Patient> getAllPatients(){
+		logger.info("fetching all patients");
 		return patientDao.findAll();
 	}
-	
+	/*@Get
+	 * Get patient using id*/
 	public Patient getPatient(int id) throws AllCustomException{
+		logger.info("getting patient by id");
 		Optional<Patient> p= patientDao.findById(id);
 		Patient ans;
 		if(p.isPresent()) {
@@ -58,20 +67,28 @@ public class PatientServiceImpl implements PatientService{
 			throw new AllCustomException("Patient not found");
 		}
 	}
+	/*@Post
+	 * Add new patient*/
 	public Patient addPatient(Patient p) throws AllCustomException{
+		logger.info("adding patient");
 		String msg = validatePatientData(p);
 		if(msg.equals("Validated"))
-		return patientDao.save(p);
+			return patientDao.save(p);
 		else  throw new AllCustomException(msg);
 	}
-
-	@Override
-	public Patient updatePatient(Patient p) {
-		return patientDao.save(p);
+	/*@Put
+	 * To update a patient records*/
+	public Patient updatePatient(Patient p) throws AllCustomException{
+		logger.info("updating patient");
+		String msg = validatePatientData(p);
+		if(msg.equals("Validated"))
+			return patientDao.save(p);
+		else  throw new AllCustomException(msg);
 	}
-
-	@Override
+	/*@Delete
+	 * To delete a patient using its id*/
 	public Integer deletePatientById(int id) {
+		logger.info("deleting patient");
 		 patientDao.deleteById(id);
 		 return id;
 		 

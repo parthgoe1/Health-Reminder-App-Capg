@@ -1,0 +1,71 @@
+2021-03-11 10:27:09.824  INFO 19776 --- [main] c.c.h.HealthreminderApplication          : Starting HealthreminderApplication using Java 15.0.2 on DESKTOP-8HC3KF0 with PID 19776 (C:\Users\hp\Desktop\capg\java\health reminder\Health-Reminder-App-Capg\healthreminder\target\classes started by hp in C:\Users\hp\Desktop\capg\java\health reminder\Health-Reminder-App-Capg\healthreminder)
+2021-03-11 10:27:09.856  INFO 19776 --- [main] c.c.h.HealthreminderApplication          : No active profile set, falling back to default profiles: default
+2021-03-11 10:27:14.513  INFO 19776 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-03-11 10:27:14.746  INFO 19776 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 218 ms. Found 11 JPA repository interfaces.
+2021-03-11 10:27:16.638  INFO 19776 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
+2021-03-11 10:27:16.660  INFO 19776 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-11 10:27:16.662  INFO 19776 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-03-11 10:27:16.935  INFO 19776 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-11 10:27:16.935  INFO 19776 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6568 ms
+2021-03-11 10:27:17.582  INFO 19776 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-11 10:27:17.659  INFO 19776 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-03-11 10:27:17.857  INFO 19776 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-11 10:27:18.010  INFO 19776 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-11 10:27:18.311  INFO 19776 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-11 10:27:18.336  INFO 19776 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-03-11 10:27:19.417  WARN 19776 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.cg.healthreminder.model.Slot_Pk
+2021-03-11 10:27:19.419  WARN 19776 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.cg.healthreminder.model.Slot_Pk
+2021-03-11 10:27:20.041  INFO 19776 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-11 10:27:20.055  INFO 19776 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-03-11 10:27:21.513  WARN 19776 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-11 10:27:21.791  INFO 19776 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-03-11 10:27:21.946  INFO 19776 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-11 10:27:22.253  INFO 19776 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
+2021-03-11 10:27:22.257  INFO 19776 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-03-11 10:27:22.296  INFO 19776 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-03-11 10:27:22.354  INFO 19776 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-03-11 10:27:22.680  INFO 19776 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createTicketUsingPOST_1
+2021-03-11 10:27:22.982  INFO 19776 --- [main] c.c.h.HealthreminderApplication          : Started HealthreminderApplication in 14.281 seconds (JVM running for 15.552)
+2021-03-11 10:27:38.747  INFO 19776 --- [http-nio-8086-exec-9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-11 10:27:38.748  INFO 19776 --- [http-nio-8086-exec-9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-03-11 10:27:38.751  INFO 19776 --- [http-nio-8086-exec-9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2021-03-11 10:27:38.815  INFO 19776 --- [http-nio-8086-exec-9] c.c.h.s.impl.DietInfoServicesImpl        : cont: fetching all patients
+2021-03-11 10:27:39.044  INFO 19776 --- [http-nio-8086-exec-9] c.c.h.s.impl.DietInfoServicesImpl        : fetching all patients
+2021-03-11 10:27:49.579  INFO 19776 --- [http-nio-8086-exec-4] c.c.h.s.impl.DietInfoServicesImpl        : cont: getting patient by id
+2021-03-11 10:27:49.581  INFO 19776 --- [http-nio-8086-exec-4] c.c.h.s.impl.DietInfoServicesImpl        : getting patient by id
+2021-03-11 10:28:01.114  INFO 19776 --- [http-nio-8086-exec-5] c.c.h.s.impl.DietInfoServicesImpl        : cont: adding patient
+2021-03-11 10:28:01.118  INFO 19776 --- [http-nio-8086-exec-5] c.c.h.s.impl.DietInfoServicesImpl        : adding patient
+2021-03-11 10:28:05.910  INFO 19776 --- [http-nio-8086-exec-6] c.c.h.s.impl.DietInfoServicesImpl        : cont: fetching all patients
+2021-03-11 10:28:05.912  INFO 19776 --- [http-nio-8086-exec-6] c.c.h.s.impl.DietInfoServicesImpl        : fetching all patients
+2021-03-11 10:28:24.936  INFO 19776 --- [http-nio-8086-exec-7] c.c.h.s.impl.DietInfoServicesImpl        : cont: adding patient
+2021-03-11 10:28:24.937  INFO 19776 --- [http-nio-8086-exec-7] c.c.h.s.impl.DietInfoServicesImpl        : adding patient
+2021-03-11 10:28:30.176  INFO 19776 --- [http-nio-8086-exec-8] c.c.h.s.impl.DietInfoServicesImpl        : cont: fetching all patients
+2021-03-11 10:28:30.181  INFO 19776 --- [http-nio-8086-exec-8] c.c.h.s.impl.DietInfoServicesImpl        : fetching all patients
+2021-03-11 10:28:42.932  INFO 19776 --- [http-nio-8086-exec-3] c.c.h.s.impl.DietInfoServicesImpl        : cont: deleting patient
+2021-03-11 10:28:42.933  INFO 19776 --- [http-nio-8086-exec-3] c.c.h.s.impl.DietInfoServicesImpl        : deleting patient
+2021-03-11 10:28:46.319  INFO 19776 --- [http-nio-8086-exec-10] c.c.h.s.impl.DietInfoServicesImpl        : cont: fetching all patients
+2021-03-11 10:28:46.322  INFO 19776 --- [http-nio-8086-exec-10] c.c.h.s.impl.DietInfoServicesImpl        : fetching all patients
+2021-03-11 10:28:53.356  INFO 19776 --- [http-nio-8086-exec-1] c.c.h.s.impl.DietInfoServicesImpl        : cont: deleting patient
+2021-03-11 10:28:53.357  INFO 19776 --- [http-nio-8086-exec-1] c.c.h.s.impl.DietInfoServicesImpl        : deleting patient
+2021-03-11 10:28:56.192  INFO 19776 --- [http-nio-8086-exec-2] c.c.h.s.impl.DietInfoServicesImpl        : cont: fetching all patients
+2021-03-11 10:28:56.193  INFO 19776 --- [http-nio-8086-exec-2] c.c.h.s.impl.DietInfoServicesImpl        : fetching all patients
+2021-03-11 10:29:03.223  INFO 19776 --- [http-nio-8086-exec-9] c.c.h.s.impl.DietInfoServicesImpl        : cont: deleting patient
+2021-03-11 10:29:03.225  INFO 19776 --- [http-nio-8086-exec-9] c.c.h.s.impl.DietInfoServicesImpl        : deleting patient
+2021-03-11 10:29:22.311  INFO 19776 --- [http-nio-8086-exec-4] c.c.h.s.impl.DietInfoServicesImpl        : cont:Fetching medical records by patientid
+2021-03-11 10:29:22.320  INFO 19776 --- [http-nio-8086-exec-4] c.c.h.s.impl.DietInfoServicesImpl        : Fetching medical records by patientid
+2021-03-11 10:29:42.521  INFO 19776 --- [http-nio-8086-exec-5] c.c.h.s.impl.DietInfoServicesImpl        : cont:adding new medical record
+2021-03-11 10:29:42.523  INFO 19776 --- [http-nio-8086-exec-5] c.c.h.s.impl.DietInfoServicesImpl        : adding new medical record
+2021-03-11 10:29:46.085  INFO 19776 --- [http-nio-8086-exec-6] c.c.h.s.impl.DietInfoServicesImpl        : cont:Fetching medical records by patientid
+2021-03-11 10:29:46.087  INFO 19776 --- [http-nio-8086-exec-6] c.c.h.s.impl.DietInfoServicesImpl        : Fetching medical records by patientid
+2021-03-11 10:30:06.008  INFO 19776 --- [http-nio-8086-exec-8] c.c.h.s.impl.DietInfoServicesImpl        : cont:updating medical record
+2021-03-11 10:30:06.015  INFO 19776 --- [http-nio-8086-exec-8] c.c.h.s.impl.DietInfoServicesImpl        : updating medical record
+2021-03-11 10:30:08.544  INFO 19776 --- [http-nio-8086-exec-10] c.c.h.s.impl.DietInfoServicesImpl        : cont:Fetching medical records by patientid
+2021-03-11 10:30:08.545  INFO 19776 --- [http-nio-8086-exec-10] c.c.h.s.impl.DietInfoServicesImpl        : Fetching medical records by patientid
+2021-03-11 10:30:28.452  INFO 19776 --- [http-nio-8086-exec-2] c.c.h.s.impl.DietInfoServicesImpl        : cont:Fetching medical records by patientid
+2021-03-11 10:30:28.454  INFO 19776 --- [http-nio-8086-exec-2] c.c.h.s.impl.DietInfoServicesImpl        : Fetching medical records by patientid
+2021-03-11 10:30:44.217  INFO 19776 --- [http-nio-8086-exec-6] c.c.h.s.impl.DietInfoServicesImpl        : cont:Fetching medical records by patientid
+2021-03-11 10:30:44.219  INFO 19776 --- [http-nio-8086-exec-6] c.c.h.s.impl.DietInfoServicesImpl        : Fetching medical records by patientid
+2021-03-11 10:30:54.579  INFO 19776 --- [http-nio-8086-exec-7] c.c.h.s.impl.DietInfoServicesImpl        : cont:deleting medical record
+2021-03-11 10:30:54.581  INFO 19776 --- [http-nio-8086-exec-7] c.c.h.s.impl.DietInfoServicesImpl        : deleteing medical record
+2021-03-11 10:30:56.968  INFO 19776 --- [http-nio-8086-exec-8] c.c.h.s.impl.DietInfoServicesImpl        : cont:Fetching medical records by patientid
+2021-03-11 10:30:56.969  INFO 19776 --- [http-nio-8086-exec-8] c.c.h.s.impl.DietInfoServicesImpl        : Fetching medical records by patientid

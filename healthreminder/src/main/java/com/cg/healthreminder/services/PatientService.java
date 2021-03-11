@@ -1,6 +1,6 @@
 package com.cg.healthreminder.services;
 
-// Author: Naman Bhandari
+// @author Naman Bhandari
 
 import java.util.List;
 
@@ -11,6 +11,6 @@ public interface PatientService {
 	public List<Patient> getAllPatients();
 	public Patient getPatient(int id) throws AllCustomException;
 	public Patient addPatient(Patient p) throws AllCustomException;
-	public Patient updatePatient(Patient p);
+	public Patient updatePatient(Patient p) throws AllCustomException;
 	public Integer deletePatientById(int id);
 }
