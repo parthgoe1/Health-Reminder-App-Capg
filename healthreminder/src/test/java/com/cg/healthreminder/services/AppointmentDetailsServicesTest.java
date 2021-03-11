@@ -1,14 +1,11 @@
-/*
- * Author-> Sayantan Das
- * This is the Java Test class which Tests all the CRUD operations performed by the Services Layer
- * using jpa repository and service interface, for AppointmentDetails Entity
-
+/**
+ * @SayantanDas
+ * 
+ * This is the Service Testing Class for AppointmentDetails.
 */
-
 
 package com.cg.healthreminder.services;
 
-import static org.mockito.ArgumentMatchers.any;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -20,9 +17,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.cg.healthreminder.dao.AppointmentDetailsJpaDao;
 import com.cg.healthreminder.model.AppointmentDetails;
 
-
-import java.sql.Date;
-import java.sql.Timestamp;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -36,6 +30,11 @@ public class AppointmentDetailsServicesTest {
 	  @Autowired
 	  private AppointmentDetailsServices appointmentDetailServices;
 	  
+	  
+	    /**
+		 * 
+		 * To check if a new appointment gets created
+		*/	  
 	  @Test
 	    public void testCreateAppointment(){
 		  AppointmentDetails a= new AppointmentDetails();
@@ -52,6 +51,10 @@ public class AppointmentDetailsServicesTest {
           assertThat(appointmentDetailServices.createAppointment(a)).isEqualTo(a);
 	    }
 	  
+	    /**
+		 * 
+		 * Check if able to find Appointment by PatientId.
+		*/
 	  @Test
 	    public void testFindByPatientId() throws Exception{
 		  AppointmentDetails a= new AppointmentDetails();
@@ -68,6 +71,11 @@ public class AppointmentDetailsServicesTest {
 	      assertThat(appointmentDetailServices.findAppointmentDetailByPatientId(4)).isEqualTo(a);
 	    }
 	  
+	  
+	    /**
+		 * 
+		 * Check if able to find Appointment by DoctorId.
+		*/
 	  @Test
 	    public void testFindByDoctorId() throws Exception{
 		  AppointmentDetails a= new AppointmentDetails();
@@ -83,7 +91,12 @@ public class AppointmentDetailsServicesTest {
 		  Mockito.when(appointmentDetailsJpaDao.findByDoctorId(5)).thenReturn(a);
 	      assertThat(appointmentDetailServices.findAppointmentDetailByDoctorId(5)).isEqualTo(a);
 	    }
+
 	  
+	    /**
+		 * 
+		 * Check if able to delete Appointment by PatientId.
+		*/
 	 /* @Test
 	    public void testDeleteAppointmentByPatientId() throws Exception{
 		  AppointmentDetails a= new AppointmentDetails();

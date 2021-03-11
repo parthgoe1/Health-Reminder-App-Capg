@@ -1,3 +1,10 @@
+/**
+ * @SayantanDas
+ * 
+ * This is the ErrorMessage Class which is used to set user defined & understandable messages and errorcodes
+*/
+
+
 package com.cg.healthreminder.exception;
 
 

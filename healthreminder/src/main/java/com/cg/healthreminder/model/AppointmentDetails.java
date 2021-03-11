@@ -1,9 +1,8 @@
-/*
- * Author-> Sayantan Das
- * This is the Model class for AppointmentDetails Entity
-
+/**
+ * @SayantanDas
+ * 
+ * This is the Model/Entity Class for AppointmentDetails
 */
-
 
 package com.cg.healthreminder.model;
 
@@ -11,7 +10,6 @@ package com.cg.healthreminder.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 
 @Entity
@@ -33,12 +31,10 @@ public class AppointmentDetails {
 	private int doctorId;
 	
 	@NotNull
-	@Size(min=2, max=10)
 	@Column
 	private String doctorName;
 	
 	@NotNull
-	@Size(min=2, max=10)
 	@Column
 	private String patientName;
 	

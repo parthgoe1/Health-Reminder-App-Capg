@@ -6,7 +6,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 
-//Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the model class for Follow Up Diet status Information
+ */
 
 @Entity
 @Table(name = "Followup_Diet_Status_Info")
@@ -17,14 +21,17 @@ public class FollowUpDietStatusInfo {
 		return "DietInfo [ patientId = " + patientId + ", dietStatus = " + dietStatus + ", streak = " + streak + "]";
 	}
 	
+	// Patient ID
     @Id
     @Min(1)
 	@Column(name = "patient_id", nullable = false)
     private Integer patientId;
     
+    // Status of Diet
     @Column(name = "diet_status")
     private Boolean dietStatus;
     
+    // Streak
     @Column(name = "streak")
     private Integer streak;
     
@@ -45,13 +52,12 @@ public class FollowUpDietStatusInfo {
 	}
 
 	public void setDietStatus(Boolean dietStatus) {
-		if(dietStatus == true) {
+		boolean ds = dietStatus.booleanValue();
+		if(ds) {
 			this.streak++;
-			this.dietStatus = dietStatus;
 		}
 		else {
 			this.streak = 0;
-			this.dietStatus = dietStatus;
 		}
 		this.dietStatus = dietStatus;
 	}

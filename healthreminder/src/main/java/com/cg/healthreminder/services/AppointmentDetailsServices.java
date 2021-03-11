@@ -1,7 +1,7 @@
-/*
- * Author-> Sayantan Das
- * This is the interface showing the services/operations that can be performed on AppointmentDetails Entity
-
+/**
+ * @SayantanDas
+ * 
+ * This is the Interface for AppointmentDetails representing the various services provided.
 */
 
 package com.cg.healthreminder.services;

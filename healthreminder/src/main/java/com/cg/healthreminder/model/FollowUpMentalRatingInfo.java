@@ -7,7 +7,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Max;
 
-//Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the model class for Follow Up Mental Rating Information
+ */
 
 @Entity
 @Table(name = "Followup_Mental_Rating_Info")

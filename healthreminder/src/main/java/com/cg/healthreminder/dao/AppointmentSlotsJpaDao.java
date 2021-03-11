@@ -1,8 +1,9 @@
-/*
- * Author-> Sayantan Das
- * This is the Repository interface for performing JPA related operations on the AppointmentSlots Entity
-
+/**
+ * @SayantanDas
+ * 
+ * This is the DAO Repository interface for AppointmentSlots
 */
+
 
 
 package com.cg.healthreminder.dao;

@@ -1,8 +1,8 @@
-/*
- * Author-> Sayantan Das
- * This class is a junit test class for testing the AppointmentSlots Controller class and URL mappings
- */
-
+/**
+ * @SayantanDas
+ * 
+ * This is the Controller Testing Class for AppointmentSlots.
+*/
 
 package com.cg.healthreminder.controller;
 import com.cg.healthreminder.model.AppointmentSlots;
@@ -51,6 +51,10 @@ public class AppointmentSlotsControllerTest {
 	        return objectMapper.writeValueAsString(appointmentSlots);
 	    }
 	    
+	    /**
+		 * 
+		 * To check if a new appointment slot gets created
+		*/
 	    @Test
 	    public void testNewAppointmentSlot() throws Exception{
 	        String URI = "/healthreminder/createAppointmentSlot";
@@ -72,6 +76,10 @@ public class AppointmentSlotsControllerTest {
 	        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
 	    }
 	    
+	    /**
+		 * 
+		 * To check if All slots are displayed
+		*/
 	    @Test
 	    public void testGetAllSlots() throws Exception{
 	        String URI = "/healthreminder/getAllSlots";
@@ -105,6 +113,10 @@ public class AppointmentSlotsControllerTest {
 	        assertThat(jsonInput).isEqualTo(jsonOutput);
 	    }
 	    
+	    /**
+		 * 
+		 * To check if Appointment SLot gets deleted.
+		*/
 	    
 	 /*   @Test
 	    public void testDeleteAppointmentSlot() throws Exception{

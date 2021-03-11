@@ -14,7 +14,11 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-// Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the test class for Diet Information Dao
+ */
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -29,25 +33,31 @@ public class DietInfoJpaDaoTest {
     private DietInfo getDietInfo() {
     	DietInfo dietInfo = new DietInfo();
     	dietInfo.setBmiValue(1);
-    	dietInfo.setDietInfo("pizza");
+    	dietInfo.setDiet("pizza");
         
         return dietInfo;
     }
     
+    /**
+	 * To test create diet information details  
+	 */
     @Test
     public void testNewDiet() throws Exception{
         DietInfo dietInfo = getDietInfo();
         DietInfo saveInDb = testEntityManager.persist(dietInfo);
         DietInfo getFromInDb = dietInfoJpaDao.findById(saveInDb.getBmiValue()).get();
         assertThat(getFromInDb).isEqualTo(saveInDb);
-        assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
+        assertThat(getFromInDb.toString()).hasToString(saveInDb.toString());
     }
     
+    /**
+	 * To test get diet information details using bmi  
+	 */
     @Test
     public void testGetDietByBMI() throws Exception{
         DietInfo dietInfo = new DietInfo();
         dietInfo.setBmiValue(2);
-        dietInfo.setDietInfo("Burger");
+        dietInfo.setDiet("Burger");
        
         DietInfo saveInDb = testEntityManager.persist(dietInfo);
         
@@ -55,15 +65,18 @@ public class DietInfoJpaDaoTest {
         assertThat(getInDb).isEqualTo(saveInDb);
     }
     
+    /**
+	 * To test get all diet information details 
+	 */
     @Test
     public void testGetAllDietInfo() throws Exception{
         DietInfo dietInfo1  = new DietInfo();
         dietInfo1.setBmiValue(4);
-        dietInfo1.setDietInfo("Tophee");
+        dietInfo1.setDiet("Tophee");
         
         DietInfo dietInfo2 = new DietInfo();
         dietInfo2.setBmiValue(1);
-        dietInfo2.setDietInfo("Chocolate");
+        dietInfo2.setDiet("Chocolate");
 
         testEntityManager.persist(dietInfo1);
         testEntityManager.persist(dietInfo2);
@@ -73,15 +86,18 @@ public class DietInfoJpaDaoTest {
         Assert.assertEquals(2, dietInfoList.size());
     }
     
+    /**
+	 * To test delete diet information details using bmi  
+	 */
     @Test
     public void testDeleteDietInfoByBMI() throws Exception{
     	DietInfo dietInfo1 = new DietInfo();
     	dietInfo1.setBmiValue(4);
-        dietInfo1.setDietInfo("Tophee");
+        dietInfo1.setDiet("Tophee");
         
         DietInfo dietInfo2 = new DietInfo();
         dietInfo2.setBmiValue(1);
-        dietInfo2.setDietInfo("Chocolate");
+        dietInfo2.setDiet("Chocolate");
 
         DietInfo dietInfo = testEntityManager.persist(dietInfo1);
         testEntityManager.persist(dietInfo2);
@@ -90,24 +106,27 @@ public class DietInfoJpaDaoTest {
         testEntityManager.remove(dietInfo);
 
         List<DietInfo> dietInfos = (List<DietInfo>) dietInfoJpaDao.findAll();
-        Assert.assertEquals(dietInfos.size(), 1);
+        Assert.assertEquals(1, dietInfos.size());
 
     }
     
+    /**
+	 * To test update diet information details using bmi  
+	 */
     @Test
     public void testUpdateDietInfo(){
 
         DietInfo dietInfo = new DietInfo();
         dietInfo.setBmiValue(4);
-        dietInfo.setDietInfo("Tophee");
+        dietInfo.setDiet("Tophee");
         
         testEntityManager.persist(dietInfo);
 
         DietInfo getFromDb = dietInfoJpaDao.findById(4).get();
-        getFromDb.setDietInfo("pizza");
+        getFromDb.setDiet("pizza");
         testEntityManager.persist(getFromDb);
 
-        assertThat(getFromDb.getDietInfo()).isEqualTo("pizza");
+        assertThat(getFromDb.getDiet()).isEqualTo("pizza");
     }
 
 

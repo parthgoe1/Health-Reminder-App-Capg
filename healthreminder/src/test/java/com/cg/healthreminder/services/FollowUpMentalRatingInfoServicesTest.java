@@ -17,7 +17,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-// Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the test class for Follow Up Mental Rating Information services
+ */
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -29,6 +33,9 @@ public class FollowUpMentalRatingInfoServicesTest {
     @Autowired
     private FollowUpMentalRatingInfoServices followUpMentalRatingInfoServices;
     
+    /**
+	 * To test create follow up mental rating information details
+	 */
     @Test
     public void testCreateMentalRating(){
         FollowUpMentalRatingInfo followUpMentalRatingInfo = new FollowUpMentalRatingInfo();
