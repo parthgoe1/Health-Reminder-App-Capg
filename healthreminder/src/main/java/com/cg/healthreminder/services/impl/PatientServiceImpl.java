@@ -1,6 +1,6 @@
 package com.cg.healthreminder.services.impl;
 
-// @author Naman Bhandari
+/* @author Naman Bhandari*/
 
 import java.util.*;
 import java.util.regex.Pattern;
@@ -29,7 +29,9 @@ public class PatientServiceImpl implements PatientService{
 	/* Patient validation */
 	private String validatePatientData(Patient p) {
 		String msg;
-		if(p.getPatientId()<0)
+		if(p.getPatientWeight().getClass().getName()!="java.lang.Double")
+			msg="Weight not double";
+		else if(p.getPatientId()<0)
 			msg="PatientId should be more than or equal to 0";
 		else if(!Pattern.compile("^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$").matcher(p.getPatientEmail()).matches())
 			msg="Email format not correct";
