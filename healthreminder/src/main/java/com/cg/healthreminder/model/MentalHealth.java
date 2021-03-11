@@ -1,16 +1,17 @@
-/*
- * Author-> Shania Dalal
- * This is the Model Class for mentalHealth entity
- * 
- */
 package com.cg.healthreminder.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
+/**
+ * @ShaniaDalal
+ * 
+ * This is the Model class for MentalHealth
+ */
+
 @Entity
-@Table(name="mentalhealth_info")
+@Table(name="mentalhealth_info") //--> table to store all information on MentalHealth
 public class MentalHealth {
 	
 	@Id

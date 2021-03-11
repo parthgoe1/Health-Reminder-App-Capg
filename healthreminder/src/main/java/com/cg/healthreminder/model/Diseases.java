@@ -1,12 +1,13 @@
-/*
- * Author-> Shania Dalal
- * This is the Model Class for Diseases entity
- * 
- */
 package com.cg.healthreminder.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+
+/**
+ * @ShaniaDalal
+ * 
+ * This is the Model class for Diseases
+ */
 
 @Entity 
 @Table(name="diseases_info")  //--> table to store all information on diseases

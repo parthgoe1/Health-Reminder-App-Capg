@@ -1,9 +1,3 @@
-/*
- * Author-> Shania Dalal
- * This class implements the MentalHealthServices interface
- * It accesses the Postgres DB to perform admin/user operations
- * 
-*/
 package com.cg.healthreminder.services.impl;
 
 import com.cg.healthreminder.exception.AllCustomException;
@@ -21,13 +15,26 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
+
+/**
+ * @ShaniaDalal
+ * 
+ * This is the Service Implementation Class for MentalHealth model
+ */
+
 @Service
 @Transactional
 public class MentalHealthServicesImpl implements MentalHealthServices {
+	
 	@Autowired
 	MentalHealthJpaDao mentalDao;
 	private static final Logger logger=LogManager.getLogger(MentalHealthServicesImpl.class);
 	
+	/**
+	 * Finds a Tip
+	 * @param id value for rating 
+	 * @throws AllCustomException if id doesn't exist
+	 */
 	@Override
 	public MentalHealth displayTips(Integer mentalRating) throws AllCustomException{
 		logger.info("Finding Mental Health Tip using the Rating ........");
@@ -43,6 +50,12 @@ public class MentalHealthServicesImpl implements MentalHealthServices {
 		logger.info("Returning Tip-----");
 		return m2;
 	}
+	
+	/**
+	 * Updates a Tip
+	 * @param id value, string for tip 
+	 * @throws AllCustomException if id doesn't exist
+	 */
 	@Override
 	public MentalHealth updateTips(Integer mentalRating, String uptips) throws AllCustomException{
 		logger.info("Updating Mental Health Tip using the Rating ........");
@@ -59,6 +72,11 @@ public class MentalHealthServicesImpl implements MentalHealthServices {
         logger.info("Returning Updating Value-----");
         return mentalDao.save(m2);
 	}
+	
+	/**
+	 * Adds a Tip
+	 * @param id value for rating 
+	 */
 	@Override
 	public MentalHealth addTips(MentalHealth m) {
 		logger.info("Adding new Mental Health Tip ........");
@@ -66,6 +84,12 @@ public class MentalHealthServicesImpl implements MentalHealthServices {
 		return mentalDao.save(m);
 		
 	}
+	
+	/**
+	 * Deletes a Tip
+	 * @param id value for rating 
+	 * @throws AllCustomException if id doesn't exist
+	 */
 	@Override
 	public boolean deleteTips(Integer mentalRating) throws AllCustomException{
 		logger.info("Deleting Mental Health Tip using the Rating ........");

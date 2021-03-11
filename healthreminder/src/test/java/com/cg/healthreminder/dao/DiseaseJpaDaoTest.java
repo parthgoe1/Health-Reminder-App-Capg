@@ -1,9 +1,3 @@
-/*
- * Author-> Shania Dalal
- * This is the Test class that checks all CRUD operations performed using JPA properties
- * on the Diseases model
- * 
-*/
 package com.cg.healthreminder.dao;
 
 import org.junit.Test;
@@ -19,6 +13,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.cg.healthreminder.model.Diseases;
 
+/**
+ * @ShaniaDalal
+ * 
+ * This is the Test Class for Disease DAO
+ */
+
+
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class DiseaseJpaDaoTest {
@@ -27,6 +28,9 @@ public class DiseaseJpaDaoTest {
 	 @Autowired
      private DiseaseJpaDao diseaseJpaDao;
 	 
+	 /**
+	  * Adding a test record
+	  */
 	 private Diseases getDiseases() {
 		 Diseases d=new Diseases();
 		 d.setDiseaseId(5);
@@ -36,7 +40,11 @@ public class DiseaseJpaDaoTest {
 		 
 		 return d;
 	 }
-
+	 
+	 /**
+	  * To test create a Disease
+	  * and test all return statements
+	  */
 	 @Test
 	 public void testNewDiseases() throws Exception{
 	     Diseases dLocal = getDiseases();
@@ -59,15 +67,4 @@ public class DiseaseJpaDaoTest {
 	     assertThat(getFromInDb).isEqualTo(saveInDb);
 	 }
 	 */
-/*	 @Test
-	 public void testNewDiseases() throws Exception{
-	     Diseases dLocal = getDiseases();
-	     //System.out.println(dLocal);
-	     Diseases saveInDb = testEntityManager.merge(dLocal);
-	     Diseases getFromInDb = diseaseJpaDao.findById(saveInDb.getDiseaseId()).get();
-	     assertThat(getFromInDb).isEqualTo(saveInDb);
-	 }
-	 */
-	 
-
 } 

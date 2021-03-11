@@ -1,9 +1,3 @@
-/*
- * Author-> Shania Dalal
- * This is the Junit Test class that checks all Controller operations performed
- * on the Diseases model
- * 
-*/
 package com.cg.healthreminder.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -28,6 +22,12 @@ import com.cg.healthreminder.services.MentalHealthServices;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * @ShaniaDalal
+ * 
+ * This is the Test Class for MentalHealth Controller Class
+ */
+
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = MentalHealthController.class)
 public class MentalHealthControllerTest {
@@ -48,6 +48,9 @@ public class MentalHealthControllerTest {
 	        return objectMapper.writeValueAsString(mentalHealth);
 	    }
 	    
+	    /**
+		 * To test create MentalHealth
+		 */
 	    @Test
 	    public void testNewMentalHealth() throws Exception{
 	        String URI = "/healthreminder/addTips";
@@ -63,6 +66,9 @@ public class MentalHealthControllerTest {
 	        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
 	    }
 	    
+	    /**
+		 * To test finding a Tip by Id
+		 */
 	    @Test
 	    public void testFindByMentalRating() throws Exception{
 	    	String URI = "/healthreminder/viewTips/{id}";
@@ -80,6 +86,9 @@ public class MentalHealthControllerTest {
 	        assertThat(jsonInput).isEqualTo(jsonOutput);
 	    }
 	    
+	    /**
+		 * To test updating a Tip by Id
+		 */
 	    @Test
 	    public void testUpdateByMentalRating() throws Exception{
 	        String URI = "/healthreminder/updateTips/{id}/{content}";
@@ -94,6 +103,9 @@ public class MentalHealthControllerTest {
 	        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
 	    }
 	    
+	    /**
+		 * To test deleting a Tip by Id
+		 */
 	    @Test
 	    public void testDeleteByMentalRating() throws Exception{
 	    	String URI = "/healthreminder/deleteTips/{id}";
