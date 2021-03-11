@@ -41,9 +41,9 @@ public class AppointmentDetailsServicesTest {
 		  a.setAppId(1);
 		  a.setDoctorId(5);
 		  a.setDoctorName("Doctor Astin");
-		  a.setDoctorStartTime(null);
-		  a.setDoctorEndTime(null);
-		  a.setDoctorDate(null); 
+		  a.setDoctorStartTime("12:00");
+		  a.setDoctorEndTime("9:00");
+		  a.setDoctorDate("12/02/2020"); 
 		  a.setPatientName("Sayantan");
 		  a.setPatientId(4);
 
@@ -61,9 +61,9 @@ public class AppointmentDetailsServicesTest {
 		  a.setAppId(1);
 		  a.setDoctorId(5);
 		  a.setDoctorName("Doctor Astin");
-		  a.setDoctorStartTime(null);
-		  a.setDoctorEndTime(null);
-		  a.setDoctorDate(null); 
+		  a.setDoctorStartTime("12:00");
+		  a.setDoctorEndTime("9:00");
+		  a.setDoctorDate("12/02/2020");
 		  a.setPatientName("Sayantan");
 		  a.setPatientId(4);
 		  
@@ -82,9 +82,9 @@ public class AppointmentDetailsServicesTest {
 		  a.setAppId(1);
 		  a.setDoctorId(5);
 		  a.setDoctorName("Doctor Astin");
-		  a.setDoctorStartTime(null);
-		  a.setDoctorEndTime(null);
-		  a.setDoctorDate(null); 
+		  a.setDoctorStartTime("12:00");
+		  a.setDoctorEndTime("9:00");
+		  a.setDoctorDate("12/02/2020"); 
 		  a.setPatientName("Sayantan");
 		  a.setPatientId(4);
 		  
