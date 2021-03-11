@@ -1,12 +1,12 @@
-/*
- * Author-> Sayantan Das
- * This is the ControllerClass for making various operations related to AppointmentDetails using
- * URL request mapping.
- * Operations available: finding appointment by Patient Id, Doctor Id, creation and deletion of appointments
-
+/**
+ * @SayantanDas
+ * 
+ * This is the ControllerClass for AppointmentDetails 
 */
 package com.cg.healthreminder.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,36 +21,76 @@ import com.cg.healthreminder.model.AppointmentDetails;
 import com.cg.healthreminder.services.AppointmentDetailsServices;
 
 
+
 @RestController
 @RequestMapping("/healthreminder")
 public class AppointmentDetailsController{
 	
 	    @Autowired
 	    private AppointmentDetailsServices appointmentDetailService;
-
+	    private static final Logger logger=LogManager.getLogger( AppointmentDetailsController.class);
+	    
+	    /**
+	     * To find Appointments by patient Id.
+	     * @param patientId
+	     * throws AllCustomException if not found
+	    */
 	    @GetMapping("/findAppointmentByPatId/{patientId}")
 	    public AppointmentDetails findAppointmentDetailsByPatientId(@PathVariable int patientId) throws AllCustomException{
-	        return appointmentDetailService.findAppointmentDetailByPatientId(patientId);
+	    	logger.info("In controller class of finding appointment by patient ids ........"); 
+	    	
+	      	return appointmentDetailService.findAppointmentDetailByPatientId(patientId);
 	    }
+	    
 
+	    /**
+	     * To find Appointments by doctor Id.
+	     * @param doctorId
+	     * throws AllCustomException if not found
+	    */
 	    @GetMapping("/findAppointmentByDocId/{doctorId}")
 	    public AppointmentDetails findAppointmentDetailsByDoctorId(@PathVariable int doctorId) throws AllCustomException{
-	        return appointmentDetailService.findAppointmentDetailByDoctorId(doctorId);
+	    	logger.info("In controller class of finding appointment by doctor ids ........");
+	    	
+	    	return appointmentDetailService.findAppointmentDetailByDoctorId(doctorId);
 	    }
-
+	    
+	    
+	    /**
+	     * To create an Appointment
+	     * @param Json Body
+	     * 
+	    */
 	    @PostMapping("/createAppointment")
 	    public AppointmentDetails createTicket(@RequestBody AppointmentDetails apd){
-	        return appointmentDetailService.createAppointment(apd);
+	    	logger.info("In controller class of creating appointment ........");
+	    	
+	    	return appointmentDetailService.createAppointment(apd);
 	    }
-
+	    
+	    
+	    /**
+	     * To delete an Appointment by Patient Id
+	     * @param patientId
+	     * throws AllCustomException if not found
+	    */
 	    @DeleteMapping("/deleteAppointmentByPatId/{patientId}")
 	    public AppointmentDetails deleteAppointmentByPatientId(@PathVariable int patientId) throws AllCustomException{
-	        return appointmentDetailService.deleteAppointmentByPatientId(patientId);
+	    	logger.info("In controller class of deleting appointment by patient ids ........");
+	    	
+	    	return appointmentDetailService.deleteAppointmentByPatientId(patientId);
 	    }
 
 
+	    /**
+	     * To delete an Appointment by Doctor Id
+	     * @param DoctorId
+	     * throws AllCustomException if not found
+	    */
 	    @DeleteMapping("/deleteAppointmentByDocId/{doctorId}")
 	    public AppointmentDetails deleteAppointmentByDoctorId(@PathVariable int doctorId) throws AllCustomException{
-	        return appointmentDetailService.deleteAppointmentByDoctorId(doctorId);
+	    	logger.info("In controller class of deleting appointment by doctor ids ........");
+	    	
+	    	return appointmentDetailService.deleteAppointmentByDoctorId(doctorId);
 	    }
 }

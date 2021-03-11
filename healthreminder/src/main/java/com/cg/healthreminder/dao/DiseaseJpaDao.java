@@ -1,9 +1,10 @@
-/*
- * Author-> Shania Dalal
- * This is the Repository Interface for performing JPA operations on Diseases model
- * 
- */
 package com.cg.healthreminder.dao;
+
+/**
+ * @ShaniaDalal
+ * 
+ * This is the DAO class for Diseases model
+ */
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

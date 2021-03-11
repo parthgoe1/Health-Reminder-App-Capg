@@ -44,7 +44,7 @@ public class AlarmModuleDaoTest {
     	AlarmModule saveInDb = testEntityManager.persist(alarm);
     	AlarmModule getFromInDb = alarmModuleDao.findById(saveInDb.getAlarmId()).get();
 	    assertThat(getFromInDb).isEqualTo(saveInDb);
-	    assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
+	    assertThat(getFromInDb.toString()).hasToString(saveInDb.toString());
     }
     
     @Test
@@ -81,7 +81,7 @@ public class AlarmModuleDaoTest {
     	testEntityManager.remove(alarmModule);
     	
     	List<AlarmModule> alarmList = (List<AlarmModule>) alarmModuleDao.findAll();
-        Assert.assertEquals(alarmList.size(), 1);
+        Assert.assertEquals(1, alarmList.size());
     	
     	
     }

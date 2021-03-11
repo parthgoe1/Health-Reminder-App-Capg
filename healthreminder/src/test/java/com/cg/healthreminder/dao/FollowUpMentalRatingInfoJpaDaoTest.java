@@ -14,7 +14,11 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-// Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the test class for Follow Up Mental Rating Information DAO
+ */
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -33,15 +37,21 @@ public class FollowUpMentalRatingInfoJpaDaoTest {
         return followUpMentalRatingInfo;
     }
     
+    /**
+	 * To test create follow up mental rating information details   
+	 */
     @Test
     public void testNewFollowUpMentalRating() throws Exception{
     	FollowUpMentalRatingInfo followUpMentalRatingInfo = getFollowUpMentalRatingInfo();
     	FollowUpMentalRatingInfo saveInDb = testEntityManager.persist(followUpMentalRatingInfo);
     	FollowUpMentalRatingInfo getFromInDb = followUpMentalRatingInfoJpaDao.findById(saveInDb.getPatientId()).get();
         assertThat(getFromInDb).isEqualTo(saveInDb);
-        assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
+        assertThat(getFromInDb.toString()).hasToString(saveInDb.toString());
     }
     
+    /**
+	 * To test get follow up mental rating information details using id
+	 */
     @Test
     public void testGetFollowUpMentalRatingById() throws Exception{
     	FollowUpMentalRatingInfo followUpMentalRatingInfo = new FollowUpMentalRatingInfo();
@@ -54,6 +64,9 @@ public class FollowUpMentalRatingInfoJpaDaoTest {
         assertThat(getInDb).isEqualTo(saveInDb);
     }
     
+    /**
+	 * To test delete follow up mental rating information details using id
+	 */
     @Test
     public void testDeleteFollowUpMentalRatingInfoById() throws Exception{
     	FollowUpMentalRatingInfo followUpMentalRatingInfo1 = new FollowUpMentalRatingInfo();
@@ -71,10 +84,13 @@ public class FollowUpMentalRatingInfoJpaDaoTest {
         testEntityManager.remove(followUpMentalRatingInfo);
 
         List<FollowUpMentalRatingInfo> followUpMentalRatingInfos = (List<FollowUpMentalRatingInfo>) followUpMentalRatingInfoJpaDao.findAll();
-        Assert.assertEquals(followUpMentalRatingInfos.size(), 1);
+        Assert.assertEquals(1, followUpMentalRatingInfos.size());
 
     }
     
+    /**
+	 * To test update follow up mental rating information details using id
+	 */
     @Test
     public void testUpdateFollowUpMentalRatingInfo(){
 

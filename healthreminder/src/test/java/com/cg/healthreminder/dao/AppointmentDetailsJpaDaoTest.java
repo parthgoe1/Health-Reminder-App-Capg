@@ -1,8 +1,7 @@
-/*
- * Author-> Sayantan Das
- * This is the Java Test class which Tests all the CRUD operations performed by the Repository/DAO
- * using jpa properties, for AppointmentDetails Entity
-
+/**
+ * @SayantanDas
+ * 
+ * This is the DAORepository Testing Class for AppointmentDetails.
 */
 package com.cg.healthreminder.dao;
 
@@ -35,9 +34,9 @@ public class AppointmentDetailsJpaDaoTest {
 		 AppointmentDetails a= new AppointmentDetails();
 		  a.setDoctorId(5);
 		  a.setDoctorName("Doctor Astin");
-		  a.setDoctorStartTime(null);
-		  a.setDoctorEndTime(null);
-		  a.setDoctorDate(null); 
+		  a.setDoctorStartTime("12:00");
+		  a.setDoctorEndTime("9:00");
+		  a.setDoctorDate("2020-12-05"); 
 		  a.setPatientName("Sayantan");
 		  a.setPatientId(4);
 
@@ -45,6 +44,10 @@ public class AppointmentDetailsJpaDaoTest {
 		 return a;
 	 }
 
+	/**
+	 * 
+	 * To check if a new appointment gets created
+	*/
 	 @Test
 	 public void testNewAppointmentDetails() throws Exception{
 	     AppointmentDetails apd = getAppointmentDetails();
@@ -54,6 +57,11 @@ public class AppointmentDetailsJpaDaoTest {
 	     assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
 	 }
 	 
+	   
+	 /**
+	 * 
+	 * Check if able to find Appointment by PatientId.
+	*/
 	 @Test
 	 public void testGetAppointmentDetailsByPatientId() throws Exception{
 		 AppointmentDetails apd = getAppointmentDetails();
@@ -62,6 +70,11 @@ public class AppointmentDetailsJpaDaoTest {
 	     assertThat(getInDb).isEqualTo(saveInDb);
 	    }
 	 
+	 
+	 /**
+	 * 
+	 * Check if able to find Appointment by DoctorId.
+	*/
 	 @Test
 	 public void testGetAppointmentDetailsByDoctorId() throws Exception{
 		 AppointmentDetails apd = getAppointmentDetails();
@@ -70,15 +83,20 @@ public class AppointmentDetailsJpaDaoTest {
 	     assertThat(getInDb).isEqualTo(saveInDb);
 	    }
 	 
+	 
+	/**
+	 * 
+	 * Check if able to delete Appointment.
+	*/
 	 @Test
 	 public void testDeleteAppointment() throws Exception{
 	       AppointmentDetails apd1 = getAppointmentDetails();
 	       AppointmentDetails apd2= new AppointmentDetails();
 	       apd2.setDoctorId(3);
 		   apd2.setDoctorName("Doctor Karan");
-		   apd2.setDoctorStartTime(null);
-		   apd2.setDoctorEndTime(null);
-		   apd2.setDoctorDate(null); 
+		   apd2.setDoctorStartTime("12:00");
+		   apd2.setDoctorEndTime("9:00");
+		   apd2.setDoctorDate("2020-12-16"); 
 		   apd2.setPatientName("Deepak");
 		   apd2.setPatientId(7);
 

@@ -1,9 +1,3 @@
-/*
- * Author-> Shania Dalal
- * This is the Junit Test class that checks all Controller operations performed
- * on the Diseases model
- * 
-*/
 package com.cg.healthreminder.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -28,6 +22,12 @@ import com.cg.healthreminder.services.DiseaseServices;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * @ShaniaDalal
+ * 
+ * This is the Test Class for Disease Controller Class
+ */
+
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = DiseaseController.class)
 public class DiseaseControllerTest {
@@ -48,6 +48,9 @@ public class DiseaseControllerTest {
 	        return objectMapper.writeValueAsString(disease);
 	    }
 	    
+	    /**
+		 * To test create diseases
+		 */
 	    @Test
 	    public void testNewDisease() throws Exception{
 	        String URI = "/healthreminder/addDisease";
@@ -65,6 +68,9 @@ public class DiseaseControllerTest {
 	        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
 	    }
 	    
+	    /**
+		 * To test finding a disease by Id
+		 */
 	    @Test
 	    public void testFindByDiseaseId() throws Exception{
 	        String URI = "/healthreminder/viewDisease/{id}";
@@ -84,6 +90,9 @@ public class DiseaseControllerTest {
 	        assertThat(jsonInput).isEqualTo(jsonOutput);
 	    }
 	    
+	    /**
+		 * To test updating a disease by Id
+		 */
 	    @Test
 	    public void testUpdateByDiseaseId() throws Exception{
 	        String URI = "/healthreminder/updateDisease/{id}/{content}";
@@ -100,6 +109,9 @@ public class DiseaseControllerTest {
 	        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
 	    }
 	    
+	    /**
+		 * To test deleting a disease by Id
+		 */
 	    @Test
 	    public void testDeleteByDiseaseId() throws Exception{
 	    	String URI = "/healthreminder/deleteDisease/{id}";

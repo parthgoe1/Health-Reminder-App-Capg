@@ -20,7 +20,11 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-// Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the test class for Diet Information services
+ */
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -32,11 +36,14 @@ public class DietInfoServicesTest {
     @Autowired
     private DietInfoServices dietInfoServices;
     
+    /**
+	 * To test create diet information details
+	 */
     @Test
     public void testCreateDiet(){
         DietInfo dietInfo = new DietInfo();
         dietInfo.setBmiValue(3);
-        dietInfo.setDietInfo("Pizza, pizza, pizza");
+        dietInfo.setDiet("Pizza, pizza, pizza");
 
         Mockito.when(dietInfoJpaDao.save(dietInfo)).thenReturn(dietInfo);
         assertThat(dietInfoServices.createDiet(dietInfo)).isEqualTo(dietInfo);
@@ -57,11 +64,11 @@ public class DietInfoServicesTest {
     public void testGetAllDiets() throws Exception{
         DietInfo di1 = new DietInfo();
         di1.setBmiValue(2);
-        di1.setDietInfo("candy, candy, candy");
+        di1.setDiet("candy, candy, candy");
 
         DietInfo di2 = new DietInfo();
         di2.setBmiValue(3);
-        di2.setDietInfo("pav, bhaji, butter");
+        di2.setDiet("pav, bhaji, butter");
         
         List<DietInfo> dietInfoList = new ArrayList<>();
         dietInfoList.add(di1);

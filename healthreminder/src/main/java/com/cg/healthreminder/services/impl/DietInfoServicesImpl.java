@@ -14,7 +14,11 @@ import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.DietInfo;
 import com.cg.healthreminder.services.DietInfoServices;
 
-// Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the services implementation class for Diet Information
+ */
 
 @Service
 @Transactional
@@ -24,9 +28,12 @@ public class DietInfoServicesImpl implements DietInfoServices{
 	private DietInfoJpaDao dietInfoJpaDao;
 	private static final Logger logger=LogManager.getLogger(DietInfoServicesImpl.class);
 
+	/**
+	 * To find diet information details using bmi
+	 */
 	@Override
 	public DietInfo findDietByBMI(Integer bmiValue) throws AllCustomException{
-		logger.info("Finding diet information by BMI ........");
+		logger.info("Finding diet information by BMI in Implementation........");
 		Optional<DietInfo> di = dietInfoJpaDao.findById(bmiValue);
 		DietInfo di2 = null;
 		if(di.isPresent()) {
@@ -38,20 +45,26 @@ public class DietInfoServicesImpl implements DietInfoServices{
 		return di2;
 	}
 
+	/**
+	 * To find all diet information details 
+	 */
 	@Override
 	public Iterable<DietInfo> getAllDiets() {
-		logger.info("Finding all diet information by BMI ........");
+		logger.info("Finding all diet information by BMI in Implementation........");
 		return dietInfoJpaDao.findAll();
 	}
-
+	
+	/**
+	 * To update diet information details using bmi
+	 */
 	@Override
-	public DietInfo updateDietByBMI(Integer bmiValue, String dietInformation) throws AllCustomException{
-		logger.info("Updating diet information by BMI ........");
+	public DietInfo updateDietByBMI(Integer bmiValue, String diet) throws AllCustomException{
+		logger.info("Updating diet information by BMI in Implementation........");
 		Optional<DietInfo> dietInfo = dietInfoJpaDao.findById(bmiValue);
 		DietInfo di2 = null;
 		if(dietInfo.isPresent()) {
 			di2 = dietInfo.get();
-			di2.setDietInfo(dietInformation);
+			di2.setDiet(diet);
 		}
 		else {
 			throw new AllCustomException("Diet Information not found for the given Patient id, so can't be updated");
@@ -60,9 +73,12 @@ public class DietInfoServicesImpl implements DietInfoServices{
 		
 	}
 
+	/**
+	 * To delete diet information details using bmi
+	 */
 	@Override
 	public boolean deleteDietByBMI(Integer bmiValue) throws AllCustomException{
-		logger.info("Deleting diet information by BMI ........");
+		logger.info("Deleting diet information by BMI in Implementation........");
 		Optional<DietInfo> di = dietInfoJpaDao.findById(bmiValue);
 		if(di.isPresent()) {
 			dietInfoJpaDao.deleteById(bmiValue);
@@ -72,13 +88,15 @@ public class DietInfoServicesImpl implements DietInfoServices{
 		}
 		
 		
-		return true;
-		
+		return true;	
 	}
 
+	/**
+	 * To create diet information details 
+	 */
 	@Override
 	public DietInfo createDiet(DietInfo dietInfo) {
-		logger.info("Creating diet information........");
+		logger.info("Creating diet information in Implementation........");
 		return dietInfoJpaDao.save(dietInfo);
 	}
 

@@ -1,16 +1,16 @@
-/*
- * Author-> Sayantan Das
- * This is the class that implements the respective Service interfaces and accesses the postgress database
- * and perform CRUD operations as asked by client or the admin -> AppointmentSlotsServices
-
+/**
+ * @SayantanDas
+ * 
+ * This is the Service Class for AppointmentDetails.
 */
-
 package com.cg.healthreminder.services.impl;
 
 
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cg.healthreminder.dao.AppointmentSlotsJpaDao;
@@ -26,18 +26,40 @@ public class AppointmentSlotServicesImpl implements AppointmentSlotsServices {
 	
 	@Autowired
     private AppointmentSlotsJpaDao appointmentSlotsJpaDao;
+	private static final Logger logger=LogManager.getLogger(AppointmentSlotServicesImpl.class);
 	
+	
+	/**
+	 * 
+	 * To get all available appointment slots.
+	*/
 	public List<AppointmentSlots> getAllSlots(){
-		 List<AppointmentSlots>appslots= appointmentSlotsJpaDao.findAll();
+		logger.info("Sending all SLots ........"); 
+		
+		List<AppointmentSlots>appslots= appointmentSlotsJpaDao.findAll();
 		 return appslots;
 	}
 	
 	
+	
+	/**
+	 * 
+	 * To create an Appointment SLot
+	*/
 	public AppointmentSlots createAppointmentSlot(AppointmentSlots as) {
+		logger.info("Creating Appointment SLot ........");
+		
 		return  appointmentSlotsJpaDao.save(as);
 	}
 	
+	
+	/**
+	 * 
+	 * To delete an Appointment SLot
+	*/
 	public AppointmentSlots deleteAppointmentSlot(AppointmentSlots as) throws AllCustomException {
+		logger.info("Deleting appointment SLot ........");
+		
 		Optional<AppointmentSlots> a = appointmentSlotsJpaDao.findById(as.getPk());
 		AppointmentSlots aslot=null;
 		if(a.isPresent()) {

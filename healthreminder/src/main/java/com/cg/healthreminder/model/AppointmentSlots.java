@@ -1,8 +1,9 @@
-/*
- * Author-> Sayantan Das
- * This is the Model class for AppointmentDetails Entity
-
+/**
+ * @SayantanDas
+ * 
+ * This is the Model/Entity Class for AppointmentSlots
 */
+
 
 package com.cg.healthreminder.model;
 
@@ -14,7 +15,12 @@ import javax.validation.constraints.NotNull;
 @Table(name="Appointment_Slots")
 public class AppointmentSlots {
 	
-	@EmbeddedId      // this pk contains doc_id + doc_date as the primary key ->composite key 
+	
+	/**
+	 * 
+	 * this pk contains doc_id + doc_date as the primary key ->composite key 
+	*/
+	@EmbeddedId      
 	private Slot_Pk pk;
 	
 	@NotNull

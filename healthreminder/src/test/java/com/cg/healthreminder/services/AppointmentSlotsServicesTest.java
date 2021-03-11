@@ -1,12 +1,10 @@
-/*
- * Author-> Sayantan Das
- * This is the Java Test class which Tests all the CRUD operations performed by the Services Layer
- * using jpa repository and service interface, for AppointmentSlots Entity
-
+/**
+ * @SayantanDas
+ * 
+ * This is the Service Testing Class for AppointmentSlots.
 */
 
 package com.cg.healthreminder.services;
-import static org.mockito.ArgumentMatchers.any;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -16,12 +14,9 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.cg.healthreminder.dao.AppointmentSlotsJpaDao;
-import com.cg.healthreminder.model.AppointmentDetails;
 import com.cg.healthreminder.model.AppointmentSlots;
 import com.cg.healthreminder.model.Slot_Pk;
 
-import java.sql.Date;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +31,11 @@ public class AppointmentSlotsServicesTest {
 	  @Autowired
 	  private AppointmentSlotsServices appointmentSlotServices;
 	  
+	  
+	/**
+	 * 
+	 * To check if a new appointment slot gets created
+	*/
 	  @Test
 	  public void testCreateAppointmentSlot(){
 		  AppointmentSlots slot= new AppointmentSlots();
@@ -49,6 +49,11 @@ public class AppointmentSlotsServicesTest {
 		  assertThat(appointmentSlotServices.createAppointmentSlot(slot)).isEqualTo(slot);
 	    }
 	  
+	  
+	  /**
+		 * 
+		 * To check if All slots are displayed
+		*/	  
 	   @Test
 	    public void testGetAllBookedTickets() throws Exception{
 		   AppointmentSlots slot= new AppointmentSlots();

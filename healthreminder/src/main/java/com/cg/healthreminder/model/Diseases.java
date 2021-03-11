@@ -1,11 +1,13 @@
-/*
- * Author-> Shania Dalal
- * This is the Model Class for Diseases entity
- * 
- */
 package com.cg.healthreminder.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+
+/**
+ * @ShaniaDalal
+ * 
+ * This is the Model class for Diseases
+ */
 
 @Entity 
 @Table(name="diseases_info")  //--> table to store all information on diseases
@@ -13,16 +15,18 @@ public class Diseases {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//@Column(name = "dis_id")
+	@Min(1)
 	private Integer diseaseId;
 	
 	@Column(name = "dis_name")
+	//@Pattern(regexp = "^(?:[a-z]+[0-9])[a-z0-9]*/i")
 	private String diseaseName;
 	
 	@Column(name = "dis_info")
 	private String diseaseInfo;
 	
 	@Column(name = "dis_keys")
+	//@Pattern(regexp=".*[a-zA-Z]+.*")
 	private String diseaseKeys;
 	
 	public Integer getDiseaseId() {

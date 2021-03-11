@@ -12,7 +12,11 @@ import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.FollowUpMentalRatingInfo;
 import com.cg.healthreminder.services.FollowUpMentalRatingInfoServices;
 
-// Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the services implemenatation class for Follow Up Mental Rating Information
+ */
 
 @Service
 @Transactional
@@ -22,10 +26,13 @@ public class FollowUpMentalRatingInfoServicesImpl implements FollowUpMentalRatin
 	private FollowUpMentalRatingInfoJpaDao followUpMentalRatingInfoJpaDao;
 	private static final Logger logger=LogManager.getLogger(FollowUpMentalRatingInfoServicesImpl.class);
 	
+	/**
+	 * To find follow up mental rating information details using id 
+	 */
 	@Override
 	public FollowUpMentalRatingInfo findMentalRatingById(Integer patientId) throws AllCustomException{
 
-		logger.info("Finding follow up mental rating information by ID ........");
+		logger.info("Finding follow up mental rating information by ID in Implementation........");
 		Optional<FollowUpMentalRatingInfo> fumri = followUpMentalRatingInfoJpaDao.findById(patientId);
 		FollowUpMentalRatingInfo fumri2 = null;
 		if(fumri.isPresent()) {
@@ -37,10 +44,13 @@ public class FollowUpMentalRatingInfoServicesImpl implements FollowUpMentalRatin
 		return fumri2;
 	}
 
+	/**
+	 * To update follow up mental rating information details using id 
+	 */
 	@Override
 	public FollowUpMentalRatingInfo updateMentalRatingById(Integer patientId, Integer mentalRating) throws AllCustomException{
 
-		logger.info("Updating follow up mental rating information by ID ........");
+		logger.info("Updating follow up mental rating information by ID in Implementation........");
 		Optional<FollowUpMentalRatingInfo> followUpMentalRatingInfo = followUpMentalRatingInfoJpaDao.findById(patientId);
 		FollowUpMentalRatingInfo fumri = null;
 		if(followUpMentalRatingInfo.isPresent()) {
@@ -49,24 +59,28 @@ public class FollowUpMentalRatingInfoServicesImpl implements FollowUpMentalRatin
 		}
 		else {
 			throw new AllCustomException("Mental Rating Information not found for the given Patient id, so can't be updated");
-
 		}
 		return followUpMentalRatingInfoJpaDao.save(fumri);
 		
 	}
 
+	/**
+	 * To create follow up mental rating information details 
+	 */
 	@Override
 	public FollowUpMentalRatingInfo createMentalRating(FollowUpMentalRatingInfo followUpMentalRatingInfo) {
 		
-		logger.info("Creating follow up mental rating information ........");
+		logger.info("Creating follow up mental rating information in Implementation........");
 		return followUpMentalRatingInfoJpaDao.save(followUpMentalRatingInfo);
 	}
 
-
+	/**
+	 * To delete follow up mental rating information details using id 
+	 */
 	@Override
 	public boolean deleteMentalRating(Integer patientId) throws AllCustomException{
 	
-		logger.info("Deleting follow up mental rating information by ID ........");
+		logger.info("Deleting follow up mental rating information by ID in Implementation........");
 		Optional<FollowUpMentalRatingInfo> fumri= followUpMentalRatingInfoJpaDao.findById(patientId);
 		if(fumri.isPresent()) {
 			followUpMentalRatingInfoJpaDao.deleteById(patientId);

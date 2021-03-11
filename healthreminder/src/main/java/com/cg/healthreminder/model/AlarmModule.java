@@ -26,7 +26,6 @@ public class AlarmModule {
     private Integer patientId;
     
 	@NotNull
-	@Size(min=2, max=30)
     @Column(name = "alarm_name")
     private String alarmName;
     
@@ -37,7 +36,6 @@ public class AlarmModule {
     private Date alarmDate;
     
     @NotNull
-    @Size(min=2, max=30)
     @Column(name = "notes")
     private String alarmNotes;
 

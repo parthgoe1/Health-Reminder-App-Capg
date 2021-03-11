@@ -14,7 +14,11 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-// Author --> Parth Goel
+/**
+ * @ParthGoel
+ *
+ * This is the test class for Follow Up Diet Status Information Dao
+ */
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -33,15 +37,21 @@ public class FollowUpDietStatusInfoJpaDaoTest {
         return followUpDietStatusInfo;
     }
     
+    /**
+	 * To test create follow up diet status information details   
+	 */
     @Test
     public void testNewFollowUpDiet() throws Exception{
     	FollowUpDietStatusInfo followUpDietStatusInfo = getFollowUpDietStatusInfo();
     	FollowUpDietStatusInfo saveInDb = testEntityManager.persist(followUpDietStatusInfo);
     	FollowUpDietStatusInfo getFromInDb = followUpDietStatusInfoJpaDao.findById(saveInDb.getPatientId()).get();
         assertThat(getFromInDb).isEqualTo(saveInDb);
-        assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
+        assertThat(getFromInDb.toString()).hasToString(saveInDb.toString());
     }
     
+    /**
+	 * To test get follow up diet status information details using id  
+	 */
     @Test
     public void testGetFollowUpDietStatusById() throws Exception{
     	FollowUpDietStatusInfo followUpDietStatusInfo = new FollowUpDietStatusInfo();
@@ -54,6 +64,9 @@ public class FollowUpDietStatusInfoJpaDaoTest {
         assertThat(getInDb).isEqualTo(saveInDb);
     }
     
+    /**
+	 * To test delete follow up diet status information details using id  
+	 */
     @Test
     public void testDeleteFollowUpDietStatusInfoById() throws Exception{
     	FollowUpDietStatusInfo followUpDietStatusInfo1 = new FollowUpDietStatusInfo();
@@ -71,10 +84,13 @@ public class FollowUpDietStatusInfoJpaDaoTest {
         testEntityManager.remove(followUpDietStatusInfo);
 
         List<FollowUpDietStatusInfo> followUpDietStatusInfos = (List<FollowUpDietStatusInfo>) followUpDietStatusInfoJpaDao.findAll();
-        Assert.assertEquals(followUpDietStatusInfos.size(), 1);
+        Assert.assertEquals(1, followUpDietStatusInfos.size());
 
     }
     
+    /**
+	 * To test update follow up diet status information details using id  
+	 */
     @Test
     public void testUpdateFollowUpDietStatusInfo(){
 
@@ -88,7 +104,7 @@ public class FollowUpDietStatusInfoJpaDaoTest {
         getFromDb.setDietStatus(true);
         testEntityManager.persist(getFromDb);
 
-        assertThat(getFromDb.getDietStatus()).isEqualTo(true);
+        assertThat(getFromDb.getDietStatus()).isTrue();
     }
 
 

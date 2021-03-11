@@ -1,8 +1,8 @@
-/*
- * Author-> Sayantan Das
- * This class is a junit test class for testing the Appointment Details Controller class and URL mappings
- */
-
+/**
+ * @SayantanDas
+ * 
+ * This is the Controller Testing Class for AppointmentDetails.
+*/
 
 package com.cg.healthreminder.controller;
 import com.cg.healthreminder.model.AppointmentDetails;
@@ -46,6 +46,11 @@ public class AppointmentDetailsControllerTest {
 	        return objectMapper.writeValueAsString(appointmentDetails);
 	    }
 	    
+	    
+	    /**
+		 * 
+		 * To check if a new appointment gets created
+		*/
 	    @Test
 	    public void testNewAppointment() throws Exception{
 	        String URI = "/healthreminder/createAppointment";
@@ -69,6 +74,11 @@ public class AppointmentDetailsControllerTest {
 	        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
 	    }
 	    
+	    
+	    /**
+		 * 
+		 * Check if able to find Appointment by PatientId.
+		*/
 	    @Test
 	    public void testFindByPatientId() throws Exception{
 	        String URI = "/healthreminder/findAppointmentByPatId/{patientId}";
@@ -93,6 +103,11 @@ public class AppointmentDetailsControllerTest {
 	        assertThat(jsonInput).isEqualTo(jsonOutput);
 	    }
 	    
+	    
+	    /**
+		 * 
+		 * Check if able to find Appointment by DoctorId.
+		*/
 	    @Test
 	    public void testFindByDoctorId() throws Exception{
 	        String URI = "/healthreminder/findAppointmentByDocId/{doctorId}";
@@ -118,6 +133,11 @@ public class AppointmentDetailsControllerTest {
 	    }
 	    
 	    
+	    
+	    /**
+		 * 
+		 * Check if able to delete Appointment by PatientId.
+		*/
 	    @Test
 	    public void testDeleteAppointmentByPatientId() throws Exception{
 	    	 String URI = "/healthreminder/deleteAppointmentByPatId/{patientId}";  
@@ -141,6 +161,11 @@ public class AppointmentDetailsControllerTest {
 
 	    }
 	    
+	    
+	    /**
+		 * 
+		 *Check if able to delete Appointment by DoctorId.
+		*/
 	    @Test
 	    public void testDeleteAppointmenttByDoctorId() throws Exception{
 	    	 String URI = "/healthreminder/deleteAppointmentByDocId/{doctorId}";  
