@@ -1,4 +1,8 @@
-//AUTHOR --> Ankit Banerjee
+/**
+ * @Ankit Banerjee
+ *
+ * Interface for DoctorDetails which contains various services provided.
+ */
 package com.cg.healthreminder.services;
 
 import com.cg.healthreminder.exception.AllCustomException;

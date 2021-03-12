@@ -57,10 +57,10 @@ public class AppointmentDetailsControllerTest {
 	        AppointmentDetails apd = new AppointmentDetails();
 	        apd.setAppId(1);
 		    apd.setDoctorId(5);
-			apd.setDoctorName("Doctor Astin");
-			apd.setDoctorStartTime(null);
-			apd.setDoctorEndTime(null);
-			apd.setDoctorDate(null); 
+			apd.setDoctorName("DoctorAstin");
+			apd.setDoctorStartTime("12:00");
+			apd.setDoctorEndTime("9:00");
+			apd.setDoctorDate("12/16/2020"); 
 			apd.setPatientName("Sayantan");
 			apd.setPatientId(4);
 	        String jsonInput = this.converttoJson(apd);
@@ -85,10 +85,10 @@ public class AppointmentDetailsControllerTest {
 	        AppointmentDetails apd = new AppointmentDetails();
 	        apd.setAppId(1);
 		    apd.setDoctorId(5);
-			apd.setDoctorName("Doctor Astin");
-			apd.setDoctorStartTime(null);
-			apd.setDoctorEndTime(null);
-			apd.setDoctorDate(null); 
+			apd.setDoctorName("DoctorAstin");
+			apd.setDoctorStartTime("12:00");
+			apd.setDoctorEndTime("9:00");
+			apd.setDoctorDate("12/16/2020"); 
 			apd.setPatientName("Sayantan");
 			apd.setPatientId(4);
 
@@ -114,10 +114,10 @@ public class AppointmentDetailsControllerTest {
 	        AppointmentDetails apd = new AppointmentDetails();
 	        apd.setAppId(1);
 		    apd.setDoctorId(5);
-			apd.setDoctorName("Doctor Astin");
-			apd.setDoctorStartTime(null);
-			apd.setDoctorEndTime(null);
-			apd.setDoctorDate(null); 
+			apd.setDoctorName("DoctorAstin");
+			apd.setDoctorStartTime("12:00");
+			apd.setDoctorEndTime("9:00");
+			apd.setDoctorDate("12/16/2020"); 
 			apd.setPatientName("Sayantan");
 			apd.setPatientId(4);
 
@@ -144,10 +144,10 @@ public class AppointmentDetailsControllerTest {
 	    	 AppointmentDetails apd = new AppointmentDetails();
 		      apd.setAppId(1);
 			  apd.setDoctorId(5);
-			  apd.setDoctorName("Doctor Astin");
-			  apd.setDoctorStartTime(null);
-			  apd.setDoctorEndTime(null);
-			  apd.setDoctorDate(null); 
+			  apd.setDoctorName("DoctorAstin");
+			  apd.setDoctorStartTime("12:00");
+			  apd.setDoctorEndTime("9:00");
+			  apd.setDoctorDate("12/16/2020"); 
 			  apd.setPatientName("Sayantan");
 			  apd.setPatientId(4);
 
@@ -172,10 +172,10 @@ public class AppointmentDetailsControllerTest {
 	    	 AppointmentDetails apd = new AppointmentDetails();
 		      apd.setAppId(1);
 			  apd.setDoctorId(5);
-			  apd.setDoctorName("Doctor Astin");
-			  apd.setDoctorStartTime(null);
-			  apd.setDoctorEndTime(null);
-			  apd.setDoctorDate(null); 
+			  apd.setDoctorName("DoctorAstin");
+			  apd.setDoctorStartTime("12:00");
+			  apd.setDoctorEndTime("9:00");
+			  apd.setDoctorDate("12/16/2020"); 
 			  apd.setPatientName("Sayantan");
 			  apd.setPatientId(4);
 

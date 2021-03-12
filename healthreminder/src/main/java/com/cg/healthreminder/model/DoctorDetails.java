@@ -1,4 +1,8 @@
-//AUTHOR --> Ankit Banerjee
+/**
+ * @AnkitBanerjee
+ *
+ * This is the Model/Entity class for Doctor Details
+ */
 package com.cg.healthreminder.model;
 
 import javax.persistence.*;
@@ -7,8 +11,6 @@ import javax.validation.constraints.*;
 @Entity
 @Table(name = "Doctor_Details")
 public class DoctorDetails {
-	
-	
 	
 	
 	@Override
@@ -27,16 +29,19 @@ public class DoctorDetails {
     private boolean verfStatus;
     
 	@NotNull
+	@Pattern(regexp="^[a-zA-Z\s]+$", message="only alphabets and spaces allowed")
 	@Size(min=2, max=30)
     @Column(name = "doc_name")
     private String doctorName;
     
 	@NotNull
+	@Pattern(regexp="^[a-zA-Z\s]+$", message="only only alphabets and spaces allowed")
 	@Size(min=2, max=30)
     @Column(name = "doc_spec")
     private String doctorSpec;
     
 	@NotNull
+	@Pattern(regexp="^[a-zA-Z0-9\s]+$", message="only alphanumeric letters and spaces allowed")
 	@Size(min=2, max=30)
     @Column(name = "certificate_file")
     private String doctorCertFile;

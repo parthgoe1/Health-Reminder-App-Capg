@@ -1,9 +1,24 @@
-//AUTHOR --> Ankit Banerjee
+/**
+ * @AnkitBanerjee
+ *
+ * This is the Model/Entity class for Alarm Module
+ */
 package com.cg.healthreminder.model;
 
-import javax.persistence.*;
-import java.sql.*;
-import javax.validation.constraints.*;
+import java.sql.Date;
+import java.sql.Timestamp;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "Alarm_Module")
@@ -20,22 +35,25 @@ public class AlarmModule {
     @Column(name = "alarm_id")
     private Integer alarmId;
 	
-	//foreign key
 	@NotNull
     @Column(name = "patient_id")
     private Integer patientId;
     
-	@NotNull
+	@NotBlank(message = "Name is mandatory")
+	@Size(min=2, max=30, message = "HEY User! try to put name size between 2 and 30")
     @Column(name = "alarm_name")
     private String alarmName;
     
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "alarm_time", nullable = true)
     private Timestamp alarmTime;
     
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "alarm_date", nullable = true)
     private Date alarmDate;
     
     @NotNull
+    @Size(min=2, max=50, message="please provide a message of size range between 2 to 50")
     @Column(name = "notes")
     private String alarmNotes;
 

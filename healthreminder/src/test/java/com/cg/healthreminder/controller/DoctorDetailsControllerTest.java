@@ -1,3 +1,8 @@
+/**
+ * @AnkitBanerjee
+ * 
+ * This is the Controller Testing Class for Alarm Module.
+*/
 package com.cg.healthreminder.controller;
 
 import com.cg.healthreminder.model.DoctorDetails;
@@ -43,14 +48,18 @@ public class DoctorDetailsControllerTest {
         return objectMapper.writeValueAsString(doctor);
     }
     
+    /**
+	 * 
+	 * To check if we able to create new Doctor Details
+	*/
     @Test
     public void testNewDoctorDetails() throws Exception{
         String URI = "/doctor/createDoctor";
         DoctorDetails doctor= new DoctorDetails();
         doctor.setDoctorId(103);
-        doctor.setDoctorName("Dr. Ankit");
+        doctor.setDoctorName("Dr Ankit");
         doctor.setDoctorSpec("Dentist");
-        doctor.setDoctorCertFile("M.B.B.S");
+        doctor.setDoctorCertFile("Certified Doctor");
         doctor.setVerfStatus(true);
         String jsonInput = this.converttoJson(doctor);
 
@@ -63,14 +72,18 @@ public class DoctorDetailsControllerTest {
         Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
     }
 	
+    /**
+	 * 
+	 * To check if we able to find Doctor Details by Doctor Id
+	*/
     @Test
     public void testFindDoctorById() throws Exception{
         String URI = "/doctor/getDoctorById/{doctorId}";
         DoctorDetails doctor= new DoctorDetails();
         doctor.setDoctorId(103);
-        doctor.setDoctorName("Dr. Ankit");
+        doctor.setDoctorName("Dr Ankit");
         doctor.setDoctorSpec("Dentist");
-        doctor.setDoctorCertFile("M.B.B.S");
+        doctor.setDoctorCertFile("Certified Doctor");
         doctor.setVerfStatus(true);
 
 		String jsonInput = this.converttoJson(doctor);
@@ -84,14 +97,18 @@ public class DoctorDetailsControllerTest {
         assertThat(jsonInput).isEqualTo(jsonOutput);
     }
     
+    /**
+	 * 
+	 * To check if we able to find Doctor Details by Doctor Specialization
+	*/
     @Test
     public void testFindDoctorBySpec() throws Exception{
         String URI = "/doctor/getDoctorBySpec/{doctorSpec}";
         DoctorDetails doctor= new DoctorDetails();
         doctor.setDoctorId(103);
-        doctor.setDoctorName("Dr. Ankit");
+        doctor.setDoctorName("Dr Ankit");
         doctor.setDoctorSpec("Dentist");
-        doctor.setDoctorCertFile("M.B.B.S");
+        doctor.setDoctorCertFile("Certified Doctor");
         doctor.setVerfStatus(true);
 
 		String jsonInput = this.converttoJson(doctor);
@@ -105,14 +122,18 @@ public class DoctorDetailsControllerTest {
         assertThat(jsonInput).isEqualTo(jsonOutput);
     }
     
+    /**
+	 * 
+	 * To check if we able to delete Doctor Details by Doctor Id
+	*/
     @Test
     public void testDeleteDoctorById() throws Exception{
     	 String URI = "/doctor/deleteDoctorById/doctor/{doctorId}";  
     	 DoctorDetails doctor= new DoctorDetails();
          doctor.setDoctorId(103);
-         doctor.setDoctorName("Dr. Ankit");
+         doctor.setDoctorName("Dr Ankit");
          doctor.setDoctorSpec("Dentist");
-         doctor.setDoctorCertFile("M.B.B.S");
+         doctor.setDoctorCertFile("Certified Doctor");
          doctor.setVerfStatus(true);
 
         Mockito.when(doctorDetailsService.findDoctorById(Mockito.anyInt())).thenReturn(doctor);
