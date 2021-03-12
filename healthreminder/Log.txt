@@ -1,0 +1,30 @@
+2021-03-12 10:53:08.221  INFO 29048 --- [main] c.c.h.HealthreminderApplication          : Starting HealthreminderApplication on DESKTOP-2PJIAO0 with PID 29048 (C:\Users\goelp\Desktop\Health Reminder Capg\Health-Reminder-App-Capg\healthreminder\target\classes started by goelp in C:\Users\goelp\Desktop\Health Reminder Capg\Health-Reminder-App-Capg\healthreminder)
+2021-03-12 10:53:08.225  INFO 29048 --- [main] c.c.h.HealthreminderApplication          : No active profile set, falling back to default profiles: default
+2021-03-12 10:53:09.493  INFO 29048 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-03-12 10:53:09.622  INFO 29048 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 118ms. Found 11 JPA repository interfaces.
+2021-03-12 10:53:10.621  INFO 29048 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8086 (http)
+2021-03-12 10:53:10.649  INFO 29048 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-12 10:53:10.650  INFO 29048 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-03-12 10:53:10.775  INFO 29048 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-12 10:53:10.776  INFO 29048 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2467 ms
+2021-03-12 10:53:11.020  INFO 29048 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-12 10:53:11.217  INFO 29048 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-12 10:53:11.350  INFO 29048 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.22.Final
+2021-03-12 10:53:11.609  INFO 29048 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2021-03-12 10:53:11.803  WARN 29048 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-12 10:53:11.849  INFO 29048 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-12 10:53:12.116  INFO 29048 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-03-12 10:53:12.649  INFO 29048 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8086 (http) with context path ''
+2021-03-12 10:53:12.651  INFO 29048 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-03-12 10:53:12.696  INFO 29048 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-03-12 10:53:12.761  INFO 29048 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-03-12 10:53:12.908  INFO 29048 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-12 10:53:12.943  INFO 29048 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-03-12 10:53:13.152  INFO 29048 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createTicketUsingPOST_1
+2021-03-12 10:53:13.410  INFO 29048 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2021-03-12 10:53:13.939  WARN 29048 --- [task-1] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.cg.healthreminder.model.SlotCompositeKey
+2021-03-12 10:53:13.940  WARN 29048 --- [task-1] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.cg.healthreminder.model.SlotCompositeKey
+2021-03-12 10:53:14.850  INFO 29048 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-12 10:53:14.858  INFO 29048 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-03-12 10:53:15.455  INFO 29048 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2021-03-12 10:53:15.465  INFO 29048 --- [main] c.c.h.HealthreminderApplication          : Started HealthreminderApplication in 7.684 seconds (JVM running for 8.194)
