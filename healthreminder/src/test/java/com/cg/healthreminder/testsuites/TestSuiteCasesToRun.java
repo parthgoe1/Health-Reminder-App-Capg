@@ -30,7 +30,7 @@ import com.cg.healthreminder.services.MedicalHistoryServiceTest;
    AppointmentDetailsServicesTest.class,
    
    /** 	
-    * @author Naman
+    * @author Naman Bhandari
     */
    MedicalHistoryControllerTest.class,
    MedicalHistoryServiceTest.class,

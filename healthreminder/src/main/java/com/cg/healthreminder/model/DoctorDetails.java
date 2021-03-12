@@ -12,6 +12,9 @@ import javax.validation.constraints.*;
 @Table(name = "Doctor_Details")
 public class DoctorDetails {
 	
+	public static final String REG = "^[a-zA-Z\s]+$";
+	public static final String REG_NUM = "^[a-zA-Z0-9\s]+$";
+	
 	
 	@Override
 	public String toString() {
@@ -29,19 +32,19 @@ public class DoctorDetails {
     private boolean verfStatus;
     
 	@NotNull
-	@Pattern(regexp="^[a-zA-Z\s]+$", message="only alphabets and spaces allowed")
+	@Pattern(regexp=REG, message="only alphabets and spaces allowed")
 	@Size(min=2, max=30)
     @Column(name = "doc_name")
     private String doctorName;
     
 	@NotNull
-	@Pattern(regexp="^[a-zA-Z\s]+$", message="only only alphabets and spaces allowed")
+	@Pattern(regexp=REG, message="only alphabets and spaces allowed")
 	@Size(min=2, max=30)
     @Column(name = "doc_spec")
     private String doctorSpec;
     
 	@NotNull
-	@Pattern(regexp="^[a-zA-Z0-9\s]+$", message="only alphanumeric letters and spaces allowed")
+	@Pattern(regexp=REG_NUM, message="only alphanumeric letters and spaces allowed")
 	@Size(min=2, max=30)
     @Column(name = "certificate_file")
     private String doctorCertFile;
