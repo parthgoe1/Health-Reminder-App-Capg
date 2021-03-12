@@ -19,7 +19,7 @@ import java.util.List;
 
 
 import com.cg.healthreminder.model.AppointmentSlots;
-import com.cg.healthreminder.model.Slot_Pk;
+import com.cg.healthreminder.model.SlotCompositeKey;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -34,9 +34,9 @@ public class AppointmentSlotsJpaDaoTest {
 		 AppointmentSlots slot= new AppointmentSlots();
 		 slot.setDoctorEndTime("12:00");
 		 slot.setDoctorStartTime("9:00");
-		 Slot_Pk pk=new Slot_Pk();
-		 pk.setDoc_date("2020-12-16");
-		 pk.setDoc_id(1);
+		 SlotCompositeKey pk=new SlotCompositeKey();
+		 pk.setDoctorDate("12/16/2020");
+		 pk.setDoctorId(1);
 		 slot.setPk(pk);
 		 return slot;
 	 }
@@ -51,7 +51,7 @@ public class AppointmentSlotsJpaDaoTest {
 	     AppointmentSlots saveInDb = testEntityManager.persist(slot);
 	     AppointmentSlots getFromInDb = appointmentSlotsJpaDao.findById(saveInDb.getPk()).get();
 	     assertThat(getFromInDb).isEqualTo(saveInDb);
-	     assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
+	     assertThat(getFromInDb.toString()).hasToString(saveInDb.toString());
 	 }
 
 	 /**
@@ -64,9 +64,9 @@ public class AppointmentSlotsJpaDaoTest {
 		 AppointmentSlots slot2= new AppointmentSlots();
 		 slot2.setDoctorEndTime("12:00");
 		 slot2.setDoctorStartTime("9:00");
-		 Slot_Pk pk2=new Slot_Pk();
-		 pk2.setDoc_date("2020-12-17");
-		 pk2.setDoc_id(12);
+		 SlotCompositeKey pk2=new SlotCompositeKey();
+		 pk2.setDoctorDate("12/17/2020");
+		 pk2.setDoctorId(12);
 		 slot2.setPk(pk2);
 
 		 AppointmentSlots appslot = testEntityManager.persist(slot1);
@@ -90,9 +90,9 @@ public class AppointmentSlotsJpaDaoTest {
 		 AppointmentSlots slot2= new AppointmentSlots();
 		 slot2.setDoctorEndTime("12:00");
 		 slot2.setDoctorStartTime("9:00");
-		 Slot_Pk pk2=new Slot_Pk();
-		 pk2.setDoc_date("2020-12-17");
-		 pk2.setDoc_id(12);
+		 SlotCompositeKey pk2=new SlotCompositeKey();
+		 pk2.setDoctorDate("12/17/2020");
+		 pk2.setDoctorId(12);
 		 slot2.setPk(pk2);
 
 		 testEntityManager.persist(slot1);

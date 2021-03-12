@@ -9,7 +9,6 @@ import javax.validation.Valid;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,14 +21,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.Patient;
 import com.cg.healthreminder.services.PatientService;
-import com.cg.healthreminder.services.impl.DietInfoServicesImpl;
+
 
 @RestController
 @RequestMapping("/healthreminder")
 public class PatientController {
 	@Autowired
 	private PatientService patientService;
-	private static final Logger logger=LogManager.getLogger(DietInfoServicesImpl.class);
+	private static final Logger logger=LogManager.getLogger(PatientController.class);
 
 	/*To find list of all patients*/
 	@GetMapping("/patients")

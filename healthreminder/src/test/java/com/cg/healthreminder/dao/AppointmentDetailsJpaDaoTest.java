@@ -33,10 +33,10 @@ public class AppointmentDetailsJpaDaoTest {
 	 private AppointmentDetails getAppointmentDetails() {
 		 AppointmentDetails a= new AppointmentDetails();
 		  a.setDoctorId(5);
-		  a.setDoctorName("Doctor Astin");
+		  a.setDoctorName("DoctorAstin");
 		  a.setDoctorStartTime("12:00");
 		  a.setDoctorEndTime("9:00");
-		  a.setDoctorDate("2020-12-05"); 
+		  a.setDoctorDate("12/05/2020"); 
 		  a.setPatientName("Sayantan");
 		  a.setPatientId(4);
 
@@ -54,7 +54,7 @@ public class AppointmentDetailsJpaDaoTest {
 	     AppointmentDetails saveInDb = testEntityManager.persist(apd);
 	     AppointmentDetails getFromInDb = appointmentDetailsJpaDao.findById(saveInDb.getAppId()).get();
 	     assertThat(getFromInDb).isEqualTo(saveInDb);
-	     assertThat(getFromInDb.toString()).isEqualTo(saveInDb.toString());
+	     assertThat(saveInDb.toString()).hasToString(getFromInDb.toString());
 	 }
 	 
 	   
@@ -93,10 +93,10 @@ public class AppointmentDetailsJpaDaoTest {
 	       AppointmentDetails apd1 = getAppointmentDetails();
 	       AppointmentDetails apd2= new AppointmentDetails();
 	       apd2.setDoctorId(3);
-		   apd2.setDoctorName("Doctor Karan");
+		   apd2.setDoctorName("DoctorKaran");
 		   apd2.setDoctorStartTime("12:00");
 		   apd2.setDoctorEndTime("9:00");
-		   apd2.setDoctorDate("2020-12-16"); 
+		   apd2.setDoctorDate("12/16/2020"); 
 		   apd2.setPatientName("Deepak");
 		   apd2.setPatientId(7);
 

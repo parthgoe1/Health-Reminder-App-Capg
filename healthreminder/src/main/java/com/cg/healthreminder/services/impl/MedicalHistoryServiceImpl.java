@@ -21,7 +21,7 @@ public class MedicalHistoryServiceImpl implements MedicalHistoryService{
 	//Dao object created
 	@Autowired
 	private MedicalHistoryDao medicalHistoryDao;
-	private static final Logger logger=LogManager.getLogger(DietInfoServicesImpl.class);
+	private static final Logger logger=LogManager.getLogger(MedicalHistoryServiceImpl.class);
 
 	/* To validate medical history*/
 	private String validateMedHistory(MedicalHistory m) {

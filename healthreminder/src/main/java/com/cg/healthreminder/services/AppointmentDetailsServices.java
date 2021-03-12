@@ -11,9 +11,9 @@ import com.cg.healthreminder.model.AppointmentDetails;
 
 public interface AppointmentDetailsServices {
 	
-	AppointmentDetails findAppointmentDetailByPatientId(int pat_id) throws AllCustomException;
-	AppointmentDetails findAppointmentDetailByDoctorId(int doc_id) throws AllCustomException;
+	AppointmentDetails findAppointmentDetailByPatientId(int patientId) throws AllCustomException;
+	AppointmentDetails findAppointmentDetailByDoctorId(int doctorId) throws AllCustomException;
     AppointmentDetails createAppointment(AppointmentDetails amp);
-    AppointmentDetails deleteAppointmentByPatientId(int pat_id) throws AllCustomException;
-    AppointmentDetails deleteAppointmentByDoctorId(int doc_id) throws AllCustomException;
+    AppointmentDetails deleteAppointmentByPatientId(int patientId) throws AllCustomException;
+    AppointmentDetails deleteAppointmentByDoctorId(int doctorId) throws AllCustomException;
 }

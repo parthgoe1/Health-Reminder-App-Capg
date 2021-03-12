@@ -18,14 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.MedicalHistory;
 import com.cg.healthreminder.services.MedicalHistoryService;
-import com.cg.healthreminder.services.impl.DietInfoServicesImpl;
 
 @RestController
 @RequestMapping("/healthreminder")
 public class MedicalHistoryController {
 	@Autowired
 	private MedicalHistoryService medicalHistoryService;
-	private static final Logger logger=LogManager.getLogger(DietInfoServicesImpl.class);
+	private static final Logger logger=LogManager.getLogger(MedicalHistoryController.class);
 
 	/*To get all records for a patient*/ 
 	@GetMapping("/records/{id}")

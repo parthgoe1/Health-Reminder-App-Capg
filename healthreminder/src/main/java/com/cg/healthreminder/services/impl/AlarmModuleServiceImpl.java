@@ -1,4 +1,9 @@
-//AUTHOR --> Ankit Banerjee
+/**
+ * @Ankit Banerjee
+ * 
+ * This is the Service Class for Alarm Module.
+*/
+
 package com.cg.healthreminder.services.impl;
 
 import java.sql.Date;
@@ -20,12 +25,16 @@ import com.cg.healthreminder.model.AlarmModule;
 @Transactional
 public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.AlarmModuleService {
 	
-	public static final String Excep = "AlarmModule not found";
+	public static final String EXCEP = "AlarmModule not found";
 	
 	@Autowired
 	private AlarmModuleDao alarmModuleDao;
 	private static final Logger logger=LogManager.getLogger(AlarmModuleServiceImpl.class);
 	
+	/**
+	 * 
+	 * To find Alarm Module by Alarm Id.
+	*/
 	@Override
 	public AlarmModule findAlarmById(Integer id)  throws AllCustomException
 	{
@@ -33,12 +42,16 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 		
 		AlarmModule ob =  alarmModuleDao.findAlarmById(id);
 		if(ob == null) {
-			throw new AllCustomException(Excep);
+			throw new AllCustomException(EXCEP);
 		}
 		
 		return ob;
 	}
 	
+	/**
+	 * 
+	 * To find Alarm Module by Alarm Name.
+	*/
 	@Override
 	public AlarmModule findAlarmByName(String alarmName)  throws AllCustomException
 	{
@@ -46,12 +59,16 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 		
 		AlarmModule ob = alarmModuleDao.findAlarmByName(alarmName);
 		if(ob == null) {
-			throw new AllCustomException(Excep);
+			throw new AllCustomException(EXCEP);
 		}
 		
 		return ob;
 	}
 	
+	/**
+	 * 
+	 * To get All Alarm Module.
+	*/
 	@Override
 	public Iterable<AlarmModule> getAllAlarms()
 	{
@@ -59,6 +76,10 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 		return alarmModuleDao.findAll();
 	}
 	
+	/**
+	 * 
+	 * To Update Alarm Module by Alarm Id.
+	*/
 	@Override
 	public AlarmModule updateAlarmById(Integer aid, Integer pid, String name, Timestamp alarmTime, Date alarmDate, String note) throws AllCustomException
 	{
@@ -77,13 +98,16 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 		}
 		else
 		{
-			throw new AllCustomException(Excep);
+			throw new AllCustomException(EXCEP);
 		}
 		
 		return alarmModuleDao.save(ob);
 	}
 	
-	
+	/**
+	 * 
+	 * To dlete Alarm Module by Alarm Id.
+	*/
 	@Override
 	public AlarmModule deleteAlarmById(Integer id)  throws AllCustomException
 	{
@@ -97,13 +121,17 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 			alarmModuleDao.delete(ob);
 		}
 		else {
-			throw new AllCustomException(Excep);
+			throw new AllCustomException(EXCEP);
 			
 		}
 		
 		return ob;
 	}
 	
+	/**
+	 * 
+	 * To create Alarm Module by Alarm Id.
+	*/
 	@Override
 	public AlarmModule createAlarm(AlarmModule alarmModule)
 	{

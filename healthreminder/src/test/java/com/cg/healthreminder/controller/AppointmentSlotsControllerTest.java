@@ -6,7 +6,7 @@
 
 package com.cg.healthreminder.controller;
 import com.cg.healthreminder.model.AppointmentSlots;
-import com.cg.healthreminder.model.Slot_Pk;
+import com.cg.healthreminder.model.SlotCompositeKey;
 import com.cg.healthreminder.services.AppointmentSlotsServices;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -59,12 +59,12 @@ public class AppointmentSlotsControllerTest {
 	    public void testNewAppointmentSlot() throws Exception{
 	        String URI = "/healthreminder/createAppointmentSlot";
 	        AppointmentSlots slot2= new AppointmentSlots();
-			Slot_Pk pk2=new Slot_Pk();
-			pk2.setDoc_date("2020-12-17");
-			pk2.setDoc_id(12);
+			SlotCompositeKey pk2=new SlotCompositeKey();
+			pk2.setDoctorDate("12/17/2020");
+			pk2.setDoctorId(12);
 			slot2.setPk(pk2);
-			slot2.setDoctorEndTime(null);
-			slot2.setDoctorStartTime(null);
+			slot2.setDoctorEndTime("12:00");
+			slot2.setDoctorStartTime("9:00");
 			String jsonInput = this.converttoJson(slot2);
 
 	        Mockito.when(appointmentSlotsService.createAppointmentSlot(Mockito.any(AppointmentSlots.class))).thenReturn(slot2);
@@ -84,20 +84,20 @@ public class AppointmentSlotsControllerTest {
 	    public void testGetAllSlots() throws Exception{
 	        String URI = "/healthreminder/getAllSlots";
 	        AppointmentSlots slot= new AppointmentSlots();
-			 slot.setDoctorEndTime(null);
-			 slot.setDoctorStartTime(null);
-			 Slot_Pk pk=new Slot_Pk();
-			 pk.setDoc_date("2020-12-16");
-			 pk.setDoc_id(1);
+			 slot.setDoctorEndTime("12:00");
+			 slot.setDoctorStartTime("9:00");
+			 SlotCompositeKey pk=new SlotCompositeKey();
+			 pk.setDoctorDate("12/16/2020");
+			 pk.setDoctorId(1);
 			 slot.setPk(pk);
 
 	        AppointmentSlots slot2= new AppointmentSlots();
-			Slot_Pk pk2=new Slot_Pk();
-			pk2.setDoc_date("2020-12-17");
-			pk2.setDoc_id(12);
+			SlotCompositeKey pk2=new SlotCompositeKey();
+			pk2.setDoctorDate("12/17/2020");
+			pk2.setDoctorId(12);
 			slot2.setPk(pk2);
-			slot2.setDoctorEndTime(null);
-			slot2.setDoctorStartTime(null);
+			slot2.setDoctorEndTime("12:00");
+			slot2.setDoctorStartTime("9:00");
 
 	        List<AppointmentSlots> asl = new ArrayList<>();
 	        asl.add(slot);
