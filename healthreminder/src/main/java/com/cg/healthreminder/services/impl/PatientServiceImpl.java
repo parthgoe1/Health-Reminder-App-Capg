@@ -24,7 +24,7 @@ public class PatientServiceImpl implements PatientService{
 	//Dao object created
 	@Autowired
 	private PatientDao patientDao;
-	private static final Logger logger=LogManager.getLogger(DietInfoServicesImpl.class);
+	private static final Logger logger=LogManager.getLogger(PatientServiceImpl.class);
 	
 	/* Patient validation */
 	private String validatePatientData(Patient p) {
