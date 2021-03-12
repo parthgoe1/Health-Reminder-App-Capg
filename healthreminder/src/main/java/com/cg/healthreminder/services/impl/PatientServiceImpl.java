@@ -25,19 +25,20 @@ public class PatientServiceImpl implements PatientService{
 	@Autowired
 	private PatientDao patientDao;
 	private static final Logger logger=LogManager.getLogger(PatientServiceImpl.class);
-	
+	static final String VALID = "Validated";
 	/* Patient validation */
 	private String validatePatientData(Patient p) {
 		String msg;
-		if(p.getPatientWeight().getClass().getName()!="java.lang.Double")
-			msg="Weight not double";
-		else if(p.getPatientId()<0)
+		String emailRegex="^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+		String nameRegex="^[a-zA-Z]+(\\\\s[a-zA-Z]+)?$";
+		String mobRegex=".*[a-zA-Z]+.*";
+		if(p.getPatientId()<0)
 			msg="PatientId should be more than or equal to 0";
-		else if(!Pattern.compile("^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$").matcher(p.getPatientEmail()).matches())
+		else if(!Pattern.compile(emailRegex).matcher(p.getPatientEmail()).matches())
 			msg="Email format not correct";
-		else if(!Pattern.compile("^[a-zA-Z]+(\\s[a-zA-Z]+)?$").matcher(p.getPatientName()).matches())
+		else if(!Pattern.compile(nameRegex).matcher(p.getPatientName()).matches())
 			msg="Name should only contain alphabets";
-		else if(p.getPatientMobile()!=null && (p.getPatientMobile().length()!=10 || p.getPatientMobile().matches(".*[a-zA-Z]+.*")))
+		else if(p.getPatientMobile()!=null && (p.getPatientMobile().length()!=10 || p.getPatientMobile().matches(mobRegex)))
 			msg="Mobile number should be only 10 digits";
 		else if(p.getPatientAge()!=null && p.getPatientAge()<=0)
 			msg="Age should be more than 0";
@@ -45,7 +46,7 @@ public class PatientServiceImpl implements PatientService{
 			msg="Height should be more than 0";
 		else if(p.getPatientWeight()!=null && p.getPatientWeight()<=0)
 			msg="Weight should be more than 0";
-		else msg="Validated";
+		else msg=VALID;
 		return msg;
 	}
 	
@@ -74,7 +75,7 @@ public class PatientServiceImpl implements PatientService{
 	public Patient addPatient(Patient p) throws AllCustomException{
 		logger.info("adding patient");
 		String msg = validatePatientData(p);
-		if(msg.equals("Validated"))
+		if(msg.equals(VALID))
 			return patientDao.save(p);
 		else  throw new AllCustomException(msg);
 	}
@@ -82,8 +83,9 @@ public class PatientServiceImpl implements PatientService{
 	 * To update a patient records*/
 	public Patient updatePatient(Patient p) throws AllCustomException{
 		logger.info("updating patient");
+		logger.info(p.toString());
 		String msg = validatePatientData(p);
-		if(msg.equals("Validated"))
+		if(msg.equals(VALID))
 			return patientDao.save(p);
 		else  throw new AllCustomException(msg);
 	}
