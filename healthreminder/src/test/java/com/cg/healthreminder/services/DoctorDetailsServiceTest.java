@@ -44,9 +44,9 @@ public class DoctorDetailsServiceTest {
     public void testCreateDoctor(){
     	DoctorDetails doctorDetails = new DoctorDetails();
     	doctorDetails.setDoctorId(210);
-    	doctorDetails.setDoctorName("Dr. Kusum");
-    	doctorDetails.setDoctorSpec("Surgeon");
-    	doctorDetails.setDoctorCertFile("True");
+    	doctorDetails.setDoctorName("Dr Ankit");
+    	doctorDetails.setDoctorSpec("Dentist");
+    	doctorDetails.setDoctorCertFile("Certified Doctor");
     	doctorDetails.setVerfStatus(true);
     	
 
@@ -76,9 +76,9 @@ public class DoctorDetailsServiceTest {
     public void testFindByDoctorSpec() throws Exception{
     	DoctorDetails doctorDetails = new DoctorDetails();
     	doctorDetails.setDoctorId(210);
-    	doctorDetails.setDoctorName("Dr. Kusum");
-    	doctorDetails.setDoctorSpec("Surgeon");
-    	doctorDetails.setDoctorCertFile("True");
+    	doctorDetails.setDoctorName("Dr Ankit");
+    	doctorDetails.setDoctorSpec("Dentist");
+    	doctorDetails.setDoctorCertFile("Surgeon");
     	doctorDetails.setVerfStatus(true);
 	  
 	  Mockito.when(doctorDetailsDao.findDoctorBySpec("Surgeon")).thenReturn(doctorDetails);
@@ -93,16 +93,16 @@ public class DoctorDetailsServiceTest {
     public void testGetAllDoctors() throws Exception{
     	DoctorDetails d1 = new DoctorDetails();
     	d1.setDoctorId(210);
-    	d1.setDoctorName("Dr. Kusum");
-    	d1.setDoctorSpec("Surgeon");
-    	d1.setDoctorCertFile("M.B.B.S");
+    	d1.setDoctorName("Dr Ankit");
+    	d1.setDoctorSpec("Dentist");
+    	d1.setDoctorCertFile("Certified Doctor");
     	d1.setVerfStatus(true);
 
     	DoctorDetails d2 = new DoctorDetails();
     	d2.setDoctorId(212);
-    	d2.setDoctorName("Dr. Kamlesh");
-    	d2.setDoctorSpec("Neuro Surgeon");
-    	d2.setDoctorCertFile("General");
+    	d2.setDoctorName("Dr kusum");
+    	d2.setDoctorSpec("Dentist");
+    	d2.setDoctorCertFile("Certified Doctor");
     	d2.setVerfStatus(true);
         
         List<DoctorDetails> doctorList = new ArrayList<>();

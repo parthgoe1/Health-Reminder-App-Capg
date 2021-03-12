@@ -57,9 +57,9 @@ public class DoctorDetailsControllerTest {
         String URI = "/doctor/createDoctor";
         DoctorDetails doctor= new DoctorDetails();
         doctor.setDoctorId(103);
-        doctor.setDoctorName("Dr. Ankit");
+        doctor.setDoctorName("Dr Ankit");
         doctor.setDoctorSpec("Dentist");
-        doctor.setDoctorCertFile("M.B.B.S");
+        doctor.setDoctorCertFile("Certified Doctor");
         doctor.setVerfStatus(true);
         String jsonInput = this.converttoJson(doctor);
 
@@ -81,9 +81,9 @@ public class DoctorDetailsControllerTest {
         String URI = "/doctor/getDoctorById/{doctorId}";
         DoctorDetails doctor= new DoctorDetails();
         doctor.setDoctorId(103);
-        doctor.setDoctorName("Dr. Ankit");
+        doctor.setDoctorName("Dr Ankit");
         doctor.setDoctorSpec("Dentist");
-        doctor.setDoctorCertFile("M.B.B.S");
+        doctor.setDoctorCertFile("Certified Doctor");
         doctor.setVerfStatus(true);
 
 		String jsonInput = this.converttoJson(doctor);
@@ -106,9 +106,9 @@ public class DoctorDetailsControllerTest {
         String URI = "/doctor/getDoctorBySpec/{doctorSpec}";
         DoctorDetails doctor= new DoctorDetails();
         doctor.setDoctorId(103);
-        doctor.setDoctorName("Dr. Ankit");
+        doctor.setDoctorName("Dr Ankit");
         doctor.setDoctorSpec("Dentist");
-        doctor.setDoctorCertFile("M.B.B.S");
+        doctor.setDoctorCertFile("Certified Doctor");
         doctor.setVerfStatus(true);
 
 		String jsonInput = this.converttoJson(doctor);
@@ -131,9 +131,9 @@ public class DoctorDetailsControllerTest {
     	 String URI = "/doctor/deleteDoctorById/doctor/{doctorId}";  
     	 DoctorDetails doctor= new DoctorDetails();
          doctor.setDoctorId(103);
-         doctor.setDoctorName("Dr. Ankit");
+         doctor.setDoctorName("Dr Ankit");
          doctor.setDoctorSpec("Dentist");
-         doctor.setDoctorCertFile("M.B.B.S");
+         doctor.setDoctorCertFile("Certified Doctor");
          doctor.setVerfStatus(true);
 
         Mockito.when(doctorDetailsService.findDoctorById(Mockito.anyInt())).thenReturn(doctor);

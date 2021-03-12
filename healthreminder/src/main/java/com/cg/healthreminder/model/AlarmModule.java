@@ -45,12 +45,11 @@ public class AlarmModule {
     private String alarmName;
     
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@NotNull(message = "Please provide a time.")
-    @Column(name = "alarm_time", nullable = false)
+    @Column(name = "alarm_time", nullable = true)
     private Timestamp alarmTime;
     
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Column(name = "alarm_date", nullable = false)
+    @Column(name = "alarm_date", nullable = true)
     private Date alarmDate;
     
     @NotNull

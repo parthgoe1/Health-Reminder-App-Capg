@@ -35,9 +35,9 @@ public class DoctorDetailsDaoTest {
     private DoctorDetails getDoctorDetails() {
     	
     	DoctorDetails d= new DoctorDetails();
-    	d.setDoctorName("Dr. Ankit");
-    	d.setDoctorSpec("Dentist");
-    	d.setDoctorCertFile("M.B.B.S");
+    	d.setDoctorName("Dr Ankit");
+        d.setDoctorSpec("Dentist");
+        d.setDoctorCertFile("Certified Doctor");
     	d.setVerfStatus(true);
     	
 		return d;
@@ -77,15 +77,15 @@ public class DoctorDetailsDaoTest {
     public void testDeleteDoctorbyId() throws Exception{
     	
     	DoctorDetails d1 = new DoctorDetails();
-    	d1.setDoctorName("Dr. Suman");
-    	d1.setDoctorSpec("Child Spec");
-    	d1.setDoctorCertFile("Local University");
+    	d1.setDoctorName("Dr Ankit");
+        d1.setDoctorSpec("Dentist");
+        d1.setDoctorCertFile("Certified Doctor");
     	d1.setVerfStatus(true);
     	
     	DoctorDetails d2 = new DoctorDetails();
-    	d2.setDoctorName("Dr. Suman");
+    	d2.setDoctorName("Dr Suman");
     	d2.setDoctorSpec("Child Spec");
-    	d2.setDoctorCertFile("Local University");
+    	d2.setDoctorCertFile("Certified Doctor");
     	d2.setVerfStatus(true);
     	
     	DoctorDetails doctodetails = testEntityManager.persist(d1);

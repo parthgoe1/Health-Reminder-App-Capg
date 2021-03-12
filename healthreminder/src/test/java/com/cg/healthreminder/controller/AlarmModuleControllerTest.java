@@ -6,6 +6,8 @@
 
 package com.cg.healthreminder.controller;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import com.cg.healthreminder.model.AlarmModule;
 import com.cg.healthreminder.services.AlarmModuleService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -63,8 +65,8 @@ public class AlarmModuleControllerTest {
         AlarmModule alarm= new AlarmModule();
         alarm.setPatientId(102);
         alarm.setAlarmName("Body Pain Medicine");
-        alarm.setAlarmDate(null);
-        alarm.setAlarmTime(null);
+        alarm.setAlarmDate(null);//Date.valueOf("2019-08-15")
+        alarm.setAlarmTime(null);//Timestamp.valueOf("2019-08-15T10:18:19");
         alarm.setAlarmNotes("Take the medicine after lunch");
         String jsonInput = this.converttoJson(alarm);
 
