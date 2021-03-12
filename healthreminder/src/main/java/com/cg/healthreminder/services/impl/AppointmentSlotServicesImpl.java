@@ -36,8 +36,7 @@ public class AppointmentSlotServicesImpl implements AppointmentSlotsServices {
 	public List<AppointmentSlots> getAllSlots(){
 		logger.info("Sending all SLots ........"); 
 		
-		List<AppointmentSlots>appslots= appointmentSlotsJpaDao.findAll();
-		 return appslots;
+		return appointmentSlotsJpaDao.findAll();
 	}
 	
 	

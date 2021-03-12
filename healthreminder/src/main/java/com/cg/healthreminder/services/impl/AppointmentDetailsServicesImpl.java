@@ -29,11 +29,11 @@ public class AppointmentDetailsServicesImpl implements AppointmentDetailsService
 	 * To find Appointment by Patient Id.
 	*/
 	@Override
-	public AppointmentDetails findAppointmentDetailByPatientId(int patient_id) throws AllCustomException {
+	public AppointmentDetails findAppointmentDetailByPatientId(int patientId) throws AllCustomException {
 		
 		logger.info("Finding appointment details by patient Id ........");
 		
-		AppointmentDetails a= appointmentDetailsJpaDao.findByPatientId(patient_id);
+		AppointmentDetails a= appointmentDetailsJpaDao.findByPatientId(patientId);
 		if(a==null) {
 			throw new AllCustomException("Appointment not found for the given Patient id");
 		}
@@ -45,11 +45,11 @@ public class AppointmentDetailsServicesImpl implements AppointmentDetailsService
 	 * 
 	 * To find Appointment by Doctor Id.
 	*/
-	public AppointmentDetails findAppointmentDetailByDoctorId(int doc_id) throws AllCustomException {
+	public AppointmentDetails findAppointmentDetailByDoctorId(int doctorId) throws AllCustomException {
 		
 		logger.info("Finding appointment details by doctor Id ........");
 		
-		AppointmentDetails a= appointmentDetailsJpaDao.findByDoctorId(doc_id);
+		AppointmentDetails a= appointmentDetailsJpaDao.findByDoctorId(doctorId);
 		if(a==null) {
 			throw new AllCustomException("Appointment not found for the given Doctor id");
 		}
@@ -72,10 +72,10 @@ public class AppointmentDetailsServicesImpl implements AppointmentDetailsService
 	 * 
 	 * To delete Appointment by Patient Id.
 	*/
-	public AppointmentDetails deleteAppointmentByPatientId(int patient_id)  throws AllCustomException{
+	public AppointmentDetails deleteAppointmentByPatientId(int patientId)  throws AllCustomException{
 		
 		logger.info("Deleting appointment details by patient Id ........");
-		AppointmentDetails a= appointmentDetailsJpaDao.findByPatientId(patient_id);
+		AppointmentDetails a= appointmentDetailsJpaDao.findByPatientId(patientId);
 		if(a!=null) {
 			
 			 appointmentDetailsJpaDao.delete(a);
@@ -91,10 +91,10 @@ public class AppointmentDetailsServicesImpl implements AppointmentDetailsService
 	 * 
 	 * To delete Appointment by Doctor Id.
 	*/
-    public AppointmentDetails deleteAppointmentByDoctorId(int doc_id) throws AllCustomException {
+    public AppointmentDetails deleteAppointmentByDoctorId(int doctorId) throws AllCustomException {
     	logger.info("Deleting appointment details by doctor Id ........");
     	
-    	AppointmentDetails a= appointmentDetailsJpaDao.findByDoctorId(doc_id);
+    	AppointmentDetails a= appointmentDetailsJpaDao.findByDoctorId(doctorId);
 		if(a!=null) {
 			
 			 appointmentDetailsJpaDao.delete(a);
