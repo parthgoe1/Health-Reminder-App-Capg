@@ -1,4 +1,8 @@
-//AUTHOR --> Ankit Banerjee
+/**
+ * @Ankit Banerjee
+ *
+ * Interface for AlarmModule which contains various services provided.
+ */
 package com.cg.healthreminder.services;
 
 import java.sql.*;

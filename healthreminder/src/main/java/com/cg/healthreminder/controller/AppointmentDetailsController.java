@@ -5,9 +5,12 @@
 */
 package com.cg.healthreminder.controller;
 
+import javax.validation.Valid;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +24,7 @@ import com.cg.healthreminder.model.AppointmentDetails;
 import com.cg.healthreminder.services.AppointmentDetailsServices;
 
 
-
+@Validated
 @RestController
 @RequestMapping("/healthreminder")
 public class AppointmentDetailsController{
@@ -36,7 +39,7 @@ public class AppointmentDetailsController{
 	     * throws AllCustomException if not found
 	    */
 	    @GetMapping("/findAppointmentByPatId/{patientId}")
-	    public AppointmentDetails findAppointmentDetailsByPatientId(@PathVariable int patientId) throws AllCustomException{
+	    public AppointmentDetails findAppointmentDetailsByPatientId(@Valid@PathVariable int patientId) throws AllCustomException{
 	    	logger.info("In controller class of finding appointment by patient ids ........"); 
 	    	
 	      	return appointmentDetailService.findAppointmentDetailByPatientId(patientId);
@@ -49,7 +52,7 @@ public class AppointmentDetailsController{
 	     * throws AllCustomException if not found
 	    */
 	    @GetMapping("/findAppointmentByDocId/{doctorId}")
-	    public AppointmentDetails findAppointmentDetailsByDoctorId(@PathVariable int doctorId) throws AllCustomException{
+	    public AppointmentDetails findAppointmentDetailsByDoctorId(@Valid@PathVariable int doctorId) throws AllCustomException{
 	    	logger.info("In controller class of finding appointment by doctor ids ........");
 	    	
 	    	return appointmentDetailService.findAppointmentDetailByDoctorId(doctorId);
@@ -62,7 +65,7 @@ public class AppointmentDetailsController{
 	     * 
 	    */
 	    @PostMapping("/createAppointment")
-	    public AppointmentDetails createTicket(@RequestBody AppointmentDetails apd){
+	    public AppointmentDetails createTicket(@Valid@RequestBody AppointmentDetails apd){
 	    	logger.info("In controller class of creating appointment ........");
 	    	
 	    	return appointmentDetailService.createAppointment(apd);
@@ -75,7 +78,7 @@ public class AppointmentDetailsController{
 	     * throws AllCustomException if not found
 	    */
 	    @DeleteMapping("/deleteAppointmentByPatId/{patientId}")
-	    public AppointmentDetails deleteAppointmentByPatientId(@PathVariable int patientId) throws AllCustomException{
+	    public AppointmentDetails deleteAppointmentByPatientId(@Valid@PathVariable int patientId) throws AllCustomException{
 	    	logger.info("In controller class of deleting appointment by patient ids ........");
 	    	
 	    	return appointmentDetailService.deleteAppointmentByPatientId(patientId);
@@ -88,7 +91,7 @@ public class AppointmentDetailsController{
 	     * throws AllCustomException if not found
 	    */
 	    @DeleteMapping("/deleteAppointmentByDocId/{doctorId}")
-	    public AppointmentDetails deleteAppointmentByDoctorId(@PathVariable int doctorId) throws AllCustomException{
+	    public AppointmentDetails deleteAppointmentByDoctorId(@Valid@PathVariable int doctorId) throws AllCustomException{
 	    	logger.info("In controller class of deleting appointment by doctor ids ........");
 	    	
 	    	return appointmentDetailService.deleteAppointmentByDoctorId(doctorId);

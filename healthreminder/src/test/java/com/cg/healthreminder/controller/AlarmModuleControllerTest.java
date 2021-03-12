@@ -1,6 +1,13 @@
-//AUTHOR --> Ankit Banerjee
+/**
+ * @AnkitBanerjee
+ * 
+ * This is the Controller Testing Class for Alarm Module.
+*/
+
 package com.cg.healthreminder.controller;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import com.cg.healthreminder.model.AlarmModule;
 import com.cg.healthreminder.services.AlarmModuleService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -48,14 +55,18 @@ public class AlarmModuleControllerTest {
         return objectMapper.writeValueAsString(alarm);
     }
     
+    /**
+	 * 
+	 * To check if a new Alarm Module gets created
+	*/
     @Test
     public void testNewAlarmModule() throws Exception{
         String URI = "/alarm/createAlarm";
         AlarmModule alarm= new AlarmModule();
         alarm.setPatientId(102);
         alarm.setAlarmName("Body Pain Medicine");
-        alarm.setAlarmDate(null);
-        alarm.setAlarmTime(null);
+        alarm.setAlarmDate(null);//Date.valueOf("2019-08-15")
+        alarm.setAlarmTime(null);//Timestamp.valueOf("2019-08-15T10:18:19");
         alarm.setAlarmNotes("Take the medicine after lunch");
         String jsonInput = this.converttoJson(alarm);
 
@@ -68,6 +79,10 @@ public class AlarmModuleControllerTest {
         Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
     }
     
+    /**
+	 * 
+	 * To check if we able to find Alarm Module
+	*/
     @Test
     public void testFindAlarmById() throws Exception{
         String URI = "/alarm/getAlarmById/{alarmId}";
@@ -89,6 +104,10 @@ public class AlarmModuleControllerTest {
         assertThat(jsonInput).isEqualTo(jsonOutput);
     }
     
+    /**
+	 * 
+	 * To check if we able to delete Alarm Module
+	*/
     @Test
     public void testDeleteAlarmById() throws Exception{
     	 String URI = "/alarm/deleteAlarmById/alarm/{alarmId}";  
@@ -109,6 +128,7 @@ public class AlarmModuleControllerTest {
 
     }
     
+    
 //    @Test
 //    public void testUpdateByAlarmId() throws Exception{
 //        String URI = "/alarm/updateAlarmbyId/{alarmId}/{patientId}/{alarmName}/{alarmTime}/{alarmDate}/{alarmNotes}";
@@ -123,7 +143,7 @@ public class AlarmModuleControllerTest {
 //        String jsonInput = this.converttoJson(alarm);
 //
 //        Mockito.when(alarmModuleService.updateAlarmById(Mockito.anyInt(), Mockito.anyInt(), Mockito.anyString(), null, null, Mockito.anyString())).thenReturn(alarm);
-//        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.put(URI, 1, "\"pizza\"").accept(MediaType.APPLICATION_JSON).content(jsonInput).contentType(MediaType.APPLICATION_JSON))
+//        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.put(URI, 201, 192, "Body Pain Medicine", null, null, "Take the medicine after lunch").accept(MediaType.APPLICATION_JSON).content(jsonInput).contentType(MediaType.APPLICATION_JSON))
 //                .andReturn();
 //        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
 //        String jsonOutput = mockHttpServletResponse.getContentAsString();
