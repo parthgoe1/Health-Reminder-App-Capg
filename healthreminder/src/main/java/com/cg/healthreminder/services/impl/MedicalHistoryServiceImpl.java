@@ -22,13 +22,13 @@ public class MedicalHistoryServiceImpl implements MedicalHistoryService{
 	@Autowired
 	private MedicalHistoryDao medicalHistoryDao;
 	private static final Logger logger=LogManager.getLogger(MedicalHistoryServiceImpl.class);
-
+	static final String VALID="Validated";
 	/* To validate medical history*/
 	private String validateMedHistory(MedicalHistory m) {
 		String msg;
 		if(m.getPatientId()<0)
 			msg="PatientId should be more than or equal to 0";
-		else msg="Validated";
+		else msg=VALID;
 		return msg;
 	}
 	
@@ -37,7 +37,7 @@ public class MedicalHistoryServiceImpl implements MedicalHistoryService{
 	public List<MedicalHistory> getByPatientId(int id) throws AllCustomException{
 		logger.info("Fetching medical records by patientid");
 		List<MedicalHistory> mhlst= medicalHistoryDao.findRecordsByPatientId(id);
-		if(mhlst.size()>0) {
+		if(!mhlst.isEmpty()) {
 			return mhlst;
 		}
 		else {
@@ -50,7 +50,7 @@ public class MedicalHistoryServiceImpl implements MedicalHistoryService{
 	public MedicalHistory addRecord(MedicalHistory m) throws AllCustomException{
 		logger.info("adding new medical record");
 		String msg = validateMedHistory(m);
-		if(msg.equals("Validated"))
+		if(msg.equals(VALID))
 			return medicalHistoryDao.save(m);
 		else throw new AllCustomException(msg);
 	}
@@ -67,7 +67,7 @@ public class MedicalHistoryServiceImpl implements MedicalHistoryService{
 	public MedicalHistory updateRecord(MedicalHistory m) throws AllCustomException{
 		logger.info("updating medical record");
 		String msg = validateMedHistory(m);
-		if(msg.equals("Validated"))
+		if(msg.equals(VALID))
 			return medicalHistoryDao.save(m);
 		else throw new AllCustomException(msg);
 	}

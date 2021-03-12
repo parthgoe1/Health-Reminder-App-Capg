@@ -4,6 +4,8 @@ package com.cg.healthreminder.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,7 +38,7 @@ public class MedicalHistoryController {
 	
 	/*To add a new record*/
 	@PostMapping("/addrecord")
-	public MedicalHistory addRecord(MedicalHistory m) throws AllCustomException{
+	public MedicalHistory addRecord(@Valid @RequestBody MedicalHistory m) throws AllCustomException{
 		logger.info("cont:adding new medical record");
 		return this.medicalHistoryService.addRecord(m);
 	}
@@ -49,7 +52,7 @@ public class MedicalHistoryController {
 	
 	/*To update a record*/
 	@PutMapping("/record")
-	public MedicalHistory updateRecord(MedicalHistory m) throws AllCustomException {
+	public MedicalHistory updateRecord(@Valid @RequestBody MedicalHistory m) throws AllCustomException {
 		logger.info("cont:updating medical record");
 
 		return this.medicalHistoryService.updateRecord(m);

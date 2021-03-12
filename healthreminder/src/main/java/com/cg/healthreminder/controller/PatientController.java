@@ -46,15 +46,16 @@ public class PatientController {
 	
 	/*To add new patient*/
 	@PostMapping("/patient")
-	public Patient addPatient(@Valid @RequestBody Patient p) throws AllCustomException{
+	public Patient addPatient(@Valid @RequestBody Patient p) throws Exception,AllCustomException{
 		logger.info("cont: adding patient");
 		return this.patientService.addPatient(p);
 	}
 	
 	/*To update patient details*/
 	@PutMapping("/patient")
-	public Patient updatePatient(Patient p) throws AllCustomException{
+	public Patient updatePatient(@Valid @RequestBody Patient p) throws Exception,AllCustomException{
 		logger.info("cont: updating patient");
+		logger.info(p.toString());
 		return this.patientService.updatePatient(p);
 	}
 	
