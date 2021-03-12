@@ -2,10 +2,6 @@ package com.cg.healthreminder.services;
 
 import com.cg.healthreminder.dao.DietInfoJpaDao;
 import com.cg.healthreminder.model.DietInfo;
-import com.cg.healthreminder.services.DietInfoServices;
-
-
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -15,7 +11,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;

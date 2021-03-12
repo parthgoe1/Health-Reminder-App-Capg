@@ -2,7 +2,6 @@ package com.cg.healthreminder.services;
 
 //@author Naman Bhandari
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -16,7 +15,6 @@ import com.cg.healthreminder.exception.AllCustomException;
 import com.cg.healthreminder.model.Patient;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;

@@ -2,10 +2,6 @@ package com.cg.healthreminder.services;
 
 import com.cg.healthreminder.dao.FollowUpMentalRatingInfoJpaDao;
 import com.cg.healthreminder.model.FollowUpMentalRatingInfo;
-import com.cg.healthreminder.services.FollowUpMentalRatingInfoServices;
-
-
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;

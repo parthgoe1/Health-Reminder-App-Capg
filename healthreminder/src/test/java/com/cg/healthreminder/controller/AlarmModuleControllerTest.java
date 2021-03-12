@@ -6,8 +6,6 @@
 
 package com.cg.healthreminder.controller;
 
-import java.sql.Date;
-import java.sql.Timestamp;
 import com.cg.healthreminder.model.AlarmModule;
 import com.cg.healthreminder.services.AlarmModuleService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -28,9 +26,6 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 @RunWith(SpringRunner.class)

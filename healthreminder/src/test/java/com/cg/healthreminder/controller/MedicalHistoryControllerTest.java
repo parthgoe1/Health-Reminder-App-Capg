@@ -3,19 +3,15 @@ package com.cg.healthreminder.controller;
 //Author: Naman Bhandari
 
 import com.cg.healthreminder.model.MedicalHistory;
-import com.cg.healthreminder.model.Patient;
 import com.cg.healthreminder.services.MedicalHistoryService;
-import com.cg.healthreminder.services.PatientService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.junit4.SpringRunner;

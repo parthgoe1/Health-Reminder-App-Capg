@@ -2,8 +2,6 @@ package com.cg.healthreminder.services;
 
 import com.cg.healthreminder.dao.FollowUpDietStatusInfoJpaDao;
 import com.cg.healthreminder.model.FollowUpDietStatusInfo;
-import com.cg.healthreminder.services.FollowUpDietStatusInfoServices;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;

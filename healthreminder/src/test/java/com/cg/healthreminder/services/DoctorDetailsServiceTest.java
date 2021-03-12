@@ -7,7 +7,6 @@ package com.cg.healthreminder.services;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -17,13 +16,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.cg.healthreminder.dao.DoctorDetailsDao;
-import com.cg.healthreminder.model.DietInfo;
 import com.cg.healthreminder.model.DoctorDetails;
-import com.cg.healthreminder.services.DoctorDetailsService;
 
 
 @RunWith(SpringRunner.class)

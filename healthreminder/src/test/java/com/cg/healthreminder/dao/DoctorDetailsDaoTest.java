@@ -16,10 +16,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.cg.healthreminder.model.AppointmentDetails;
 import com.cg.healthreminder.model.DoctorDetails;
-import com.cg.healthreminder.model.FollowUpDietStatusInfo;
-import com.cg.healthreminder.model.Patient;
 
 
 @RunWith(SpringRunner.class)

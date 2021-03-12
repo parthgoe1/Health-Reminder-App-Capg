@@ -2,7 +2,6 @@ package com.cg.healthreminder.services;
 
 //@author Naman Bhandari
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;

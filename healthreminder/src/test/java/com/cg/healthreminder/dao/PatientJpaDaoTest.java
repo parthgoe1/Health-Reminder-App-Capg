@@ -94,6 +94,7 @@ public class PatientJpaDaoTest {
 		pt.setPatientAge(1);
 		pt.setPatientHeight(1.0);
 		pt.setPatientWeight(1.0);
+		@SuppressWarnings("unused")
 		Patient p3 = testEntityManager.persist(p);
 		testEntityManager.persist(pt);
 		testEntityManager.remove(pt);
