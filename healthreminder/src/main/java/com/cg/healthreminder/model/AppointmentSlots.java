@@ -22,7 +22,7 @@ public class AppointmentSlots {
 	 * this pk contains doc_id + doc_date as the primary key ->composite key 
 	*/
 	@EmbeddedId      
-	private Slot_Pk pk;
+	private SlotCompositeKey pk;
 	
 	@NotNull
 	@Column
@@ -34,11 +34,11 @@ public class AppointmentSlots {
 	@Pattern(regexp = "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$",message="Please enter correct time")
 	private String doctorEndTime;
 
-	public Slot_Pk getPk() {
+	public SlotCompositeKey getPk() {
 		return pk;
 	}
 
-	public void setPk(Slot_Pk pk) {
+	public void setPk(SlotCompositeKey pk) {
 		this.pk = pk;
 	}
 

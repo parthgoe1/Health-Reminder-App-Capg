@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.cg.healthreminder.dao.AppointmentSlotsJpaDao;
 import com.cg.healthreminder.model.AppointmentSlots;
-import com.cg.healthreminder.model.Slot_Pk;
+import com.cg.healthreminder.model.SlotCompositeKey;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,9 +41,9 @@ public class AppointmentSlotsServicesTest {
 		  AppointmentSlots slot= new AppointmentSlots();
 		  slot.setDoctorEndTime("12:00");
 		  slot.setDoctorStartTime("9:00");
-		  Slot_Pk pk=new Slot_Pk();
-		  pk.setDoc_date("12/16/2020");
-		  pk.setDoc_id(1);
+		  SlotCompositeKey pk=new SlotCompositeKey();
+		  pk.setDoctorDate("12/16/2020");
+		  pk.setDoctorId(1);
 		  slot.setPk(pk);
 		  Mockito.when(appointmentSlotsJpaDao.save(slot)).thenReturn(slot);
 		  assertThat(appointmentSlotServices.createAppointmentSlot(slot)).isEqualTo(slot);
@@ -59,16 +59,16 @@ public class AppointmentSlotsServicesTest {
 		   AppointmentSlots slot= new AppointmentSlots();
 		   slot.setDoctorEndTime("12:00");
 		   slot.setDoctorStartTime("9:00");
-		   Slot_Pk pk=new Slot_Pk();
-		   pk.setDoc_date("12/16/2020");
-		   pk.setDoc_id(1);
+		   SlotCompositeKey pk=new SlotCompositeKey();
+		   pk.setDoctorDate("12/16/2020");
+		   pk.setDoctorId(1);
 		   slot.setPk(pk);
 		   AppointmentSlots slot2= new AppointmentSlots();
 		   slot2.setDoctorEndTime("12:00");
 		   slot2.setDoctorStartTime("9:00");
-		   Slot_Pk pk2=new Slot_Pk();
-		   pk2.setDoc_date("12/17/2020");
-		   pk2.setDoc_id(12);
+		   SlotCompositeKey pk2=new SlotCompositeKey();
+		   pk2.setDoctorDate("12/17/2020");
+		   pk2.setDoctorId(12);
 		   slot2.setPk(pk2);
 	       
 		   List<AppointmentSlots> asl = new ArrayList<>();
