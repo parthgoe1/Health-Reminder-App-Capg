@@ -39,6 +39,7 @@ public class FollowUpDietStatusInfoServicesTest {
         FollowUpDietStatusInfo followUpDietStatusInfo = new FollowUpDietStatusInfo();
         followUpDietStatusInfo.setPatientId(3);
         followUpDietStatusInfo.setDietStatus(true);
+        followUpDietStatusInfo.setStreak(0);
 
         Mockito.when(followUpDietStatusInfoJpaDao.save(followUpDietStatusInfo)).thenReturn(followUpDietStatusInfo);
         assertThat(followUpDietStatusInfoServices.createDietStatus(followUpDietStatusInfo)).isEqualTo(followUpDietStatusInfo);
