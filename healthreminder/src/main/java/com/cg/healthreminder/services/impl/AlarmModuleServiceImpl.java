@@ -25,7 +25,7 @@ import com.cg.healthreminder.model.AlarmModule;
 @Transactional
 public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.AlarmModuleService {
 	
-	public static final String Excep = "AlarmModule not found";
+	public static final String EXCEP = "AlarmModule not found";
 	
 	@Autowired
 	private AlarmModuleDao alarmModuleDao;
@@ -42,7 +42,7 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 		
 		AlarmModule ob =  alarmModuleDao.findAlarmById(id);
 		if(ob == null) {
-			throw new AllCustomException(Excep);
+			throw new AllCustomException(EXCEP);
 		}
 		
 		return ob;
@@ -59,7 +59,7 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 		
 		AlarmModule ob = alarmModuleDao.findAlarmByName(alarmName);
 		if(ob == null) {
-			throw new AllCustomException(Excep);
+			throw new AllCustomException(EXCEP);
 		}
 		
 		return ob;
@@ -98,7 +98,7 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 		}
 		else
 		{
-			throw new AllCustomException(Excep);
+			throw new AllCustomException(EXCEP);
 		}
 		
 		return alarmModuleDao.save(ob);
@@ -121,7 +121,7 @@ public class AlarmModuleServiceImpl implements com.cg.healthreminder.services.Al
 			alarmModuleDao.delete(ob);
 		}
 		else {
-			throw new AllCustomException(Excep);
+			throw new AllCustomException(EXCEP);
 			
 		}
 		

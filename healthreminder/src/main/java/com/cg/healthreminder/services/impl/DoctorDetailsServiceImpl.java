@@ -24,7 +24,7 @@ import javax.transaction.Transactional;
 @Transactional
 public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 
-	public static final String doctorExcepMessage = "Doctor Details Not Found";
+	public static final String D_EXCEP = "Doctor Details Not Found";
 	
 	@Autowired
 	private DoctorDetailsDao doctorDetailsDao;
@@ -41,7 +41,7 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 		
 		DoctorDetails ob = doctorDetailsDao.findDoctorById(id);
 		if(ob == null) {
-			throw new AllCustomException(doctorExcepMessage);
+			throw new AllCustomException(D_EXCEP);
 		}
 		
 		return ob;
@@ -58,7 +58,7 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 		
 		DoctorDetails ob = doctorDetailsDao.findDoctorBySpec(doctorSpec);
 		if(ob == null) {
-			throw new AllCustomException(doctorExcepMessage);
+			throw new AllCustomException(D_EXCEP);
 		}
 		
 		return ob;
@@ -97,7 +97,7 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 		}
 		else
 		{
-			throw new AllCustomException(doctorExcepMessage);
+			throw new AllCustomException(D_EXCEP);
 		}
 		
 		return doctorDetailsDao.save(ob);
@@ -122,7 +122,7 @@ public class DoctorDetailsServiceImpl implements DoctorDetailsService {
 		}
 		else
 		{
-			throw new AllCustomException(doctorExcepMessage);
+			throw new AllCustomException(D_EXCEP);
 		}
 		return ob;
 	}
